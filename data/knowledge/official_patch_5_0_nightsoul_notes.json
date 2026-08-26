@@ -1,0 +1,17 @@
+{
+  "id": "official_patch_5_0_nightsoul_notes",
+  "title": "Natlan Nightsoul's Blessing & Phlogiston Mechanics Guide",
+  "metadata": {
+    "source": "HoYoverse Official / Developer Notes",
+    "source_url": "https://www.hoyoverse.com/en-us/news/125260",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Patch Notes",
+    "game_version": "5.0",
+    "published_at": "2024-08-28T00:00:00Z",
+    "updated_at": "2024-08-28T00:00:00Z",
+    "tags": ["Natlan", "Nightsoul", "Nightsoul Burst", "Phlogiston", "Mechanics", "Patch 5.0"]
+  },
+  "summary": "Official HoYoverse developer notes outlining Natlan's unique traversal and combat mechanics: Nightsoul's Blessing, Nightsoul Points, Nightsoul Burst, and the Phlogiston system.",
+  "content": "# Natlan: Nightsoul & Phlogiston Mechanics Guide\n\n## 1. Nightsoul's Blessing\n**Nightsoul's Blessing** is a unique state native to characters from Natlan (e.g., Kachina, Mualani, Kinich, Ororon, Chasca). When Natlan characters trigger certain skills, they enter the Nightsoul's Blessing state, activating special combat and traversal mechanics (such as riding surfboards, scaling cliffs, or swinging through the air).\n- **Nightsoul Points**: A special energy gauge separate from Elemental Energy. Using actions in Nightsoul's Blessing consumes Nightsoul Points. When points are depleted, the blessing state ends.\n\n## 2. Nightsoul Burst\nWhen a character in the party deals Elemental Damage, they can trigger a **Nightsoul Burst**.\n- Triggering a Nightsoul Burst deals AoE adaptive damage and acts as a key trigger for specific Natlan artifacts (like the *Scroll of the Hero of Cinder City*) and character passives.\n- The cooldown of Nightsoul Burst depends on the number of Natlan characters in the party:\n  - 1 Natlan character: 18s cooldown\n  - 2 Natlan characters: 12s cooldown\n  - 3+ Natlan characters: 9s cooldown\n\n## 3. Phlogiston System\n**Phlogiston** is a special physical energy system active exclusively within the Natlan region.\n- Natlan characters can consume Phlogiston from the environment to replenish their Nightsoul Points, allowing them to maintain traversal abilities (like Kinich's grapple or Mualani's surfboard) indefinitely without cooldowns."
+}

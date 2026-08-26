@@ -1,0 +1,487 @@
+[
+  {
+    "id": 13512,
+    "name": "Crimson Moon's Semblance",
+    "weapon_type": "Polearm",
+    "rarity": 5,
+    "base_atk_lvl1": 48.0,
+    "base_atk_lvl90": 674.0,
+    "sub_stat_type": "CRIT Rate",
+    "sub_stat_val_lvl90": "22.1%",
+    "passive_name": "Ashen Sun's Shadow",
+    "passive_desc": "Grants a Bond of Life equal to 25% of Max HP when a Charged Attack hits an opponent. This effect can be triggered once every 14s. Additionally, when the equipping character has a Bond of Life, they gain a 12%/16%/20%/24%/28% DMG Bonus; if the value of the Bond of Life is greater than or equal to 30% of Max HP, then gain an additional 24%/32%/40%/48%/56% DMG Bonus.",
+    "refinements": [
+      "Bond of Life grants +12% DMG Bonus (+24% if BoL >= 30% Max HP)",
+      "Bond of Life grants +16% DMG Bonus (+32% if BoL >= 30% Max HP)",
+      "Bond of Life grants +20% DMG Bonus (+40% if BoL >= 30% Max HP)",
+      "Bond of Life grants +24% DMG Bonus (+48% if BoL >= 30% Max HP)",
+      "Bond of Life grants +28% DMG Bonus (+56% if BoL >= 30% Max HP)"
+    ],
+    "ascension_materials": [
+      "Broken Sea Goblet",
+      "Ruined Hilt",
+      "Meshing Gear"
+    ],
+    "icon": "UI_EquipIcon_Pole_Crimson"
+  },
+  {
+    "id": 11512,
+    "name": "Splendor of Tranquil Waters",
+    "weapon_type": "Sword",
+    "rarity": 5,
+    "base_atk_lvl1": 44.0,
+    "base_atk_lvl90": 542.0,
+    "sub_stat_type": "CRIT DMG",
+    "sub_stat_val_lvl90": "88.2%",
+    "passive_name": "Dawn and Dusk by the Lake",
+    "passive_desc": "When the equipping character's current HP increases or decreases, Elemental Skill DMG dealt is increased by 8% for 6s. Max 3 stacks. When other party members' current HP increases or decreases, the equipping character's Max HP is increased by 14% for 6s. Max 2 stacks.",
+    "refinements": [
+      "Skill DMG +8% (max 3 stacks), Max HP +14% (max 2 stacks)",
+      "Skill DMG +10% (max 3 stacks), Max HP +17.5% (max 2 stacks)",
+      "Skill DMG +12% (max 3 stacks), Max HP +21% (max 2 stacks)",
+      "Skill DMG +14% (max 3 stacks), Max HP +24.5% (max 2 stacks)",
+      "Skill DMG +16% (max 3 stacks), Max HP +28% (max 2 stacks)"
+    ],
+    "ascension_materials": [
+      "Dross of Pure Sacred Dewdrop",
+      "Drop of Tainted Water",
+      "Transoceanic Pearl"
+    ],
+    "icon": "UI_EquipIcon_Sword_Magnum"
+  },
+  {
+    "id": 14512,
+    "name": "Tome of the Eternal Flow",
+    "weapon_type": "Catalyst",
+    "rarity": 5,
+    "base_atk_lvl1": 44.0,
+    "base_atk_lvl90": 542.0,
+    "sub_stat_type": "CRIT DMG",
+    "sub_stat_val_lvl90": "88.2%",
+    "passive_name": "Aeon Wave",
+    "passive_desc": "HP is increased by 16%. When current HP increases or decreases, Charged Attack DMG is increased by 14% for 4s. Max 3 stacks. Triggerable once every 0.3s. When you have 3 stacks or refresh a third stack's duration, 8 Energy will be restored.",
+    "refinements": [
+      "HP +16%, Charged Attack DMG +14% (max 3 stacks), 8 Energy restore",
+      "HP +20%, Charged Attack DMG +18% (max 3 stacks), 9 Energy restore",
+      "HP +24%, Charged Attack DMG +22% (max 3 stacks), 10 Energy restore",
+      "HP +28%, Charged Attack DMG +26% (max 3 stacks), 11 Energy restore",
+      "HP +32%, Charged Attack DMG +30% (max 3 stacks), 12 Energy restore"
+    ],
+    "ascension_materials": [
+      "Dross of Pure Sacred Dewdrop",
+      "Rift Core",
+      "Meshing Gear"
+    ],
+    "icon": "UI_EquipIcon_Catalyst_Iatros"
+  },
+  {
+    "id": 13509,
+    "name": "Engulfing Lightning",
+    "weapon_type": "Polearm",
+    "rarity": 5,
+    "base_atk_lvl1": 46.0,
+    "base_atk_lvl90": 608.0,
+    "sub_stat_type": "Energy Recharge",
+    "sub_stat_val_lvl90": "55.1%",
+    "passive_name": "Timeless Dream: Eternal Stove",
+    "passive_desc": "ATK increased by 28% of Energy Recharge over the base 100%. You can gain a maximum bonus of 80% ATK. Gain 30% Energy Recharge for 12s after using an Elemental Burst.",
+    "refinements": [
+      "ATK +28% of ER over 100% (max 80%), Burst grants +30% ER",
+      "ATK +35% of ER over 100% (max 90%), Burst grants +35% ER",
+      "ATK +42% of ER over 100% (max 100%), Burst grants +40% ER",
+      "ATK +49% of ER over 100% (max 110%), Burst grants +45% ER",
+      "ATK +56% of ER over 100% (max 120%), Burst grants +50% ER"
+    ],
+    "ascension_materials": [
+      "Mask of the Tiger's Bite",
+      "Chaos Axis",
+      "Old Handguard"
+    ],
+    "icon": "UI_EquipIcon_Pole_Narukami"
+  },
+  {
+    "id": 13501,
+    "name": "Staff of Homa",
+    "weapon_type": "Polearm",
+    "rarity": 5,
+    "base_atk_lvl1": 46.0,
+    "base_atk_lvl90": 608.0,
+    "sub_stat_type": "CRIT DMG",
+    "sub_stat_val_lvl90": "66.2%",
+    "passive_name": "Reckless Cinnabar",
+    "passive_desc": "HP increased by 20%. Additionally, provides an ATK Bonus based on 0.8% of the wielder's Max HP. When the wielder's HP is less than 50%, this ATK bonus is increased by an additional 1% of Max HP.",
+    "refinements": [
+      "HP +20%, ATK +0.8% Max HP (+1.0% when HP < 50%)",
+      "HP +25%, ATK +1.0% Max HP (+1.2% when HP < 50%)",
+      "HP +30%, ATK +1.2% Max HP (+1.4% when HP < 50%)",
+      "HP +35%, ATK +1.4% Max HP (+1.6% when HP < 50%)",
+      "HP +40%, ATK +1.6% Max HP (+1.8% when HP < 50%)"
+    ],
+    "ascension_materials": [
+      "Grain of Aerosiderite",
+      "Dead Ley Line Branch",
+      "Slime Condensate"
+    ],
+    "icon": "UI_EquipIcon_Pole_Homa"
+  },
+  {
+    "id": 11509,
+    "name": "Mistsplitter Reforged",
+    "weapon_type": "Sword",
+    "rarity": 5,
+    "base_atk_lvl1": 48.0,
+    "base_atk_lvl90": 674.0,
+    "sub_stat_type": "CRIT DMG",
+    "sub_stat_val_lvl90": "44.1%",
+    "passive_name": "Mistsplitter's Edge",
+    "passive_desc": "Gain a 12% Elemental DMG Bonus for all elements and receive the might of the Mistsplitter's Emblem. At stack levels 1/2/3, grants 8/16/28% Elemental DMG Bonus for character's elemental type.",
+    "refinements": [
+      "Base +12% Elemental DMG, Stacks grant +8/16/28% Elemental DMG",
+      "Base +15% Elemental DMG, Stacks grant +10/20/35% Elemental DMG",
+      "Base +18% Elemental DMG, Stacks grant +12/24/42% Elemental DMG",
+      "Base +21% Elemental DMG, Stacks grant +14/28/49% Elemental DMG",
+      "Base +24% Elemental DMG, Stacks grant +16/32/56% Elemental DMG"
+    ],
+    "ascension_materials": [
+      "Coral Branch of a Distant Sea",
+      "Chaos Gear",
+      "Old Handguard"
+    ],
+    "icon": "UI_EquipIcon_Sword_Narukami"
+  },
+  {
+    "id": 13415,
+    "name": "\"The Catch\"",
+    "weapon_type": "Polearm",
+    "rarity": 4,
+    "base_atk_lvl1": 42.0,
+    "base_atk_lvl90": 510.0,
+    "sub_stat_type": "Energy Recharge",
+    "sub_stat_val_lvl90": "45.9%",
+    "passive_name": "Shanty",
+    "passive_desc": "Increases Elemental Burst DMG by 16%/20%/24%/28%/32% and Elemental Burst CRIT Rate by 6%/7.5%/9%/10.5%/12%.",
+    "refinements": [
+      "Burst DMG +16%, Burst CRIT Rate +6%",
+      "Burst DMG +20%, Burst CRIT Rate +7.5%",
+      "Burst DMG +24%, Burst CRIT Rate +9%",
+      "Burst DMG +28%, Burst CRIT Rate +10.5%",
+      "Burst DMG +32%, Burst CRIT Rate +12%"
+    ],
+    "ascension_materials": [
+      "Mask of the Wicked Lieutenant",
+      "Chaos Axis",
+      "Spectral Husk"
+    ],
+    "icon": "UI_EquipIcon_Pole_Miko"
+  },
+  {
+    "id": 11401,
+    "name": "Favonius Sword",
+    "weapon_type": "Sword",
+    "rarity": 4,
+    "base_atk_lvl1": 41.0,
+    "base_atk_lvl90": 454.0,
+    "sub_stat_type": "Energy Recharge",
+    "sub_stat_val_lvl90": "61.3%",
+    "passive_name": "Windfall",
+    "passive_desc": "CRIT hits have a 60%/70%/80%/90%/100% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character. Can only occur once every 12s/10.5s/9s/7.5s/6s.",
+    "refinements": [
+      "60% chance on CRIT to generate 6 Energy particles (CD 12s)",
+      "70% chance on CRIT to generate 6 Energy particles (CD 10.5s)",
+      "80% chance on CRIT to generate 6 Energy particles (CD 9s)",
+      "90% chance on CRIT to generate 6 Energy particles (CD 7.5s)",
+      "100% chance on CRIT to generate 6 Energy particles (CD 6s)"
+    ],
+    "ascension_materials": [
+      "Fetters of the Dandelion Gladiator",
+      "Chaos Device",
+      "Divining Scroll"
+    ],
+    "icon": "UI_EquipIcon_Sword_Zephyrus"
+  },
+  {
+    "id": 13407,
+    "name": "Favonius Lance",
+    "weapon_type": "Polearm",
+    "rarity": 4,
+    "base_atk_lvl1": 44.0,
+    "base_atk_lvl90": 565.0,
+    "sub_stat_type": "Energy Recharge",
+    "sub_stat_val_lvl90": "30.6%",
+    "passive_name": "Windfall",
+    "passive_desc": "CRIT hits have a 60%/70%/80%/90%/100% chance to generate a small amount of Elemental Particles, regenerating 6 Energy.",
+    "refinements": [
+      "60% chance on CRIT to generate 6 Energy particles (CD 12s)",
+      "70% chance on CRIT to generate 6 Energy particles (CD 10.5s)",
+      "80% chance on CRIT to generate 6 Energy particles (CD 9s)",
+      "90% chance on CRIT to generate 6 Energy particles (CD 7.5s)",
+      "100% chance on CRIT to generate 6 Energy particles (CD 6s)"
+    ],
+    "ascension_materials": [
+      "Fetters of the Dandelion Gladiator",
+      "Chaos Device",
+      "Divining Scroll"
+    ],
+    "icon": "UI_EquipIcon_Pole_Zephyrus"
+  },
+  {
+    "id": 11511,
+    "name": "Primordial Jade Cutter",
+    "weapon_type": "Sword",
+    "rarity": 5,
+    "base_atk_lvl1": 44.0,
+    "base_atk_lvl90": 542.0,
+    "sub_stat_type": "CRIT Rate",
+    "sub_stat_val_lvl90": "44.1%",
+    "passive_name": "Protector's Virtue",
+    "passive_desc": "HP +20%. ATK Bonus based on 1.2% of Max HP.",
+    "icon": "UI_EquipIcon_Sword_Primordial",
+    "refinements": [
+      "HP +20%",
+      "HP +25%",
+      "HP +30%",
+      "HP +35%",
+      "HP +40%"
+    ],
+    "ascension_materials": [
+      "Lead Oasis",
+      "Shell",
+      "Insignia"
+    ]
+  },
+  {
+    "id": 12512,
+    "name": "Wolf's Gravestone",
+    "weapon_type": "Claymore",
+    "rarity": 5,
+    "base_atk_lvl1": 46.0,
+    "base_atk_lvl90": 608.0,
+    "sub_stat_type": "ATK%",
+    "sub_stat_val_lvl90": "49.6%",
+    "passive_name": "Wolfish Tracker",
+    "passive_desc": "+20% ATK. Hits vs <30% HP grant +40% party ATK for 12s.",
+    "icon": "UI_EquipIcon_Claymore_Wolfmound",
+    "refinements": [
+      "ATK +20%",
+      "ATK +25%",
+      "ATK +30%",
+      "ATK +35%",
+      "ATK +40%"
+    ],
+    "ascension_materials": [
+      "Boreal Wolf",
+      "Dead Ley Line",
+      "Insignia"
+    ]
+  },
+  {
+    "id": 14512,
+    "name": "Lost Prayer to the Sacred Winds",
+    "weapon_type": "Catalyst",
+    "rarity": 5,
+    "base_atk_lvl1": 46.0,
+    "base_atk_lvl90": 608.0,
+    "sub_stat_type": "CRIT Rate",
+    "sub_stat_val_lvl90": "33.1%",
+    "passive_name": "Boundless Blessing",
+    "passive_desc": "+10% Move SPD. +8% Elemental DMG every 4s, max 4 stacks.",
+    "icon": "UI_EquipIcon_Catalyst_Fourwinds",
+    "refinements": [
+      "Move SPD +10%"
+    ],
+    "ascension_materials": [
+      "Dandelion Gladiator",
+      "Chaos",
+      "Insignia"
+    ]
+  },
+  {
+    "id": 15511,
+    "name": "Amos' Bow",
+    "weapon_type": "Bow",
+    "rarity": 5,
+    "base_atk_lvl1": 46.0,
+    "base_atk_lvl90": 608.0,
+    "sub_stat_type": "ATK%",
+    "sub_stat_val_lvl90": "49.6%",
+    "passive_name": "Strong-Willed",
+    "passive_desc": "+12% Normal/Charged DMG. +8% per 0.1s arrow airtime, max 5 stacks.",
+    "icon": "UI_EquipIcon_Bow_Amos",
+    "refinements": [
+      "Normal/Charged DMG +12%"
+    ],
+    "ascension_materials": [
+      "Dandelion Gladiator",
+      "Chaos",
+      "Insignia"
+    ]
+  },
+  {
+    "id": 11509,
+    "name": "Freedom-Sworn",
+    "weapon_type": "Sword",
+    "rarity": 5,
+    "base_atk_lvl1": 46.0,
+    "base_atk_lvl90": 608.0,
+    "sub_stat_type": "Elemental Mastery",
+    "sub_stat_val_lvl90": "198",
+    "passive_name": "Revolutionary Chorale",
+    "passive_desc": "+10% DMG. Reactions grant Sigils; 2 Sigils = +20% ATK, +16% NA/CA/PA DMG.",
+    "icon": "UI_EquipIcon_Sword_Narukami",
+    "refinements": [
+      "DMG +10%"
+    ],
+    "ascension_materials": [
+      "Decarabian",
+      "Chaos",
+      "Scroll"
+    ]
+  },
+  {
+    "id": 15513,
+    "name": "Aqua Simulacra",
+    "weapon_type": "Bow",
+    "rarity": 5,
+    "base_atk_lvl1": 44.0,
+    "base_atk_lvl90": 542.0,
+    "sub_stat_type": "CRIT DMG",
+    "sub_stat_val_lvl90": "88.2%",
+    "passive_name": "The Cleansing Form",
+    "passive_desc": "+16% HP. +20% DMG when near opponents.",
+    "icon": "UI_EquipIcon_Bow_Kirin",
+    "refinements": [
+      "HP +16%"
+    ],
+    "ascension_materials": [
+      "Guyun",
+      "Statue",
+      "Shell"
+    ]
+  },
+  {
+    "id": 12511,
+    "name": "Redhorn Stonethresher",
+    "weapon_type": "Claymore",
+    "rarity": 5,
+    "base_atk_lvl1": 44.0,
+    "base_atk_lvl90": 542.0,
+    "sub_stat_type": "CRIT DMG",
+    "sub_stat_val_lvl90": "88.2%",
+    "passive_name": "Gokadaiou Otogibanashi",
+    "passive_desc": "+28% DEF. Normal/Charged DMG +40% of DEF.",
+    "icon": "UI_EquipIcon_Claymore_Itadorimaru",
+    "refinements": [
+      "DEF +28%"
+    ],
+    "ascension_materials": [
+      "Narukami",
+      "Claw",
+      "Handguard"
+    ]
+  },
+  {
+    "id": 14513,
+    "name": "Kagura's Verity",
+    "weapon_type": "Catalyst",
+    "rarity": 5,
+    "base_atk_lvl1": 46.0,
+    "base_atk_lvl90": 608.0,
+    "sub_stat_type": "CRIT DMG",
+    "sub_stat_val_lvl90": "66.2%",
+    "passive_name": "Kagura Dance of the Sacred Sakura",
+    "passive_desc": "Skill use +12% Skill DMG for 16s. Max 3 stacks. At max: +12% All Elemental DMG.",
+    "icon": "UI_EquipIcon_Catalyst_Narukami",
+    "refinements": [
+      "Skill DMG +12%"
+    ],
+    "ascension_materials": [
+      "Court Lantern",
+      "Claw",
+      "Husk"
+    ]
+  },
+  {
+    "id": 11417,
+    "name": "The Black Sword",
+    "weapon_type": "Sword",
+    "rarity": 4,
+    "base_atk_lvl1": 42.0,
+    "base_atk_lvl90": 510.0,
+    "sub_stat_type": "CRIT Rate",
+    "sub_stat_val_lvl90": "27.6%",
+    "passive_name": "Justice",
+    "passive_desc": "+20% Normal/Charged DMG. CRIT heals 60% ATK.",
+    "icon": "UI_EquipIcon_Sword_Bloodstained",
+    "refinements": [
+      "Normal/Charged DMG +20%"
+    ],
+    "ascension_materials": [
+      "Guyun",
+      "Dead Ley Line",
+      "Insignia"
+    ]
+  },
+  {
+    "id": 12416,
+    "name": "Serpent Spine",
+    "weapon_type": "Claymore",
+    "rarity": 4,
+    "base_atk_lvl1": 42.0,
+    "base_atk_lvl90": 510.0,
+    "sub_stat_type": "CRIT Rate",
+    "sub_stat_val_lvl90": "27.6%",
+    "passive_name": "Wavesplitter",
+    "passive_desc": "+6% DMG every 4s on field, max 5. Taking DMG removes 1.",
+    "icon": "UI_EquipIcon_Claymore_Kione",
+    "refinements": [
+      "DMG +6% per stack"
+    ],
+    "ascension_materials": [
+      "Aerosiderite",
+      "Fragile Bone",
+      "Nectar"
+    ]
+  },
+  {
+    "id": 13416,
+    "name": "Deathmatch",
+    "weapon_type": "Polearm",
+    "rarity": 4,
+    "base_atk_lvl1": 41.0,
+    "base_atk_lvl90": 454.0,
+    "sub_stat_type": "CRIT Rate",
+    "sub_stat_val_lvl90": "36.8%",
+    "passive_name": "Gladiator",
+    "passive_desc": "+16% ATK/DEF at 2+ opponents; +24% ATK at fewer.",
+    "icon": "UI_EquipIcon_Pole_Gladiator",
+    "refinements": [
+      "ATK/DEF +16%"
+    ],
+    "ascension_materials": [
+      "Boreal Wolf",
+      "Dead Ley Line",
+      "Insignia"
+    ]
+  },
+  {
+    "id": 13501,
+    "name": "Calamity Queller",
+    "weapon_type": "Polearm",
+    "rarity": 5,
+    "base_atk_lvl1": 49.0,
+    "base_atk_lvl90": 741.0,
+    "sub_stat_type": "ATK%",
+    "sub_stat_val_lvl90": "16.5%",
+    "passive_name": "Extinguishing Precept",
+    "passive_desc": "+12% All Elemental DMG. Skill use grants stacking ATK (doubled off-field).",
+    "icon": "UI_EquipIcon_Pole_Santika",
+    "refinements": [
+      "DMG +12%"
+    ],
+    "ascension_materials": [
+      "Mist Veiled Elixir",
+      "Claw",
+      "Handguard"
+    ]
+  }
+]

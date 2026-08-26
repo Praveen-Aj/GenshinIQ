@@ -1,0 +1,326 @@
+[
+  {
+    "id": 15035,
+    "name": "Fragment of Harmonic Whimsy",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "ATK +18%.",
+    "bonus_4pc": "When the value of a Bond of Life increases or decreases, this character deals 18% increased DMG for 6s. Max 3 stacks (total 54% DMG Bonus).",
+    "pieces": {
+      "flower": "Whimsy Flower",
+      "plume": "Whimsy Plume",
+      "sands": "Whimsy Clock",
+      "goblet": "Whimsy Goblet",
+      "circlet": "Whimsy Circlet"
+    },
+    "icon": "UI_RelicIcon_15035_4"
+  },
+  {
+    "id": 15032,
+    "name": "Golden Troupe",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "Increases Elemental Skill DMG by 20%.",
+    "bonus_4pc": "Increases Elemental Skill DMG by 25%. Additionally, when not on the field, Elemental Skill DMG will be further increased by 25%. This effect will be cleared 2s after taking the field.",
+    "pieces": {
+      "flower": "Golden Song's Variation",
+      "plume": "Golden Bird's Shedding",
+      "sands": "Golden Era's Prelude",
+      "goblet": "Golden Night's Bustle",
+      "circlet": "Golden Troupe's Reward"
+    },
+    "icon": "UI_RelicIcon_15032_4"
+  },
+  {
+    "id": 15031,
+    "name": "Marechaussee Hunter",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "Normal and Charged Attack DMG +15%.",
+    "bonus_4pc": "When current HP increases or decreases, CRIT Rate will be increased by 12% for 5s. Max 3 stacks (up to 36% CRIT Rate).",
+    "pieces": {
+      "flower": "Hunter's Brooch",
+      "plume": "Masterpiece's Overture",
+      "sands": "Moment of Cessation",
+      "goblet": "Musée's Mother-of-Pearl Pot",
+      "circlet": "Veteran's Visage"
+    },
+    "icon": "UI_RelicIcon_15031_4"
+  },
+  {
+    "id": 15020,
+    "name": "Emblem of Severed Fate",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "Energy Recharge +20%.",
+    "bonus_4pc": "Increases Elemental Burst DMG by 25% of Energy Recharge. A maximum of 75% bonus DMG can be obtained in this way.",
+    "pieces": {
+      "flower": "Magnificent Tsuba",
+      "plume": "Sundered Feather",
+      "sands": "Storm Cage",
+      "goblet": "Scarlet Vessel",
+      "circlet": "Ornate Kabuto"
+    },
+    "icon": "UI_RelicIcon_15020_4"
+  },
+  {
+    "id": 15002,
+    "name": "Viridescent Venerer",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "Anemo DMG Bonus +15%.",
+    "bonus_4pc": "Increases Swirl DMG by 60%. Decreases opponent's Elemental RES to the element infused in the Swirl by 40% for 10s.",
+    "pieces": {
+      "flower": "In Remembrance of Viridescent Fields",
+      "plume": "Viridescent Arrow Feather",
+      "sands": "Viridescent Venerer's Determination",
+      "goblet": "Viridescent Venerer's Vessel",
+      "circlet": "Viridescent Venerer's Diadem"
+    },
+    "icon": "UI_RelicIcon_15002_4"
+  },
+  {
+    "id": 15025,
+    "name": "Deepwood Memories",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "Dendro DMG Bonus +15%.",
+    "bonus_4pc": "After Elemental Skills or Bursts hit opponents, the targets' Dendro RES will be decreased by 30% for 8s. This effect can be triggered even if the equipping character is not on the field.",
+    "pieces": {
+      "flower": "Labyrinth Wayfarer",
+      "plume": "Scholar of Vines",
+      "sands": "A Time of Insight",
+      "goblet": "Lamp of the Lost",
+      "circlet": "Laurel Coronet"
+    },
+    "icon": "UI_RelicIcon_15025_4"
+  },
+  {
+    "id": 15007,
+    "name": "Noblesse Oblige",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "Elemental Burst DMG +20%.",
+    "bonus_4pc": "Using an Elemental Burst increases all party members' ATK by 20% for 12s. This effect cannot stack.",
+    "pieces": {
+      "flower": "Flora's Flora",
+      "plume": "Royal Plume",
+      "sands": "Royal Pocket Watch",
+      "goblet": "Royal Silver Urn",
+      "circlet": "Royal Masque"
+    },
+    "icon": "UI_RelicIcon_15007_4"
+  },
+  {
+    "id": 15037,
+    "name": "Scroll of the Hero of Cinder City",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "When a nearby party member triggers a Nightsoul Burst, the equipping character regenerates 6 Elemental Energy.",
+    "bonus_4pc": "After the equipping character triggers an Elemental Reaction relating to their Elemental Type, all nearby party members gain a 12% Elemental DMG Bonus for the related Elemental Types for 15s. If the equipping character is in Nightsoul's Blessing state, this DMG Bonus is increased by an additional 28% (total 40%).",
+    "pieces": {
+      "flower": "Beast Tamer's Talisman",
+      "plume": "Mountain Ranger's Marker",
+      "sands": "Mystic's Gold Dial",
+      "goblet": "Wandering Scholar's Claw Cup",
+      "circlet": "Demon-Slaying Mask"
+    },
+    "icon": "UI_RelicIcon_15037_4"
+  },
+  {
+    "id": 15001,
+    "name": "Gladiator's Finale",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "ATK +18%.",
+    "bonus_4pc": "Sword/Claymore/Polearm Normal Attack DMG +35%.",
+    "icon": "UI_RelicIcon_15001_4",
+    "pieces": {
+      "flower": "Gladiator's Nostalgia",
+      "plume": "Gladiator's Destiny"
+    }
+  },
+  {
+    "id": 15003,
+    "name": "Wanderer's Troupe",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "Elemental Mastery +80.",
+    "bonus_4pc": "Catalyst/Bow Charged Attack DMG +35%.",
+    "icon": "UI_RelicIcon_15003_4",
+    "pieces": {
+      "flower": "Troupe's Dawnlight",
+      "plume": "Bard's Arrow Feather"
+    }
+  },
+  {
+    "id": 15005,
+    "name": "Thundering Fury",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "Electro DMG Bonus +15%.",
+    "bonus_4pc": "+40% Overloaded/Electro-Charged/Superconduct/Hyperbloom DMG. +20% Aggravate. Reactions reduce Skill CD by 1s.",
+    "icon": "UI_RelicIcon_15005_4",
+    "pieces": {
+      "flower": "Thunderbird's Mercy",
+      "plume": "Survivor of Catastrophe"
+    }
+  },
+  {
+    "id": 14001,
+    "name": "Blizzard Strayer",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "Cryo DMG Bonus +15%.",
+    "bonus_4pc": "+20% CRIT Rate vs Cryo-affected. +20% more if Frozen.",
+    "icon": "UI_RelicIcon_14001_4",
+    "pieces": {
+      "flower": "Snowswept Memory",
+      "plume": "Icebreaker's Resolve"
+    }
+  },
+  {
+    "id": 15006,
+    "name": "Crimson Witch of Flames",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "Pyro DMG Bonus +15%.",
+    "bonus_4pc": "+40% Overloaded/Burning/Burgeon DMG. +15% Vaporize/Melt. Skill boosts 2-piece by 50%, max 3 stacks.",
+    "icon": "UI_RelicIcon_15006_4",
+    "pieces": {
+      "flower": "Witch's Flower of Blazes",
+      "plume": "Witch's Ever-Burning Plume"
+    }
+  },
+  {
+    "id": 15016,
+    "name": "Heart of Depth",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "Hydro DMG Bonus +15%.",
+    "bonus_4pc": "Skill grants +30% Normal/Charged DMG for 15s.",
+    "icon": "UI_RelicIcon_15016_4",
+    "pieces": {
+      "flower": "Gilded Corsage",
+      "plume": "Gust of Nostalgia"
+    }
+  },
+  {
+    "id": 15017,
+    "name": "Tenacity of the Millelith",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "HP +20%.",
+    "bonus_4pc": "Skill hit grants +20% party ATK and +30% Shield Strength for 3s.",
+    "icon": "UI_RelicIcon_15017_4",
+    "pieces": {
+      "flower": "Flower of Accolades",
+      "plume": "Ceremonial War-Plume"
+    }
+  },
+  {
+    "id": 15018,
+    "name": "Pale Flame",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "Physical DMG Bonus +25%.",
+    "bonus_4pc": "Skill hit +9% ATK for 7s, max 2 stacks. At 2: 2-piece doubled.",
+    "icon": "UI_RelicIcon_15018_4",
+    "pieces": {
+      "flower": "Stainless Bloom",
+      "plume": "Wise Doctor's Pinion"
+    }
+  },
+  {
+    "id": 15019,
+    "name": "Shimenawa's Reminiscence",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "ATK +18%.",
+    "bonus_4pc": "Skill at 15+ Energy: -15 Energy, +50% Normal/Charged/Plunging DMG for 10s.",
+    "icon": "UI_RelicIcon_15019_4",
+    "pieces": {
+      "flower": "Entangling Bloom",
+      "plume": "Shaft of Remembrance"
+    }
+  },
+  {
+    "id": 15021,
+    "name": "Husk of Opulent Dreams",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "DEF +30%.",
+    "bonus_4pc": "Geo hits and on-field time grant stacks. Each: +6% DEF and +6% Geo DMG. Max 4.",
+    "icon": "UI_RelicIcon_15021_4",
+    "pieces": {
+      "flower": "Bloom Times",
+      "plume": "Plume of Luxury"
+    }
+  },
+  {
+    "id": 15023,
+    "name": "Gilded Dreams",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "Elemental Mastery +80.",
+    "bonus_4pc": "On reaction: same element = +14% ATK, different = +50 EM. Max 3 stacks.",
+    "icon": "UI_RelicIcon_15023_4",
+    "pieces": {
+      "flower": "Dreaming Bud of a Summer Festival",
+      "plume": "Feather of Judgment"
+    }
+  },
+  {
+    "id": 15024,
+    "name": "Flower of Paradise Lost",
+    "rarities": [
+      4,
+      5
+    ],
+    "bonus_2pc": "Elemental Mastery +80.",
+    "bonus_4pc": "+40% Bloom/Hyperbloom/Burgeon DMG. EM further increases these by up to 25%.",
+    "icon": "UI_RelicIcon_15024_4",
+    "pieces": {
+      "flower": "Ayus's Wondrous Flower",
+      "plume": "Secret-Keeper's Magic Feather"
+    }
+  }
+]

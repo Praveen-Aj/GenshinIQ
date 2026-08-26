@@ -1,0 +1,17 @@
+{
+  "id": "mechanics_bond_of_life",
+  "title": "Genshin Impact Bond of Life Mechanics Specification",
+  "metadata": {
+    "source": "Genshin Impact Wiki / In-game Help",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Bond_of_life",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Game Mechanics",
+    "game_version": "5.4",
+    "published_at": "2023-08-16T00:00:00Z",
+    "updated_at": "2024-04-24T00:00:00Z",
+    "tags": ["Bond of Life", "Mechanics", "Healing", "Arlecchino", "Weapons", "Fatui"]
+  },
+  "summary": "Authoritative mechanics specification of Bond of Life (healing absorption, stacking rules, max cap of 200%, interaction with status effects, weapons, and characters).",
+  "content": "# Bond of Life Mechanics Specification\n\n## Overview\n**Bond of Life** (BoL) is a status effect introduced in Version 4.0. It acts as a healing absorption barrier, represented as a red border around the character's HP bar. While a Bond of Life is active, the character cannot receive healing from any external or internal source; instead, all incoming healing is absorbed by the Bond of Life until it is fully cleared.\n\n## Key Stacking & Cap Rules\n1. **Healing Absorption**: 1 point of incoming healing clears 1 point of Bond of Life. Once the Bond value reaches 0, the Bond of Life is removed, and subsequent healing behaves normally.\n2. **Maximum Cap**: A character's Bond of Life cannot exceed **200% of their Max HP** (represented as twice the length of the HP bar). Any additional Bond of Life applied beyond this cap is discarded.\n3. **Persistence**: A Bond of Life does not decay over time and persists even when the character is off-field or when the party enters a new domain, until cleared by healing or character defeat.\n\n## Character & Weapon Interactions\n- **Arlecchino**: Her entire kit revolves around Bond of Life. She gains it via her Elemental Skill (*All is Ash*) by absorbing Blood-Debt Directives and consumes it to deal Pyro damage. While in combat, she has a passive that prevents all external healing, meaning her Bond of Life can *only* be cleared by her Elemental Burst (*Balemoon Rising*).\n- **Flowing Purity (Catalyst)** & **Finale of the Deep (Sword)**: Craftable Fontaine weapons that grant a Bond of Life equal to 24% of Max HP upon using an Elemental Skill. When the Bond of Life is cleared, they grant a flat Elemental or ATK% buff.\n- **Fragment of Harmonic Whimsy (Artifact Set)**: Grants a damage bonus whenever the value of a Bond of Life increases or decreases."
+}

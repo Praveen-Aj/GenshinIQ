@@ -1,0 +1,50 @@
+[
+  {
+    "id": 104114,
+    "name": "Agnidus Agate Gemstone",
+    "type": "Ascension Gem",
+    "rarity": 5,
+    "description": "Character Ascension material used for Pyro characters.",
+    "sources": ["Pyro Hypostasis", "Pyro Regisvine", "Emperor of Fire and Iron", "Weekly Bosses"]
+  },
+  {
+    "id": 113057,
+    "name": "Fragment of a Golden Melody",
+    "type": "Boss Material",
+    "rarity": 4,
+    "description": "Character Ascension material dropped by the Legatus Golem in Fontaine (used by Arlecchino).",
+    "sources": ["Legatus Golem (Sub-Bellamy region, Fontaine)"]
+  },
+  {
+    "id": 101235,
+    "name": "Rainbow Rose",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "A delicate flower found across Fontaine. Used as ascension material for Arlecchino and Lyney.",
+    "sources": ["Found in the wild in Fontaine (Beryl Region, Court of Fontaine)"]
+  },
+  {
+    "id": 113058,
+    "name": "Silken Feather",
+    "type": "Talent Material",
+    "rarity": 5,
+    "description": "Weekly boss talent level-up material obtained from The Knave (Arlecchino).",
+    "sources": ["The Knave (Trounce Domain, Mont Esus East)"]
+  },
+  {
+    "id": 104340,
+    "name": "Philosophies of Order",
+    "type": "Talent Book",
+    "rarity": 4,
+    "description": "Talent Level-Up material for Fontaine characters (Arlecchino, Lynette, Emilie).",
+    "sources": ["Pale Forgotten Glory Domain (Wednesday, Saturday, Sunday)"]
+  },
+  {
+    "id": 104337,
+    "name": "Philosophies of Justice",
+    "type": "Talent Book",
+    "rarity": 4,
+    "description": "Talent Level-Up material for Fontaine characters (Furina, Neuvillette, Clorinde).",
+    "sources": ["Pale Forgotten Glory Domain (Tuesday, Friday, Sunday)"]
+  }
+]

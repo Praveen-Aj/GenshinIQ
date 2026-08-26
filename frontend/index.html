@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GenshinIQ — Personal Genshin Impact AI Assistant that reasons over your actual account, builds, and authoritative theorycrafting data.">
+  <title>GenshinIQ — Personal Genshin Impact AI Assistant</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-group">
+        <div class="logo-icon">✨</div>
+        <div>
+          <h1 class="logo-title">Genshin<span class="highlight">IQ</span></h1>
+          <p class="logo-subtitle">Personal Genshin Impact AI Assistant</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div id="system-status-pill" class="status-pill status-loading">
+          <span class="status-dot"></span>
+          <span id="system-status-text">Connecting to backend...</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs" role="tablist">
+      <button class="nav-tab" data-tab="chat" id="tab-btn-chat" role="tab" aria-selected="false">
+        <span class="tab-icon">💬</span> Chat Assistant
+      </button>
+      <button class="nav-tab" data-tab="account" id="tab-btn-account" role="tab" aria-selected="false">
+        <span class="tab-icon">👤</span> My Account
+      </button>
+      <button class="nav-tab" data-tab="characters" id="tab-btn-characters" role="tab" aria-selected="true">
+        <span class="tab-icon">⚔️</span> Characters &amp; Data
+      </button>
+      <button class="nav-tab" data-tab="knowledge" id="tab-btn-knowledge" role="tab" aria-selected="false">
+        <span class="tab-icon">📖</span> Guides &amp; Mechanics
+      </button>
+      <button class="nav-tab" data-tab="diagnostics" id="tab-btn-diagnostics" role="tab" aria-selected="false">
+        <span class="tab-icon">⚡</span> System Health
+      </button>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Chat Tab Content -->
+      <section id="tab-content-chat" class="tab-pane">
+        <div class="chat-wrapper">
+          <div class="chat-messages" id="chat-messages">
+            <div class="message system-message">
+              <div class="message-avatar">✨</div>
+              <div class="message-bubble">
+                <p><strong>Welcome to GenshinIQ!</strong></p>
+                <p>GenshinIQ connects to your Genshin Impact account via Enka.Network and reasons over canonical game data &amp; theorycrafting (KQM, official data) to provide grounded build advice.</p>
+                <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 8px;">Try asking one of these quick prompts:</p>
+                <div class="quick-prompts">
+                  <span class="prompt-chip" onclick="askAssistant('Is my Arlecchino build good?')">Is my Arlecchino build good?</span>
+                  <span class="prompt-chip" onclick="askAssistant('What weapon should I equip on Furina?')">What weapon is best for Furina?</span>
+                  <span class="prompt-chip" onclick="askAssistant('Explain how Bond of Life works')">How does Bond of Life work?</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-input-container">
+            <div class="chat-input-box">
+              <input type="text" id="chat-input" placeholder="Ask anything about Genshin builds, mechanics, or your account...">
+              <button id="send-btn" class="btn btn-primary">
+                <span>Send</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </div>
+            <p class="input-hint">Grounded in canonical database, local guides, and live Enka showcase.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Account Tab Content -->
+      <section id="tab-content-account" class="tab-pane">
+        <div class="account-import-bar card card-glass">
+          <div class="import-header">
+            <div>
+              <h2>Genshin Impact In-Game Showcase Import</h2>
+              <p class="text-muted">Enter your Genshin UID to retrieve your live character showcase, builds, weapons, and artifact substats from Enka.Network.</p>
+            </div>
+          </div>
+          <div class="uid-input-row">
+            <div class="input-prefix-wrap">
+              <span class="input-prefix">UID</span>
+              <input type="text" id="uid-input" placeholder="e.g. 817739968" maxlength="10" value="817739968">
+            </div>
+            <button id="import-uid-btn" class="btn btn-primary">
+              <span>Fetch Showcase</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </button>
+            <button id="refresh-uid-btn" class="btn btn-secondary" title="Force refresh bypassing cache">
+              <span>Bypass Cache</span>
+            </button>
+          </div>
+
+          <!-- Alert error banner -->
+          <div id="account-error-banner" class="alert-banner alert-error" style="display: none;">
+            <span class="alert-icon">⚠️</span>
+            <span id="account-error-text">An error occurred</span>
+          </div>
+        </div>
+
+        <!-- Account Profile Overview -->
+        <div id="account-profile-card" class="card card-glass profile-card" style="display: none;">
+          <div class="profile-header">
+            <div class="profile-avatar-box">
+              <div class="profile-avatar" id="prof-avatar">👤</div>
+            </div>
+            <div class="profile-details">
+              <div class="profile-title-row">
+                <h2 id="prof-nickname">Traveler</h2>
+                <span class="badge badge-gold" id="prof-ar">AR 60</span>
+                <span class="badge badge-cyan" id="prof-wl">WL 8</span>
+                <span class="badge badge-cache" id="prof-cache-status">Live</span>
+              </div>
+              <p class="profile-sig" id="prof-sig">"No signature set."</p>
+              <div class="profile-meta-row">
+                <span class="meta-item">🏆 Achievements: <strong id="prof-achievements">0</strong></span>
+                <span class="meta-item">🌀 Spiral Abyss: <strong id="prof-abyss">Floor 12</strong></span>
+                <span class="meta-item">👥 Showcase: <strong id="prof-char-count">0 characters</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Showcase Characters Selector Carousel -->
+        <div id="character-selector-container" class="character-selector-wrap" style="display: none;">
+          <div class="showcase-header-row" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <h3>Showcase Characters</h3>
+            <span class="info-tooltip" style="font-size: 11px; color: var(--text-muted); cursor: help; border-bottom: 1px dashed var(--text-muted); padding-bottom: 2px;" title="Enka.Network API only exposes the characters placed in your active in-game profile Showcase (up to 8 characters). Add characters to your showcase in-game and make details public to see them here.">ℹ️ Showcase Limit Info</span>
+          </div>
+          <div class="character-chips-scroll" id="character-chips-list"></div>
+        </div>
+
+        <!-- Active Character Detail View -->
+        <div id="active-character-view" class="character-detail-container" style="display: none;">
+          <div class="build-left-col">
+            <div class="card card-glass char-summary-card">
+              <div class="char-header-row" style="display: flex; gap: 16px; align-items: center;">
+                <img id="char-large-avatar" class="char-large-avatar" src="" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_AvatarIcon_NPC.png'" alt="avatar" style="width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--accent-gold); background: rgba(0,0,0,0.3); object-fit: cover;">
+                <div>
+                  <h2 id="char-name" class="char-title">Arlecchino</h2>
+                  <div class="char-sub-row">
+                    <span id="char-element" class="elem-badge elem-pyro">Pyro</span>
+                    <span id="char-level" class="badge badge-secondary">Lv. 90/90</span>
+                    <span id="char-constellation" class="badge badge-gold">C0</span>
+                    <span id="char-friendship" class="badge badge-friendship">♥ 10</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="talents-section">
+                <h4>Talents</h4>
+                <div class="talents-grid" id="char-talents-grid"></div>
+              </div>
+
+              <div class="weapon-section">
+                <h4>Equipped Weapon</h4>
+                <div id="char-weapon-card" class="weapon-card"></div>
+              </div>
+
+              <div class="stats-section">
+                <h4>Total Combat Attributes</h4>
+                <div class="combat-stats-grid" id="char-combat-stats-grid"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="build-right-col">
+            <div class="card card-glass artifacts-summary-card">
+              <div class="artifacts-header">
+                <h3>Equipped Artifacts</h3>
+                <span id="char-set-bonuses" class="badge badge-info">Set Overview</span>
+              </div>
+              <div class="artifacts-list" id="char-artifacts-list"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Empty State -->
+        <div id="account-empty-state" class="card card-glass empty-state">
+          <div class="empty-icon">🛡️</div>
+          <h3>No Genshin Showcase Loaded</h3>
+          <p>Enter your 9-digit or 10-digit Genshin Impact UID above and click <strong>Fetch Showcase</strong> to inspect your character builds, weapons, and artifact substats.</p>
+        </div>
+      </section>
+
+      <!-- Characters & Structured Data Tab Content (Phase 2) -->
+      <section id="tab-content-characters" class="tab-pane active">
+        <!-- Database Filter Bar -->
+        <div class="card card-glass db-filter-card">
+          <div class="db-controls-top">
+            <div class="sub-tab-group">
+              <button class="sub-tab-btn active" id="db-tab-characters" data-category="characters">Characters</button>
+              <button class="sub-tab-btn" id="db-tab-weapons" data-category="weapons">Weapons</button>
+              <button class="sub-tab-btn" id="db-tab-artifacts" data-category="artifacts">Artifact Sets</button>
+            </div>
+            <div class="db-search-wrap">
+              <input type="text" id="db-search-input" placeholder="Search characters, weapons, artifacts...">
+            </div>
+          </div>
+
+          <!-- Element Filter Chips (Characters only) -->
+          <div id="element-filter-bar" class="element-filter-bar">
+            <button class="elem-filter-chip active" data-elem="all">All Elements</button>
+            <button class="elem-filter-chip elem-pyro" data-elem="Pyro">Pyro</button>
+            <button class="elem-filter-chip elem-hydro" data-elem="Hydro">Hydro</button>
+            <button class="elem-filter-chip elem-anemo" data-elem="Anemo">Anemo</button>
+            <button class="elem-filter-chip elem-electro" data-elem="Electro">Electro</button>
+            <button class="elem-filter-chip elem-dendro" data-elem="Dendro">Dendro</button>
+            <button class="elem-filter-chip elem-cryo" data-elem="Cryo">Cryo</button>
+            <button class="elem-filter-chip elem-geo" data-elem="Geo">Geo</button>
+          </div>
+        </div>
+
+        <!-- Database Content Container (Grid + Detail Inspector) -->
+        <div class="db-main-layout">
+          <!-- Left: List Grid -->
+          <div class="db-list-col">
+            <div id="db-items-grid" class="db-items-grid">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Right: Inspector / Detail Pane -->
+          <div class="db-detail-col">
+            <div id="db-detail-pane" class="card card-glass db-detail-card">
+              <div class="empty-state">
+                <div class="empty-icon">📖</div>
+                <p>Select any character, weapon, or artifact set from the list to inspect full details, talents, constellations, and stats.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Knowledge Base Tab Content -->
+      <section id="tab-content-knowledge" class="tab-pane">
+        <div class="card card-glass db-header-card">
+          <div class="db-controls-row">
+            <div class="db-tabs">
+              <button class="sub-tab-btn active" id="kb-tab-all" data-topic="all">All Guides</button>
+              <button class="sub-tab-btn" id="kb-tab-characters" data-topic="Character Guide">Character Guides</button>
+              <button class="sub-tab-btn" id="kb-tab-mechanics" data-topic="Game Mechanics">Mechanics</button>
+              <button class="sub-tab-btn" id="kb-tab-patch" data-topic="Patch Notes">Patch Notes</button>
+            </div>
+            <div class="db-search-wrap">
+              <input type="text" id="kb-search-input" placeholder="Search guides, mechanics, reactions...">
+            </div>
+          </div>
+        </div>
+
+        <div class="db-main-layout">
+          <!-- Left: Guides List -->
+          <div class="db-list-col">
+            <div id="kb-items-grid" class="db-items-grid">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Right: Guide Viewer -->
+          <div class="db-detail-col">
+            <div id="kb-detail-pane" class="card card-glass db-detail-card">
+              <div class="empty-state">
+                <div class="empty-icon">📖</div>
+                <p>Select any guide, patch notes, or mechanics specification from the list to view the full curated article.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Diagnostics Tab Content -->
+      <section id="tab-content-diagnostics" class="tab-pane">
+        <div class="card card-glass">
+          <div class="card-header">
+            <h2>System Diagnostics &amp; Foundation Status</h2>
+            <button id="refresh-health-btn" class="btn btn-sm btn-secondary">Refresh Status</button>
+          </div>
+          <div class="card-body">
+            <div class="diagnostics-grid">
+              <div class="diag-item">
+                <span class="diag-label">API Status</span>
+                <span id="diag-api-status" class="diag-val">Checking...</span>
+              </div>
+              <div class="diag-item">
+                <span class="diag-label">App Name</span>
+                <span id="diag-app-name" class="diag-val">—</span>
+              </div>
+              <div class="diag-item">
+                <span class="diag-label">App Version</span>
+                <span id="diag-version" class="diag-val">—</span>
+              </div>
+              <div class="diag-item">
+                <span class="diag-label">Environment</span>
+                <span id="diag-env" class="diag-val">—</span>
+              </div>
+              <div class="diag-item">
+                <span class="diag-label">Backend Server Time (UTC)</span>
+                <span id="diag-timestamp" class="diag-val font-mono">—</span>
+              </div>
+              <div class="diag-item">
+                <span class="diag-label">Enka API Target</span>
+                <span id="diag-enka-base" class="diag-val font-mono">—</span>
+              </div>
+            </div>
+
+            <div class="raw-response-box">
+              <h3>Live Health Payload (/api/health)</h3>
+              <pre id="raw-health-json">Fetching payload...</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>GenshinIQ • Personal Genshin Impact AI Assistant • Grounded Theorycrafting &amp; Account Analytics</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

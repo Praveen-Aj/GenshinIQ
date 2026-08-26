@@ -1,0 +1,1961 @@
+[
+  {
+    "id": 10000096,
+    "name": "Arlecchino",
+    "title": "Dire Balemoon",
+    "element": "Pyro",
+    "weapon_type": "Polearm",
+    "rarity": 5,
+    "region": "Fontaine",
+    "affiliation": "Fatui / House of the Hearth",
+    "description": "The 'Father' of the House of the Hearth, the Fourth of the Fatui Harbingers. A quiet, composed diplomat who is ruthless in duty.",
+    "base_hp_lvl90": 13103.0,
+    "base_atk_lvl90": 342.0,
+    "base_def_lvl90": 765.0,
+    "ascension_stat": "CRIT DMG",
+    "ascension_stat_val_lvl90": "38.4%",
+    "talents": [
+      {
+        "name": "Invitation to a Beheading",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Performs up to 6 consecutive spear strikes. When Arlecchino has a Bond of Life equal to or greater than 30% of her Max HP, she enters the 'Masque of the Red Death' state, converting her Normal, Charged, and Plunging Attacks to Pyro DMG that cannot be overridden."
+      },
+      {
+        "name": "All is Ash",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Summons forth Balemoon Bloodfire, dealing Pyro DMG to multiple nearby opponents and performing a dash-cleave attack. Opponents hit receive a Blood-Debt Directive."
+      },
+      {
+        "name": "Balemoon Rising",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Arlecchino unfurls her great wing of Balemoon Bloodfire, recovering Bond of Life and dealing AoE Pyro DMG while resetting the cooldown of All is Ash and healing herself based on her Bond of Life and ATK."
+      },
+      {
+        "name": "The Balemoon Alone May Know",
+        "unlock": "1st Ascension Passive",
+        "type": "passive",
+        "description": "Defeating an opponent with a Blood-Debt Directive grants Arlecchino a Bond of Life equal to 130% of her Max HP. 5s after a Directive is applied, it upgrades to a Due Directive granting 130% Max HP Bond of Life when absorbed."
+      },
+      {
+        "name": "Agony Alone May Be Repaid",
+        "unlock": "4th Ascension Passive",
+        "type": "passive",
+        "description": "Arlecchino gains 1% All Elemental and Physical RES for every 100 ATK she possesses beyond 1,000. The maximum RES increase obtainable this way is 20%."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "\"All Reprisals and Arrears, Are Mine to Bear...\"",
+        "description": "Masque of the Red Death's value increase is further increased by 100%. In addition, Arlecchino's interruption resistance is increased when she performs Normal or Charged Attacks while in the Masque of the Red Death state."
+      },
+      {
+        "level": 2,
+        "name": "\"All Rewards and Retribution, Mine to Bestow...\"",
+        "description": "Blood-Debt Directives are now Blood-Debt Due when created. When Arlecchino absorbs a Due Directive, she unleashes Balemoon Bloodfire dealing 900% of her ATK as AoE Pyro DMG and gaining 20% All Elemental and Physical RES for 15s."
+      },
+      {
+        "level": 3,
+        "name": "\"You Shall Become a New Family...\"",
+        "description": "Increases the Level of Normal Attack: Invitation to a Beheading by 3. Maximum upgrade level is 15."
+      },
+      {
+        "level": 4,
+        "name": "\"You Shall Love and Protect Each Other...\"",
+        "description": "When Arlecchino successfully absorbs a Blood-Debt Directive, Balemoon Rising's CD is decreased by 2s and 15 Energy is restored to her. This effect can occur once every 10s."
+      },
+      {
+        "level": 5,
+        "name": "\"For We Are As Good As Dead...\"",
+        "description": "Increases the Level of Balemoon Rising by 3. Maximum upgrade level is 15."
+      },
+      {
+        "level": 6,
+        "name": "\"From This Day On, We Shall Delight in New Life.\"",
+        "description": "The DMG of Balemoon Rising is increased by Arlecchino's ATK multiplied by 700% of her current Bond of Life percentage. For 20s after using All is Ash, both Normal Attacks and Balemoon Rising gain 10% CRIT Rate and 70% CRIT DMG."
+      }
+    ],
+    "ascension_materials": [
+      "Agnidus Agate",
+      "Fragment of a Golden Melody",
+      "Rainbow Rose",
+      "Meshing Gear"
+    ],
+    "talent_materials": [
+      "Order Books",
+      "Silken Feather",
+      "Meshing Gear",
+      "Crown of Insight"
+    ],
+    "icon": "UI_AvatarIcon_Arlecchino"
+  },
+  {
+    "id": 10000089,
+    "name": "Furina",
+    "title": "Endless Solo of Solitude",
+    "element": "Hydro",
+    "weapon_type": "Sword",
+    "rarity": 5,
+    "region": "Fontaine",
+    "affiliation": "Court of Fontaine",
+    "description": "The former Hydro Archon Focalors' human vessel, beloved star of Fontaine's opera house.",
+    "base_hp_lvl90": 15307.0,
+    "base_atk_lvl90": 244.0,
+    "base_def_lvl90": 696.0,
+    "ascension_stat": "CRIT Rate",
+    "ascension_stat_val_lvl90": "19.2%",
+    "talents": [
+      {
+        "name": "Soloist's Solicitation",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Performs up to 4 consecutive strikes. Can switch Arkhe alignment between Ousia and Pneuma with Charged Attack."
+      },
+      {
+        "name": "Salon Solitaire",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Invites the guests of the Salon Solitaire (Ousia: Salon Members dealing Hydro DMG based on Max HP and draining party HP; Pneuma: Singer of Many Waters healing nearby active character)."
+      },
+      {
+        "name": "Let the People Rejoice",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Rouses the impulse to revel, entering the Universal Revelry state. When party members' HP increases or decreases, Furina gains Fanfare points, increasing all party members' DMG dealt and Incoming Healing Bonus."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "\"Like a Bird Unto the Dawn, So Should Love Cry Out\"",
+        "description": "When using Let the People Rejoice, Furina gains 150 Fanfare instantly. The Fanfare limit is increased by 100."
+      },
+      {
+        "level": 2,
+        "name": "\"A Woman Adapts to Changes, Like a Duck to Water\"",
+        "description": "Furina increases Fanfare gained from HP changes by 250%. Each Fanfare above the limit increases Furina's Max HP by 0.35% (up to 140% Max HP)."
+      }
+    ],
+    "ascension_materials": [
+      "Varunada Lazurite",
+      "Water That Failed To Transcend",
+      "Lakelight Lily",
+      "Whopperflower Nectar"
+    ],
+    "talent_materials": [
+      "Justice Books",
+      "Lightless Silk String",
+      "Whopperflower Nectar",
+      "Crown of Insight"
+    ],
+    "icon": "UI_AvatarIcon_Furina"
+  },
+  {
+    "id": 10000087,
+    "name": "Neuvillette",
+    "title": "Ordained Blossom",
+    "element": "Hydro",
+    "weapon_type": "Catalyst",
+    "rarity": 5,
+    "region": "Fontaine",
+    "affiliation": "Court of Fontaine",
+    "description": "The Iudex of Fontaine and the Hydro Sovereign Dragon. Unbiased arbiter of the Opera Epiclese.",
+    "base_hp_lvl90": 14695.0,
+    "base_atk_lvl90": 208.0,
+    "base_def_lvl90": 576.0,
+    "ascension_stat": "CRIT DMG",
+    "ascension_stat_val_lvl90": "38.4%",
+    "talents": [
+      {
+        "name": "As Water Seeks Equilibrium",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Unleashes devastating Charged Attack: Equitable Judgment beam consuming HP and dealing continuous AoE Hydro DMG scaling on Max HP."
+      },
+      {
+        "name": "O Tears, I Shall Repay",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Summons a Raging Waterfall dealing AoE Hydro DMG and generating 3 Sourcewater Droplets."
+      },
+      {
+        "name": "O Tides, I Have Returned",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Unleashes a rupturing wave dealing massive AoE Hydro DMG and generating 6 Sourcewater Droplets."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "Overtures of the Past",
+        "description": "When Neuvillette takes the field, he gains 1 stack of Past Draconic Glories. In addition, his interruption resistance is significantly increased while channeling Equitable Judgment."
+      }
+    ],
+    "ascension_materials": [
+      "Varunada Lazurite",
+      "Fontemer Unihorn",
+      "Lumitoile",
+      "Transoceanic Pearl"
+    ],
+    "talent_materials": [
+      "Equity Books",
+      "Everamber",
+      "Transoceanic Pearl",
+      "Crown of Insight"
+    ],
+    "icon": "UI_AvatarIcon_Neuvillette"
+  },
+  {
+    "id": 10000052,
+    "name": "Raiden Shogun",
+    "title": "Plane of Euthymia",
+    "element": "Electro",
+    "weapon_type": "Polearm",
+    "rarity": 5,
+    "region": "Inazuma",
+    "affiliation": "Inazuma City / Bakufu",
+    "description": "Her Excellency, the Narukami Ogosho, who promised the people of Inazuma an unchanging eternity.",
+    "base_hp_lvl90": 12907.0,
+    "base_atk_lvl90": 337.0,
+    "base_def_lvl90": 789.0,
+    "ascension_stat": "Energy Recharge",
+    "ascension_stat_val_lvl90": "32.0%",
+    "talents": [
+      {
+        "name": "Origin",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Performs up to 5 consecutive spear strikes."
+      },
+      {
+        "name": "Transcendence: Baleful Omen",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Unveils the Eye of Stormy Judgment, dealing coordinated Electro DMG and boosting party members' Burst DMG based on energy cost."
+      },
+      {
+        "name": "Secret Art: Musou Shinsetsu",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Unleashes the Musou no Hitotachi dealing massive AoE Electro DMG, then enters Musou Isshin state regenerating energy for all party members."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 2,
+        "name": "Steelbreaker",
+        "description": "While using Secret Art: Musou Shinsetsu, attacks ignore 60% of opponents' DEF."
+      }
+    ],
+    "ascension_materials": [
+      "Vajrada Amethyst",
+      "Storm Beads",
+      "Amakumo Fruit",
+      "Old Handguard"
+    ],
+    "talent_materials": [
+      "Light Books",
+      "Molten Moment",
+      "Old Handguard",
+      "Crown of Insight"
+    ],
+    "icon": "UI_AvatarIcon_Shogun"
+  },
+  {
+    "id": 10000073,
+    "name": "Nahida",
+    "title": "Physic of Purity",
+    "element": "Dendro",
+    "weapon_type": "Catalyst",
+    "rarity": 5,
+    "region": "Sumeru",
+    "affiliation": "Sanctuary of Surasthana",
+    "description": "Lesser Lord Kusanali, the Dendro Archon who dwells in the Sanctuary of Surasthana.",
+    "base_hp_lvl90": 10349.0,
+    "base_atk_lvl90": 299.0,
+    "base_def_lvl90": 630.0,
+    "ascension_stat": "Elemental Mastery",
+    "ascension_stat_val_lvl90": "115.2",
+    "talents": [
+      {
+        "name": "Akara",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Performs up to 4 attacks dealing Dendro DMG."
+      },
+      {
+        "name": "All Schemes to Know",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Marks up to 8 opponents with Seed of Skandha. Triggering reactions deals Tri-Karma Purification Dendro DMG scaling on ATK and EM."
+      },
+      {
+        "name": "Illusory Heart",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Manifests the Shrine of Maya, granting massive buffs based on elemental types in the party."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 2,
+        "name": "The Roots of All Fullness",
+        "description": "Burning, Bloom, Hyperbloom, and Burgeon reactions triggered on marked enemies can score CRIT hits with 20% CRIT Rate and 100% CRIT DMG. Quicken, Aggravate, and Spread decrease enemy DEF by 30% for 8s."
+      }
+    ],
+    "ascension_materials": [
+      "Nagadus Emerald",
+      "Quelled Creeper",
+      "Kalpalata Lotus",
+      "Fungal Spores"
+    ],
+    "talent_materials": [
+      "Ingenuity Books",
+      "Puppet Strings",
+      "Fungal Spores",
+      "Crown of Insight"
+    ],
+    "icon": "UI_AvatarIcon_Nahida"
+  },
+  {
+    "id": 10000047,
+    "name": "Kaedehara Kazuha",
+    "title": "Scarlet Leaves Pursue Wild Waves",
+    "element": "Anemo",
+    "weapon_type": "Sword",
+    "rarity": 5,
+    "region": "Inazuma",
+    "affiliation": "The Crux",
+    "description": "A wandering samurai from Inazuma who is currently with Fleet of the Crux.",
+    "base_hp_lvl90": 13348.0,
+    "base_atk_lvl90": 297.0,
+    "base_def_lvl90": 807.0,
+    "ascension_stat": "Elemental Mastery",
+    "ascension_stat_val_lvl90": "115.2",
+    "talents": [
+      {
+        "name": "Garyuu Bladework",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Performs up to 5 rapid strikes."
+      },
+      {
+        "name": "Chihayaburu",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Unleashes a secret technique that pulls objects and opponents towards Kazuha and launches him into the air, enabling Midare Ranzan plunge."
+      },
+      {
+        "name": "Kazuha Slash",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Slashing with the sound of autumn wind, leaving an Autumn Whirlwind field that absorbs elements and deals continuous AoE elemental DMG."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 2,
+        "name": "Yamaarashi Tailwind",
+        "description": "Autumn Whirlwind field increases Kazuha's EM by 200 and the active character's EM by 200."
+      }
+    ],
+    "ascension_materials": [
+      "Vayuda Turquoise",
+      "Marionette Core",
+      "Sea Ganoderma",
+      "Treasure Hoarder Insignia"
+    ],
+    "talent_materials": [
+      "Diligence Books",
+      "Gilded Scale",
+      "Treasure Hoarder Insignia",
+      "Crown of Insight"
+    ],
+    "icon": "UI_AvatarIcon_Kazuha"
+  },
+  {
+    "id": 10000030,
+    "name": "Zhongli",
+    "title": "Vago Mundo",
+    "element": "Geo",
+    "weapon_type": "Polearm",
+    "rarity": 5,
+    "region": "Liyue",
+    "affiliation": "Wangsheng Funeral Parlor",
+    "description": "A consultant of the Wangsheng Funeral Parlor who is secretly Morax, the Geo Archon Rex Lapis.",
+    "base_hp_lvl90": 14695.0,
+    "base_atk_lvl90": 251.0,
+    "base_def_lvl90": 738.0,
+    "ascension_stat": "Geo DMG Bonus",
+    "ascension_stat_val_lvl90": "28.8%",
+    "talents": [
+      {
+        "name": "Rain of Stone",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Performs up to 6 rapid spear strikes."
+      },
+      {
+        "name": "Dominus Lapidis",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Creates a Stone Stele and a Jade Shield with 150% absorption against all elements that decreases nearby opponents' Elemental and Physical RES by 20%."
+      },
+      {
+        "name": "Planet Befall",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Brings a falling meteor down upon earth, dealing massive AoE Geo DMG and applying Petrification."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 2,
+        "name": "Stone, the Cradle of Jade",
+        "description": "Planet Befall grants nearby characters on the field a Jade Shield."
+      }
+    ],
+    "ascension_materials": [
+      "Prithiva Topaz",
+      "Basalt Pillar",
+      "Cor Lapis",
+      "Slime Condensate"
+    ],
+    "talent_materials": [
+      "Gold Books",
+      "Tusk of Monoceros Caeli",
+      "Slime Condensate",
+      "Crown of Insight"
+    ],
+    "icon": "UI_AvatarIcon_Zhongli"
+  },
+  {
+    "id": 10000032,
+    "name": "Bennett",
+    "title": "Trial by Fire",
+    "element": "Pyro",
+    "weapon_type": "Sword",
+    "rarity": 4,
+    "region": "Mondstadt",
+    "affiliation": "Adventurers' Guild",
+    "description": "A good-natured adventurer from Mondstadt who is plagued by notoriously terrible luck.",
+    "base_hp_lvl90": 12397.0,
+    "base_atk_lvl90": 191.0,
+    "base_def_lvl90": 771.0,
+    "ascension_stat": "Energy Recharge",
+    "ascension_stat_val_lvl90": "26.7%",
+    "talents": [
+      {
+        "name": "Strike of Fortune",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Performs up to 5 rapid sword strikes."
+      },
+      {
+        "name": "Passion Overload",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Concentrates the spirit of Pyro and Passion into the sword, striking with Pyro DMG."
+      },
+      {
+        "name": "Fantastic Voyage",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Leaps toward enemies dealing Pyro DMG and creating an Inspiration Field that heals characters and grants an ATK Bonus scaling off Bennett's Base ATK."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "Grand Expectation",
+        "description": "Fantastic Voyage's ATK increase no longer has an HP restriction and gains an additional 20% of Bennett's Base ATK."
+      },
+      {
+        "level": 6,
+        "name": "Fire Ventures with Me",
+        "description": "Sword, Claymore, and Polearm-wielding characters inside Fantastic Voyage gain a 15% Pyro DMG Bonus and their weapons are infused with Pyro."
+      }
+    ],
+    "ascension_materials": [
+      "Agnidus Agate",
+      "Everflame Seed",
+      "Windwheel Aster",
+      "Treasure Hoarder Insignia"
+    ],
+    "talent_materials": [
+      "Resistance Books",
+      "Dvalin's Plume",
+      "Treasure Hoarder Insignia",
+      "Crown of Insight"
+    ],
+    "icon": "UI_AvatarIcon_Bennett"
+  },
+  {
+    "id": 10000023,
+    "name": "Xiangling",
+    "title": "Exquisite Delicacy",
+    "element": "Pyro",
+    "weapon_type": "Polearm",
+    "rarity": 4,
+    "region": "Liyue",
+    "affiliation": "Wanmin Restaurant",
+    "description": "A renowned chef from Liyue who travels far and wide in search of novel culinary ingredients.",
+    "base_hp_lvl90": 10873.0,
+    "base_atk_lvl90": 225.0,
+    "base_def_lvl90": 669.0,
+    "ascension_stat": "Elemental Mastery",
+    "ascension_stat_val_lvl90": "96.0",
+    "talents": [
+      {
+        "name": "Dough-Fu",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Performs up to 5 consecutive spear strikes."
+      },
+      {
+        "name": "Guoba Attack",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Summons Guoba the Panda who continuously breathes fire, dealing AoE Pyro DMG."
+      },
+      {
+        "name": "Pyronado",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Causes a Pyronado to swirl around the active character, dealing continuous AoE Pyro DMG with no ICD."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 4,
+        "name": "Batter Burn",
+        "description": "Pyronado's duration is increased by 40% (extra 4 seconds)."
+      }
+    ],
+    "ascension_materials": [
+      "Agnidus Agate",
+      "Everflame Seed",
+      "Jueyun Chili",
+      "Slime Condensate"
+    ],
+    "talent_materials": [
+      "Diligence Books",
+      "Dvalin's Claw",
+      "Slime Condensate",
+      "Crown of Insight"
+    ],
+    "icon": "UI_AvatarIcon_Xiangling"
+  },
+  {
+    "id": 10000015,
+    "name": "Xingqiu",
+    "title": "Juvenile Galant",
+    "element": "Hydro",
+    "weapon_type": "Sword",
+    "rarity": 4,
+    "region": "Liyue",
+    "affiliation": "Feiyun Commerce Guild",
+    "description": "The second son of the Feiyun Commerce Guild manager, and an avid martial artist practicing the Guhua Clan style.",
+    "base_hp_lvl90": 10222.0,
+    "base_atk_lvl90": 202.0,
+    "base_def_lvl90": 758.0,
+    "ascension_stat": "ATK%",
+    "ascension_stat_val_lvl90": "24.0%",
+    "talents": [
+      {
+        "name": "Guhua Style",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Performs up to 5 rapid strikes."
+      },
+      {
+        "name": "Guhua Sword: Fatal Rainscreen",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Performs twin Hydro sword strikes and creates Rain Swords that provide DMG Reduction, interruption resistance, and apply Hydro to nearby targets."
+      },
+      {
+        "name": "Guhua Sword: Raincutter",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Initiates Rainbow Illusory Sword, performing coordinated Hydro sword rain attacks with normal attacks."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 6,
+        "name": "Hence, Call Them Ibis",
+        "description": "For every 2 Rain Sword attacks from Raincutter, the next attack fires 5 swords and regenerates 3 Energy for Xingqiu."
+      }
+    ],
+    "ascension_materials": [
+      "Varunada Lazurite",
+      "Cleansing Heart",
+      "Silk Flower",
+      "Damaged Mask"
+    ],
+    "talent_materials": [
+      "Gold Books",
+      "Tail of Boreas",
+      "Damaged Mask",
+      "Crown of Insight"
+    ],
+    "icon": "UI_AvatarIcon_Xingqiu"
+  },
+  {
+    "id": 10000104,
+    "name": "Mavuika",
+    "title": "Ancient Flame of Natlan",
+    "element": "Pyro",
+    "weapon_type": "Claymore",
+    "rarity": 5,
+    "region": "Natlan",
+    "affiliation": "Scions of the Canopy / Stadium of the Sacred Flame",
+    "description": "The Habitant of the Sacred Flame, the reigning Pyro Archon of Natlan.",
+    "base_hp_lvl90": 13920.0,
+    "base_atk_lvl90": 348.0,
+    "base_def_lvl90": 745.0,
+    "ascension_stat": "CRIT Rate",
+    "ascension_stat_val_lvl90": "19.2%",
+    "talents": [
+      {
+        "name": "Flames of the Wayfarer",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Performs up to 4 heavy claymore strikes."
+      },
+      {
+        "name": "All-Consuming Blaze",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Enters Nightsoul's Blessing state, riding the sacred flamestrider vehicle and dealing continuous Nightsoul-aligned Pyro DMG."
+      },
+      {
+        "name": "Hour of Incandescence",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Channels the total Fighting Spirit generated by the party to deliver a catastrophic Pyro eruption."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 2,
+        "name": "Ash and Starlight",
+        "description": "In Nightsoul's Blessing state, Mavuika's base ATK is increased by 200, and party members receive 20% Pyro DMG bonus."
+      }
+    ],
+    "ascension_materials": [
+      "Agnidus Agate",
+      "Mark of the Binding Blessing",
+      "Withering Purpuro",
+      "Saurian Claws"
+    ],
+    "talent_materials": [
+      "Conflict Books",
+      "Eroded Sunfire",
+      "Saurian Claws",
+      "Crown of Insight"
+    ],
+    "icon": "UI_AvatarIcon_Mavuika"
+  },
+  {
+    "id": 10000051,
+    "name": "Eula",
+    "title": "Dance of the Shimmering Wave",
+    "element": "Cryo",
+    "weapon_type": "Claymore",
+    "rarity": 5,
+    "region": "Mondstadt",
+    "affiliation": "Knights of Favonius",
+    "description": "The Spindrift Knight, Captain of the Reconnaissance Company.",
+    "base_hp_lvl90": 13226.0,
+    "base_atk_lvl90": 342.0,
+    "base_def_lvl90": 751.0,
+    "ascension_stat": "CRIT DMG",
+    "ascension_stat_val_lvl90": "38.4%",
+    "icon": "UI_AvatarIcon_Eula",
+    "talents": [
+      {
+        "name": "Favonius Bladework - Edel",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Up to 5 consecutive strikes."
+      },
+      {
+        "name": "Icetide Vortex",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Gains Grimheart stacks; Hold consumes them for AoE Cryo DMG."
+      },
+      {
+        "name": "Glacial Illumination",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Creates a Lightfall Sword that explodes for massive Physical DMG."
+      },
+      {
+        "name": "Roiling Rime",
+        "unlock": "1st Ascension Passive",
+        "type": "passive",
+        "description": "Shattered Lightfall Sword at 2 Grimheart stacks."
+      },
+      {
+        "name": "Wellspring of War-Lust",
+        "unlock": "4th Ascension Passive",
+        "type": "passive",
+        "description": "Burst resets Skill CD and grants Grimheart."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "Tidal Illusion",
+        "description": "Grimheart grants 30% Physical DMG per stack."
+      },
+      {
+        "level": 2,
+        "name": "Lady of Seafoam",
+        "description": "Hold CD matches Press CD."
+      },
+      {
+        "level": 3,
+        "name": "Lawrence Pedigree",
+        "description": "+3 Glacial Illumination Level."
+      },
+      {
+        "level": 4,
+        "name": "The Obstinacy of One's Inferiors",
+        "description": "+25% DMG vs <50% HP."
+      },
+      {
+        "level": 5,
+        "name": "Chivalric Quality",
+        "description": "+3 Icetide Vortex Level."
+      },
+      {
+        "level": 6,
+        "name": "Noble Obligation",
+        "description": "Start with 5 energy stacks; 50% chance for extra."
+      }
+    ]
+  },
+  {
+    "id": 10000037,
+    "name": "Ganyu",
+    "title": "Plenilune Gaze",
+    "element": "Cryo",
+    "weapon_type": "Bow",
+    "rarity": 5,
+    "region": "Liyue",
+    "affiliation": "Liyue Qixing",
+    "description": "Secretary to the Liyue Qixing, a half-qilin adeptus.",
+    "base_hp_lvl90": 9797.0,
+    "base_atk_lvl90": 335.0,
+    "base_def_lvl90": 630.0,
+    "ascension_stat": "CRIT DMG",
+    "ascension_stat_val_lvl90": "38.4%",
+    "icon": "UI_AvatarIcon_Ganyu",
+    "talents": [
+      {
+        "name": "Liutian Archery",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Up to 6 shots; Charged shots deal Cryo via Frostflake Arrows."
+      },
+      {
+        "name": "Trail of the Qilin",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Ice Lotus taunts enemies and deals AoE Cryo DMG."
+      },
+      {
+        "name": "Celestial Shower",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Sacred Cryo Pearl rains ice shards for continuous Cryo AoE DMG."
+      },
+      {
+        "name": "Undivided Heart",
+        "unlock": "1st Ascension Passive",
+        "type": "passive",
+        "description": "+20% CRIT Rate for Frostflake Arrows for 5s."
+      },
+      {
+        "name": "Harmony between Heaven and Earth",
+        "unlock": "4th Ascension Passive",
+        "type": "passive",
+        "description": "+20% Cryo DMG Bonus in burst AoE."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "Dew-Drinker",
+        "description": "-15% Cryo RES; +2 Energy on hit."
+      },
+      {
+        "level": 2,
+        "name": "The Auspicious",
+        "description": "+1 Skill charge."
+      },
+      {
+        "level": 3,
+        "name": "Cloud-Strider",
+        "description": "+3 Celestial Shower Level."
+      },
+      {
+        "level": 4,
+        "name": "Westward Sojourn",
+        "description": "+25% DMG in burst AoE over 3s."
+      },
+      {
+        "level": 5,
+        "name": "The Merciful",
+        "description": "+3 Trail of the Qilin Level."
+      },
+      {
+        "level": 6,
+        "name": "The Clement",
+        "description": "Instant Frostflake Arrow after Skill."
+      }
+    ]
+  },
+  {
+    "id": 10000046,
+    "name": "Hu Tao",
+    "title": "Fragrance in Thaw",
+    "element": "Pyro",
+    "weapon_type": "Polearm",
+    "rarity": 5,
+    "region": "Liyue",
+    "affiliation": "Wangsheng Funeral Parlor",
+    "description": "The 77th Director of the Wangsheng Funeral Parlor.",
+    "base_hp_lvl90": 15552.0,
+    "base_atk_lvl90": 106.0,
+    "base_def_lvl90": 876.0,
+    "ascension_stat": "CRIT DMG",
+    "ascension_stat_val_lvl90": "38.4%",
+    "icon": "UI_AvatarIcon_Hutao",
+    "talents": [
+      {
+        "name": "Secret Spear of Wangsheng",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Up to 6 spear strikes."
+      },
+      {
+        "name": "Guide to Afterlife",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Enters Paramita Papilio, gaining Pyro infusion and Blood Blossom."
+      },
+      {
+        "name": "Spirit Soother",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Massive AoE Pyro DMG, heals at low HP."
+      },
+      {
+        "name": "Flutter By",
+        "unlock": "1st Ascension Passive",
+        "type": "passive",
+        "description": "No Stamina cost for Charged Attacks in Paramita Papilio."
+      },
+      {
+        "name": "Sanguine Rouge",
+        "unlock": "4th Ascension Passive",
+        "type": "passive",
+        "description": "+33% Pyro DMG Bonus below 50% HP."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "Crimson Bouquet",
+        "description": "No Stamina cost for Charged Attacks."
+      },
+      {
+        "level": 2,
+        "name": "Ominous Rainfall",
+        "description": "Blood Blossom scales with Max HP; Burst applies it."
+      },
+      {
+        "level": 3,
+        "name": "Lingering Carmine",
+        "description": "+3 Guide to Afterlife Level."
+      },
+      {
+        "level": 4,
+        "name": "Garden of Eternal Rest",
+        "description": "+12% party CRIT Rate on kill."
+      },
+      {
+        "level": 5,
+        "name": "Floral Incense",
+        "description": "+3 Spirit Soother Level."
+      },
+      {
+        "level": 6,
+        "name": "Butterfly's Embrace",
+        "description": "Survive lethal blow once/60s with 200% CRIT Rate."
+      }
+    ]
+  },
+  {
+    "id": 10000047,
+    "name": "Kamisato Ayaka",
+    "title": "Frostflake Heron",
+    "element": "Cryo",
+    "weapon_type": "Sword",
+    "rarity": 5,
+    "region": "Inazuma",
+    "affiliation": "Kamisato Clan",
+    "description": "Daughter of the Yashiro Commission's Kamisato Clan.",
+    "base_hp_lvl90": 12858.0,
+    "base_atk_lvl90": 342.0,
+    "base_def_lvl90": 784.0,
+    "ascension_stat": "CRIT DMG",
+    "ascension_stat_val_lvl90": "38.4%",
+    "icon": "UI_AvatarIcon_Ayaka",
+    "talents": [
+      {
+        "name": "Kamisato Art - Kabuki",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Up to 5 rapid strikes."
+      },
+      {
+        "name": "Kamisato Art - Hyouka",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "AoE Cryo DMG ice bloom."
+      },
+      {
+        "name": "Kamisato Art - Soumetsu",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Frostflake Seki no To deals multi-hit Cryo DMG."
+      },
+      {
+        "name": "Amatsumi Kunitsumi Sanctification",
+        "unlock": "1st Ascension Passive",
+        "type": "passive",
+        "description": "+30% Normal/Charged DMG after Skill for 6s."
+      },
+      {
+        "name": "Kanten Senmyou Blessing",
+        "unlock": "4th Ascension Passive",
+        "type": "passive",
+        "description": "+18% Cryo DMG Bonus from Sprint for 10s."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "Snowswept Sakura",
+        "description": "50% chance to reduce Skill CD by 0.3s."
+      },
+      {
+        "level": 2,
+        "name": "Blizzard Blade Seki no To",
+        "description": "Two smaller Seki no To at 20% DMG."
+      },
+      {
+        "level": 3,
+        "name": "Frostbloom Kamifubuki",
+        "description": "+3 Soumetsu Level."
+      },
+      {
+        "level": 4,
+        "name": "Ebb and Flow",
+        "description": "-30% DEF on Seki no To hit."
+      },
+      {
+        "level": 5,
+        "name": "Blossom Cloud Irutsuki",
+        "description": "+3 Hyouka Level."
+      },
+      {
+        "level": 6,
+        "name": "Dance of Suigetsu",
+        "description": "+298% Charged Attack DMG every 10s."
+      }
+    ]
+  },
+  {
+    "id": 10000058,
+    "name": "Yae Miko",
+    "title": "Astute Amusement",
+    "element": "Electro",
+    "weapon_type": "Catalyst",
+    "rarity": 5,
+    "region": "Inazuma",
+    "affiliation": "Grand Narukami Shrine",
+    "description": "Lady Guuji of the Grand Narukami Shrine.",
+    "base_hp_lvl90": 10372.0,
+    "base_atk_lvl90": 340.0,
+    "base_def_lvl90": 569.0,
+    "ascension_stat": "CRIT Rate",
+    "ascension_stat_val_lvl90": "19.2%",
+    "icon": "UI_AvatarIcon_Yae",
+    "talents": [
+      {
+        "name": "Spiritfox Sin-Eater",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Kitsune spirits for up to 3 Electro DMG attacks."
+      },
+      {
+        "name": "Yakan Evocation: Sesshou Sakura",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Leaves Sesshou Sakura that periodically strike with Electro DMG."
+      },
+      {
+        "name": "Great Secret Art: Tenko Kenshin",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Destroys all Sesshou Sakura for AoE Electro DMG."
+      },
+      {
+        "name": "The Shrine's Sacred Shade",
+        "unlock": "1st Ascension Passive",
+        "type": "passive",
+        "description": "Burst resets Sesshou Sakura CD."
+      },
+      {
+        "name": "Enlightened Blessing",
+        "unlock": "4th Ascension Passive",
+        "type": "passive",
+        "description": "EM increases Sesshou Sakura DMG by 0.15% per point."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "Yakan Offering",
+        "description": "Burst restores 8 Energy."
+      },
+      {
+        "level": 2,
+        "name": "Fox's Mooncall",
+        "description": "Sesshou Sakura start at Level 2."
+      },
+      {
+        "level": 3,
+        "name": "The Seven Glamours",
+        "description": "+3 Sesshou Sakura Level."
+      },
+      {
+        "level": 4,
+        "name": "Sakura Channeling",
+        "description": "+20% Electro DMG Bonus for 5s."
+      },
+      {
+        "level": 5,
+        "name": "Mischievous Teasing",
+        "description": "+3 Tenko Kenshin Level."
+      },
+      {
+        "level": 6,
+        "name": "Forbidden Art: Daisesshou",
+        "description": "Sesshou Sakura ignore 60% DEF."
+      }
+    ]
+  },
+  {
+    "id": 10000060,
+    "name": "Yelan",
+    "title": "Valley Orchid",
+    "element": "Hydro",
+    "weapon_type": "Bow",
+    "rarity": 5,
+    "region": "Liyue",
+    "affiliation": "Ministry of Civil Affairs",
+    "description": "A mysterious intelligence officer of the Liyue Qixing.",
+    "base_hp_lvl90": 14450.0,
+    "base_atk_lvl90": 244.0,
+    "base_def_lvl90": 548.0,
+    "ascension_stat": "CRIT Rate",
+    "ascension_stat_val_lvl90": "19.2%",
+    "icon": "UI_AvatarIcon_Yelan",
+    "talents": [
+      {
+        "name": "Stealthy Bowshot",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Up to 4 rapid shots."
+      },
+      {
+        "name": "Lingering Lifeline",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Fires a Lifeline marking and dealing Hydro DMG."
+      },
+      {
+        "name": "Depth-Clarion Dice",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "AoE Hydro DMG; coordinates with Normal Attacks."
+      },
+      {
+        "name": "Turn Control",
+        "unlock": "1st Ascension Passive",
+        "type": "passive",
+        "description": "+6/12/18/30% Max HP based on party element types."
+      },
+      {
+        "name": "Adapt With Ease",
+        "unlock": "4th Ascension Passive",
+        "type": "passive",
+        "description": "Burst increases active character DMG by 1-50% over 14s."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "Enter the Plotters",
+        "description": "+1 Skill charge."
+      },
+      {
+        "level": 2,
+        "name": "Taking All Comers",
+        "description": "Extra water arrow at 14% Max HP."
+      },
+      {
+        "level": 3,
+        "name": "Beware the Trickster's Dice",
+        "description": "+3 Burst Level."
+      },
+      {
+        "level": 4,
+        "name": "Bait-and-Switch",
+        "description": "+10% Max HP per marked enemy, up to 40%."
+      },
+      {
+        "level": 5,
+        "name": "Dealer's Sleight",
+        "description": "+3 Skill Level."
+      },
+      {
+        "level": 6,
+        "name": "Winner Takes All",
+        "description": "Mastermind state with Breakthrough Barbs."
+      }
+    ]
+  },
+  {
+    "id": 10000078,
+    "name": "Alhaitham",
+    "title": "Empyrean Reflection",
+    "element": "Dendro",
+    "weapon_type": "Sword",
+    "rarity": 5,
+    "region": "Sumeru",
+    "affiliation": "Akademiya",
+    "description": "The current Scribe of the Sumeru Akademiya.",
+    "base_hp_lvl90": 13348.0,
+    "base_atk_lvl90": 313.0,
+    "base_def_lvl90": 782.0,
+    "ascension_stat": "Dendro DMG Bonus",
+    "ascension_stat_val_lvl90": "28.8%",
+    "icon": "UI_AvatarIcon_Alhatham",
+    "talents": [
+      {
+        "name": "Abductive Reasoning",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Up to 5 rapid sword strikes."
+      },
+      {
+        "name": "Universality: An Elaboration on Form",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Creates Chisel-Light Mirrors projecting Dendro DMG."
+      },
+      {
+        "name": "Particular Field: Fetters of Phenomena",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Multi-hit AoE Dendro DMG generating Mirrors."
+      },
+      {
+        "name": "Four-Causal Correction",
+        "unlock": "1st Ascension Passive",
+        "type": "passive",
+        "description": "Charged/Plunging Attacks generate Mirrors (10s CD)."
+      },
+      {
+        "name": "Mysteries Laid Bare",
+        "unlock": "4th Ascension Passive",
+        "type": "passive",
+        "description": "EM increases Mirror DMG by 0.1% per point."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "Intuition",
+        "description": "Mirror hits reduce Skill CD by 1.2s."
+      },
+      {
+        "level": 2,
+        "name": "Debate",
+        "description": "+50 EM per Mirror, max 4 stacks."
+      },
+      {
+        "level": 3,
+        "name": "Negation",
+        "description": "+3 Skill Level."
+      },
+      {
+        "level": 4,
+        "name": "Elucidation",
+        "description": "+30 party EM per Mirror, up to +120."
+      },
+      {
+        "level": 5,
+        "name": "Sagacity",
+        "description": "+3 Burst Level."
+      },
+      {
+        "level": 6,
+        "name": "Structuration",
+        "description": "+10/20/30% CRIT Rate by Mirror count."
+      }
+    ]
+  },
+  {
+    "id": 10000091,
+    "name": "Navia",
+    "title": "Helm of the Radiant Rose",
+    "element": "Geo",
+    "weapon_type": "Claymore",
+    "rarity": 5,
+    "region": "Fontaine",
+    "affiliation": "Spina di Rosula",
+    "description": "The head of Spina di Rosula, a passionate free-spirited leader.",
+    "base_hp_lvl90": 12650.0,
+    "base_atk_lvl90": 352.0,
+    "base_def_lvl90": 793.0,
+    "ascension_stat": "CRIT DMG",
+    "ascension_stat_val_lvl90": "38.4%",
+    "icon": "UI_AvatarIcon_Navia",
+    "talents": [
+      {
+        "name": "Blunt Refusal",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Up to 4 rapid claymore strikes."
+      },
+      {
+        "name": "Ceremonial Crystalshot",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Fires Rosula Shardshots dealing Geo DMG."
+      },
+      {
+        "name": "As the Sunlit Sky's Singing Salute",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Fires an Artillery Shell for AoE Geo DMG."
+      },
+      {
+        "name": "Undisclosed Distribution Channels",
+        "unlock": "1st Ascension Passive",
+        "type": "passive",
+        "description": "Crystal Shell stacks increase Skill DMG."
+      },
+      {
+        "name": "Mutual Assistance Network",
+        "unlock": "4th Ascension Passive",
+        "type": "passive",
+        "description": "+20% Skill DMG per Pyro/Electro/Cryo/Hydro member, max +40%."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "A Lady's Rules for Keeping a Courteous Distance",
+        "description": "+3 Energy per Crystal Shell consumed."
+      },
+      {
+        "level": 2,
+        "name": "The President's Pursuit of Victory",
+        "description": "+20% ATK per hit, max 5 stacks."
+      },
+      {
+        "level": 3,
+        "name": "Businesswoman's Broad Vision",
+        "description": "+3 Skill Level."
+      },
+      {
+        "level": 4,
+        "name": "The Oathsworn Never Capitulate",
+        "description": "-20% Geo RES for 8s on Skill hit."
+      },
+      {
+        "level": 5,
+        "name": "Negotiator's Resolute Negotiations",
+        "description": "+3 Burst Level."
+      },
+      {
+        "level": 6,
+        "name": "The Flexible Tenets of the Spina's President",
+        "description": "+12% CRIT Rate, +28% CRIT DMG per extra Shell."
+      }
+    ]
+  },
+  {
+    "id": 10000095,
+    "name": "Clorinde",
+    "title": "Candlebearer, Shadowhunter",
+    "element": "Electro",
+    "weapon_type": "Sword",
+    "rarity": 5,
+    "region": "Fontaine",
+    "affiliation": "Maison Gardiennage",
+    "description": "A Champions Duelist of the Court of Fontaine.",
+    "base_hp_lvl90": 13289.0,
+    "base_atk_lvl90": 337.0,
+    "base_def_lvl90": 784.0,
+    "ascension_stat": "CRIT Rate",
+    "ascension_stat_val_lvl90": "19.2%",
+    "icon": "UI_AvatarIcon_Clorinde",
+    "talents": [
+      {
+        "name": "Oath of Hunting Shadows",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Up to 5 rapid strikes."
+      },
+      {
+        "name": "Hunter's Vigil",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Night Vigil state with Electro gunblade strikes."
+      },
+      {
+        "name": "Last Lightfall",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Devastating AoE Electro DMG."
+      },
+      {
+        "name": "Dark-Shattering Flame",
+        "unlock": "1st Ascension Passive",
+        "type": "passive",
+        "description": "Night Vigil gains bonus DMG at high Bond of Life."
+      },
+      {
+        "name": "Lawful Remuneration",
+        "unlock": "4th Ascension Passive",
+        "type": "passive",
+        "description": "Bond of Life increases Night Vigil attack DMG."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "From This Day, I Pass the Candle's Shadow-Loss",
+        "description": "+30% Night Vigil DMG during Bond of Life."
+      },
+      {
+        "level": 2,
+        "name": "Now, as We Face the Perils of the Long Night",
+        "description": "+15% CRIT Rate, +30% CRIT DMG vs <50% HP."
+      },
+      {
+        "level": 3,
+        "name": "I Pledge to Remember theErta of Days Past",
+        "description": "+3 Skill Level."
+      },
+      {
+        "level": 4,
+        "name": "To Etch the Souls of the Blameless in Stone",
+        "description": "+20% party ATK for 15s after Burst."
+      },
+      {
+        "level": 5,
+        "name": "Holding Dawn's Coming in My Hands",
+        "description": "+3 Burst Level."
+      },
+      {
+        "level": 6,
+        "name": "And So Shall I Never Despair",
+        "description": "+10% CRIT Rate, +100% CRIT DMG in Night Vigil."
+      }
+    ]
+  },
+  {
+    "id": 10000086,
+    "name": "Wriothesley",
+    "title": "Emissary of Solitary Iniquity",
+    "element": "Cryo",
+    "weapon_type": "Catalyst",
+    "rarity": 5,
+    "region": "Fontaine",
+    "affiliation": "Fortress of Meropide",
+    "description": "The Duke of the Fortress of Meropide.",
+    "base_hp_lvl90": 13593.0,
+    "base_atk_lvl90": 228.0,
+    "base_def_lvl90": 900.0,
+    "ascension_stat": "CRIT DMG",
+    "ascension_stat_val_lvl90": "38.4%",
+    "icon": "UI_AvatarIcon_Wriothesley",
+    "talents": [
+      {
+        "name": "Forceful Fists of Frost",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Frost boxing for up to 5 rapid strikes."
+      },
+      {
+        "name": "Icefang Rush",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Chilling Penalty state with Cryo-infused combos."
+      },
+      {
+        "name": "Darkgold Wolfbite",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Massive Cryo uppercut AoE DMG."
+      },
+      {
+        "name": "There Shall Be a Plea for Justice",
+        "unlock": "1st Ascension Passive",
+        "type": "passive",
+        "description": "Bonus DMG below 60% HP during Chilling Penalty."
+      },
+      {
+        "name": "There Shall Be a Reckoning for Sin",
+        "unlock": "4th Ascension Passive",
+        "type": "passive",
+        "description": "HP changes grant CRIT Rate."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "Terror for the Evildoers",
+        "description": "Enhanced attacks heal Wriothesley."
+      },
+      {
+        "level": 2,
+        "name": "Shackles for the Arrogant",
+        "description": "+40% Burst DMG per Prosecution Edict stack."
+      },
+      {
+        "level": 3,
+        "name": "Imprisonment for the Offenders",
+        "description": "+3 Skill Level."
+      },
+      {
+        "level": 4,
+        "name": "Redemption for the Suffering",
+        "description": "+8 Energy; +80% next Charged Attack DMG."
+      },
+      {
+        "level": 5,
+        "name": "Mercy for the Wronged",
+        "description": "+3 Burst Level."
+      },
+      {
+        "level": 6,
+        "name": "Esteem for the Innocent",
+        "description": "+10% CRIT Rate, +80% CRIT DMG during Chilling Penalty."
+      }
+    ]
+  },
+  {
+    "id": 10000084,
+    "name": "Lyney",
+    "title": "Spectacle of Phantasmagoria",
+    "element": "Pyro",
+    "weapon_type": "Bow",
+    "rarity": 5,
+    "region": "Fontaine",
+    "affiliation": "Hotel Bouffes d'ete",
+    "description": "A famous magician in Fontaine.",
+    "base_hp_lvl90": 10309.0,
+    "base_atk_lvl90": 334.0,
+    "base_def_lvl90": 542.0,
+    "ascension_stat": "CRIT Rate",
+    "ascension_stat_val_lvl90": "19.2%",
+    "icon": "UI_AvatarIcon_Lyney",
+    "talents": [
+      {
+        "name": "Card Force Translocation",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Up to 4 shots; Charged shots fire Prop Arrows."
+      },
+      {
+        "name": "Bewildering Lights",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Grin-Malkin Cat dealing AoE Pyro DMG."
+      },
+      {
+        "name": "Wondrous Trick: Miracle Parade",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Continuous Pyro DMG along path; increases Prop Surplus."
+      },
+      {
+        "name": "Perilous Performance",
+        "unlock": "1st Ascension Passive",
+        "type": "passive",
+        "description": "+20% Pyro DMG Bonus at <=60% HP."
+      },
+      {
+        "name": "Conclusive Ovation",
+        "unlock": "4th Ascension Passive",
+        "type": "passive",
+        "description": "+60/80/100% ATK per Pyro member using Prop Arrow."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "Whimsical Wonders",
+        "description": "+1 extra Prop Arrow."
+      },
+      {
+        "level": 2,
+        "name": "Loquacious Precision",
+        "description": "+20% CRIT DMG; +20% more on Pyro reaction."
+      },
+      {
+        "level": 3,
+        "name": "Prestidigitation",
+        "description": "+3 Burst Level."
+      },
+      {
+        "level": 4,
+        "name": "Well-Versed, Well-Rehearsed",
+        "description": "-20% Pyro RES for 6s."
+      },
+      {
+        "level": 5,
+        "name": "To Pierce Enigmas",
+        "description": "+3 Skill Level."
+      },
+      {
+        "level": 6,
+        "name": "Guarded Smile",
+        "description": "+1 extra Pyrotechnic Strike."
+      }
+    ]
+  },
+  {
+    "id": 10000102,
+    "name": "Mualani",
+    "title": "Splish-Splash Wavechaser",
+    "element": "Hydro",
+    "weapon_type": "Catalyst",
+    "rarity": 5,
+    "region": "Natlan",
+    "affiliation": "People of the Springs",
+    "description": "A passionate waverider and guide from the People of the Springs.",
+    "base_hp_lvl90": 13348.0,
+    "base_atk_lvl90": 180.0,
+    "base_def_lvl90": 632.0,
+    "ascension_stat": "CRIT Rate",
+    "ascension_stat_val_lvl90": "19.2%",
+    "icon": "UI_AvatarIcon_Mualani",
+    "talents": [
+      {
+        "name": "Cooling Treatment",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Hurls Hydro DMG projectiles."
+      },
+      {
+        "name": "Surfshark Wavebreaker",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Rides sharksurfer with Nightsoul blessing, marking opponents."
+      },
+      {
+        "name": "Boomsharka-laka",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Super Shark Missile deals AoE Hydro DMG."
+      },
+      {
+        "name": "Heatproofستار",
+        "unlock": "1st Ascension Passive",
+        "type": "passive",
+        "description": "Wave Momentum marks grant bonus Hydro DMG."
+      },
+      {
+        "name": "Natlan Tourism Champion",
+        "unlock": "4th Ascension Passive",
+        "type": "passive",
+        "description": "Nightsoul Burst stacks increase Skill DMG."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "The Leisurely Meztli",
+        "description": "+66% Sharky Missile DMG."
+      },
+      {
+        "level": 2,
+        "name": "Tepetlisaurus' Roar",
+        "description": "+1 Wave Momentum on marked hit."
+      },
+      {
+        "level": 3,
+        "name": "Surfing Atop Joyous Seas",
+        "description": "+3 Skill Level."
+      },
+      {
+        "level": 4,
+        "name": "Sharky Eats Puffies",
+        "description": "+8 Energy on marked hit."
+      },
+      {
+        "level": 5,
+        "name": "Same Style of Surf",
+        "description": "+3 Burst Level."
+      },
+      {
+        "level": 6,
+        "name": "Spirit of the Springs' People",
+        "description": "+2 Wave Momentum stacks on activation."
+      }
+    ]
+  },
+  {
+    "id": 10000103,
+    "name": "Xilonen",
+    "title": "Ardent Flames Forge the Soul",
+    "element": "Geo",
+    "weapon_type": "Sword",
+    "rarity": 5,
+    "region": "Natlan",
+    "affiliation": "Children of Echoes",
+    "description": "A masterful forgemaster and DJ from Natlan.",
+    "base_hp_lvl90": 12405.0,
+    "base_atk_lvl90": 275.0,
+    "base_def_lvl90": 930.0,
+    "ascension_stat": "DEF%",
+    "ascension_stat_val_lvl90": "28.8%",
+    "icon": "UI_AvatarIcon_Xilonen",
+    "talents": [
+      {
+        "name": "Ehecatl's Roar",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Up to 3 strikes; roller blade attacks in Nightsoul."
+      },
+      {
+        "name": "Yohualcoatl's Ring of Buzzing",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Nightsoul Blessing with RES-shredding Samplers."
+      },
+      {
+        "name": "Ocelotlicue Point!",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "AoE Geo DMG and DEF-based healing."
+      },
+      {
+        "name": "Netotiliztli Revolution",
+        "unlock": "1st Ascension Passive",
+        "type": "passive",
+        "description": "Geo RES shred converts to party's dominant element."
+      },
+      {
+        "name": "Portable Armored Sheath",
+        "unlock": "4th Ascension Passive",
+        "type": "passive",
+        "description": "Enhanced RES shred in Nightsoul Blessing."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "Sabbatical Phrase",
+        "description": "Extended Nightsoul Blessing duration."
+      },
+      {
+        "level": 2,
+        "name": "Chiucue Mix",
+        "description": "+50 EM for nearby active characters."
+      },
+      {
+        "level": 3,
+        "name": "Tonalpohualli Routine",
+        "description": "+3 Skill Level."
+      },
+      {
+        "level": 4,
+        "name": "Suchitl's Trance",
+        "description": "+25% Geo DMG Bonus for 15s after Burst."
+      },
+      {
+        "level": 5,
+        "name": "Tlaltecuhtli's Crossfade",
+        "description": "+3 Burst Level."
+      },
+      {
+        "level": 6,
+        "name": "Imperishable Night Carnival",
+        "description": "+20% DMG Bonus for party element."
+      }
+    ]
+  },
+  {
+    "id": 10000070,
+    "name": "Cyno",
+    "title": "Judicator of Secrets",
+    "element": "Electro",
+    "weapon_type": "Polearm",
+    "rarity": 5,
+    "region": "Sumeru",
+    "affiliation": "Akademiya Matra",
+    "description": "General Mahamatra of the Akademiya.",
+    "base_hp_lvl90": 12491.0,
+    "base_atk_lvl90": 318.0,
+    "base_def_lvl90": 859.0,
+    "ascension_stat": "CRIT DMG",
+    "ascension_stat_val_lvl90": "38.4%",
+    "icon": "UI_AvatarIcon_Cyno",
+    "talents": [
+      {
+        "name": "Invoker's Spear",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Up to 4 rapid polearm strikes."
+      },
+      {
+        "name": "Secret Rite: Chasmic Soulfarer",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Rapid Electro DMG thrust."
+      },
+      {
+        "name": "Sacred Rite: Wolf's Swiftness",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Pactsworn Pathclearer with Electro infusion and EM boost."
+      },
+      {
+        "name": "Featherfall Judgment",
+        "unlock": "1st Ascension Passive",
+        "type": "passive",
+        "description": "Duststalker Bolts during Pathclearer Skill use."
+      },
+      {
+        "name": "Authority Over the Nine Bows",
+        "unlock": "4th Ascension Passive",
+        "type": "passive",
+        "description": "Normal Attack DMG +150% of EM during Pathclearer."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "Ordinance: Unceasing Vigil",
+        "description": "+20% ATK SPD for 10s."
+      },
+      {
+        "level": 2,
+        "name": "Ceremony: Homecoming of Spirits",
+        "description": "+10% Electro DMG per hit, max 5 stacks."
+      },
+      {
+        "level": 3,
+        "name": "Precept: Lawful Enforcer",
+        "description": "+3 Burst Level."
+      },
+      {
+        "level": 4,
+        "name": "Austerity: Forbidding Guard",
+        "description": "+3 Energy on Electro reaction."
+      },
+      {
+        "level": 5,
+        "name": "Funerary Rite: The Passing of Starlight",
+        "description": "+3 Skill Level."
+      },
+      {
+        "level": 6,
+        "name": "Raiment: Just Scales",
+        "description": "2 Duststalker Bolts every 4 Normal Attacks."
+      }
+    ]
+  },
+  {
+    "id": 10000071,
+    "name": "Wanderer",
+    "title": "Eons Adrift",
+    "element": "Anemo",
+    "weapon_type": "Catalyst",
+    "rarity": 5,
+    "region": "Sumeru",
+    "affiliation": "None",
+    "description": "A wandering puppet who walks his own path.",
+    "base_hp_lvl90": 10164.0,
+    "base_atk_lvl90": 328.0,
+    "base_def_lvl90": 607.0,
+    "ascension_stat": "CRIT Rate",
+    "ascension_stat_val_lvl90": "19.2%",
+    "icon": "UI_AvatarIcon_Wanderer",
+    "talents": [
+      {
+        "name": "Yuuban Meigen",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Up to 3 wind-blade Anemo DMG attacks."
+      },
+      {
+        "name": "Hanega: Song of the Wind",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Windfavored state hovering with enhanced attacks."
+      },
+      {
+        "name": "Kyougen: Five Ceremonial Plays",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "Vacuum AoE Anemo DMG."
+      },
+      {
+        "name": "Jade-Claimed Flower",
+        "unlock": "1st Ascension Passive",
+        "type": "passive",
+        "description": "+20% ATK/DMG/CRIT Rate on elemental contact."
+      },
+      {
+        "name": "Gales of Reverie",
+        "unlock": "4th Ascension Passive",
+        "type": "passive",
+        "description": "Anemo DMG arrows in Windfavored state."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "Shoban: Ostentatious Plumage",
+        "description": "+10% ATK SPD in Windfavored."
+      },
+      {
+        "level": 2,
+        "name": "Niban: Moonlit Isle of Precedence",
+        "description": "Burst field increases ATK DMG."
+      },
+      {
+        "level": 3,
+        "name": "Sanban: Moonflower Kusemai",
+        "description": "+3 Skill Level."
+      },
+      {
+        "level": 4,
+        "name": "Yonban: Set Adrift into Spring",
+        "description": "+25% Anemo DMG at 2+ elements."
+      },
+      {
+        "level": 5,
+        "name": "Matsuban: Ancient Illuminator From Abroad",
+        "description": "+3 Burst Level."
+      },
+      {
+        "level": 6,
+        "name": "Shugen: The Curtains' Melancholic Sway",
+        "description": "Wind arrows at 40% ATK as Anemo DMG."
+      }
+    ]
+  },
+  {
+    "id": 10000054,
+    "name": "Yoimiya",
+    "title": "Frolicking Flames",
+    "element": "Pyro",
+    "weapon_type": "Bow",
+    "rarity": 5,
+    "region": "Inazuma",
+    "affiliation": "Naganohara Fireworks",
+    "description": "The Queen of the Summer Festival.",
+    "base_hp_lvl90": 10164.0,
+    "base_atk_lvl90": 323.0,
+    "base_def_lvl90": 615.0,
+    "ascension_stat": "CRIT Rate",
+    "ascension_stat_val_lvl90": "19.2%",
+    "icon": "UI_AvatarIcon_Yoimiya",
+    "talents": [
+      {
+        "name": "Firework Flare-Up",
+        "unlock": "Normal Attack",
+        "type": "normal",
+        "description": "Up to 5 rapid shots."
+      },
+      {
+        "name": "Niwabi Fire-Dance",
+        "unlock": "Elemental Skill",
+        "type": "skill",
+        "description": "Pyro-infused Normal Attacks with increased DMG."
+      },
+      {
+        "name": "Ryuukin Saxifrage",
+        "unlock": "Elemental Burst",
+        "type": "burst",
+        "description": "AoE Pyro DMG; marks opponent with Aurous Blaze."
+      },
+      {
+        "name": "Tricks of the Trouble-Maker",
+        "unlock": "1st Ascension Passive",
+        "type": "passive",
+        "description": "Stacking Pyro DMG Bonus for party."
+      },
+      {
+        "name": "Summer Night's Dawn",
+        "unlock": "4th Ascension Passive",
+        "type": "passive",
+        "description": "+10% party ATK for 15s after Burst."
+      }
+    ],
+    "constellations": [
+      {
+        "level": 1,
+        "name": "Agate Ryuukin",
+        "description": "+4s Aurous Blaze; +20% ATK on kill."
+      },
+      {
+        "level": 2,
+        "name": "A Procession of Bonfires",
+        "description": "+25% Pyro DMG Bonus for 6s."
+      },
+      {
+        "level": 3,
+        "name": "Trickster's Flare",
+        "description": "+3 Skill Level."
+      },
+      {
+        "level": 4,
+        "name": "Pyrotechnic Professional",
+        "description": "-1.2s Skill CD on Aurous Blaze trigger."
+      },
+      {
+        "level": 5,
+        "name": "A Summer Festival's Eve",
+        "description": "+3 Burst Level."
+      },
+      {
+        "level": 6,
+        "name": "Naganohara Meteor Swarm",
+        "description": "50% chance for extra kindling arrow."
+      }
+    ]
+  }
+]
