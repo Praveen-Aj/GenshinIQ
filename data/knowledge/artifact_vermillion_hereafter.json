@@ -1,0 +1,21 @@
+{
+  "id": "artifact_vermillion_hereafter",
+  "title": "Vermillion Hereafter — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Vermillion_Hereafter",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:54Z",
+    "tags": [
+      "Vermillion Hereafter",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for Vermillion Hereafter. 2pc: ATK +18%; 4pc: After using an Elemental Burst. this character will gain the Nascent Light effec",
+  "content": "# Vermillion Hereafter — Artifact Set Reference\n\n- **Max Rarity**: ★★★★★\n\n## 2-Piece Bonus\nATK +18%\n\n## 4-Piece Bonus\nAfter using an Elemental Burst. this character will gain the Nascent Light effect, increasing their ATK by 8% for 16s. When the character's HP decreases, their ATK will further increase by 10%. This increase can occur this way maximum of 4 times. This effect can be triggered once every 0.8s. Nascent Light will be dispelled when the character leaves the field. If an Elemental Burst is used again during the duration of Nascent Light, the original Nascent Light will be dispelled.\n"
+}

@@ -2,6 +2,7 @@
 
 import logging
 import re
+from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 
 from backend.models.chat import ChatMessage, ChatResponse, Citation
@@ -19,24 +20,81 @@ class RAGService:
     def __init__(self):
         pass
 
-    def _classify_query(self, query: str) -> str:
+    def _get_latest_game_version(self) -> str:
+        """Helper to scan loaded knowledge base documents and return the latest game version."""
+        try:
+            versions = [doc.metadata.game_version for doc in knowledge_service.documents.values() if doc.metadata.game_version]
+            if not versions:
+                return "6.0"
+            parsed = []
+            for v in versions:
+                parts = []
+                for part in v.split("."):
+                    digits = "".join([c for c in part if c.isdigit()])
+                    if digits:
+                        parts.append(int(digits))
+                if parts:
+                    parsed.append((parts, v))
+            if not parsed:
+                return "6.0"
+            parsed.sort()
+            return parsed[-1][1]
+        except Exception:
+            return "6.0"
+
+    def _classify_query(self, query: str, uid: Optional[str] = None) -> str:
         """
         Classifies query intent as 'account' or 'general'.
-        If query references 'my', 'mine', 'showcase', etc., it's 'account'.
         """
         query_lower = query.lower()
+        
+        # 1. General guide / theorycrafting indicators take precedence
+        general_indicators = [
+            r"\brecommend",
+            r"\bguide\b",
+            r"\baccording to\b",
+            r"\bkqm\b",
+            r"\bwiki\b",
+            r"\bbest\b",
+            r"\boption",
+            r"\bhow to build\b",
+            r"\bshould i\b",
+            r"\bwhat is the best\b",
+        ]
+        for pattern in general_indicators:
+            if re.search(pattern, query_lower):
+                return "general"
+
+        # 2. Strong account indicators
         account_keywords = [
             r"\bmy\b",
             r"\bmine\b",
             r"\bi have\b",
             r"\bi've\b",
             r"\bshowcase\b",
-            r"\bme\b",
             r"\bi am\b",
+            r"\bdo i\b",
+            r"\bmy account\b",
         ]
         for pattern in account_keywords:
             if re.search(pattern, query_lower):
                 return "account"
+
+        # 3. Specific build detail questions on characters
+        char_name = self._detect_character(query)
+        if char_name:
+            build_indicators = [
+                r"\bweapon level\b",
+                r"\brefinement\b",
+                r"\bconstellation\b",
+                r"\btalent\b",
+                r"\bequipped\b",
+                r"\bactive\b",
+            ]
+            for pattern in build_indicators:
+                if re.search(pattern, query_lower):
+                    return "account"
+
         return "general"
 
     def _detect_character(self, query: str) -> Optional[str]:
@@ -45,8 +103,20 @@ class RAGService:
         Returns matched character name (properly capitalized) or None.
         """
         query_lower = query.lower()
-        characters = game_data_service.list_characters()
         
+        # 1. Scan enka mappings first (contains Snezhnaya / newest characters like Citlali)
+        try:
+            from backend.services.enka_mappings import CHARACTER_DATABASE
+            for mapping in CHARACTER_DATABASE.values():
+                char_name = mapping[0]
+                pattern = rf"\b{re.escape(char_name.lower())}\b"
+                if re.search(pattern, query_lower):
+                    return char_name
+        except Exception:
+            pass
+
+        # 2. Fallback to database characters
+        characters = game_data_service.list_characters()
         for char in characters:
             # Match word boundary for character name
             pattern = rf"\b{re.escape(char.name.lower())}\b"
@@ -132,7 +202,7 @@ Artifact Pieces Equipped:
         latest_msg = messages[-1]
         query = latest_msg.content
         
-        intent = self._classify_query(query)
+        intent = self._classify_query(query, uid=uid)
         char_name = self._detect_character(query)
         
         context_blocks = []
@@ -203,13 +273,20 @@ Artifact Pieces Equipped:
                 )
 
         # 3. Assemble Prompt & Guardrails
+        current_date_str = datetime.now().strftime("%B %Y")
+        latest_game_version = self._get_latest_game_version()
+        
         system_instruction = (
             "You are GenshinIQ, a personal Genshin Impact AI assistant. Your goal is to provide highly accurate, "
             "grounded character build reviews and game theorycrafting advice. You must adhere to the following rules:\n"
-            "1. Answer ONLY from the supplied evidence, structured data, or user account build details in the context block.\n"
-            "2. Do NOT invent or hallucinate game mechanics, statistics, or character recommendations. Keep recommendations aligned with official or KQM guidelines.\n"
-            "3. If the supplied context does not contain enough reliable information to answer the question, state exactly: "
-            "'I don't have enough reliable information to answer that.' and explain what is missing.\n"
+            f"0. CRITICAL CONTEXT: The current date is {current_date_str}. The current live version of Genshin Impact is Version {latest_game_version} (Snezhnaya release phase). "
+            "All version-related queries and general gameplay context must align with this version context.\n"
+            "1. For questions about the user's specific account showcase, builds, or specific local character guide statistics, "
+            "answer strictly using the supplied context block. Do not invent stats or builds.\n"
+            "2. For general Genshin Impact questions (such as lore, general mechanics, patch updates, or version status) "
+            "that are not fully covered in the local context, you are permitted to answer using your general knowledge of the game. "
+            "In this case, note clearly in your response that you are answering from general knowledge.\n"
+            "3. If a question cannot be answered either by the local context or your general knowledge, state that information is insufficient.\n"
             "4. Be concise, structure your answer using clean markdown headings and bullet points.\n"
             "5. Cite the KQM or official source when referring to recommendations or facts. Link elements matching their URLs when appropriate."
         )

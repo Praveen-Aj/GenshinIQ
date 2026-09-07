@@ -1,0 +1,21 @@
+{
+  "id": "artifact_echoes_of_an_offering",
+  "title": "Echoes of an Offering — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Echoes_of_an_Offering",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:30Z",
+    "tags": [
+      "Echoes of an Offering",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for Echoes of an Offering. 2pc: ATK +18%; 4pc: When Normal Attacks hit opponents, there is a 36% chance that it will trigger Va",
+  "content": "# Echoes of an Offering — Artifact Set Reference\n\n- **Max Rarity**: ★★★★★\n\n## 2-Piece Bonus\nATK +18%\n\n## 4-Piece Bonus\nWhen Normal Attacks hit opponents, there is a 36% chance that it will trigger Valley Rite, which will increase Normal Attack DMG by 70% of ATK. \nThis effect will be dispelled 0.05s after a Normal Attack deals DMG. \nIf a Normal Attack fails to trigger Valley Rite, the odds of it triggering the next time will increase by 20%. \nThis trigger can occur once every 0.2s.\n"
+}

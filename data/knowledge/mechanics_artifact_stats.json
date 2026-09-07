@@ -1,0 +1,17 @@
+{
+  "id": "mechanics_artifact_stats",
+  "title": "Genshin Impact Artifact Stats, Rolls, and CV Scaling",
+  "metadata": {
+    "source": "Genshin Impact Statistical Theorycrafting / KQM",
+    "source_url": "https://library.keqingmains.com/equipment/artifacts",
+    "source_type": "STATISTICAL",
+    "character": null,
+    "topic": "Game Mechanics",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2024-05-15T00:00:00Z",
+    "tags": ["Artifact Stats", "Substats", "Main Stats", "CRIT Value", "CV", "Probability", "Theorycrafting"]
+  },
+  "summary": "Detailed breakdown of artifact main stat pools per slot, substat rolls distributions, RNG weighting, and mathematical formula for calculating CRIT Value (CV).",
+  "content": "# Genshin Impact Artifact Stats, Rolls, and CV Scaling\n\n## Main Stat Slots\nArtifacts consist of 5 gear slots. Certain slots have fixed main stats, while others draw from a random pool:\n\n| Slot | Fixed Main Stat | Eligible Random Main Stats |\n|------|-----------------|---------------------------|\n| **Flower of Life** | HP (Flat) | None |\n| **Plume of Death** | ATK (Flat) | None |\n| **Sands of Eon** | None | ATK%, DEF%, HP%, Energy Recharge%, Elemental Mastery |\n| **Goblet of Eonothem** | None | Elemental DMG Bonus% (Pyro/Hydro/etc.), Physical DMG Bonus%, ATK%, DEF%, HP%, Elemental Mastery |\n| **Circlet of Logos** | None | CRIT Rate%, CRIT DMG%, Healing Bonus%, ATK%, DEF%, HP%, Elemental Mastery |\n\n---\n\n## Substat Generation and Rolls\n- A 5-star artifact starts with either **3 or 4 substats**.\n- An artifact cannot have a substat that matches its main stat.\n- At levels 4, 8, 12, 16, and 20, the artifact either gains a new substat (if it started with 3) or upgrades a random existing substat (if it started with 4) by a random roll tier.\n\n### Substat Roll Tiers (5-Star Artifacts)\nUpgrades are drawn randomly from four potential tiers (70%, 80%, 90%, or 100% of maximum value):\n\n| Substat | Min Roll (70%) | Mid-Low (80%) | Mid-High (90%) | Max Roll (100%) |\n|---------|----------------|----------------|----------------|-----------------|\n| **CRIT Rate%** | 2.7% | 3.1% | 3.5% | 3.9% |\n| **CRIT DMG%** | 5.4% | 6.2% | 7.0% | 7.8% |\n| **ATK%** | 4.1% | 4.7% | 5.3% | 5.8% |\n| **HP%** | 4.1% | 4.7% | 5.3% | 5.8% |\n| **DEF%** | 5.1% | 5.8% | 6.6% | 7.3% |\n| **Energy Recharge%** | 4.5% | 5.2% | 5.8% | 6.5% |\n| **Elemental Mastery** | 16 | 19 | 21 | 23 |\n| **Flat ATK** | 14 | 16 | 18 | 19 |\n| **Flat HP** | 209 | 239 | 269 | 299 |\n| **Flat DEF** | 16 | 19 | 21 | 23 |\n\n---\n\n## CRIT Value (CV) Calculation\nTo evaluate the offensive quality of an artifact, theorycrafters calculate its **CRIT Value (CV)**. Since 1% of CRIT Rate is statistically worth 2% of CRIT DMG based on stat allocation ratios:\n\n$$\\text{CV} = (2 \\times \\text{CRIT Rate \\%}) + \\text{CRIT DMG \\%}$$\n\n*Note: Main stats are excluded from CV calculations; only substats are counted.*\n\n### CV Standards (For individual flower/plume/sands/goblet):\n- **Low Investment (Below 20 CV)**: Needs improvement.\n- **Decent (20–30 CV)**: Solid mid-game or support artifact.\n- **High Investment (30–40 CV)**: Very strong artifact; hard to upgrade.\n- **God Roll (40+ CV)**: Extremely rare, near-perfect substat rolls."
+}

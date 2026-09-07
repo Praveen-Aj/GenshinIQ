@@ -1,0 +1,21 @@
+{
+  "id": "artifact_defender_s_will",
+  "title": "Defender's Will — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Defender%27s_Will",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:29Z",
+    "tags": [
+      "Defender's Will",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for Defender's Will. 2pc: Base DEF +30%; 4pc: Increases Elemental RES by 30% for each element present in the party.",
+  "content": "# Defender's Will — Artifact Set Reference\n\n- **Max Rarity**: ★★★★\n\n## 2-Piece Bonus\nBase DEF +30%\n\n## 4-Piece Bonus\nIncreases Elemental RES by 30% for each element present in the party.\n"
+}

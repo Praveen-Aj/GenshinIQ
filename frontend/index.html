@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20260907_1630">
 </head>
 <body>
   <div class="app-container">
@@ -34,19 +34,24 @@
     <!-- Navigation Tabs -->
     <nav class="nav-tabs" role="tablist">
       <button class="nav-tab" data-tab="chat" id="tab-btn-chat" role="tab" aria-selected="false">
-        <span class="tab-icon">💬</span> Chat Assistant
+        <svg class="tab-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        <span>Chat Assistant</span>
       </button>
       <button class="nav-tab" data-tab="account" id="tab-btn-account" role="tab" aria-selected="false">
-        <span class="tab-icon">👤</span> My Account
+        <svg class="tab-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        <span>My Account</span>
       </button>
-      <button class="nav-tab" data-tab="characters" id="tab-btn-characters" role="tab" aria-selected="true">
-        <span class="tab-icon">⚔️</span> Characters &amp; Data
+      <button class="nav-tab active" data-tab="characters" id="tab-btn-characters" role="tab" aria-selected="true">
+        <svg class="tab-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        <span>Characters &amp; Data</span>
       </button>
       <button class="nav-tab" data-tab="knowledge" id="tab-btn-knowledge" role="tab" aria-selected="false">
-        <span class="tab-icon">📖</span> Guides &amp; Mechanics
+        <svg class="tab-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        <span>Guides &amp; Mechanics</span>
       </button>
       <button class="nav-tab" data-tab="diagnostics" id="tab-btn-diagnostics" role="tab" aria-selected="false">
-        <span class="tab-icon">⚡</span> System Health
+        <svg class="tab-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        <span>System Health</span>
       </button>
     </nav>
 
@@ -130,7 +135,7 @@
               <p class="profile-sig" id="prof-sig">"No signature set."</p>
               <div class="profile-meta-row">
                 <span class="meta-item">🏆 Achievements: <strong id="prof-achievements">0</strong></span>
-                <span class="meta-item">🌀 Spiral Abyss: <strong id="prof-abyss">Floor 12</strong></span>
+                <span class="meta-item meta-clickable" id="prof-abyss-wrap" style="cursor: pointer;" title="Click to ask AI for Abyss team recommendations">🌀 Spiral Abyss: <strong id="prof-abyss">Floor 12</strong> <span style="font-size: 11px; color: var(--accent-gold); margin-left: 4px; text-decoration: underline;">[Ask Teams]</span></span>
                 <span class="meta-item">👥 Showcase: <strong id="prof-char-count">0 characters</strong></span>
               </div>
             </div>
@@ -140,8 +145,14 @@
         <!-- Showcase Characters Selector Carousel -->
         <div id="character-selector-container" class="character-selector-wrap" style="display: none;">
           <div class="showcase-header-row" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <h3>Showcase Characters</h3>
-            <span class="info-tooltip" style="font-size: 11px; color: var(--text-muted); cursor: help; border-bottom: 1px dashed var(--text-muted); padding-bottom: 2px;" title="Enka.Network API only exposes the characters placed in your active in-game profile Showcase (up to 8 characters). Add characters to your showcase in-game and make details public to see them here.">ℹ️ Showcase Limit Info</span>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <h3>Showcase Characters</h3>
+              <div class="carousel-nav-btns" style="display: flex; gap: 6px;">
+                <button id="carousel-prev-btn" class="btn btn-secondary btn-sm" style="padding: 2px 10px; font-size: 16px; line-height: 1;" title="Scroll Left">‹</button>
+                <button id="carousel-next-btn" class="btn btn-secondary btn-sm" style="padding: 2px 10px; font-size: 16px; line-height: 1;" title="Scroll Right">›</button>
+              </div>
+            </div>
+            <span class="info-tooltip" style="font-size: 11px; color: var(--text-muted); cursor: help; border-bottom: 1px dashed var(--text-muted); padding-bottom: 2px;" title="Enka.Network API exposes characters placed in your in-game profile Showcase.">ℹ️ Showcase Limit Info</span>
           </div>
           <div class="character-chips-scroll" id="character-chips-list"></div>
         </div>
@@ -149,33 +160,46 @@
         <!-- Active Character Detail View -->
         <div id="active-character-view" class="character-detail-container" style="display: none;">
           <div class="build-left-col">
-            <div class="card card-glass char-summary-card">
-              <div class="char-header-row" style="display: flex; gap: 16px; align-items: center;">
-                <img id="char-large-avatar" class="char-large-avatar" src="" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_AvatarIcon_NPC.png'" alt="avatar" style="width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--accent-gold); background: rgba(0,0,0,0.3); object-fit: cover;">
-                <div>
-                  <h2 id="char-name" class="char-title">Arlecchino</h2>
-                  <div class="char-sub-row">
-                    <span id="char-element" class="elem-badge elem-pyro">Pyro</span>
-                    <span id="char-level" class="badge badge-secondary">Lv. 90/90</span>
-                    <span id="char-constellation" class="badge badge-gold">C0</span>
-                    <span id="char-friendship" class="badge badge-friendship">♥ 10</span>
+            <div class="card card-glass char-summary-card" id="active-char-summary-card">
+              <!-- Hero Banner with Splash Art Background -->
+              <div class="char-hero-banner" id="active-char-hero-banner">
+                <img id="active-char-hero-bg" class="char-hero-bg" src="" alt="" style="display: none;">
+                <div class="char-hero-content">
+                  <div style="position: relative; flex-shrink: 0;">
+                    <img id="char-large-avatar" class="char-hero-avatar rarity-5-border" src="" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_AvatarIcon_NPC.png'" alt="avatar">
+                    <div id="char-element-icon-wrap" style="position: absolute; top: -4px; left: -4px;"></div>
+                  </div>
+                  <div class="char-hero-info">
+                    <div class="char-title-row">
+                      <h2 id="char-name" class="char-title">Arlecchino</h2>
+                    </div>
+                    <div class="char-sub-row">
+                      <span id="char-element" class="elem-badge elem-pyro">Pyro</span>
+                      <span id="char-level" class="badge badge-secondary">Lv. 90/90</span>
+                      <span id="char-constellation" class="badge badge-gold">C0</span>
+                      <span id="char-friendship" class="badge badge-friendship">♥ 10</span>
+                    </div>
+                    <!-- Action Buttons -->
+                    <div class="char-hero-actions" id="char-hero-actions" style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;"></div>
                   </div>
                 </div>
               </div>
 
-              <div class="talents-section">
-                <h4>Talents</h4>
-                <div class="talents-grid" id="char-talents-grid"></div>
-              </div>
+              <div class="char-details-body">
+                <div class="talents-section">
+                  <h4>Talents</h4>
+                  <div class="talents-grid" id="char-talents-grid"></div>
+                </div>
 
-              <div class="weapon-section">
-                <h4>Equipped Weapon</h4>
-                <div id="char-weapon-card" class="weapon-card"></div>
-              </div>
+                <div class="weapon-section">
+                  <h4>Equipped Weapon</h4>
+                  <div id="char-weapon-card" class="weapon-card"></div>
+                </div>
 
-              <div class="stats-section">
-                <h4>Total Combat Attributes</h4>
-                <div class="combat-stats-grid" id="char-combat-stats-grid"></div>
+                <div class="stats-section">
+                  <h4>Total Combat Attributes</h4>
+                  <div class="combat-stats-grid" id="char-combat-stats-grid"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -184,10 +208,31 @@
             <div class="card card-glass artifacts-summary-card">
               <div class="artifacts-header">
                 <h3>Equipped Artifacts</h3>
-                <span id="char-set-bonuses" class="badge badge-info">Set Overview</span>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                  <span id="char-set-bonuses" class="badge badge-info">Set Overview</span>
+                  <button id="optimize-artifacts-btn" class="btn btn-secondary btn-sm" style="padding: 2px 8px; font-size: 11px;">⚡ Optimize</button>
+                </div>
               </div>
               <div class="artifacts-list" id="char-artifacts-list"></div>
             </div>
+          </div>
+        </div>
+
+        <!-- Today's Farming Rotation & Daily Domains (GenshinTrack Core Feature) -->
+        <div id="today-farming-widget" class="card card-glass farming-card" style="display: none; margin-top: 10px;">
+          <div class="farming-header" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 24px;">📅</span>
+              <div>
+                <h3 style="font-size: 16px; font-weight: 700; margin: 0;" id="farming-today-title">Today's Domain Rotation</h3>
+                <p style="font-size: 12px; color: var(--text-muted); margin: 0;" id="farming-today-subtitle">Talent books &amp; weapon materials available right now</p>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-sm" id="ask-farming-ai-btn">
+              <span>✨ Ask AI What to Farm</span>
+            </button>
+          </div>
+          <div class="farming-body" id="farming-body" style="padding: 16px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
           </div>
         </div>
 
@@ -334,6 +379,6 @@
     </footer>
   </div>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=20260907_1630"></script>
 </body>
 </html>

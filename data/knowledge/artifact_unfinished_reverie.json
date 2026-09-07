@@ -1,0 +1,21 @@
+{
+  "id": "artifact_unfinished_reverie",
+  "title": "Unfinished Reverie — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Unfinished_Reverie",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:54Z",
+    "tags": [
+      "Unfinished Reverie",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for Unfinished Reverie. 2pc: ATK +18%; 4pc: After leaving combat for 3s, DMG dealt increased by 50%. In combat, if no Burnin",
+  "content": "# Unfinished Reverie — Artifact Set Reference\n\n- **Max Rarity**: ★★★★★\n\n## 2-Piece Bonus\nATK +18%\n\n## 4-Piece Bonus\nAfter leaving combat for 3s, DMG dealt increased by 50%. In combat, if no Burning opponents are nearby for more than 6s, this DMG Bonus will decrease by 10% per second until it reaches 0%. When a Burning opponent exists, it will increase by 10% instead until it reaches 50%. This effect still triggers if the equipping character is off-field.\n"
+}

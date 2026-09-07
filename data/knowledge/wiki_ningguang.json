@@ -1,0 +1,23 @@
+{
+  "id": "wiki_ningguang",
+  "title": "Ningguang — Complete Character Guide & Talent Reference",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Ningguang",
+    "source_type": "AUTHORITATIVE",
+    "character": "Ningguang",
+    "topic": "Character Guide",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:01Z",
+    "tags": [
+      "Ningguang",
+      "Geo",
+      "Catalyst",
+      "Liyue",
+      "Character"
+    ]
+  },
+  "summary": "Complete reference for Ningguang: 4-star Geo Catalyst user. Includes Normal Attack, Elemental Skill, Elemental Burst talent descriptions with scaling values, passive talents, all 6 constellation effects, and ascension material requirements.",
+  "content": "# Ningguang — Complete Character Reference\n\n## Overview\n- **Name**: Ningguang\n- **Title**: Eclipsing Star\n- **Rarity**: ★★★★\n- **Element / Vision**: Geo\n- **Weapon Type**: Catalyst\n- **Nation**: Liyue\n- **Affiliation**: Liyue Qixing\n- **Constellation**: Opus Aequilibrium\n- **Birthday**: 0000-08-26\n- **Special Dish**: None\n\n> The Tianquan of Liyue Qixing. Her wealth is unsurpassed in all of Teyvat.\n\n## Combat Talents\n\n### Normal Attack: Sparkling Scatter\nNormal Attack\nShoots gems that deal Geo DMG.\n\nUpon hit, this grants Ningguang 1 Star Jade.\nCharged Attack\nConsumes a certain amount of Stamina to fire off a giant gem that deals Geo DMG.\n\nIf Ningguang has any Star Jades, unleashing a Charged Attack will cause the Star Jades to be fired at the enemy as well, dealing additional DMG.\nPlunging Attack\nGathering the might of Geo, Ningguang plunges towards the ground from mid-air, damaging all enemies in her path. Deals AoE Geo DMG upon impact with the ground.\n\n**Scaling Values (Lv. 1):**\n- Normal Attack DMG: 28%\n- Charged Attack DMG: 174%\n- DMG per Star Jade: 49.6%\n- Charged Attack Stamina Cost: 50\n- Plunge DMG: 56.8%\n- Low / High Plunge DMG: 114% / 142%\n\n### Elemental Skill: Jade Screen\nNingguang creates a Jade Screen out of gold, obsidian and her great opulence, dealing AoE Geo DMG.\nJade Screen\n\nBlocks enemy projectiles.\nEndurance scales based on Ningguang's Max HP.\n\nJade Screen is considered a Geo Construct and can be used to block certain attacks, but cannot be climbed. Only one Jade Screen may exist at any one time.\n\n**Scaling Values (Lv. 1):**\n- Inherited HP: 50.1%\n- Skill DMG: 230%\n- CD: 12s\n\n### Elemental Burst: Starshatter\nGathering a great number of gems, Ningguang scatters them all at once, sending homing projectiles at her enemies that deal massive Geo DMG.\n\nIf Starshatter is cast when a Jade Screen is nearby, the Jade Screen will fire additional gem projectiles at the same time.\n\n**Scaling Values (Lv. 1):**\n- DMG Per Gem: 87%\n- CD: 12s\n- Energy Cost: 40\n\n## Passive Talents\n\n### Backup Plan (Unlocked at Ascension 1)\nWhen Ningguang is in possession of Star Jades, her Charged Attack does not consume Stamina.\n\n### Strategic Reserve (Unlocked at Ascension 4)\nA character that passes through the Jade Screen will gain a 12% Geo DMG Bonus for 10s.\n\n### Trove of Marvelous Treasure (Unlocked Automatically)\nDisplays the location of nearby ore veins (Iron Ore, White Iron Ore, Crystal Ore, and Magical Crystal Ore) on the mini-map.\n\n## Constellations\n\n### C1: Piercing Fragments\nWhen a Normal Attack hits, it deals AoE DMG.\n\n### C2: Shock Effect\nWhen Jade Screen is shattered, its CD will reset.\nCan occur once every 6s.\n\n### C3: Majesty be the Array of Stars\nIncreases the Level of Starshatter by 3.\nMaximum upgrade level is 15.\n\n### C4: Exquisite be the Jade, Outshining All the Beneath\nJade Screen increases nearby characters' Elemental RES by 10%.\n\n### C5: Invincible be the Jade Screen\nIncrease the Level of Jade Screen by 3.\nMaximum upgrade level is 15.\n\n### C6: Grandeur be the Seven Stars\nWhen Starshatter is used, Ningguang gains 7 Star Jades.\n\n## Ascension Materials\n- **Level 20**: Prithiva Topaz Sliver ×1, Glaze Lily ×3, Recruit's Insignia ×3, Mora ×20000\n- **Level 40**: Prithiva Topaz Fragment ×3, Basalt Pillar ×2, Glaze Lily ×10, Recruit's Insignia ×15, Mora ×40000\n- **Level 50**: Prithiva Topaz Fragment ×6, Basalt Pillar ×4, Glaze Lily ×20, Sergeant's Insignia ×12, Mora ×60000\n- **Level 60**: Prithiva Topaz Chunk ×3, Basalt Pillar ×8, Glaze Lily ×30, Sergeant's Insignia ×18, Mora ×80000\n- **Level 70**: Prithiva Topaz Chunk ×6, Basalt Pillar ×12, Glaze Lily ×45, Lieutenant's Insignia ×12, Mora ×100000\n- **Level 80**: Prithiva Topaz Gemstone ×6, Basalt Pillar ×20, Glaze Lily ×60, Lieutenant's Insignia ×24, Mora ×120000\n"
+}

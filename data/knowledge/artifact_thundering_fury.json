@@ -1,0 +1,21 @@
+{
+  "id": "artifact_thundering_fury",
+  "title": "Thundering Fury — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Thundering_Fury",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:51Z",
+    "tags": [
+      "Thundering Fury",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for Thundering Fury. 2pc: Gain a 15% Electro DMG Bonus.; 4pc: Increases damage caused by Overloaded, Electro-Charged, and Superconduct DMG by ",
+  "content": "# Thundering Fury — Artifact Set Reference\n\n- **Max Rarity**: ★★★★★\n\n## 2-Piece Bonus\nGain a 15% Electro DMG Bonus.\n\n## 4-Piece Bonus\nIncreases damage caused by Overloaded, Electro-Charged, and Superconduct DMG by 40%. Triggering such effects decreases Elemental Skill CD by 1s. Can only occur once every 0.8s.\n"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "artifact_ocean_hued_clam",
+  "title": "Ocean-Hued Clam — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Ocean-Hued_Clam",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:42Z",
+    "tags": [
+      "Ocean-Hued Clam",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for Ocean-Hued Clam. 2pc: Healing Bonus +15%; 4pc: When the character equipping this artifact set heals a character in the party, a",
+  "content": "# Ocean-Hued Clam — Artifact Set Reference\n\n- **Max Rarity**: ★★★★★\n\n## 2-Piece Bonus\nHealing Bonus +15%\n\n## 4-Piece Bonus\nWhen the character equipping this artifact set heals a character in the party, a Sea-Dyed Foam will appear for 3 seconds, accumulating the amount of HP recovered from healing (including overflow healing). At the end of the duration, the Sea-Dyed Foam will explode, dealing DMG to nearby opponents based on 90% of the accumulated healing. (This DMG is calculated similarly to Reactions such as Electro-Charged, and Superconduct, but it is not affected by Elemental Mastery, Character Levels, or Reaction DMG Bonuses). Only one Sea-Dyed Foam can be produced every 3.5 seconds. Each Sea-Dyed Foam can accumulate up to 30,000 HP (including overflow healing). There can be no more than one Sea-Dyed Foam active at any given time. This effect can still be triggered even when the character who is using this artifact set is not on the field.\n"
+}

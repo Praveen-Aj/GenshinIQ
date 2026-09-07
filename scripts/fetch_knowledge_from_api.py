@@ -121,13 +121,22 @@ def format_artifact_content(data: dict) -> str:
     lines.append(f"- **Max Rarity**: {'★' * data.get('max_rarity', 5)}")
     lines.append("")
 
-    bonuses = data.get("bonuses", [])
-    if bonuses:
-        for i, b in enumerate(bonuses):
-            pieces = b.get("pieces", 2 if i == 0 else 4)
-            lines.append(f"## {pieces}-Piece Bonus")
-            lines.append(b.get("description", "N/A"))
-            lines.append("")
+    bonus_2pc = data.get("2-piece_bonus", "")
+    bonus_4pc = data.get("4-piece_bonus", "")
+    bonus_1pc = data.get("1-piece_bonus", "")
+
+    if bonus_1pc:
+        lines.append("## 1-Piece Bonus")
+        lines.append(bonus_1pc)
+        lines.append("")
+    if bonus_2pc:
+        lines.append("## 2-Piece Bonus")
+        lines.append(bonus_2pc)
+        lines.append("")
+    if bonus_4pc:
+        lines.append("## 4-Piece Bonus")
+        lines.append(bonus_4pc)
+        lines.append("")
 
     # Individual pieces
     types_map = {
@@ -165,12 +174,13 @@ def create_character_doc(char_id: str, data: dict) -> dict:
     tags = [name, vision, weapon, data.get("nation", ""), "Character"]
     tags = [t for t in tags if t]
 
+    url_name = name.replace(' ', '_')
     return {
         "id": f"wiki_{char_id.replace('-', '_')}",
         "title": f"{name} — Complete Character Guide & Talent Reference",
         "metadata": {
             "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
-            "source_url": f"https://genshin-impact.fandom.com/wiki/{name.replace(' ', '_')}",
+            "source_url": f"https://genshin-impact.fandom.com/wiki/{url_name}",
             "source_type": "AUTHORITATIVE",
             "character": name,
             "topic": "Character Guide",
@@ -189,22 +199,25 @@ def create_artifact_doc(art_id: str, data: dict) -> dict:
     name = data.get("name", art_id.replace("-", " ").title())
     content = format_artifact_content(data)
 
-    bonuses = data.get("bonuses", [])
+    bonus_2pc = data.get("2-piece_bonus", "")
+    bonus_4pc = data.get("4-piece_bonus", "")
+    
     bonus_summaries = []
-    for b in bonuses:
-        pieces = b.get("pieces", "?")
-        desc = b.get("description", "")[:100]
-        bonus_summaries.append(f"{pieces}pc: {desc}")
+    if bonus_2pc:
+        bonus_summaries.append(f"2pc: {bonus_2pc[:80]}")
+    if bonus_4pc:
+        bonus_summaries.append(f"4pc: {bonus_4pc[:80]}")
     bonus_text = "; ".join(bonus_summaries) if bonus_summaries else "No set bonuses."
 
     summary = f"Artifact set reference for {name}. {bonus_text}"
 
+    url_name = name.replace(' ', '_').replace("'", "%27")
     return {
         "id": f"artifact_{art_id.replace('-', '_')}",
         "title": f"{name} — Artifact Set Bonuses & Piece Details",
         "metadata": {
             "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
-            "source_url": f"https://genshin-impact.fandom.com/wiki/{name.replace(' ', '_').replace(\"'\", '%27')}",
+            "source_url": f"https://genshin-impact.fandom.com/wiki/{url_name}",
             "source_type": "AUTHORITATIVE",
             "character": None,
             "topic": "Artifact Set",

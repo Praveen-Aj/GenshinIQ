@@ -100,7 +100,14 @@ class KnowledgeService:
 
         import re
         cleaned_query = re.sub(r"[^\w\s]", " ", query)
-        search_terms = [term.lower() for term in cleaned_query.split() if term]
+        stop_words = {
+            "what", "are", "the", "is", "of", "for", "in", "on", "to", "a", "an",
+            "with", "about", "my", "how", "who", "do", "does", "did", "was", "were",
+            "describe", "explain", "get", "show", "give", "tell", "which", "whose", "it"
+        }
+        search_terms = [term.lower() for term in cleaned_query.split() if term and term.lower() not in stop_words]
+        if not search_terms:
+            search_terms = [term.lower() for term in cleaned_query.split() if term]
         matches: List[KnowledgeSearchResult] = []
 
         for doc in self.documents.values():

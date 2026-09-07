@@ -1,0 +1,21 @@
+{
+  "id": "artifact_golden_troupe",
+  "title": "Golden Troupe — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Golden_Troupe",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:35Z",
+    "tags": [
+      "Golden Troupe",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for Golden Troupe. 2pc: Increases Elemental Skill DMG by 20%.; 4pc: Increases Elemental Skill DMG by 25%. Additionally, when not on the field, Eleme",
+  "content": "# Golden Troupe — Artifact Set Reference\n\n- **Max Rarity**: ★★★★★\n\n## 2-Piece Bonus\nIncreases Elemental Skill DMG by 20%.\n\n## 4-Piece Bonus\nIncreases Elemental Skill DMG by 25%. Additionally, when not on the field, Elemental Skill DMG will be further increased by 25%. This effect will be cleared 2s after taking the field.\n"
+}

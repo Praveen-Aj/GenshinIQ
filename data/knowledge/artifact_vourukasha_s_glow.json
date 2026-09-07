@@ -1,0 +1,21 @@
+{
+  "id": "artifact_vourukasha_s_glow",
+  "title": "Vourukasha's Glow — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Vourukasha%27s_Glow",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:55Z",
+    "tags": [
+      "Vourukasha's Glow",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for Vourukasha's Glow. 2pc: HP +20%; 4pc: Elemental Skill and Elemental Burst DMG will be increased by 10%. After the equi",
+  "content": "# Vourukasha's Glow — Artifact Set Reference\n\n- **Max Rarity**: ★★★★★\n\n## 2-Piece Bonus\nHP +20%\n\n## 4-Piece Bonus\nElemental Skill and Elemental Burst DMG will be increased by 10%. After the equipping character takes DMG, the aforementioned DMG bonus is increased by 80% for 5s. This effect increase can have 5 stacks. The duration of each stack is counted independently. These effects can be triggered even when the equipping character is not on the field.\n"
+}

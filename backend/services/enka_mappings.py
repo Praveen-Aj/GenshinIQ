@@ -103,7 +103,7 @@ CHARACTER_DATABASE: Dict[int, Tuple[str, str, int]] = {
     10000106: ("Mavuika", "Pyro", 5),
     10000107: ("Citlali", "Cryo", 5),
     10000108: ("Lan Yan", "Anemo", 4),
-    10000114: ("Skirk", "Hydro", 5),
+    10000114: ("Skirk", "Cryo", 5),
     10000122: ("Nefer", "Dendro", 5),
     10000126: ("Zibai", "Geo", 5),
     # 4-Stars & Classic Staples

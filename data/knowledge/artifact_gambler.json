@@ -1,0 +1,21 @@
+{
+  "id": "artifact_gambler",
+  "title": "Gambler — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Gambler",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:33Z",
+    "tags": [
+      "Gambler",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for Gambler. 2pc: Elemental Skill DMG increased by 20%; 4pc: Defeating an enemy has 100% chance to remove Elemental Skill CD. Can only occur ",
+  "content": "# Gambler — Artifact Set Reference\n\n- **Max Rarity**: ★★★★\n\n## 2-Piece Bonus\nElemental Skill DMG increased by 20%\n\n## 4-Piece Bonus\nDefeating an enemy has 100% chance to remove Elemental Skill CD. Can only occur once every 15s.\n"
+}

@@ -1,13 +1,19 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
+# ============================================
+# GenshinIQ — .gitignore
+# ============================================
+
+# Python Virtual Environment
 .venv/
 env/
 venv/
 ENV/
+.Python
+*.py[cod]
+*$py.class
+__pycache__/
+*.so
+
+# Distribution & Build
 build/
 develop-eggs/
 dist/
@@ -24,23 +30,42 @@ wheels/
 .installed.cfg
 *.egg
 
-# Environment variables
+# Environment Variables (Keep .env.example tracked)
 .env
 .env.local
+.env.*.local
 
-# Testing & coverage
+# Testing & Coverage
 .pytest_cache/
 .coverage
 htmlcov/
+*.cover
+.hypothesis/
 
-# IDE
+# IDEs & Editors
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
+*.code-workspace
 
-# Data caches & local databases
-# Curated data, processed game data, and fixture showcases are source assets and
-# intentionally tracked. Keep only generated databases out of the repository.
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Logs & Temporary Files
+*.log
+*.tmp
+logs/
+
+# Data Caches & Local Databases
+# Curated knowledge, processed game data, and test fixtures are intentionally tracked.
 *.sqlite
 *.db

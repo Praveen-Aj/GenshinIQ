@@ -112,6 +112,14 @@ class EnkaClient:
         ttl = raw_data.get("ttl", settings.ENKA_CACHE_TTL_SECONDS)
 
         # 1. Parse Player Profile
+        profile_picture = player_info.get("profilePicture", {})
+        avatar_icon = None
+        if profile_picture:
+            prof_avatar_id = profile_picture.get("avatarId")
+            if prof_avatar_id:
+                prof_name, _, _ = get_character_info(prof_avatar_id)
+                avatar_icon = prof_name
+
         profile = PlayerProfile(
             uid=str(uid),
             nickname=player_info.get("nickname", "Traveler"),
@@ -121,6 +129,7 @@ class EnkaClient:
             achievement_count=player_info.get("finishAchievementNum", 0),
             spiral_abyss_floor=player_info.get("towerFloorIndex"),
             spiral_abyss_chamber=player_info.get("towerLevelIndex"),
+            avatar_icon=avatar_icon,
             name_card_id=player_info.get("nameCardId"),
             showcase_character_ids=[
                 item.get("avatarId")

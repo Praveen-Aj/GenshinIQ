@@ -1,0 +1,21 @@
+{
+  "id": "artifact_instructor",
+  "title": "Instructor — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Instructor",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:37Z",
+    "tags": [
+      "Instructor",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for Instructor. 2pc: Increases Elemental Mastery by 80.; 4pc: After using Elemental Skill, increases all party members' Elemental Mastery by 1",
+  "content": "# Instructor — Artifact Set Reference\n\n- **Max Rarity**: ★★★★\n\n## 2-Piece Bonus\nIncreases Elemental Mastery by 80.\n\n## 4-Piece Bonus\nAfter using Elemental Skill, increases all party members' Elemental Mastery by 120 for 8s.\n"
+}

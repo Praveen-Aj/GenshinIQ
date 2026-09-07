@@ -1,0 +1,23 @@
+{
+  "id": "wiki_traveler_geo",
+  "title": "Traveler — Complete Character Guide & Talent Reference",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Traveler",
+    "source_type": "AUTHORITATIVE",
+    "character": "Traveler",
+    "topic": "Character Guide",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:13Z",
+    "tags": [
+      "Traveler",
+      "Geo",
+      "Sword",
+      "Outlander",
+      "Character"
+    ]
+  },
+  "summary": "Complete reference for Traveler: 5-star Geo Sword user. Includes Normal Attack, Elemental Skill, Elemental Burst talent descriptions with scaling values, passive talents, all 6 constellation effects, and ascension material requirements.",
+  "content": "# Traveler — Complete Character Reference\n\n## Overview\n- **Name**: Traveler\n- **Title**: N/A\n- **Rarity**: ★★★★★\n- **Element / Vision**: Geo\n- **Weapon Type**: Sword\n- **Nation**: Outlander\n- **Affiliation**: Not affilated to any Nation\n- **Constellation**: Viator/Viatrix\n- **Birthday**: Unknown\n- **Special Dish**: None\n\n> A traveler from another world who had their only kin taken away, forcing them to embark on a journey to find The Seven.\n\n## Combat Talents\n\n### Normal Attack: Foreign Rockblade\nNormal Attack\nPerforms up to 5 rapid strikes.\nCharged Attack\nConsumes a certain amount of Stamina to unleash 2 rapid sword strikes.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.\n\n**Scaling Values (Lv. 1):**\n- 1-Hit DMG: 44.5%\n- 2-Hit DMG: 43.4%\n- 3-Hit DMG: 53.0%\n- 4-Hit DMG: 58.3%\n- 5-Hit DMG: 70.8%\n- Charged Attack DMG: Male: 55.9% + 72.2%\nFemale: 55.9% + 60.7%\n- Charged Attack Stamina Cost: 20\n- Plunge DMG: 63.9%\n- Low / High Plunge DMG: 128% / 160%\n\n### Elemental Skill: Starfell Sword\nYou disgorge a meteorite from the depths of the earth, dealing AoE Geo DMG. The meteorite is considered a Geo Construct, and can be climbed or used to block attacks.\nHold: This skill's positioning may be adjusted.\n\n**Scaling Values (Lv. 1):**\n- Skill DMG%: 248%\n- Metorite Duration: 30s\n- CD: 8s\n\n### Elemental Burst: Wake of Earth\nEnergizing the Geo elements deep underground, you set off expanding shockwaves.\nLaunches surrounding opponents back and deals AoE Geo DMG.\nA stone wall is erected at the edges of the shockwave.\nThe stone wall is considered a Geo Construct, and may be used to block attacks.\n\n**Scaling Values (Lv. 1):**\n- DMG Per Shockwave: 148%\n- Stonewall Duration: 15s\n- CD: 15s\n- Energy Cost: 60\n\n## Passive Talents\n\n### Shattered Darkrock (Unlocked at Ascension 1)\nReduces Starfell Sword's CD by 2s.\n\n### Frenzied Rockslide (Unlocked at Ascension 4)\nThe final hit of a Normal Attack combo triggers a collapse, dealing 60% of ATK as AoE Geo DMG.\n\n## Constellations\n\n### C1: Invincible Stonewall\nParty members within the radius of Wake of Earth have their CRIT Rate increased by 10% and have increased resistance against interruption.\n\n### C2: Rockcore Meltdown\nWhen the meteorite created by Starfell Sword is destroyed, it will also explode, dealing additional AoE Geo DMG equal to the amount of damage dealt by Starfell Sword.\n\n### C3: Will of the Rock\nIncreases the level of Wake of Earth by 3.\nMaximum upgrade level is 15.\n\n### C4: Reaction Force\nThe shockwave triggered by Wake of Earth regenerates 5 Energy for every enemy hit. A maximum of 25 Energy can be recovered in this manner.\n\n### C5: Meteorite Impact\nIncreases the level of Starfell Sword by 3.\nMaximum upgrade level is 15.\n\n### C6: Everlasting Boulder\nThe barrier created by Wake of Earth lasts 5s longer. The meteorite created by Starfell Sword lasts 10s longer.\n\n## Ascension Materials\n- **Level 20**: Mora ×20000, Brilliant Diamond Sliver ×1, Windwheel Aster ×3, Damaged Mask ×3\n- **Level 40**: Mora ×40000, Brilliant Diamond Fragment ×3, Windwheel Aster ×10, Damaged Mask ×15\n- **Level 50**: Mora ×60000, Brilliant Diamond Fragment ×6, Windwheel Aster ×20, Stained Mask ×12\n- **Level 60**: Mora ×80000, Brilliant Diamond Chunk ×3, Windwheel Aster ×30, Stained Mask ×18\n- **Level 70**: Mora ×100000, Brilliant Diamond Chunk ×6, Windwheel Aster ×45, Ominous Mask ×12\n- **Level 80**: Mora ×120000, Brilliant Diamond Gemstone ×6, Windwheel Aster ×60, Ominous Mask ×24\n"
+}

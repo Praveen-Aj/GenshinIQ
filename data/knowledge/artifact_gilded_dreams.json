@@ -1,0 +1,21 @@
+{
+  "id": "artifact_gilded_dreams",
+  "title": "Gilded Dreams — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Gilded_Dreams",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:33Z",
+    "tags": [
+      "Gilded Dreams",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for Gilded Dreams. 2pc: Elemental Mastery +80; 4pc: Within 8s of triggering an Elemental Reaction, the character equipping this will",
+  "content": "# Gilded Dreams — Artifact Set Reference\n\n- **Max Rarity**: ★★★★★\n\n## 2-Piece Bonus\nElemental Mastery +80\n\n## 4-Piece Bonus\nWithin 8s of triggering an Elemental Reaction, the character equipping this will obtain buffs based on the Elemental Type of the other party members, ATK is increased by 14% for each party member whose Elemental Type is the same as the equipping character, and Elemental Mastery is increased by 50 for every party member with a different Elemental Type. Each of the aforementioned buffs will count up to 3 characters. This effect can be triggered once every 8s. The character who equips this can still trigger its effects when not on the field.\n"
+}

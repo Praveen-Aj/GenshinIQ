@@ -1,0 +1,21 @@
+{
+  "id": "artifact_the_exile",
+  "title": "The Exile — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/The_Exile",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:50Z",
+    "tags": [
+      "The Exile",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for The Exile. 2pc: Energy Recharge +20%; 4pc: Using an Elemental Burst regenerates 2 Energy for other party members every 2s f",
+  "content": "# The Exile — Artifact Set Reference\n\n- **Max Rarity**: ★★★★\n\n## 2-Piece Bonus\nEnergy Recharge +20%\n\n## 4-Piece Bonus\nUsing an Elemental Burst regenerates 2 Energy for other party members every 2s for 6s. This effect cannot stack.\n"
+}

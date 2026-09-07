@@ -3,62 +3,193 @@
  * Handles Tab Navigation, Health Diagnostics, Enka Showcase Import, and Game Database Explorer
  */
 
+// ====================================================
+// IMAGE ASSET UTILITIES (Enka.Network CDN)
+// ====================================================
+
+const CHARACTER_ICONS = {
+  'arlecchino': 'UI_AvatarIcon_Arlecchino',
+  'furina': 'UI_AvatarIcon_Furina',
+  'neuvillette': 'UI_AvatarIcon_Neuvillette',
+  'raiden shogun': 'UI_AvatarIcon_Shogun',
+  'kaedehara kazuha': 'UI_AvatarIcon_Kazuha',
+  'zhongli': 'UI_AvatarIcon_Zhongli',
+  'bennett': 'UI_AvatarIcon_Bennett',
+  'xiangling': 'UI_AvatarIcon_Xiangling',
+  'xingqiu': 'UI_AvatarIcon_Xingqiu',
+  'mavuika': 'UI_AvatarIcon_Mavuika',
+  'nahida': 'UI_AvatarIcon_Nahida',
+  'kachina': 'UI_AvatarIcon_Kachina',
+  'citlali': 'UI_AvatarIcon_Citlali',
+  'skirk': 'UI_AvatarIcon_SkirkNew',
+  'nefer': 'UI_AvatarIcon_Nefer',
+  'zibai': 'UI_AvatarIcon_Zibai',
+  'xianyun': 'UI_AvatarIcon_Xianyun',
+  'shenhe': 'UI_AvatarIcon_Shenhe',
+  'navia': 'UI_AvatarIcon_Navia',
+  'clorinde': 'UI_AvatarIcon_Clorinde',
+  'chiori': 'UI_AvatarIcon_Chiori',
+  'yelan': 'UI_AvatarIcon_Yelan',
+  'hu tao': 'UI_AvatarIcon_Hutao',
+  'yae miko': 'UI_AvatarIcon_Yae',
+  'arataki itto': 'UI_AvatarIcon_Itto',
+  'kamisato ayaka': 'UI_AvatarIcon_Ayaka',
+  'kamisato ayato': 'UI_AvatarIcon_Ayato',
+  'shikanoin heizou': 'UI_AvatarIcon_Heizou',
+  'sangonomiya kokomi': 'UI_AvatarIcon_Kokomi',
+  'kujou sara': 'UI_AvatarIcon_Sara',
+  'kuki shinobu': 'UI_AvatarIcon_Shinobu',
+  'yun jin': 'UI_AvatarIcon_Yunjin',
+  'tartaglia': 'UI_AvatarIcon_Tartaglia',
+  'xilonen': 'UI_AvatarIcon_Xilonen',
+  'mualani': 'UI_AvatarIcon_Mualani',
+  'kinich': 'UI_AvatarIcon_Kinich',
+  'chasca': 'UI_AvatarIcon_Chasca',
+  'lan yan': 'UI_AvatarIcon_Lanyan',
+  'lanyan': 'UI_AvatarIcon_Lanyan',
+  'gaming': 'UI_AvatarIcon_Gaming',
+  'charlotte': 'UI_AvatarIcon_Charlotte',
+  'chevreuse': 'UI_AvatarIcon_Chevreuse',
+  'wriothesley': 'UI_AvatarIcon_Wriothesley',
+  'lyney': 'UI_AvatarIcon_Lyney',
+  'wanderer': 'UI_AvatarIcon_Wanderer',
+  'alhaitham': 'UI_AvatarIcon_Alhatham',
+  'nilou': 'UI_AvatarIcon_Nilou',
+  'cyno': 'UI_AvatarIcon_Cyno',
+  'tighnari': 'UI_AvatarIcon_Tighnari',
+  'eula': 'UI_AvatarIcon_Eula',
+  'ganyu': 'UI_AvatarIcon_Ganyu',
+  'venti': 'UI_AvatarIcon_Venti',
+  'diluc': 'UI_AvatarIcon_Diluc',
+  'jean': 'UI_AvatarIcon_Qin',
+  'mona': 'UI_AvatarIcon_Mona',
+  'keqing': 'UI_AvatarIcon_Keqing',
+  'qiqi': 'UI_AvatarIcon_Qiqi',
+  'albedo': 'UI_AvatarIcon_Albedo',
+  'xiao': 'UI_AvatarIcon_Xiao',
+  'yoimiya': 'UI_AvatarIcon_Yoimiya',
+  'kokomi': 'UI_AvatarIcon_Kokomi',
+  'ayato': 'UI_AvatarIcon_Ayato',
+  'baizhu': 'UI_AvatarIcon_Baizhuer',
+  'dehya': 'UI_AvatarIcon_Dehya',
+  'collei': 'UI_AvatarIcon_Collei',
+  'dori': 'UI_AvatarIcon_Dori',
+  'kaveh': 'UI_AvatarIcon_Kaveh',
+  'kirara': 'UI_AvatarIcon_Momoka',
+  'layla': 'UI_AvatarIcon_Layla',
+  'faruzan': 'UI_AvatarIcon_Faruzan',
+  'candace': 'UI_AvatarIcon_Candace',
+  'emilie': 'UI_AvatarIcon_Emilie',
+  'sigewinne': 'UI_AvatarIcon_Sigewinne',
+  'sethos': 'UI_AvatarIcon_Sethos',
+  'ororon': 'UI_AvatarIcon_Olorun',
+  'olorun': 'UI_AvatarIcon_Olorun',
+  'ifa': 'UI_AvatarIcon_Ifa',
+  'varesa': 'UI_AvatarIcon_Varesa',
+  'iansan': 'UI_AvatarIcon_Iansan',
+  'mizuki': 'UI_AvatarIcon_Mizuki',
+  'escoffier': 'UI_AvatarIcon_Escoffier',
+  'odette': 'UI_AvatarIcon_Odette',
+  'columbina': 'UI_AvatarIcon_Columbina',
+  'alyosha': 'UI_AvatarIcon_Alyosha',
+  'jahoda': 'UI_AvatarIcon_Jahoda',
+};
+
 function getCharacterIconUrl(name) {
-  const CHARACTER_ICONS = {
-    'arlecchino': 'UI_AvatarIcon_Arlecchino',
-    'furina': 'UI_AvatarIcon_Furina',
-    'neuvillette': 'UI_AvatarIcon_Neuvillette',
-    'raiden shogun': 'UI_AvatarIcon_Shogun',
-    'kaedehara kazuha': 'UI_AvatarIcon_Kazuha',
-    'zhongli': 'UI_AvatarIcon_Zhongli',
-    'bennett': 'UI_AvatarIcon_Bennett',
-    'xiangling': 'UI_AvatarIcon_Xiangling',
-    'xingqiu': 'UI_AvatarIcon_Xingqiu',
-    'mavuika': 'UI_AvatarIcon_Mavuika',
-    'nahida': 'UI_AvatarIcon_Nahida',
-    'kachina': 'UI_AvatarIcon_Kachina',
-    'citlali': 'UI_AvatarIcon_Citlali',
-    'skirk': 'UI_AvatarIcon_Skirk',
-    'nefer': 'UI_AvatarIcon_Nefer',
-    'zibai': 'UI_AvatarIcon_Zibai',
-    'xianyun': 'UI_AvatarIcon_Xianyun',
-    'shenhe': 'UI_AvatarIcon_Shenhe',
-    'navia': 'UI_AvatarIcon_Navia',
-    'clorinde': 'UI_AvatarIcon_Clorinde',
-    'chiori': 'UI_AvatarIcon_Chiori',
-    'yelan': 'UI_AvatarIcon_Yelan',
-    'hu tao': 'UI_AvatarIcon_Hutao',
-    'yae miko': 'UI_AvatarIcon_Yae',
-    'arataki itto': 'UI_AvatarIcon_Itto',
-    'kamisato ayaka': 'UI_AvatarIcon_Ayaka',
-    'kamisato ayato': 'UI_AvatarIcon_Ayato',
-    'shikanoin heizou': 'UI_AvatarIcon_Heizou',
-    'sangonomiya kokomi': 'UI_AvatarIcon_Kokomi',
-    'kujou sara': 'UI_AvatarIcon_Sara',
-    'kuki shinobu': 'UI_AvatarIcon_Shinobu',
-    'yun jin': 'UI_AvatarIcon_Yunjin',
-    'tartaglia': 'UI_AvatarIcon_Tartaglia',
-    'xilonen': 'UI_AvatarIcon_Xilonen',
-    'mualani': 'UI_AvatarIcon_Mualani',
-    'kinich': 'UI_AvatarIcon_Kinich',
-    'chasca': 'UI_AvatarIcon_Chasca',
-    'lan yan': 'UI_AvatarIcon_Lanyan',
-    'gaming': 'UI_AvatarIcon_Gaming',
-    'charlotte': 'UI_AvatarIcon_Charlotte',
-    'chevreuse': 'UI_AvatarIcon_Chevreuse',
-    'wriothesley': 'UI_AvatarIcon_Wriothesley',
-    'lyney': 'UI_AvatarIcon_Lyney',
-    'wanderer': 'UI_AvatarIcon_Wanderer',
-    'alhaitham': 'UI_AvatarIcon_Alhatham',
-    'nilou': 'UI_AvatarIcon_Nilou',
-    'cyno': 'UI_AvatarIcon_Cyno',
-    'tighnari': 'UI_AvatarIcon_Tighnari',
-    'eula': 'UI_AvatarIcon_Eula',
-    'ganyu': 'UI_AvatarIcon_Ganyu',
-  };
+  if (!name) return 'https://enka.network/ui/UI_AvatarIcon_NPC.png';
   const codeName = CHARACTER_ICONS[name.toLowerCase()] || `UI_AvatarIcon_${name}`;
   return `https://enka.network/ui/${codeName}.png`;
 }
+
+function getElementSvg(element, size = 18) {
+  const elem = (element || '').toLowerCase().trim();
+  const colors = {
+    pyro: '#ff5e41',
+    hydro: '#21c5f5',
+    anemo: '#5be0b1',
+    electro: '#c370fa',
+    dendro: '#87e034',
+    cryo: '#9be9fa',
+    geo: '#f4c042'
+  };
+  const color = colors[elem] || '#e9be74';
+  const glyphs = {
+    pyro: `<path d="M12 2c1 3 4 5 4 9 0 4.4-3.6 8-8 8s-8-3.6-8-8c0-3 2-6 5-7.5-.5 2 0 4.5 1.5 5.5 1-3 3-5 5.5-7z" fill="${color}"/>`,
+    hydro: `<path d="M12 2.5C12 2.5 5 11 5 15.5 5 19.1 7.9 22 11.5 22s6.5-2.9 6.5-6.5C18 11 12 2.5 12 2.5z" fill="${color}"/>`,
+    anemo: `<path d="M12 2a10 10 0 0 1 7.5 16.6l-2.1-2.1A7 7 0 1 0 7 12H4a8 8 0 1 1 8-8z" fill="${color}"/>`,
+    electro: `<path d="M13 2L3 14h8l-2 8 12-12h-8l2-8z" fill="${color}"/>`,
+    dendro: `<path d="M17 3c-4.5.5-8.5 4.5-9 9 0 0 2-3 5-3s5 3 5 3-1-4.5-.5-6c.3-.9 1.5-1.5 1.5-1.5s-1-1-2-1.5z M7 13c-3 1-5 4-5 7 3.5 0 6.5-2 7.5-5-.8-.7-1.7-1.4-2.5-2z" fill="${color}"/>`,
+    cryo: `<path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19M12 6l2-2M12 6l-2-2M12 18l2 2M12 18l-2 2M6 12l-2 2M6 12l-2-2M18 12l2 2M18 12l2-2" stroke="${color}" stroke-width="2.5" stroke-linecap="round"/>`,
+    geo: `<polygon points="12 2 21 8 21 16 12 22 3 16 3 8" fill="none" stroke="${color}" stroke-width="2.5"/><polygon points="12 6 17 10 17 14 12 18 7 14 7 10" fill="${color}"/>`
+  };
+  const svgContent = glyphs[elem] || glyphs.pyro;
+  return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" style="filter: drop-shadow(0 1px 3px rgba(0,0,0,0.8)); vertical-align: middle;">${svgContent}</svg>`;
+}
+
+function getCharacterGachaUrl(name) {
+  if (!name) return null;
+  const iconCode = CHARACTER_ICONS[name.toLowerCase()];
+  if (!iconCode) return null;
+  return `https://enka.network/ui/${iconCode.replace('AvatarIcon', 'Gacha_AvatarImg')}.png`;
+}
+
+function getWeaponIconUrl(iconKey) {
+  return `https://enka.network/ui/${iconKey || 'UI_EquipIcon_Sword_Zephyrus'}.png`;
+}
+
+function getArtifactIconUrl(iconKey) {
+  return `https://enka.network/ui/${iconKey || 'UI_RelicIcon_15001_4'}.png`;
+}
+
+function getRarityStars(rarity) {
+  return '★'.repeat(rarity);
+}
+
+function getImgFallback(type) {
+  switch (type) {
+    case 'character': return 'https://enka.network/ui/UI_AvatarIcon_NPC.png';
+    case 'weapon': return 'https://enka.network/ui/UI_EquipIcon_Sword_Zephyrus.png';
+    case 'artifact': return 'https://enka.network/ui/UI_RelicIcon_15001_4.png';
+    default: return 'https://enka.network/ui/UI_AvatarIcon_NPC.png';
+  }
+}
+
+// Daily Domain Schedule (Monday/Thursday, Tuesday/Friday, Wednesday/Saturday, Sunday all)
+const ROTATION_SCHEDULE = {
+  1: {
+    day: 'Monday / Thursday',
+    talents: [
+      { name: 'Freedom', nation: 'Mondstadt', chars: ['Klee', 'Sucrose', 'Diona', 'Aloy', 'Tartaglia', 'Amber', 'Barbara'] },
+      { name: 'Prosperity', nation: 'Liyue', chars: ['Keqing', 'Ningguang', 'Qiqi', 'Shenhe', 'Yelan', 'Xiao'] },
+      { name: 'Transience', nation: 'Inazuma', chars: ['Yoimiya', 'Kokomi', 'Thoma', 'Heizou', 'Kirara'] },
+      { name: 'Admonition', nation: 'Sumeru', chars: ['Tighnari', 'Cyno', 'Candace', 'Faruzan'] },
+      { name: 'Equity', nation: 'Fontaine', chars: ['Lyney', 'Neuvillette', 'Navia', 'Sigewinne'] },
+      { name: 'Contention', nation: 'Natlan', chars: ['Mavuika', 'Kinich', 'Kachina', 'Citlali'] }
+    ]
+  },
+  2: {
+    day: 'Tuesday / Friday',
+    talents: [
+      { name: 'Resistance', nation: 'Mondstadt', chars: ['Jean', 'Diluc', 'Mona', 'Eula', 'Bennett', 'Noelle', 'Razor'] },
+      { name: 'Diligence', nation: 'Liyue', chars: ['Ganyu', 'Hu Tao', 'Kaedehara Kazuha', 'Xiangling', 'Chongyun', 'Yun Jin', 'Yaoyao'] },
+      { name: 'Elegance', nation: 'Inazuma', chars: ['Kamisato Ayaka', 'Kamisato Ayato', 'Kujou Sara', 'Arataki Itto', 'Kuki Shinobu'] },
+      { name: 'Ingenuity', nation: 'Sumeru', chars: ['Nahida', 'Alhaitham', 'Dori', 'Layla', 'Kaveh'] },
+      { name: 'Justice', nation: 'Fontaine', chars: ['Furina', 'Clorinde', 'Charlotte', 'Chevreuse'] },
+      { name: 'Kindling', nation: 'Natlan', chars: ['Chasca', 'Olorun', 'Lan Yan'] }
+    ]
+  },
+  3: {
+    day: 'Wednesday / Saturday',
+    talents: [
+      { name: 'Ballad', nation: 'Mondstadt', chars: ['Venti', 'Albedo', 'Fischl', 'Rosaria', 'Kaeya', 'Lisa'] },
+      { name: 'Gold', nation: 'Liyue', chars: ['Zhongli', 'Xingqiu', 'Beidou', 'Yanfei', 'Baizhu', 'Gaming'] },
+      { name: 'Light', nation: 'Inazuma', chars: ['Raiden Shogun', 'Yae Miko', 'Sayu', 'Gorou'] },
+      { name: 'Praxis', nation: 'Sumeru', chars: ['Wanderer', 'Nilou', 'Dehya', 'Collei', 'Sethos'] },
+      { name: 'Order', nation: 'Fontaine', chars: ['Arlecchino', 'Wriothesley', 'Lynette', 'Emilie'] },
+      { name: 'Conflict', nation: 'Natlan', chars: ['Mualani', 'Xilonen', 'Iansan', 'Varesa'] }
+    ]
+  }
+};
 
 let currentShowcaseData = null;
 let selectedCharacterIndex = 0;
@@ -146,6 +277,50 @@ function initAccountListeners() {
   if (refreshHealthBtn) {
     refreshHealthBtn.addEventListener('click', checkBackendHealth);
   }
+
+  // Carousel navigation buttons
+  const prevBtn = document.getElementById('carousel-prev-btn');
+  const nextBtn = document.getElementById('carousel-next-btn');
+  const chipsList = document.getElementById('character-chips-list');
+  if (prevBtn && chipsList) {
+    prevBtn.addEventListener('click', () => {
+      chipsList.scrollBy({ left: -240, behavior: 'smooth' });
+    });
+  }
+  if (nextBtn && chipsList) {
+    nextBtn.addEventListener('click', () => {
+      chipsList.scrollBy({ left: 240, behavior: 'smooth' });
+    });
+  }
+
+  // Clickable Spiral Abyss team recommendation action
+  const abyssWrap = document.getElementById('prof-abyss-wrap');
+  if (abyssWrap) {
+    abyssWrap.addEventListener('click', () => {
+      const charNames = currentShowcaseData?.characters?.map(c => c.name).join(', ') || 'Arlecchino, Furina, Neuvillette';
+      askAssistant(`Recommend me the best two team compositions to 36-star Spiral Abyss Floor 12 using my showcase characters: ${charNames}.`);
+    });
+  }
+
+  // Optimize artifacts button
+  const optArtBtn = document.getElementById('optimize-artifacts-btn');
+  if (optArtBtn) {
+    optArtBtn.addEventListener('click', () => {
+      const char = currentShowcaseData?.characters?.[selectedCharacterIndex];
+      if (char) {
+        askAssistant(`Analyze my ${char.name} artifacts. Which artifact piece should I replace or re-roll first to maximize DPS? Current stats: CRIT Rate ${((char.stats?.crit_rate || 0)*100).toFixed(1)}%, CRIT DMG ${((char.stats?.crit_dmg || 0)*100).toFixed(1)}%.`);
+      }
+    });
+  }
+
+  // Ask Farming AI button
+  const askFarmBtn = document.getElementById('ask-farming-ai-btn');
+  if (askFarmBtn) {
+    askFarmBtn.addEventListener('click', () => {
+      const charNames = currentShowcaseData?.characters?.map(c => c.name).join(', ') || 'my characters';
+      askAssistant(`Based on today's domain rotation and my showcase characters (${charNames}), what talent books, domains, or weapons should I prioritize spending my Resin on today?`);
+    });
+  }
 }
 
 /**
@@ -225,6 +400,18 @@ function renderShowcase(data) {
   document.getElementById('prof-abyss').textContent = abyssFloor;
   document.getElementById('prof-char-count').textContent = `${data.characters.length} characters`;
 
+  // Render player profile avatar
+  const profAvatar = document.getElementById('prof-avatar');
+  if (profAvatar) {
+    const avatarName = prof.avatar_icon || (data.characters && data.characters.length > 0 ? data.characters[0].name : null);
+    if (avatarName) {
+      const avatarUrl = getCharacterIconUrl(avatarName);
+      profAvatar.innerHTML = `<img src="${avatarUrl}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_AvatarIcon_NPC.png'" alt="${avatarName}" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-md);">`;
+    } else {
+      profAvatar.textContent = '👤';
+    }
+  }
+
   const cacheBadge = document.getElementById('prof-cache-status');
   if (cacheBadge) {
     cacheBadge.textContent = data.cached ? 'Cached' : 'Fresh Fetch';
@@ -243,8 +430,12 @@ function renderShowcase(data) {
       const chip = document.createElement('div');
       chip.className = `char-chip ${index === selectedCharacterIndex ? 'active' : ''}`;
       const iconUrl = getCharacterIconUrl(char.name);
+      const elemSvg = getElementSvg(char.element, 18);
       chip.innerHTML = `
-        <img class="char-chip-avatar" src="${iconUrl}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_AvatarIcon_NPC.png'" alt="${char.name}" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--accent-gold); background: rgba(0,0,0,0.3); object-fit: cover;">
+        <div style="position: relative; flex-shrink: 0; width: 44px; height: 44px;">
+          <img class="char-chip-avatar" src="${iconUrl}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_AvatarIcon_NPC.png'" alt="${char.name}" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--accent-gold); background: rgba(0,0,0,0.3); object-fit: cover;">
+          <div style="position: absolute; bottom: -2px; right: -2px;">${elemSvg}</div>
+        </div>
         <div>
           <div class="char-chip-name">${char.name}</div>
           <div class="char-chip-lvl">Lv. ${char.level} • C${char.constellation}</div>
@@ -261,11 +452,80 @@ function renderShowcase(data) {
     });
 
     renderActiveCharacter(data.characters[selectedCharacterIndex]);
+    renderTodayFarming(data.characters);
   } else {
     if (selectorContainer) selectorContainer.style.display = 'none';
     if (activeCharView) activeCharView.style.display = 'none';
     showAccountError('No character showcase details available for this account.');
   }
+}
+
+/**
+ * Render Today's Domain Farming Planner
+ */
+function renderTodayFarming(characters = []) {
+  const widget = document.getElementById('today-farming-widget');
+  const body = document.getElementById('farming-body');
+  const title = document.getElementById('farming-today-title');
+  if (!widget || !body) return;
+
+  const now = new Date();
+  const dayOfWeek = now.getDay(); // 0 = Sun, 1 = Mon, 2 = Tue, 3 = Wed, 4 = Thu, 5 = Fri, 6 = Sat
+  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const todayName = dayNames[dayOfWeek];
+
+  title.textContent = `${todayName}'s Domain Rotation & Farming Planner`;
+  widget.style.display = 'block';
+
+  let schedKey = dayOfWeek;
+  if (schedKey === 4) schedKey = 1;
+  else if (schedKey === 5) schedKey = 2;
+  else if (schedKey === 6) schedKey = 3;
+
+  if (dayOfWeek === 0) {
+    body.innerHTML = `
+      <div style="grid-column: 1 / -1; background: rgba(233,190,116,0.08); border: 1px solid rgba(233,190,116,0.3); border-radius: var(--radius-md); padding: 16px;">
+        <h4 style="color: var(--accent-gold); font-size: 15px; margin-bottom: 6px;">✨ Sunday Bonus: All Domains Open!</h4>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">All talent books and weapon ascension materials across all 6 nations are farmable today.</p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          ${characters.map(c => `<button class="btn btn-secondary btn-sm" onclick="askAssistant('What materials and talent books do I need to farm for ${c.name}?')">${c.name} Guide</button>`).join('')}
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  const sched = ROTATION_SCHEDULE[schedKey];
+  if (!sched) return;
+
+  body.innerHTML = sched.talents.map(t => {
+    const matchedChars = characters.filter(c => t.chars.some(tc => tc.toLowerCase() === c.name.toLowerCase()));
+    const hasMatch = matchedChars.length > 0;
+    
+    return `
+      <div style="background: var(--bg-subcard); border: 1px solid ${hasMatch ? 'var(--accent-gold)' : 'rgba(255,255,255,0.08)'}; border-radius: var(--radius-md); padding: 14px; box-shadow: ${hasMatch ? '0 0 12px rgba(233,190,116,0.15)' : 'none'};">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+          <span style="font-weight: 700; color: ${hasMatch ? 'var(--accent-gold)' : 'var(--text-main)'}; font-size: 14px;">Teachings of ${t.name}</span>
+          <span class="badge badge-secondary" style="font-size: 11px;">${t.nation}</span>
+        </div>
+        <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 8px;">
+          Used by: ${t.chars.slice(0, 4).join(', ')}${t.chars.length > 4 ? ', ...' : ''}
+        </div>
+        ${hasMatch ? `
+          <div style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed rgba(233,190,116,0.3);">
+            <div style="font-size: 11px; font-weight: 600; color: var(--accent-gold); margin-bottom: 4px;">⚡ Ready to farm for your:</div>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+              ${matchedChars.map(mc => `
+                <span class="badge badge-gold" style="cursor: pointer;" onclick="askAssistant('How many ${t.name} books do I need to max my ${mc.name}?')">
+                  ${mc.name} (Lv. ${mc.level})
+                </span>
+              `).join('')}
+            </div>
+          </div>
+        ` : ''}
+      </div>
+    `;
+  }).join('');
 }
 
 /**
@@ -279,6 +539,24 @@ function renderActiveCharacter(char) {
     largeAvatar.src = getCharacterIconUrl(char.name);
   }
 
+  const elemWrap = document.getElementById('char-element-icon-wrap');
+  if (elemWrap) {
+    elemWrap.innerHTML = getElementSvg(char.element, 22);
+  }
+
+  // Set Gacha Splash Art background on Hero Banner
+  const heroBg = document.getElementById('active-char-hero-bg');
+  if (heroBg) {
+    const gachaUrl = getCharacterGachaUrl(char.name);
+    if (gachaUrl) {
+      heroBg.src = gachaUrl;
+      heroBg.style.display = 'block';
+      heroBg.onerror = () => { heroBg.style.display = 'none'; };
+    } else {
+      heroBg.style.display = 'none';
+    }
+  }
+
   document.getElementById('char-name').textContent = char.name;
   const elemBadge = document.getElementById('char-element');
   elemBadge.textContent = char.element;
@@ -287,6 +565,22 @@ function renderActiveCharacter(char) {
   document.getElementById('char-level').textContent = `Lv. ${char.level}/90`;
   document.getElementById('char-constellation').textContent = `C${char.constellation}`;
   document.getElementById('char-friendship').textContent = `♥ ${char.fetter_level}`;
+
+  // Interactive Action Buttons on Hero Banner
+  const actionsWrap = document.getElementById('char-hero-actions');
+  if (actionsWrap) {
+    const wName = char.weapon ? char.weapon.name : 'equipped weapon';
+    const cr = ((char.stats?.crit_rate || 0.05) * 100).toFixed(1);
+    const cd = ((char.stats?.crit_dmg || 0.5) * 100).toFixed(1);
+    actionsWrap.innerHTML = `
+      <button class="btn btn-primary btn-sm" onclick="askAssistant('Review my ${char.name} build. Analyze my weapon (${wName}), stats (CRIT ${cr}% / ${cd}%), and artifact sets.')">
+        <span>✨ Ask AI to Review Build</span>
+      </button>
+      <button class="btn btn-secondary btn-sm" onclick="askAssistant('What are the best teams, artifact substat priorities, and talent crowning order for ${char.name}?')">
+        <span>📖 Theorycrafting Guide</span>
+      </button>
+    `;
+  }
 
   // Talents
   const talentsGrid = document.getElementById('char-talents-grid');
@@ -313,18 +607,25 @@ function renderActiveCharacter(char) {
   if (char.weapon) {
     const w = char.weapon;
     const weaponIconUrl = w.icon ? `https://enka.network/ui/${w.icon}.png` : 'https://enka.network/ui/UI_EquipIcon_Sword_Zephyrus.png';
+    const stars = getRarityStars(w.rarity || 4);
+    const rarityClass = (w.rarity === 5) ? 'rarity-5-border' : 'rarity-4-border';
     weaponCard.innerHTML = `
-      <div style="display: flex; gap: 12px; align-items: center;">
-        <img class="weapon-icon" src="${weaponIconUrl}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_EquipIcon_Sword_Zephyrus.png'" alt="${w.name}" style="width: 44px; height: 44px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); object-fit: contain;">
+      <div style="display: flex; gap: 16px; align-items: center;">
+        <div style="position: relative; flex-shrink: 0;">
+          <img class="weapon-icon ${rarityClass}" src="${weaponIconUrl}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_EquipIcon_Sword_Zephyrus.png'" alt="${w.name}" style="width: 52px; height: 52px; border-radius: 8px; background: rgba(0,0,0,0.3); object-fit: contain; padding: 2px;">
+        </div>
         <div style="flex-grow: 1;">
           <div class="weapon-title-row">
-            <span class="weapon-name" style="font-weight: 600; color: var(--gold-accent);">${w.name}</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="weapon-name" style="font-weight: 700; color: var(--text-main); font-size: 15px;">${w.name}</span>
+              <span class="rarity-stars ${w.rarity === 5 ? 'rarity-5' : 'rarity-4'}">${stars}</span>
+            </div>
             <span class="weapon-refinement">R${w.refinement}</span>
           </div>
-          <div class="weapon-stats-row" style="margin-top: 4px; font-size: 0.85em; opacity: 0.8; display: flex; gap: 12px;">
-            <span>Lv. ${w.level}/90</span>
-            ${w.base_atk ? `<span>Base ATK: <strong>${Math.round(w.base_atk)}</strong></span>` : ''}
-            ${w.sub_stat ? `<span>${w.sub_stat.name}: <strong class="stat-highlight">${w.sub_stat.formatted}</strong></span>` : ''}
+          <div class="weapon-stats-row" style="margin-top: 6px; font-size: 13px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <span style="background: rgba(255,255,255,0.06); padding: 2px 8px; border-radius: 4px;">Lv. ${w.level}/90</span>
+            ${w.base_atk ? `<span style="background: rgba(255,255,255,0.06); padding: 2px 8px; border-radius: 4px;">Base ATK: <strong style="color: var(--text-main);">${Math.round(w.base_atk)}</strong></span>` : ''}
+            ${w.sub_stat ? `<span style="background: rgba(233,190,116,0.1); border: 1px solid rgba(233,190,116,0.25); padding: 2px 8px; border-radius: 4px; color: var(--accent-gold);">${w.sub_stat.name}: <strong>${w.sub_stat.formatted}</strong></span>` : ''}
           </div>
         </div>
       </div>
@@ -373,6 +674,34 @@ function renderArtifacts(artifacts) {
   const artifactsList = document.getElementById('char-artifacts-list');
   artifactsList.innerHTML = '';
 
+  // Calculate active Set Bonuses
+  const setCounts = {};
+  artifacts.forEach(a => {
+    const sName = a.set_name || a.name;
+    if (sName) {
+      setCounts[sName] = (setCounts[sName] || 0) + 1;
+    }
+  });
+
+  const setBonusesEl = document.getElementById('char-set-bonuses');
+  if (setBonusesEl) {
+    const bonusBadges = [];
+    for (const [setName, count] of Object.entries(setCounts)) {
+      if (count >= 4) {
+        bonusBadges.push(`<span class="badge badge-gold" style="box-shadow: 0 0 10px var(--accent-gold-glow);">${setName} (4-pc)</span>`);
+      } else if (count >= 2) {
+        bonusBadges.push(`<span class="badge badge-cyan">${setName} (2-pc)</span>`);
+      }
+    }
+    if (bonusBadges.length > 0) {
+      setBonusesEl.innerHTML = bonusBadges.join(' ');
+      setBonusesEl.className = '';
+    } else {
+      setBonusesEl.textContent = 'No Set Bonus';
+      setBonusesEl.className = 'badge badge-cache';
+    }
+  }
+
   const slotOrder = ['flower', 'plume', 'sands', 'goblet', 'circlet'];
   const slotLabels = {
     flower: 'Flower of Life',
@@ -393,7 +722,7 @@ function renderArtifacts(artifacts) {
         return `
           <div class="art-substat-item">
             <span class="substat-name">${sub.name}</span>
-            <span class="substat-val ${isCrit ? 'substat-crit' : ''}">+${sub.formatted}</span>
+            <span class="substat-val ${isCrit ? 'substat-crit' : ''}">+${sub.formatted}${isCrit ? ' ★' : ''}</span>
           </div>
         `;
       }).join('');
@@ -401,21 +730,23 @@ function renderArtifacts(artifacts) {
       const relicIconUrl = art.icon ? `https://enka.network/ui/${art.icon}.png` : 'https://enka.network/ui/UI_RelicIcon_15001_4.png';
 
       card.innerHTML = `
-        <div style="display: flex; gap: 12px; align-items: flex-start; flex-grow: 1;">
-          <img class="art-icon" src="${relicIconUrl}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_RelicIcon_15001_4.png'" alt="${art.set_name}" style="width: 40px; height: 40px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); object-fit: contain;">
+        <div style="display: flex; gap: 14px; align-items: flex-start; flex-grow: 1;">
+          <div style="position: relative; flex-shrink: 0;">
+            <img class="art-icon rarity-5-border" src="${relicIconUrl}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_RelicIcon_15001_4.png'" alt="${art.set_name}" style="width: 48px; height: 48px; border-radius: 8px; background: rgba(0,0,0,0.3); object-fit: contain; padding: 2px;">
+          </div>
           <div class="art-main-col" style="flex-grow: 1;">
             <div class="art-slot-header">
               <span class="art-slot-name">${slotLabels[slot]}</span>
               <span class="art-lvl-badge">+${art.level}</span>
             </div>
-            <div class="art-set-name" style="font-weight: 500; font-size: 0.9em; margin-top: 2px;">${art.set_name || art.name}</div>
-            <div class="art-main-stat" style="margin-top: 6px; font-size: 0.85em;">
-              <div class="art-main-prop" style="opacity: 0.7;">${art.main_stat.name}</div>
-              <div class="art-main-val" style="font-weight: 600; color: var(--gold-accent);">${art.main_stat.formatted}</div>
+            <div class="art-set-name" style="font-weight: 600; font-size: 0.9em; margin-top: 2px; color: var(--text-muted);">${art.set_name || art.name}</div>
+            <div class="art-main-stat" style="margin-top: 6px; display: flex; justify-content: space-between; align-items: baseline;">
+              <span class="art-main-prop" style="font-size: 11px; opacity: 0.8; text-transform: uppercase;">${art.main_stat.name}</span>
+              <span class="art-main-val" style="font-weight: 700; font-size: 16px; color: var(--accent-gold); font-family: var(--font-mono);">${art.main_stat.formatted}</span>
             </div>
           </div>
         </div>
-        <div class="art-substats-grid">
+        <div class="art-substats-grid" style="margin-top: 6px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 6px;">
           ${subItemsHtml || '<span class="text-muted">No substats</span>'}
         </div>
       `;
@@ -475,7 +806,18 @@ function initDatabaseListeners() {
 
 async function loadDatabaseCategory(category) {
   const grid = document.getElementById('db-items-grid');
-  grid.innerHTML = '<div class="text-muted" style="padding: 20px;">Loading database...</div>';
+  // Skeleton loading
+  grid.innerHTML = Array(6).fill('').map(() => `
+    <div class="db-item-card" style="pointer-events: none;">
+      <div style="display: flex; gap: 14px; align-items: center; width: 100%;">
+        <div class="skeleton" style="width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;"></div>
+        <div style="flex: 1;">
+          <div class="skeleton" style="width: 60%; height: 16px; margin-bottom: 6px;"></div>
+          <div class="skeleton" style="width: 40%; height: 12px;"></div>
+        </div>
+      </div>
+    </div>
+  `).join('');
 
   try {
     const res = await fetch(`/api/data/${category}`);
@@ -520,44 +862,60 @@ function filterAndRenderDbItems() {
 
   filtered.forEach((item, index) => {
     const card = document.createElement('div');
-    card.className = `db-item-card ${selectedDbItem?.id === item.id ? 'active' : ''}`;
+    card.className = `db-item-card animate-in ${selectedDbItem?.id === item.id ? 'active' : ''}`;
+    card.style.animationDelay = `${Math.min(index * 30, 300)}ms`;
 
     if (currentDbCategory === 'characters') {
       const elemClass = `elem-${item.element.toLowerCase()}`;
       const charIcon = `https://enka.network/ui/${item.icon || `UI_AvatarIcon_${item.name}`}.png`;
+      const rarityClass = `rarity-${item.rarity}`;
+      const elemIconUrl = getElementIconUrl(item.element);
       card.innerHTML = `
-        <div style="display: flex; gap: 12px; align-items: center; flex-grow: 1;">
-          <img class="db-card-avatar" src="${charIcon}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_AvatarIcon_NPC.png'" style="width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--accent-gold); background: rgba(0,0,0,0.2); object-fit: cover;">
-          <div>
+        <div style="display: flex; gap: 14px; align-items: center; flex-grow: 1;">
+          <img class="db-card-avatar ${rarityClass}" src="${charIcon}" onerror="this.onerror=null; this.src='${getImgFallback('character')}'" alt="${item.name}">
+          <div class="db-item-info">
             <div class="db-item-title">${item.name}</div>
-            <div class="db-item-sub">${item.rarity}★ • ${item.weapon_type} • ${item.region || 'Teyvat'}</div>
+            <div class="rarity-stars rarity-${item.rarity}">${getRarityStars(item.rarity)}</div>
+            <div class="db-item-sub">${item.weapon_type} • ${item.region || 'Teyvat'}</div>
           </div>
         </div>
-        <span class="elem-badge ${elemClass}">${item.element}</span>
+        <div class="db-item-badges">
+          <span class="elem-badge ${elemClass}">
+            ${getElementSvg(item.element, 16)}
+            ${item.element}
+          </span>
+        </div>
       `;
     } else if (currentDbCategory === 'weapons') {
       const weaponIcon = `https://enka.network/ui/${item.icon || `UI_EquipIcon_Sword_Zephyrus`}.png`;
+      const rarityClass = `rarity-${item.rarity}`;
       card.innerHTML = `
-        <div style="display: flex; gap: 12px; align-items: center; flex-grow: 1;">
-          <img class="db-card-weapon" src="${weaponIcon}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_EquipIcon_Sword_Zephyrus.png'" style="width: 36px; height: 36px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); object-fit: contain;">
-          <div>
+        <div style="display: flex; gap: 14px; align-items: center; flex-grow: 1;">
+          <img class="db-card-weapon ${rarityClass}" src="${weaponIcon}" onerror="this.onerror=null; this.src='${getImgFallback('weapon')}'" alt="${item.name}">
+          <div class="db-item-info">
             <div class="db-item-title">${item.name}</div>
-            <div class="db-item-sub">${item.rarity}★ ${item.weapon_type} • Base ATK ${Math.round(item.base_atk_lvl90)}</div>
+            <div class="rarity-stars rarity-${item.rarity}">${getRarityStars(item.rarity)}</div>
+            <div class="db-item-sub">${item.weapon_type} • Base ATK ${Math.round(item.base_atk_lvl90)}</div>
           </div>
         </div>
-        <span class="badge badge-gold">${item.sub_stat_type || 'ATK'}</span>
+        <div class="db-item-badges">
+          <span class="badge badge-gold">${item.sub_stat_type || 'ATK'}</span>
+        </div>
       `;
     } else if (currentDbCategory === 'artifacts') {
       const artIcon = `https://enka.network/ui/${item.icon || `UI_RelicIcon_15001_4`}.png`;
       card.innerHTML = `
-        <div style="display: flex; gap: 12px; align-items: center; flex-grow: 1;">
-          <img class="db-card-artifact" src="${artIcon}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_RelicIcon_15001_4.png'" style="width: 36px; height: 36px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); object-fit: contain;">
-          <div>
+        <div style="display: flex; gap: 14px; align-items: center; flex-grow: 1;">
+          <img class="db-card-artifact" src="${artIcon}" onerror="this.onerror=null; this.src='${getImgFallback('artifact')}'" alt="${item.name}">
+          <div class="db-item-info">
             <div class="db-item-title">${item.name}</div>
-            <div class="db-item-sub">Artifact Set • ${item.rarities.join('/')}★</div>
+            <div class="rarity-stars rarity-5">${getRarityStars(5)}</div>
+            <div class="db-item-sub" style="white-space: normal; line-height: 1.3;">${(item.bonus_2pc || '').substring(0, 60)}${(item.bonus_2pc || '').length > 60 ? '...' : ''}</div>
           </div>
         </div>
-        <span class="badge badge-cyan">5★ Set</span>
+        <div class="db-item-badges">
+          <span class="badge badge-cyan">Artifact Set</span>
+        </div>
       `;
     }
 
@@ -580,6 +938,7 @@ function filterAndRenderDbItems() {
   }
 }
 
+
 /**
  * Render Detail Inspector Pane for Selected DB Entity
  */
@@ -590,6 +949,10 @@ function renderDbDetailInspector(item, category) {
   if (category === 'characters') {
     const elemClass = `elem-${item.element.toLowerCase()}`;
     const charIcon = `https://enka.network/ui/${item.icon || `UI_AvatarIcon_${item.name}`}.png`;
+    const gachaUrl = getCharacterGachaUrl(item.name);
+    const elemIconUrl = getElementIconUrl(item.element);
+    const rarityClass = item.rarity === 5 ? 'rarity-5' : 'rarity-4';
+
     const talentsHtml = (item.talents || []).map((t) => `
       <div class="accordion-item">
         <div class="accordion-title">
@@ -600,7 +963,15 @@ function renderDbDetailInspector(item, category) {
       </div>
     `).join('');
 
-    const constsHtml = (item.constellations || []).map((c) => `
+    // Constellation dots + descriptions
+    const maxConst = 6;
+    const consts = item.constellations || [];
+    const constDotsHtml = Array.from({ length: maxConst }, (_, i) => {
+      const has = consts.find(c => c.level === i + 1);
+      return `<div class="const-dot ${has ? 'lit' : ''}" title="${has ? has.name : `C${i+1} Locked`}">${i + 1}</div>`;
+    }).join('');
+
+    const constsHtml = consts.map((c) => `
       <div class="accordion-item">
         <div class="accordion-title">
           <span>C${c.level}: ${c.name}</span>
@@ -613,50 +984,72 @@ function renderDbDetailInspector(item, category) {
     const talMatHtml = (item.talent_materials || []).map((m) => `<span class="material-tag">${m}</span>`).join('');
 
     pane.innerHTML = `
-      <div class="detail-header" style="display: flex; gap: 16px; align-items: center; margin-bottom: 16px;">
-        <img class="db-large-avatar" src="${charIcon}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_AvatarIcon_NPC.png'" style="width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--accent-gold); background: rgba(0,0,0,0.3); object-fit: cover;">
-        <div>
-          <h2 style="margin: 0; color: var(--gold-accent);">${item.name}</h2>
-          <div class="char-sub-row" style="margin-top: 6px;">
-            <span class="elem-badge ${elemClass}">${item.element}</span>
-            <span class="badge badge-gold">${item.rarity}★ ${item.weapon_type}</span>
-            <span class="badge badge-secondary">${item.region || 'Teyvat'}</span>
+      <div class="detail-hero">
+        ${gachaUrl ? `<img class="detail-hero-bg" src="${gachaUrl}" alt="" loading="lazy">` : ''}
+        <div class="detail-hero-gradient"></div>
+        <div class="detail-hero-content">
+          <div class="detail-hero-top">
+            <img class="detail-hero-avatar ${rarityClass}" src="${charIcon}" onerror="this.onerror=null; this.src='${getImgFallback('character')}'" alt="${item.name}">
+            <div class="detail-hero-info">
+              <h2 style="display: flex; align-items: center; gap: 8px;">
+                ${getElementSvg(item.element, 24)}
+                ${item.name}
+              </h2>
+              <div class="detail-hero-meta" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                <span class="rarity-stars rarity-${item.rarity}" style="font-size: 14px;">${getRarityStars(item.rarity)}</span>
+                <span class="badge badge-gold">${item.weapon_type}</span>
+                <span class="badge badge-secondary">${item.region || 'Teyvat'}</span>
+                <button class="btn btn-primary btn-sm" style="margin-left: auto; padding: 4px 10px; font-size: 12px;" onclick="askAssistant('Provide a comprehensive theorycrafting build guide for ${item.name} including best in slot weapons, artifact sets, main stats, substats, and team synergies.')">
+                  <span>✨ Ask AI Guide</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          ${item.title ? `<p style="margin-top: 12px; font-size: 13px; color: var(--text-muted); font-style: italic;">"${item.title}"</p>` : ''}
+        </div>
+      </div>
+      <div class="detail-body">
+        <p class="detail-desc" style="margin-bottom: 20px; line-height: 1.5; font-size: 0.9em; opacity: 0.8;">${item.description || ''}</p>
+
+        <div class="section-title">Base Attributes (Level 90)</div>
+        <div class="detail-stats-grid">
+          <div class="detail-stat-box">
+            <div class="detail-stat-label">Base HP</div>
+            <div class="detail-stat-val">${Math.round(item.base_hp_lvl90).toLocaleString()}</div>
+          </div>
+          <div class="detail-stat-box">
+            <div class="detail-stat-label">Base ATK</div>
+            <div class="detail-stat-val">${Math.round(item.base_atk_lvl90)}</div>
+          </div>
+          <div class="detail-stat-box">
+            <div class="detail-stat-label">Base DEF</div>
+            <div class="detail-stat-val">${Math.round(item.base_def_lvl90)}</div>
+          </div>
+          <div class="detail-stat-box">
+            <div class="detail-stat-label">Ascension Stat</div>
+            <div class="detail-stat-val" style="color: var(--accent-gold);">${item.ascension_stat} ${item.ascension_stat_val_lvl90}</div>
           </div>
         </div>
+
+        <div class="section-title">Talents &amp; Skills</div>
+        <div class="talents-accordion">${talentsHtml}</div>
+
+        <div class="section-title">Constellations</div>
+        <div class="constellation-dots">${constDotsHtml}</div>
+        <div class="constellations-accordion">${constsHtml}</div>
+
+        ${(ascMatHtml || talMatHtml) ? `
+        <div class="section-title">Required Materials</div>
+        ${ascMatHtml ? `
+          <div style="margin-bottom: 8px; font-size: 12px; color: var(--text-dim);">Character Ascension</div>
+          <div class="materials-tag-cloud">${ascMatHtml}</div>
+        ` : ''}
+        ${talMatHtml ? `
+          <div style="margin: 12px 0 8px; font-size: 12px; color: var(--text-dim);">Talent Level Up</div>
+          <div class="materials-tag-cloud">${talMatHtml}</div>
+        ` : ''}
+        ` : ''}
       </div>
-      <p class="detail-desc" style="margin-bottom: 20px; line-height: 1.5; font-size: 0.9em; opacity: 0.8;">${item.description || ''}</p>
-
-      <div class="section-title">Base Attributes (Level 90)</div>
-      <div class="detail-stats-grid">
-        <div class="detail-stat-box">
-          <div class="detail-stat-label">Base HP</div>
-          <div class="detail-stat-val">${Math.round(item.base_hp_lvl90).toLocaleString()}</div>
-        </div>
-        <div class="detail-stat-box">
-          <div class="detail-stat-label">Base ATK</div>
-          <div class="detail-stat-val">${Math.round(item.base_atk_lvl90)}</div>
-        </div>
-        <div class="detail-stat-box">
-          <div class="detail-stat-label">Base DEF</div>
-          <div class="detail-stat-val">${Math.round(item.base_def_lvl90)}</div>
-        </div>
-        <div class="detail-stat-box">
-          <div class="detail-stat-label">Ascension Stat</div>
-          <div class="detail-stat-val" style="color: var(--accent-gold);">${item.ascension_stat} ${item.ascension_stat_val_lvl90}</div>
-        </div>
-      </div>
-
-      <div class="section-title">Talents &amp; Skills</div>
-      <div class="talents-accordion">${talentsHtml}</div>
-
-      <div class="section-title">Constellations</div>
-      <div class="constellations-accordion">${constsHtml}</div>
-
-      <div class="section-title">Required Materials</div>
-      <div style="margin-bottom: 8px; font-size: 12px; color: var(--text-dim);">Character Ascension</div>
-      <div class="materials-tag-cloud">${ascMatHtml}</div>
-      <div style="margin: 12px 0 8px; font-size: 12px; color: var(--text-dim);">Talent Level Up</div>
-      <div class="materials-tag-cloud">${talMatHtml}</div>
     `;
   } else if (category === 'weapons') {
     const refHtml = (item.refinements || []).map((r, i) => `
@@ -667,35 +1060,43 @@ function renderDbDetailInspector(item, category) {
     `).join('');
 
     const weaponIcon = `https://enka.network/ui/${item.icon || `UI_EquipIcon_Sword_Zephyrus`}.png`;
+    const rarityClass = item.rarity === 5 ? 'rarity-5' : (item.rarity === 4 ? 'rarity-4' : '');
 
     pane.innerHTML = `
-      <div class="detail-header" style="display: flex; gap: 16px; align-items: center; margin-bottom: 20px;">
-        <img class="db-large-weapon" src="${weaponIcon}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_EquipIcon_Sword_Zephyrus.png'" style="width: 56px; height: 56px; border-radius: 8px; border: 1.5px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); object-fit: contain;">
-        <div>
-          <h2 style="margin: 0; color: var(--gold-accent);">${item.name}</h2>
-          <div class="char-sub-row" style="margin-top: 6px;">
-            <span class="badge badge-gold">${item.rarity}★ ${item.weapon_type}</span>
+      <div class="detail-hero" style="min-height: 140px;">
+        <div class="detail-hero-gradient"></div>
+        <div class="detail-hero-content">
+          <div class="detail-hero-top">
+            <img class="detail-hero-icon ${rarityClass}" src="${weaponIcon}" onerror="this.onerror=null; this.src='${getImgFallback('weapon')}'" alt="${item.name}">
+            <div class="detail-hero-info">
+              <h2>${item.name}</h2>
+              <div class="detail-hero-meta">
+                <span class="rarity-stars rarity-${item.rarity}" style="font-size: 14px;">${getRarityStars(item.rarity)}</span>
+                <span class="badge badge-gold">${item.weapon_type}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <div class="detail-body">
+        <div class="section-title">Weapon Attributes (Level 90)</div>
+        <div class="detail-stats-grid">
+          <div class="detail-stat-box">
+            <div class="detail-stat-label">Base ATK (Lv. 90)</div>
+            <div class="detail-stat-val">${Math.round(item.base_atk_lvl90)}</div>
+          </div>
+          <div class="detail-stat-box">
+            <div class="detail-stat-label">Sub Stat</div>
+            <div class="detail-stat-val" style="color: var(--accent-gold);">${item.sub_stat_type || '—'} ${item.sub_stat_val_lvl90 || ''}</div>
+          </div>
+        </div>
 
-      <div class="section-title">Weapon Attributes (Level 90)</div>
-      <div class="detail-stats-grid">
-        <div class="detail-stat-box">
-          <div class="detail-stat-label">Base ATK (Lv. 90)</div>
-          <div class="detail-stat-val">${Math.round(item.base_atk_lvl90)}</div>
-        </div>
-        <div class="detail-stat-box">
-          <div class="detail-stat-label">Sub Stat</div>
-          <div class="detail-stat-val" style="color: var(--accent-gold);">${item.sub_stat_type || '—'} ${item.sub_stat_val_lvl90 || ''}</div>
-        </div>
+        <div class="section-title">Weapon Passive: ${item.passive_name || 'Special Effect'}</div>
+        <p class="accordion-desc" style="margin-bottom: 16px; line-height: 1.5; font-size: 0.95em;">${item.passive_desc || ''}</p>
+
+        <div class="section-title">Refinement Progression (R1–R5)</div>
+        <div class="talents-accordion">${refHtml}</div>
       </div>
-
-      <div class="section-title">Weapon Passive: ${item.passive_name || 'Special Effect'}</div>
-      <p class="accordion-desc" style="margin-bottom: 16px; line-height: 1.5; font-size: 0.95em;">${item.passive_desc || ''}</p>
-
-      <div class="section-title">Refinement Progression (R1–R5)</div>
-      <div class="talents-accordion">${refHtml}</div>
     `;
   } else if (category === 'artifacts') {
     const piecesHtml = Object.entries(item.pieces || {}).map(([slot, name]) => `
@@ -708,29 +1109,36 @@ function renderDbDetailInspector(item, category) {
     const artIcon = `https://enka.network/ui/${item.icon || `UI_RelicIcon_15001_4`}.png`;
 
     pane.innerHTML = `
-      <div class="detail-header" style="display: flex; gap: 16px; align-items: center; margin-bottom: 20px;">
-        <img class="db-large-artifact" src="${artIcon}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_RelicIcon_15001_4.png'" style="width: 56px; height: 56px; border-radius: 8px; border: 1.5px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); object-fit: contain;">
-        <div>
-          <h2 style="margin: 0; color: var(--gold-accent);">${item.name}</h2>
-          <div class="char-sub-row" style="margin-top: 6px;">
-            <span class="badge badge-cyan">5★ Artifact Set</span>
+      <div class="detail-hero" style="min-height: 140px;">
+        <div class="detail-hero-gradient"></div>
+        <div class="detail-hero-content">
+          <div class="detail-hero-top">
+            <img class="detail-hero-icon rarity-5" src="${artIcon}" onerror="this.onerror=null; this.src='${getImgFallback('artifact')}'" alt="${item.name}">
+            <div class="detail-hero-info">
+              <h2>${item.name}</h2>
+              <div class="detail-hero-meta">
+                <span class="rarity-stars rarity-5" style="font-size: 14px;">${getRarityStars(5)}</span>
+                <span class="badge badge-cyan">Artifact Set</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <div class="detail-body">
+        <div class="section-title">Set Bonuses</div>
+        <div class="accordion-item" style="margin-bottom: 12px;">
+          <div class="accordion-title">2-Piece Bonus</div>
+          <div class="accordion-desc">${item.bonus_2pc}</div>
+        </div>
+        ${item.bonus_4pc ? `
+        <div class="accordion-item" style="margin-bottom: 20px;">
+          <div class="accordion-title">4-Piece Bonus</div>
+          <div class="accordion-desc">${item.bonus_4pc}</div>
+        </div>` : ''}
 
-      <div class="section-title">Set Bonuses</div>
-      <div class="accordion-item" style="margin-bottom: 12px;">
-        <div class="accordion-title">2-Piece Bonus</div>
-        <div class="accordion-desc">${item.bonus_2pc}</div>
+        <div class="section-title">Set Pieces</div>
+        <div class="combat-stats-grid">${piecesHtml}</div>
       </div>
-      ${item.bonus_4pc ? `
-      <div class="accordion-item" style="margin-bottom: 20px;">
-        <div class="accordion-title">4-Piece Bonus</div>
-        <div class="accordion-desc">${item.bonus_4pc}</div>
-      </div>` : ''}
-
-      <div class="section-title">Set Pieces</div>
-      <div class="combat-stats-grid">${piecesHtml}</div>
     `;
   }
 }
@@ -1113,7 +1521,13 @@ function appendMessageBubble(role, content, citations = []) {
   
   const avatarDiv = document.createElement('div');
   avatarDiv.className = 'message-avatar';
-  avatarDiv.innerHTML = role === 'user' ? '👤' : (role === 'system' ? '⚠️' : '✨');
+  if (role === 'user') {
+    avatarDiv.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`;
+  } else if (role === 'system') {
+    avatarDiv.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff5555" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`;
+  } else {
+    avatarDiv.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-gold)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`;
+  }
   
   const bubbleDiv = document.createElement('div');
   bubbleDiv.className = 'message-bubble';
@@ -1194,7 +1608,7 @@ function appendTypingIndicator() {
   
   const avatarDiv = document.createElement('div');
   avatarDiv.className = 'message-avatar';
-  avatarDiv.innerHTML = '✨';
+  avatarDiv.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-gold)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`;
   
   const bubbleDiv = document.createElement('div');
   bubbleDiv.className = 'message-bubble';

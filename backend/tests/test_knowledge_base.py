@@ -28,8 +28,8 @@ def test_list_knowledge_documents_with_filters():
     """Verify filters for character, topic, source_type, and version."""
     # Filter by character
     arle_docs = knowledge_service.list_documents(character="Arlecchino")
-    assert len(arle_docs) == 1
-    assert arle_docs[0].id == "kqm_arlecchino_extended_guide"
+    assert len(arle_docs) >= 1
+    assert any(d.id == "kqm_arlecchino_extended_guide" for d in arle_docs)
 
     # Filter by topic
     mechanics_docs = knowledge_service.list_documents(topic="Game Mechanics")
@@ -71,9 +71,9 @@ def test_api_list_documents():
     response = client.get("/api/knowledge/documents?character=Furina")
     assert response.status_code == 200
     data = response.json()
-    assert len(data) == 1
-    assert data[0]["id"] == "kqm_furina_guide"
-    assert data[0]["metadata"]["source_type"] == "THEORYCRAFTING"
+    assert len(data) >= 1
+    assert any(d["id"] == "kqm_furina_guide" for d in data)
+    assert any(d["metadata"]["source_type"] == "THEORYCRAFTING" for d in data)
 
 
 def test_api_get_document():

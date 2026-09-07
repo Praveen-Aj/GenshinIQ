@@ -1,0 +1,21 @@
+{
+  "id": "artifact_blizzard_strayer",
+  "title": "Blizzard Strayer — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Blizzard_Strayer",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:26Z",
+    "tags": [
+      "Blizzard Strayer",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for Blizzard Strayer. 2pc: Cryo DMG Bonus +15%; 4pc: When a character attacks an enemy affected by Cryo, their CRIT Rate is increased",
+  "content": "# Blizzard Strayer — Artifact Set Reference\n\n- **Max Rarity**: ★★★★★\n\n## 2-Piece Bonus\nCryo DMG Bonus +15%\n\n## 4-Piece Bonus\nWhen a character attacks an enemy affected by Cryo, their CRIT Rate is increased by 20%. If the enemy is Frozen, CRIT Rate is increased by an additional 20%.\n"
+}

@@ -279,48 +279,399 @@
     }
   },
   {
-    "id": 15021,
-    "name": "Husk of Opulent Dreams",
+    "id": 15009,
+    "name": "Archaic Petra",
     "rarities": [
       4,
       5
     ],
-    "bonus_2pc": "DEF +30%.",
-    "bonus_4pc": "Geo hits and on-field time grant stacks. Each: +6% DEF and +6% Geo DMG. Max 4.",
-    "icon": "UI_RelicIcon_15021_4",
-    "pieces": {
-      "flower": "Bloom Times",
-      "plume": "Plume of Luxury"
-    }
+    "icon": "UI_ArtifactIcon_Archaic_Petra",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
   },
   {
-    "id": 15023,
-    "name": "Gilded Dreams",
+    "id": 15891,
+    "name": "Berserker",
     "rarities": [
       4,
       5
     ],
-    "bonus_2pc": "Elemental Mastery +80.",
-    "bonus_4pc": "On reaction: same element = +14% ATK, different = +50 EM. Max 3 stacks.",
-    "icon": "UI_RelicIcon_15023_4",
-    "pieces": {
-      "flower": "Dreaming Bud of a Summer Festival",
-      "plume": "Feather of Judgment"
-    }
+    "icon": "UI_ArtifactIcon_Berserker",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15471,
+    "name": "Brave Heart",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Brave_Heart",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15514,
+    "name": "Defender's Will",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Defender_S_Will",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15027,
+    "name": "Desert Pavilion Chronicle",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Desert_Pavilion_Chronicle",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15108,
+    "name": "Gambler",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Gambler",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15148,
+    "name": "Glacier and Snowfield",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Glacier_And_Snowfield",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15853,
+    "name": "Instructor",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Instructor",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15144,
+    "name": "Lavawalker",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Lavawalker",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15950,
+    "name": "Lucky Dog",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Lucky_Dog",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15085,
+    "name": "Maiden Beloved",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Maiden_Beloved",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15485,
+    "name": "Martial Artist",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Martial_Artist",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15033,
+    "name": "Nighttime Whispers in the Echoing Woods",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Nighttime_Whispers_In_The_Echoing_Woods",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15029,
+    "name": "Nymph's Dream",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Nymph_S_Dream",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15628,
+    "name": "Prayers for Destiny",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Prayers_For_Destiny",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15099,
+    "name": "Prayers for Illumination",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Prayers_For_Illumination",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15702,
+    "name": "Prayers for Wisdom",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Prayers_For_Wisdom",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15141,
+    "name": "Prayers to Springtime",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Prayers_To_Springtime",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15194,
+    "name": "Sacrifieur to the Firmament",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Prayers_To_The_Firmament",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15567,
+    "name": "Resolution of Sojourner",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Resolution_Of_Sojourner",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15010,
+    "name": "Retracing Bolide",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Retracing_Bolide",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15858,
+    "name": "Scholar",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Scholar",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15034,
+    "name": "Song of Days Past",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Song_Of_Days_Past",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15386,
+    "name": "The Exile",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_The_Exile",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15762,
+    "name": "Thundersoother",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Thundersoother",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15905,
+    "name": "Tiny Miracle",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Tiny_Miracle",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15396,
+    "name": "Traveling Doctor",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Traveling_Doctor",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15036,
+    "name": "Unfinished Reverie",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Unfinished_Reverie",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15030,
+    "name": "Vourukasha's Glow",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Vourukasha_S_Glow",
+    "bonus_2pc": "N/A",
+    "bonus_4pc": null,
+    "pieces": {}
+  },
+  {
+    "id": 15008,
+    "name": "Bloodstained Chivalry",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Bloodstained_Chivalry",
+    "bonus_2pc": "Physical DMG +25%",
+    "bonus_4pc": "After defeating an opponent, increases Charged Attack DMG by 50%, and reduces its Stamina cost to 0 for 10s.",
+    "pieces": {}
   },
   {
     "id": 15024,
-    "name": "Flower of Paradise Lost",
+    "name": "Echoes of an Offering",
     "rarities": [
       4,
       5
     ],
-    "bonus_2pc": "Elemental Mastery +80.",
-    "bonus_4pc": "+40% Bloom/Hyperbloom/Burgeon DMG. EM further increases these by up to 25%.",
-    "icon": "UI_RelicIcon_15024_4",
-    "pieces": {
-      "flower": "Ayus's Wondrous Flower",
-      "plume": "Secret-Keeper's Magic Feather"
-    }
+    "icon": "UI_ArtifactIcon_Echoes_Of_An_Offering",
+    "bonus_2pc": "ATK +18%",
+    "bonus_4pc": "When Normal Attacks hit opponents, there is a 36% chance that it will trigger Valley Rite, which will increase Normal Attack DMG by 70% of ATK. \nThis effect will be dispelled 0.05s after a Normal Attack deals DMG. \nIf a Normal Attack fails to trigger Valley Rite, the odds of it triggering the next time will increase by 20%. \nThis trigger can occur once every 0.2s.",
+    "pieces": {}
+  },
+  {
+    "id": 15021,
+    "name": "Ocean-Hued Clam",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Ocean_Hued_Clam",
+    "bonus_2pc": "Healing Bonus +15%",
+    "bonus_4pc": "When the character equipping this artifact set heals a character in the party, a Sea-Dyed Foam will appear for 3 seconds, accumulating the amount of HP recovered from healing (including overflow healing). At the end of the duration, the Sea-Dyed Foam will explode, dealing DMG to nearby opponents based on 90% of the accumulated healing. (This DMG is calculated similarly to Reactions such as Electro-Charged, and Superconduct, but it is not affected by Elemental Mastery, Character Levels, or Reaction DMG Bonuses). Only one Sea-Dyed Foam can be produced every 3.5 seconds. Each Sea-Dyed Foam can accumulate up to 30,000 HP (including overflow healing). There can be no more than one Sea-Dyed Foam active at any given time. This effect can still be triggered even when the character who is using this artifact set is not on the field.",
+    "pieces": {}
+  },
+  {
+    "id": 15023,
+    "name": "Vermillion Hereafter",
+    "rarities": [
+      4,
+      5
+    ],
+    "icon": "UI_ArtifactIcon_Vermillion_Hereafter",
+    "bonus_2pc": "ATK +18%",
+    "bonus_4pc": "After using an Elemental Burst. this character will gain the Nascent Light effect, increasing their ATK by 8% for 16s. When the character's HP decreases, their ATK will further increase by 10%. This increase can occur this way maximum of 4 times. This effect can be triggered once every 0.8s. Nascent Light will be dispelled when the character leaves the field. If an Elemental Burst is used again during the duration of Nascent Light, the original Nascent Light will be dispelled.",
+    "pieces": {}
   }
 ]

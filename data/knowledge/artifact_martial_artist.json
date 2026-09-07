@@ -1,0 +1,21 @@
+{
+  "id": "artifact_martial_artist",
+  "title": "Martial Artist — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Martial_Artist",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:40Z",
+    "tags": [
+      "Martial Artist",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for Martial Artist. 2pc: Increases Normal Attack and Charged Attack DMG by 15%.; 4pc: After using Elemental Skill, increases Normal Attack and Charged Attack DMG by 2",
+  "content": "# Martial Artist — Artifact Set Reference\n\n- **Max Rarity**: ★★★★\n\n## 2-Piece Bonus\nIncreases Normal Attack and Charged Attack DMG by 15%.\n\n## 4-Piece Bonus\nAfter using Elemental Skill, increases Normal Attack and Charged Attack DMG by 25% for 8s.\n"
+}

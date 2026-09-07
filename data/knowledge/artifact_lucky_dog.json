@@ -1,0 +1,21 @@
+{
+  "id": "artifact_lucky_dog",
+  "title": "Lucky Dog — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Lucky_Dog",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:38Z",
+    "tags": [
+      "Lucky Dog",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for Lucky Dog. 2pc: DEF increased by 100.; 4pc: Picking up Mora restores 300 HP.",
+  "content": "# Lucky Dog — Artifact Set Reference\n\n- **Max Rarity**: ★★★\n\n## 2-Piece Bonus\nDEF increased by 100.\n\n## 4-Piece Bonus\nPicking up Mora restores 300 HP.\n"
+}

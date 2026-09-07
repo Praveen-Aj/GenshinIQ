@@ -1,0 +1,21 @@
+{
+  "id": "artifact_pale_flame",
+  "title": "Pale Flame — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Pale_Flame",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:43Z",
+    "tags": [
+      "Pale Flame",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for Pale Flame. 2pc: Physical DMG +25%; 4pc: When an Elemental Skill hits an opponent, ATK is increased by 9% for 7s. This ef",
+  "content": "# Pale Flame — Artifact Set Reference\n\n- **Max Rarity**: ★★★★★\n\n## 2-Piece Bonus\nPhysical DMG +25%\n\n## 4-Piece Bonus\nWhen an Elemental Skill hits an opponent, ATK is increased by 9% for 7s. This effect stacks up to 2 times and can be triggered once every 0.3s. Once 2 stacks are reached the 2 set effect is increased by 100%.\n"
+}

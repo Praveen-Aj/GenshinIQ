@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     """Application settings loaded from environment variables and .env file."""
 
     APP_NAME: str = "GenshinIQ"
-    APP_VERSION: str = "0.1.0"
+    APP_VERSION: str = "0.3.0"
     APP_ENV: str = "development"
     DEBUG: bool = True
     HOST: str = "127.0.0.1"

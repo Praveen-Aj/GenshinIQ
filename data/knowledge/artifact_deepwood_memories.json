@@ -1,0 +1,21 @@
+{
+  "id": "artifact_deepwood_memories",
+  "title": "Deepwood Memories — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Deepwood_Memories",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:28Z",
+    "tags": [
+      "Deepwood Memories",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for Deepwood Memories. 2pc: Dendro DMG Bonus +15%; 4pc: After Elemental Skills or Bursts hit opponents, the targets' Dendro RES will be ",
+  "content": "# Deepwood Memories — Artifact Set Reference\n\n- **Max Rarity**: ★★★★★\n\n## 2-Piece Bonus\nDendro DMG Bonus +15%\n\n## 4-Piece Bonus\nAfter Elemental Skills or Bursts hit opponents, the targets' Dendro RES will be decreased by 30% for 8s. This effect can be triggered even if the equipping character is not on the field.\n"
+}

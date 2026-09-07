@@ -1,0 +1,23 @@
+{
+  "id": "wiki_kaeya",
+  "title": "Kaeya — Complete Character Guide & Talent Reference",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Kaeya",
+    "source_type": "AUTHORITATIVE",
+    "character": "Kaeya",
+    "topic": "Character Guide",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:15:49Z",
+    "tags": [
+      "Kaeya",
+      "Cryo",
+      "Sword",
+      "Mondstadt",
+      "Character"
+    ]
+  },
+  "summary": "Complete reference for Kaeya: 4-star Cryo Sword user. Includes Normal Attack, Elemental Skill, Elemental Burst talent descriptions with scaling values, passive talents, all 6 constellation effects, and ascension material requirements.",
+  "content": "# Kaeya — Complete Character Reference\n\n## Overview\n- **Name**: Kaeya\n- **Title**: Frostwind Swordsman\n- **Rarity**: ★★★★\n- **Element / Vision**: Cryo\n- **Weapon Type**: Sword\n- **Nation**: Mondstadt\n- **Affiliation**: Knights of Favonius\n- **Constellation**: Pavo Ocellus\n- **Birthday**: 0000-11-30\n- **Special Dish**: None\n\n> An accomplished swordsman and a strategic thinker in the Knights of Favonius, rumored to hail from beyond Mondstadt.\n\n## Combat Talents\n\n### Normal Attack: Ceremonial Bladework\nNormal Attack\nPerforms up to 5 consecutive strikes.\nCharged Attack\nConsumes a certain amount of Stamina to unleash 2 rapid sword strikes.\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging enemeies along the path and dealing AoE DMG upon impact.\n\n**Scaling Values (Lv. 1):**\n- 1-Hit DMG: 53.8%\n- 2-Hit DMG: 51.7%\n- 3-Hit DMG: 65.3%\n- 4-Hit DMG: 70.9%\n- 5-Hit DMG: 88.2%\n- Charged Attack DMG: 55% + 73.1%\n- Charged Attack Stamina Cost: 20\n- Plunge DMG: 63.9%\n- Low / High Plunge DMG: 128% / 160%\n\n### Elemental Skill: Frostgnaw\nUnleashes a frigit blast, dealing Cryo DMG to enemies in front of Kaeya.\n\n**Scaling Values (Lv. 1):**\n- Skill DMG: 191%\n- CD: 6s\n\n### Elemental Burst: Glacial Waltz\nCoalescing the frost in the air, Kaeya summons 3 icicles that revolve around him.\n\nThese icicles will follow the character around and deal Cryo DMG to enemies in their path for so long as they persist.\n\n**Scaling Values (Lv. 1):**\n- Skill DMG: 77.6%\n- CD: 15s\n- Duration: 8s\n- Energy Cost: 60\n\n## Passive Talents\n\n### Cold-Blooded Strike (Unlocked at Ascension 1)\nEvery hit with Frostgnaw regenerates HP for Kaeya equal to 15% of ATK.\n\n### Glacial Heart (Unlocked at Ascension 4)\nEnemies Frozen by Frostgnaw will drop additional Elemental Particles.\nFrostgnaw may only produce a maximum of 2 additional Elemental Particles per use.\n\n### Hidden Strength (Unlocked Automatically)\nDecreases all party member's sprinting Stamina consumption by 20%.\n\n## Constellations\n\n### C1: Excellent Blood\nThe CRIT Rate of Normal Attack and Charged Attack DMG against enemies affected by the Cold or Frozen status effects is increased by 15%.\n\n### C2: Never-Ending Performance\nEvery time Glacial Waltz defeats an enemy, its duration is increased by 2.5s, up to a maximum of 15s.\n\n### C3: Dance of Frost\nIncreases the Level of Frostgnaw by 3.\nMaximum upgrade level is 15.\n\n### C4: Frozen Kiss\nTriggers automatically when Kaeya's HP falls below 20%:\nCreates a shield that absorbs damage equal to 30% of Kaeya's Max HP. Lasts for 20s.\nThis shield absorbs Cryo DMG with 250% efficiency.\nCan only occur once every 60s.\n\n### C5: Frostbiting Embrace\nIncrease the Level of Glacial Waltz by 3.\nMaximum upgrade level is 15.\n\n### C6: Glacial Whirlwind\nGlacial Waltz will generate 1 additional icicle, and will regenerate 15 Energy when cast.\n\n## Ascension Materials\n- **Level 20**: Shivada Jade Sliver ×1, Calla Lily ×3, Treasure Hoarder Insignia ×3, Mora ×20000\n- **Level 40**: Shivada Jade Fragment ×3, Hoarfrost Core ×2, Calla Lily ×10, Treasure Hoarder Insignia ×15, Mora ×40000\n- **Level 50**: Shivada Jade Fragment ×6, Hoarfrost Core ×4, Calla Lily ×20, Silver Raven Insignia ×12, Mora ×60000\n- **Level 60**: Shivada Jade Chunk ×3, Hoarfrost Core ×8, Calla Lily ×30, Silver Raven Insignia ×18, Mora ×80000\n- **Level 70**: Shivada Jade Chunk ×6, Hoarfrost Core ×12, Calla Lily ×45, Golden Raven Insignia ×12, Mora ×100000\n- **Level 80**: Shivada Jade Gemstone ×6, Hoarfrost Core ×20, Calla Lily ×60, Golden Raven Insignia ×24, Mora ×120000\n"
+}

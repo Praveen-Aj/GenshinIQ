@@ -1,0 +1,21 @@
+{
+  "id": "artifact_flower_of_paradise_lost",
+  "title": "Flower of Paradise Lost — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Flower_of_Paradise_Lost",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:31Z",
+    "tags": [
+      "Flower of Paradise Lost",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for Flower of Paradise Lost. 2pc: Increases Elemental Mastery by 80; 4pc: The equipping character's Bloom, Hyperbloom, and Burgeon reaction DMG are increa",
+  "content": "# Flower of Paradise Lost — Artifact Set Reference\n\n- **Max Rarity**: ★★★★★\n\n## 2-Piece Bonus\nIncreases Elemental Mastery by 80\n\n## 4-Piece Bonus\nThe equipping character's Bloom, Hyperbloom, and Burgeon reaction DMG are increased by 40%. Additionally, after the equipping character triggers Bloom, Hyperbloom, or Burgeon, they will gain another 25% bonus to the effect mentioned prior. Each stack of this lasts 10s. Max 4 stacks simultaneously. This effect can only be triggered once per second. The character who equips this can still trigger its effects when not on the field.\n"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "artifact_husk_of_opulent_dreams",
+  "title": "Husk of Opulent Dreams — Artifact Set Bonuses & Piece Details",
+  "metadata": {
+    "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Husk_of_Opulent_Dreams",
+    "source_type": "AUTHORITATIVE",
+    "character": null,
+    "topic": "Artifact Set",
+    "game_version": "5.4",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-08-26T14:16:36Z",
+    "tags": [
+      "Husk of Opulent Dreams",
+      "Artifact",
+      "Set Bonus"
+    ]
+  },
+  "summary": "Artifact set reference for Husk of Opulent Dreams. 2pc: DEF +30%; 4pc: A character equipped with this Artifact set will obtain the Curiosity effect in ",
+  "content": "# Husk of Opulent Dreams — Artifact Set Reference\n\n- **Max Rarity**: ★★★★★\n\n## 2-Piece Bonus\nDEF +30%\n\n## 4-Piece Bonus\nA character equipped with this Artifact set will obtain the Curiosity effect in the following conditions: When on the field, the character gains 1 stack after hitting an opponent with a Geo attack, triggering a maximum of once every 0.3s. When off the field, the character gains 1 stack every 3s. Curiosity can stack up to 4 times, each providing 6% DEF and a 6% Geo DMG Bonus. When 6 seconds pass without gaining a Curiosity stack, 1 stack is lost.\n"
+}
