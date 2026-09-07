@@ -62,7 +62,7 @@ def test_weapon_service_lookups():
     assert len(cms.refinements) == 5
 
     # Lookup by ID
-    sword = game_data_service.get_weapon("11512")
+    sword = game_data_service.get_weapon("11513")
     assert sword is not None
     assert sword.name == "Splendor of Tranquil Waters"
 
@@ -75,7 +75,7 @@ def test_artifact_service_lookups():
     assert "18%" in whimsy.bonus_2pc
     assert "Bond of Life" in whimsy.bonus_4pc
     assert "flower" in whimsy.pieces
-    assert whimsy.pieces["circlet"] == "Whimsy Circlet"
+    assert whimsy.pieces["circlet"] == "Whimsical Dance of the Withered"
 
 
 def test_materials_lookups():

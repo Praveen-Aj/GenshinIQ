@@ -85,12 +85,16 @@ Execute the full pytest suite to verify system integrity:
 .venv\Scripts\pytest backend/tests -v
 ```
 
-All 28 tests should pass:
+All 33 tests should pass:
 - Enka normalizer & cache mechanics
 - Canonical character, weapon, artifact, material queries
 - Knowledge base search & source hierarchy
 - Query intent classification & dynamic version context injection
 - Health diagnostics & static file serving
+- Provenance manifest generation and source/version summaries
+
+Roadmap for the next release:
+- [Next Version Roadmap](NEXT_VERSION_ROADMAP.md)
 
 ---
 

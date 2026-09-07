@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Optional, Dict, Any
 from backend.config import settings
 
-SHOWCASE_CACHE_DIR = Path("data/raw/showcases")
+SHOWCASE_CACHE_DIR = Path("data/runtime/showcases")
 
 
 class ShowcaseCacheService:

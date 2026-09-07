@@ -58,8 +58,13 @@ Unlike generic LLMs that rely on imprecise memory or static web training data, G
 
 ### 2.1 Enka API Integration & TTL Disk Caching
 - **Endpoint**: `https://enka.network/api/uid/{uid}`.
-- **Cache Architecture**: To prevent IP rate limiting and minimize latency, showcase responses are serialized to `data/raw/showcases/{uid}.json` with an in-memory TTL check (default: 300 seconds).
+- **Cache Architecture**: To prevent IP rate limiting and minimize latency, showcase responses are serialized to `data/runtime/showcases/{uid}.json` with an in-memory TTL check (default: 300 seconds).
 - **Cache Bypass**: The frontend provides a dedicated **Bypass Cache** button triggering `/api/account/{uid}?refresh=true`.
+
+### 2.1.1 Provenance Manifest
+- **Endpoint**: `/api/data/manifest`.
+- **Purpose**: Returns live hashes, record counts, and source/version summaries for canonical game data and curated knowledge documents.
+- **Cache Location**: Runtime showcase cache is separated from committed fixtures under `data/runtime/showcases/`.
 
 ### 2.2 Player Profile Resolution
 The player's profile is parsed from `playerInfo`:
@@ -172,7 +177,7 @@ Executed via `.venv\Scripts\pytest backend/tests -v`:
 - `test_game_data.py`: Character/weapon/artifact lookups, filters, global search.
 - `test_knowledge_base.py`: Document ingestion, source hierarchy, search relevance.
 - `test_rag.py`: Query classification, prompt construction, dynamic date grounding, chat endpoint.
-- **Result**: **28/28 tests passing (100% pass rate)**.
+- **Result**: **33/33 tests passing (100% pass rate)**.
 
 ### 7.2 End-to-End Browser Subagent Verification
 - Verified on live instance `http://127.0.0.1:8000/`.

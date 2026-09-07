@@ -26,6 +26,7 @@ def test_character_detection():
     assert rag_service._detect_character("how is my Furina?") == "Furina"
     assert rag_service._detect_character("Is Bennett C6 good?") == "Bennett"
     assert rag_service._detect_character("How is Neuvillette?") == "Neuvillette"
+    assert rag_service._detect_character("what is the best weapon for kleee") == "Klee"
     # Unmatched character
     assert rag_service._detect_character("What is the best artifact set?") is None
 
@@ -48,6 +49,24 @@ async def test_rag_general_generation(mock_generate):
     # Confirm correct citation topic/character is retrieved in results
     assert any(c.character == "Furina" for c in response.citations)
     mock_generate.assert_called_once()
+
+
+@pytest.mark.anyio
+@patch("backend.services.gemini_service.gemini_service.generate_content", new_callable=AsyncMock)
+async def test_rag_falls_back_when_gemini_is_busy(mock_generate):
+    """Verify that transient Gemini overloads still return a grounded fallback."""
+    mock_generate.return_value = "Error from Gemini API: This model is currently experiencing high demand."
+
+    messages = [
+        ChatMessage(role="user", content="What is the best weapon for kleee?")
+    ]
+
+    response = await rag_service.generate_response(messages=messages)
+
+    assert response.intent == "general"
+    assert "temporarily busy" in response.content.lower()
+    assert "error from gemini api" not in response.content.lower()
+    assert len(response.citations) > 0
 
 
 @pytest.mark.anyio

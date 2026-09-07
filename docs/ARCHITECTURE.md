@@ -58,15 +58,17 @@ GenshinIQ combines live in-game showcase data, structured canonical game data, a
 - **`backend.main`**: FastAPI application entry point with CORS middleware, router registration, and static frontend hosting.
 - **`backend.config`**: Pydantic Settings loading environment configurations from `.env`.
 - **`backend.api.routes`**: Clean RESTful endpoints organizing health diagnostics, account showcases, canonical game data, curated knowledge, and chat assistant.
+- **`backend.api.routes`**: Clean RESTful endpoints organizing health diagnostics, account showcases, canonical game data, a provenance manifest, curated knowledge, and chat assistant.
 
 ### 2.2 Account Integration (`AccountService` & `EnkaClient`)
 - **Public Showcase Ingestion**: Connects to Enka.Network API to retrieve public player data without requiring game credentials or private tokens.
 - **Profile Avatar Resolution**: Maps `profilePicture.avatarId` to canonical characters and CDN avatar icons.
 - **Combat Attribute Normalizer**: Converts raw Enka `fightPropMap` keys into standard Genshin stats (HP, ATK, DEF, CRIT Rate/DMG, ER, EM, Elemental DMG Bonuses).
-- **TTL Disk Caching**: Stores retrieved payloads under `data/raw/showcases/{uid}.json` with a 300-second TTL to respect rate limits.
+- **TTL Disk Caching**: Stores retrieved payloads under `data/runtime/showcases/{uid}.json` with a 300-second TTL to respect rate limits.
 
 ### 2.3 Game Data Service (`GameDataService`)
 - **Canonical Datasets**: Fast in-memory dictionary indices for Characters, Weapons, Artifact Sets, and Materials.
+- **Provenance Snapshot**: Emits a live manifest that summarizes dataset hashes, counts, and source/version state.
 - **Filtering & Search**: Multi-attribute filtering (element, weapon type, rarity) and cross-entity keyword search.
 
 ### 2.4 Knowledge Service (`KnowledgeService`)

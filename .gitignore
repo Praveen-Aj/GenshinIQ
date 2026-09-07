@@ -67,5 +67,7 @@ logs/
 
 # Data Caches & Local Databases
 # Curated knowledge, processed game data, and test fixtures are intentionally tracked.
+data/runtime/
+data/raw/game_data/
 *.sqlite
 *.db

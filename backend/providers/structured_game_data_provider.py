@@ -42,13 +42,15 @@ class StructuredGameDataProvider(
         self._load_all_data()
 
     def _load_all_data(self) -> None:
-        """Load JSON datasets and build indexes."""
+        """Load JSON datasets and build indexes with integrity tracking."""
         # 1. Characters
         char_file = self.data_dir / "characters.json"
         if char_file.exists():
             with open(char_file, "r", encoding="utf-8") as f:
                 for item in json.load(f):
                     char = CharacterData(**item)
+                    if char.id in self._characters_by_id:
+                        print(f"[!] Warning: Duplicate character ID {char.id} ({char.name}) collided with {self._characters_by_id[char.id].name}")
                     self._characters_by_id[char.id] = char
                     self._characters_by_name[char.name.lower()] = char
 
@@ -58,6 +60,8 @@ class StructuredGameDataProvider(
             with open(weapon_file, "r", encoding="utf-8") as f:
                 for item in json.load(f):
                     wep = WeaponData(**item)
+                    if wep.id in self._weapons_by_id:
+                        print(f"[!] Warning: Duplicate weapon ID {wep.id} ({wep.name}) collided with {self._weapons_by_id[wep.id].name}")
                     self._weapons_by_id[wep.id] = wep
                     self._weapons_by_name[wep.name.lower()] = wep
 
@@ -67,6 +71,8 @@ class StructuredGameDataProvider(
             with open(art_file, "r", encoding="utf-8") as f:
                 for item in json.load(f):
                     art = ArtifactSetData(**item)
+                    if art.id in self._artifacts_by_id:
+                        print(f"[!] Warning: Duplicate artifact set ID {art.id} ({art.name}) collided with {self._artifacts_by_id[art.id].name}")
                     self._artifacts_by_id[art.id] = art
                     self._artifacts_by_name[art.name.lower()] = art
 
@@ -76,6 +82,8 @@ class StructuredGameDataProvider(
             with open(mat_file, "r", encoding="utf-8") as f:
                 for item in json.load(f):
                     mat = MaterialData(**item)
+                    if mat.id in self._materials_by_id:
+                        print(f"[!] Warning: Duplicate material ID {mat.id} ({mat.name}) collided with {self._materials_by_id[mat.id].name}")
                     self._materials_by_id[mat.id] = mat
                     self._materials_by_name[mat.name.lower()] = mat
 

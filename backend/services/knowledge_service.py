@@ -1,8 +1,10 @@
 """Service to load, index, and query curated Genshin knowledge base documents."""
 
+import difflib
 import os
 import json
 import logging
+import re
 from typing import Dict, List, Optional
 from pathlib import Path
 
@@ -20,6 +22,7 @@ class KnowledgeService:
         self.documents: Dict[str, KnowledgeDocument] = {}
         self.by_character: Dict[str, List[KnowledgeDocument]] = {}
         self.by_topic: Dict[str, List[KnowledgeDocument]] = {}
+        self.search_aliases: List[str] = []
         
         self.load_documents()
 
@@ -28,6 +31,7 @@ class KnowledgeService:
         self.documents.clear()
         self.by_character.clear()
         self.by_topic.clear()
+        self.search_aliases.clear()
 
         if not self.knowledge_dir.exists():
             logger.warning(f"Knowledge directory {self.knowledge_dir} does not exist. Creating it.")
@@ -49,12 +53,15 @@ class KnowledgeService:
                     if char_lower not in self.by_character:
                         self.by_character[char_lower] = []
                     self.by_character[char_lower].append(doc)
+                    self.search_aliases.append(char_lower)
 
                 # Index by topic
                 topic_lower = doc.metadata.topic.lower()
                 if topic_lower not in self.by_topic:
                     self.by_topic[topic_lower] = []
                 self.by_topic[topic_lower].append(doc)
+                self.search_aliases.append(doc.title.lower())
+                self.search_aliases.extend(tag.lower() for tag in doc.metadata.tags)
 
                 logger.info(f"Loaded knowledge document: '{doc.id}' (Title: {doc.title})")
             except Exception as e:
@@ -98,7 +105,6 @@ class KnowledgeService:
         if not query or not query.strip():
             return []
 
-        import re
         cleaned_query = re.sub(r"[^\w\s]", " ", query)
         stop_words = {
             "what", "are", "the", "is", "of", "for", "in", "on", "to", "a", "an",
@@ -108,6 +114,17 @@ class KnowledgeService:
         search_terms = [term.lower() for term in cleaned_query.split() if term and term.lower() not in stop_words]
         if not search_terms:
             search_terms = [term.lower() for term in cleaned_query.split() if term]
+
+        expanded_terms = list(search_terms)
+        if self.search_aliases:
+            for term in search_terms:
+                if len(term) < 3:
+                    continue
+                close = difflib.get_close_matches(term, self.search_aliases, n=2, cutoff=0.82)
+                for match in close:
+                    if match not in expanded_terms:
+                        expanded_terms.append(match)
+
         matches: List[KnowledgeSearchResult] = []
 
         for doc in self.documents.values():
@@ -120,7 +137,7 @@ class KnowledgeService:
             char_lower = doc.metadata.character.lower() if doc.metadata.character else ""
             tags_lower = [t.lower() for t in doc.metadata.tags]
 
-            for term in search_terms:
+            for term in expanded_terms:
                 if term in title_lower:
                     score += 5.0
                 if term in char_lower:
@@ -135,7 +152,7 @@ class KnowledgeService:
             if score > 0:
                 # Build snippet from summary or content matches
                 snippet = doc.summary
-                content_match_idx = content_lower.find(search_terms[0])
+                content_match_idx = content_lower.find(expanded_terms[0])
                 if content_match_idx != -1:
                     start = max(0, content_match_idx - 60)
                     end = min(len(doc.content), content_match_idx + 140)

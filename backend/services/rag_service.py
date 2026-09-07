@@ -1,5 +1,6 @@
 """Service to orchestrate query understanding, document retrieval, and grounded response generation."""
 
+import difflib
 import logging
 import re
 from datetime import datetime
@@ -122,7 +123,57 @@ class RAGService:
             pattern = rf"\b{re.escape(char.name.lower())}\b"
             if re.search(pattern, query_lower):
                 return char.name
+
+        candidate_names = [char.name.lower() for char in characters]
+        if candidate_names:
+            query_tokens = [token for token in re.findall(r"[a-z0-9]+", query_lower) if len(token) >= 3]
+            for token in query_tokens:
+                close = difflib.get_close_matches(token, candidate_names, n=1, cutoff=0.82)
+                if close:
+                    matched_name = close[0]
+                    for char in characters:
+                        if char.name.lower() == matched_name:
+                            return char.name
         return None
+
+    def _build_fallback_response(
+        self,
+        intent: str,
+        query: str,
+        citations: List[Citation],
+        account_summary: Optional[str] = None,
+    ) -> str:
+        """Create a grounded fallback when Gemini is temporarily unavailable."""
+
+        if account_summary:
+            return (
+                "Gemini is temporarily busy, so I’m using the grounded account context I already fetched.\n\n"
+                f"{account_summary}\n\n"
+                "If you want, I can retry the full review once the model is available again."
+            )
+
+        if citations:
+            cited_sources = "\n".join(
+                f"- {c.topic or 'Reference'}: {c.source_name} (v{c.game_version})"
+                for c in citations[:3]
+            )
+            return (
+                "Gemini is temporarily busy, but I did find local references for your question.\n\n"
+                f"Here are the strongest sources I found for “{query}”:\n"
+                f"{cited_sources}\n\n"
+                "Try again in a moment and I’ll generate the full answer."
+            )
+
+        if intent == "account":
+            return (
+                "Gemini is temporarily busy, and I couldn’t assemble enough account context to give a confident build review.\n\n"
+                "Please try again in a moment, or refresh your showcase and resend the question."
+            )
+
+        return (
+            "Gemini is temporarily busy right now.\n\n"
+            "I couldn’t generate a grounded answer yet, but the app is still working and you can try the question again shortly."
+        )
 
     def _format_showcase_character(self, char_build) -> str:
         """Helper to format a player's character build stats for prompt context."""
@@ -208,11 +259,11 @@ Artifact Pieces Equipped:
         context_blocks = []
         citations = []
         
-        # 1. Search knowledge base
-        search_results = knowledge_service.search_documents(query, limit=3)
-        for res in search_results:
-            doc = knowledge_service.get_document(res.id)
-            if doc:
+        # 1. Direct character guide lookup & canonical game data injection
+        if char_name:
+            # 1a. Pull all curated knowledge documents directly linked to this character
+            char_docs = knowledge_service.list_documents(character=char_name)
+            for doc in char_docs:
                 context_blocks.append(
                     f"=== KNOWLEDGE SOURCE: {doc.title} ({doc.metadata.source}) ===\n"
                     f"URL: {doc.metadata.source_url}\n"
@@ -230,22 +281,71 @@ Artifact Pieces Equipped:
                     )
                 )
 
-        # 2. Gather account details if intent is account
+            # 1b. Inject canonical game data (base stats, talents, element, weapon)
+            canonical_char = game_data_service.get_character(char_name)
+            if canonical_char:
+                talents_text = "\n".join([
+                    f"- {t.name} ({t.type}): {t.description}"
+                    for t in (canonical_char.talents or [])
+                ]) if canonical_char.talents else "Standard kit"
+                region_val = getattr(canonical_char, 'region', None) or 'Teyvat'
+                affil_val = getattr(canonical_char, 'affiliation', None) or region_val
+                context_blocks.append(
+                    f"=== CANONICAL GAME DATABASE: {canonical_char.name.upper()} ===\n"
+                    f"Rarity: {canonical_char.rarity} Star | Element: {canonical_char.element} | Weapon: {canonical_char.weapon_type}\n"
+                    f"Region: {region_val} | Affiliation: {affil_val}\n"
+                    f"Base HP (Lv 90): {canonical_char.base_hp_lvl90} | Base ATK: {canonical_char.base_atk_lvl90} | Base DEF: {canonical_char.base_def_lvl90}\n"
+                    f"Ascension Stat: {canonical_char.ascension_stat} ({canonical_char.ascension_stat_val_lvl90})\n"
+                    f"Talents:\n{talents_text}\n"
+                    f"=================================================="
+                )
+
+        # 2. Search additional knowledge base articles
+        search_query = query
+        if char_name and char_name.lower() not in query.lower():
+            search_query = f"{query} {char_name}"
+
+        search_results = knowledge_service.search_documents(search_query, limit=3)
+        account_summary = None
+        for res in search_results:
+            doc = knowledge_service.get_document(res.id)
+            if not doc:
+                continue
+            # Avoid duplicate citations
+            if any(c.source_url == doc.metadata.source_url for c in citations if c.source_url):
+                continue
+            context_blocks.append(
+                f"=== KNOWLEDGE SOURCE: {doc.title} ({doc.metadata.source}) ===\n"
+                f"URL: {doc.metadata.source_url}\n"
+                f"Content:\n{doc.content}\n"
+                f"=================================================="
+            )
+            citations.append(
+                Citation(
+                    source_name=doc.metadata.source,
+                    source_url=doc.metadata.source_url,
+                    snippet=doc.summary,
+                    character=doc.metadata.character,
+                    topic=doc.metadata.topic,
+                    game_version=doc.metadata.game_version
+                )
+            )
+
+        # 3. Gather account details if uid is provided
         account_found = False
-        if intent == "account" and uid:
+        if uid:
             try:
                 showcase = await account_service.get_showcase(uid=uid)
                 if char_name:
-                    # Find character build matching char_name
                     char_build = next(
                         (c for c in showcase.characters if c.name.lower() == char_name.lower()),
                         None
                     )
                     if char_build:
-                        context_blocks.append(self._format_showcase_character(char_build))
+                        account_summary = self._format_showcase_character(char_build)
+                        context_blocks.append(account_summary)
                         account_found = True
-                    else:
-                        # Character not in showcase
+                    elif intent == "account":
                         context_blocks.append(
                             f"=== SYSTEM NOTICE ===\n"
                             f"User has requested information on their '{char_name}', but it was not "
@@ -253,8 +353,7 @@ Artifact Pieces Equipped:
                             f"{', '.join([c.name for c in showcase.characters])}.\n"
                             f"====================="
                         )
-                else:
-                    # Generic account query, include overview of showcase
+                elif intent == "account":
                     chars_summary = ", ".join([f"{c.name} (Lv. {c.level} C{c.constellation})" for c in showcase.characters])
                     context_blocks.append(
                         f"=== USER'S SHOWCASE OVERVIEW ===\n"
@@ -266,25 +365,26 @@ Artifact Pieces Equipped:
                     )
             except Exception as e:
                 logger.error(f"Failed to load user showcase for RAG: {e}")
-                context_blocks.append(
-                    f"=== SYSTEM ERROR ===\n"
-                    f"Failed to fetch user showcase data for UID {uid}.\n"
-                    f"===================="
-                )
+                if intent == "account":
+                    context_blocks.append(
+                        f"=== SYSTEM ERROR ===\n"
+                        f"Failed to fetch user showcase data for UID {uid}.\n"
+                        f"===================="
+                    )
 
-        # 3. Assemble Prompt & Guardrails
+        # 4. Assemble Prompt & Guardrails
         current_date_str = datetime.now().strftime("%B %Y")
         latest_game_version = self._get_latest_game_version()
         
         system_instruction = (
             "You are GenshinIQ, a personal Genshin Impact AI assistant. Your goal is to provide highly accurate, "
             "grounded character build reviews and game theorycrafting advice. You must adhere to the following rules:\n"
-            f"0. CRITICAL CONTEXT: The current date is {current_date_str}. The current live version of Genshin Impact is Version {latest_game_version} (Snezhnaya release phase). "
-            "All version-related queries and general gameplay context must align with this version context.\n"
+            f"0. CRITICAL CONTEXT: The current date is {current_date_str}. The current live version of Genshin Impact is Version {latest_game_version} (Natlan and post-Natlan era). "
+            "All characters including Natlan characters (such as Mavuika, Citlali, Kinich, Mualani, Xilonen, Chasca) are officially released characters. "
+            "When provided with character guides or canonical game data in the context, you MUST provide full, authoritative build recommendations (best weapons, artifact sets, main/substats, talent crowning order, and team comps).\n"
             "1. For questions about the user's specific account showcase, builds, or specific local character guide statistics, "
             "answer strictly using the supplied context block. Do not invent stats or builds.\n"
-            "2. For general Genshin Impact questions (such as lore, general mechanics, patch updates, or version status) "
-            "that are not fully covered in the local context, you are permitted to answer using your general knowledge of the game. "
+            "2. For general Genshin Impact questions that are not fully covered in the local context, you are permitted to answer using your general knowledge of the game. "
             "In this case, note clearly in your response that you are answering from general knowledge.\n"
             "3. If a question cannot be answered either by the local context or your general knowledge, state that information is insufficient.\n"
             "4. Be concise, structure your answer using clean markdown headings and bullet points.\n"
@@ -321,6 +421,14 @@ Artifact Pieces Equipped:
             contents=contents,
             system_instruction=system_instruction
         )
+
+        if response_content.startswith("Error:") or "high demand" in response_content.lower():
+            response_content = self._build_fallback_response(
+                intent=intent,
+                query=query,
+                citations=citations,
+                account_summary=account_summary,
+            )
 
         return ChatResponse(
             content=response_content,

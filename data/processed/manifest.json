@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-07T14:49:10.517327+00:00",
+  "app_version": "0.3.0",
+  "runtime_cache_dir": "C:/Users/Praveen/Downloads/Python Scripts/GenshinIQ/data/runtime/showcases",
+  "game_data": {
+    "directory": "C:/Users/Praveen/Downloads/Python Scripts/GenshinIQ/data/processed/game_data",
+    "aggregate_sha256": "2e1b94dcb5ab92a2036b4ff5accab369d5e8fff3f755fc7106395738d5fbc3e0",
+    "files": [
+      {
+        "file_name": "artifacts.json",
+        "record_count": 63,
+        "sha256": "67416ee802c8bf483770461704c95d5ddcac354b8f40ecefedbe68b79a4d4ea5",
+        "size_bytes": 42612
+      },
+      {
+        "file_name": "characters.json",
+        "record_count": 121,
+        "sha256": "77dbcb35334f5ed3a350f97f86d380b943904ba460d16dc7b61b193ed2ec745d",
+        "size_bytes": 897554
+      },
+      {
+        "file_name": "materials.json",
+        "record_count": 447,
+        "sha256": "f46c6083d555059b88222ef6ded5355127154729763ec89d207acb5208b46ff3",
+        "size_bytes": 267344
+      },
+      {
+        "file_name": "weapons.json",
+        "record_count": 246,
+        "sha256": "7e331f58370f85f2b32b9413ca0ef88c25164dca2cd2229a059fa34d7576d3a6",
+        "size_bytes": 541338
+      }
+    ]
+  },
+  "knowledge_base": {
+    "directory": "C:/Users/Praveen/Downloads/Python Scripts/GenshinIQ/data/knowledge",
+    "aggregate_sha256": "8881a6d227ce46d5d3712e83f1f3bf19a9a9451002067f19f711a0757495a39a",
+    "total_documents": 163
+  }
+}

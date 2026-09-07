@@ -1,5 +1,6 @@
 """Account service coordinating showcase data retrieval, caching, and lookups."""
 
+from difflib import get_close_matches
 from typing import Optional, List
 from backend.providers.enka_client import enka_client, EnkaClient
 from backend.services.cache_service import cache_service, ShowcaseCacheService
@@ -45,6 +46,15 @@ class AccountService:
         for char in showcase.characters:
             if str(char.avatar_id) == character_identifier or char.name.lower() == ident_lower:
                 return char
+
+        if ident_lower and len(ident_lower) >= 3:
+            names = [char.name.lower() for char in showcase.characters]
+            match = get_close_matches(ident_lower, names, n=1, cutoff=0.78)
+            if match:
+                matched_name = match[0]
+                for char in showcase.characters:
+                    if char.name.lower() == matched_name:
+                        return char
 
         return None
 

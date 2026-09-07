@@ -1,5 +1,6 @@
 """Service to communicate with the Gemini API over HTTP."""
 
+import asyncio
 import logging
 from typing import Any, Dict, List, Optional
 import httpx
@@ -21,7 +22,8 @@ class GeminiService:
         self,
         contents: List[Dict[str, Any]],
         system_instruction: Optional[str] = None,
-        temperature: float = 0.2
+        temperature: float = 0.2,
+        max_retries: int = 2,
     ) -> str:
         """
         Calls Gemini API generateContent endpoint.
@@ -52,12 +54,26 @@ class GeminiService:
             "Content-Type": "application/json"
         }
 
+        retry_statuses = {429, 500, 502, 503, 504}
+
         try:
             async with httpx.AsyncClient(timeout=httpx.Timeout(30.0, connect=10.0)) as client:
-                response = await client.post(url, json=payload, headers=headers)
-                
+                response = None
+                for attempt in range(max_retries + 1):
+                    response = await client.post(url, json=payload, headers=headers)
+                    if response.status_code == 200:
+                        break
+
+                    logger.warning(f"Gemini API returned status {response.status_code}: {response.text}")
+                    if response.status_code not in retry_statuses or attempt >= max_retries:
+                        break
+
+                    await asyncio.sleep(0.75 * (attempt + 1))
+
+                if response is None:
+                    return "Error: Gemini API request did not execute."
+
                 if response.status_code != 200:
-                    logger.error(f"Gemini API returned status {response.status_code}: {response.text}")
                     try:
                         err_json = response.json()
                         error_msg = err_json.get("error", {}).get("message", "Unknown error")

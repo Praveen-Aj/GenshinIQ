@@ -14,12 +14,14 @@ from backend.models.game_data import (
     MaterialData,
     SearchResult,
 )
+from backend.models.provenance import DataProvenanceManifest
 from backend.models.knowledge import (
     KnowledgeDocument,
     KnowledgeSearchResult,
     SourceType,
 )
 from backend.services.knowledge_service import knowledge_service
+from backend.services.provenance_service import provenance_service
 from backend.models.chat import ChatRequest, ChatResponse
 from backend.services.rag_service import rag_service
 
@@ -240,6 +242,16 @@ def search_game_data(
     return game_data_service.search(query=q)
 
 
+@router.get(
+    "/data/manifest",
+    response_model=DataProvenanceManifest,
+    summary="Get Data Provenance Manifest"
+)
+def get_data_manifest():
+    """Return the current provenance snapshot for local datasets."""
+    return provenance_service.build_manifest()
+
+
 # Phase 3: Curated Knowledge Base Endpoints
 @router.get(
     "/knowledge/documents",
@@ -325,4 +337,3 @@ async def chat_assistant(request: ChatRequest):
         messages=request.messages,
         uid=uid
     )
-
