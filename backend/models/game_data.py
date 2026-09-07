@@ -42,6 +42,8 @@ class CharacterData(BaseModel):
     constellations: List[Constellation] = Field(default_factory=list)
     ascension_materials: List[str] = Field(default_factory=list)
     talent_materials: List[str] = Field(default_factory=list)
+    game_version_introduced: Optional[str] = Field(default=None, description="Patch version when introduced, e.g. '1.6'")
+    game_version_updated: Optional[str] = Field(default="5.4", description="Latest patch version when stats were verified")
 
 
 class WeaponData(BaseModel):
@@ -59,6 +61,8 @@ class WeaponData(BaseModel):
     passive_desc: Optional[str] = None
     refinements: List[str] = Field(default_factory=list, description="Descriptions for R1-R5")
     ascension_materials: List[str] = Field(default_factory=list)
+    game_version_introduced: Optional[str] = Field(default=None, description="Patch version when introduced")
+    game_version_updated: Optional[str] = Field(default="5.4", description="Latest patch version when stats were verified")
 
 
 class ArtifactPiece(BaseModel):
@@ -77,6 +81,8 @@ class ArtifactSetData(BaseModel):
     bonus_2pc: str
     bonus_4pc: Optional[str] = None
     pieces: Dict[str, str] = Field(default_factory=dict, description="slot -> piece name")
+    game_version_introduced: Optional[str] = Field(default=None, description="Patch version when introduced")
+    game_version_updated: Optional[str] = Field(default="5.4", description="Latest patch version when stats were verified")
 
 
 class MaterialData(BaseModel):

@@ -13,6 +13,12 @@ from backend.models.account import (
     EnkaShowcaseResponse,
 )
 
+from backend.models.version import (
+    GameVersion,
+    VersionStatus,
+    StalenessEvaluation,
+)
+
 __all__ = [
     "ArtifactSlot",
     "StatValue",
@@ -24,4 +30,7 @@ __all__ = [
     "CharacterBuild",
     "PlayerProfile",
     "EnkaShowcaseResponse",
+    "GameVersion",
+    "VersionStatus",
+    "StalenessEvaluation",
 ]

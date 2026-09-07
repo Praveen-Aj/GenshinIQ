@@ -24,6 +24,8 @@ from backend.services.knowledge_service import knowledge_service
 from backend.services.provenance_service import provenance_service
 from backend.models.chat import ChatRequest, ChatResponse
 from backend.services.rag_service import rag_service
+from backend.models.version import GameVersion, VersionStatus, StalenessEvaluation
+from backend.services.version_service import version_service
 
 router = APIRouter()
 
@@ -31,16 +33,66 @@ router = APIRouter()
 # System Diagnostics
 @router.get("/health", summary="Health Check")
 async def health_check():
-    """Health check endpoint to verify backend system status."""
+    """Health check endpoint to verify backend system status and active game version."""
+    curr_v = version_service.get_current_version()
     return {
         "status": "ok",
         "app_name": settings.APP_NAME,
         "version": settings.APP_VERSION,
+        "game_version": curr_v.version,
+        "game_patch_name": curr_v.name,
         "environment": settings.APP_ENV,
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "gemini_configured": bool(settings.GEMINI_API_KEY),
         "enka_api_base": settings.ENKA_API_BASE_URL,
     }
+
+
+# Phase 2: Game Version & Patch History Endpoints
+@router.get(
+    "/version/current",
+    response_model=GameVersion,
+    summary="Get Current Live Game Version"
+)
+def get_current_game_version():
+    """Retrieve verified active live game version details."""
+    return version_service.get_current_version()
+
+
+@router.get(
+    "/version/history",
+    response_model=List[GameVersion],
+    summary="List Tracked Game Version History"
+)
+def list_game_version_history():
+    """Retrieve full chronological registry of game versions."""
+    return version_service.list_versions()
+
+
+@router.get(
+    "/version/status",
+    response_model=VersionStatus,
+    summary="Unified Version & Staleness Status"
+)
+def get_version_status():
+    """Get system health, active patch status, and document staleness metrics."""
+    stale_docs = knowledge_service.get_stale_documents()
+    total_docs = len(knowledge_service.documents)
+    return version_service.get_status(
+        total_documents=total_docs,
+        stale_documents=len(stale_docs),
+    )
+
+
+@router.get(
+    "/knowledge/stale",
+    summary="List Stale Knowledge Documents"
+)
+def list_stale_knowledge(
+    threshold: int = Query(default=4, description="Patches behind current to consider stale")
+):
+    """List knowledge documents that are stale relative to the active game version."""
+    return knowledge_service.get_stale_documents(stale_threshold_patches=threshold)
 
 
 # Phase 1: Account Showcase Endpoints

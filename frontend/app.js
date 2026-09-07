@@ -126,6 +126,11 @@ function getElementSvg(element, size = 18) {
   return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" style="filter: drop-shadow(0 1px 3px rgba(0,0,0,0.8)); vertical-align: middle;">${svgContent}</svg>`;
 }
 
+function getElementIconUrl(element) {
+  const elem = (element || 'pyro').toLowerCase();
+  return `https://enka.network/ui/UI_Buff_Element_${elem.charAt(0).toUpperCase() + elem.slice(1)}.png`;
+}
+
 function getCharacterGachaUrl(name) {
   if (!name) return null;
   const iconCode = CHARACTER_ICONS[name.toLowerCase()];
@@ -250,6 +255,7 @@ function initAccountListeners() {
   const refreshBtn = document.getElementById('refresh-uid-btn');
   const uidInput = document.getElementById('uid-input');
   const refreshHealthBtn = document.getElementById('refresh-health-btn');
+  const copyHealthBtn = document.getElementById('copy-health-btn');
 
   if (importBtn) {
     importBtn.addEventListener('click', () => {
@@ -276,6 +282,20 @@ function initAccountListeners() {
 
   if (refreshHealthBtn) {
     refreshHealthBtn.addEventListener('click', checkBackendHealth);
+  }
+
+  if (copyHealthBtn) {
+    copyHealthBtn.addEventListener('click', async () => {
+      const snapshot = window.__latestHealthSnapshot;
+      if (!snapshot) return;
+      try {
+        await navigator.clipboard.writeText(JSON.stringify(snapshot, null, 2));
+        copyHealthBtn.textContent = 'Copied';
+        setTimeout(() => { copyHealthBtn.textContent = 'Copy Snapshot'; }, 1200);
+      } catch (err) {
+        console.error('Failed to copy health snapshot:', err);
+      }
+    });
   }
 
   // Carousel navigation buttons
@@ -770,7 +790,7 @@ function renderArtifacts(artifacts) {
  * ====================================================
  */
 function initDatabaseListeners() {
-  const categoryBtns = document.querySelectorAll('.sub-tab-btn');
+  const categoryBtns = document.querySelectorAll('#tab-content-characters .sub-tab-btn[data-category]');
   categoryBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       categoryBtns.forEach((b) => b.classList.remove('active'));
@@ -869,7 +889,6 @@ function filterAndRenderDbItems() {
       const elemClass = `elem-${item.element.toLowerCase()}`;
       const charIcon = `https://enka.network/ui/${item.icon || `UI_AvatarIcon_${item.name}`}.png`;
       const rarityClass = `rarity-${item.rarity}`;
-      const elemIconUrl = getElementIconUrl(item.element);
       card.innerHTML = `
         <div style="display: flex; gap: 14px; align-items: center; flex-grow: 1;">
           <img class="db-card-avatar ${rarityClass}" src="${charIcon}" onerror="this.onerror=null; this.src='${getImgFallback('character')}'" alt="${item.name}">
@@ -950,7 +969,6 @@ function renderDbDetailInspector(item, category) {
     const elemClass = `elem-${item.element.toLowerCase()}`;
     const charIcon = `https://enka.network/ui/${item.icon || `UI_AvatarIcon_${item.name}`}.png`;
     const gachaUrl = getCharacterGachaUrl(item.name);
-    const elemIconUrl = getElementIconUrl(item.element);
     const rarityClass = item.rarity === 5 ? 'rarity-5' : 'rarity-4';
 
     const talentsHtml = (item.talents || []).map((t) => `
@@ -1156,14 +1174,35 @@ async function checkBackendHealth() {
   const diagTimestamp = document.getElementById('diag-timestamp');
   const diagEnkaBase = document.getElementById('diag-enka-base');
   const rawPayload = document.getElementById('raw-health-json');
+  const manifestStatus = document.getElementById('diag-manifest-status');
+  const manifestCacheDir = document.getElementById('diag-cache-dir');
+  const manifestDocCount = document.getElementById('diag-manifest-doc-count');
+  const manifestGameCount = document.getElementById('diag-manifest-game-count');
+  const manifestSourceCount = document.getElementById('diag-manifest-source-count');
+
+  // Phase 2 Version elements
+  const diagGameVer = document.getElementById('diag-game-ver');
+  const diagGamePatch = document.getElementById('diag-game-patch-name');
+  const diagGameRelease = document.getElementById('diag-game-release');
+  const diagGameRegion = document.getElementById('diag-game-region');
+  const diagGameTotalVer = document.getElementById('diag-game-total-versions');
+  const diagGameStaleDocs = document.getElementById('diag-game-stale-docs');
+  const gameVerBadge = document.getElementById('game-version-badge');
 
   statusPill.className = 'status-pill status-loading';
   statusText.textContent = 'Checking API...';
 
   try {
-    const response = await fetch('/api/health');
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const data = await response.json();
+    const [healthResponse, manifestResponse, versionResponse] = await Promise.all([
+      fetch('/api/health'),
+      fetch('/api/data/manifest'),
+      fetch('/api/version/status')
+    ]);
+    if (!healthResponse.ok) throw new Error(`HTTP ${healthResponse.status}`);
+    if (!manifestResponse.ok) throw new Error(`HTTP ${manifestResponse.status}`);
+    const data = await healthResponse.json();
+    const manifest = await manifestResponse.json();
+    const versionData = versionResponse.ok ? await versionResponse.json() : null;
 
     statusPill.className = 'status-pill status-online';
     statusText.textContent = 'API Online';
@@ -1174,12 +1213,38 @@ async function checkBackendHealth() {
     if (diagEnv) diagEnv.textContent = (data.environment || 'development').toUpperCase();
     if (diagTimestamp) diagTimestamp.textContent = data.timestamp || new Date().toISOString();
     if (diagEnkaBase) diagEnkaBase.textContent = data.enka_api_base || '—';
-    if (rawPayload) rawPayload.textContent = JSON.stringify(data, null, 2);
+    if (rawPayload) rawPayload.textContent = JSON.stringify({ ...data, version_status: versionData }, null, 2);
+    window.__latestHealthSnapshot = { health: data, manifest, version: versionData };
+
+    // Update Version Card
+    if (versionData) {
+      if (diagGameVer) diagGameVer.textContent = `v${versionData.current_version}`;
+      if (diagGamePatch) diagGamePatch.textContent = versionData.patch_name;
+      if (diagGameRelease) diagGameRelease.textContent = versionData.release_date;
+      if (diagGameRegion) diagGameRegion.textContent = versionData.major_region;
+      if (diagGameTotalVer) diagGameTotalVer.textContent = `${versionData.total_tracked_versions} Patches`;
+      if (diagGameStaleDocs) diagGameStaleDocs.textContent = `${versionData.stale_document_count} flagged of ${versionData.total_document_count}`;
+      if (gameVerBadge) gameVerBadge.textContent = `Version ${versionData.current_version} Active`;
+    }
+
+    if (manifestStatus) manifestStatus.textContent = 'Live manifest loaded';
+    if (manifestCacheDir) manifestCacheDir.textContent = manifest.runtime_cache_dir || '—';
+    if (manifestDocCount) manifestDocCount.textContent = `${manifest.knowledge_base?.total_documents ?? 0}`;
+    if (manifestGameCount) {
+      const gameData = manifest.game_data || {};
+      manifestGameCount.textContent = `${gameData.characters ?? 0} chars • ${gameData.weapons ?? 0} weapons • ${gameData.artifact_sets ?? 0} sets`;
+    }
+    if (manifestSourceCount) {
+      const sources = manifest.knowledge_base?.source_type_counts || {};
+      manifestSourceCount.textContent = `${sources.AUTHORITATIVE || 0} authoritative • ${sources.THEORYCRAFTING || 0} theorycrafting`;
+    }
   } catch (err) {
     statusPill.className = 'status-pill status-offline';
     statusText.textContent = 'API Offline';
     if (diagStatus) diagStatus.textContent = 'Connection Failed';
     if (rawPayload) rawPayload.textContent = `Error: ${err.message}`;
+    window.__latestHealthSnapshot = null;
+    if (manifestStatus) manifestStatus.textContent = 'Manifest unavailable';
   }
 }
 
@@ -1214,18 +1279,24 @@ function initKnowledgeListeners() {
       }, 300);
     });
   }
+
+  const refreshKbBtn = document.getElementById('refresh-kb-btn');
+  if (refreshKbBtn) {
+    refreshKbBtn.addEventListener('click', () => loadKnowledgeBase(true));
+  }
 }
 
-async function loadKnowledgeBase() {
+async function loadKnowledgeBase(forceRefresh = false) {
   const grid = document.getElementById('kb-items-grid');
   if (!grid) return;
 
   grid.innerHTML = '<div class="loading-spinner">Loading guides...</div>';
 
   try {
-    const response = await fetch('/api/knowledge/documents');
+    const response = await fetch(`/api/knowledge/documents${forceRefresh ? `?t=${Date.now()}` : ''}`);
     if (!response.ok) throw new Error('Failed to load guides');
     kbCache = await response.json();
+    renderKnowledgeSummary(kbCache);
     renderKnowledgeGrid();
   } catch (err) {
     grid.innerHTML = `<div class="text-error">Error loading knowledge base: ${err.message}</div>`;
@@ -1275,6 +1346,7 @@ function renderKnowledgeGrid(docsToRender = null) {
   const items = docsToRender || kbCache;
   const filtered = docsToRender ? items : items.filter((doc) => {
     if (currentKbTopic === 'all') return true;
+    if (currentKbTopic === 'current') return doc.metadata.game_version === '5.4';
     return doc.metadata.topic === currentKbTopic;
   });
 
@@ -1291,6 +1363,20 @@ function renderKnowledgeGrid(docsToRender = null) {
     const badgeClass = doc.metadata.source_type === 'AUTHORITATIVE' ? 'badge-gold' : 'badge-cyan';
     const characterTag = doc.metadata.character ? `<span class="badge badge-purple" style="margin-left: 6px;">${doc.metadata.character}</span>` : '';
 
+    // Phase 2 Version badge styling
+    let verBadgeClass = 'badge-gray';
+    let verBadgeText = `v${doc.metadata.game_version}`;
+    if (doc.metadata.game_version === '5.4') {
+      verBadgeClass = 'badge-success';
+      verBadgeText = 'v5.4 Current';
+    } else if (['5.2', '5.3'].includes(doc.metadata.game_version)) {
+      verBadgeClass = 'badge-info';
+      verBadgeText = `v${doc.metadata.game_version}`;
+    } else if (doc.metadata.game_version && !doc.metadata.game_version.startsWith('5.')) {
+      verBadgeClass = 'badge-warning';
+      verBadgeText = `v${doc.metadata.game_version} Legacy`;
+    }
+
     let mediaTag = '';
     if (doc.metadata.character) {
       const charIconUrl = getCharacterIconUrl(doc.metadata.character);
@@ -1306,7 +1392,7 @@ function renderKnowledgeGrid(docsToRender = null) {
           <div class="db-item-meta" style="display: flex; gap: 6px; align-items: center; font-size: 0.75em; flex-wrap: wrap;">
             <span class="badge ${badgeClass}">${doc.metadata.source_type}</span>
             ${characterTag}
-            <span class="badge badge-gray" style="margin-left: auto;">v${doc.metadata.game_version}</span>
+            <span class="badge ${verBadgeClass}" style="margin-left: auto;">${verBadgeText}</span>
           </div>
           <div class="db-item-name" style="margin-top: 8px; font-weight: 600; color: var(--gold-accent);">${doc.title}</div>
           <div class="db-item-sub" style="margin-top: 6px; font-size: 0.85em; opacity: 0.8; line-height: 1.4;">${doc.summary}</div>
@@ -1345,12 +1431,19 @@ async function inspectKnowledgeDocument(doc) {
     const badgeClass = fullDoc.metadata.source_type === 'AUTHORITATIVE' ? 'badge-gold' : 'badge-cyan';
     const characterTag = fullDoc.metadata.character ? `<span class="badge badge-purple" style="margin-left: 6px; font-size: 0.8em; padding: 4px 8px;">${fullDoc.metadata.character}</span>` : '';
 
+    const isStale = fullDoc.metadata.game_version && !['5.3', '5.4'].includes(fullDoc.metadata.game_version);
+    const staleNoticeHtml = isStale ? `
+      <div style="background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; font-size: 0.85em; color: #fde68a;">
+        ⚠️ <strong>Patch Compatibility Notice:</strong> This article was compiled for <strong>v${fullDoc.metadata.game_version}</strong>. The active live game version is <strong>v5.4</strong>. Mechanics adjustments or newer weapon/character additions may apply.
+      </div>
+    ` : '';
+
     pane.innerHTML = `
       <div class="db-detail-header" style="margin-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px;">
         <div class="db-item-meta" style="display: flex; gap: 8px; align-items: center; margin-bottom: 12px;">
           <span class="badge ${badgeClass}" style="font-size: 0.8em; padding: 4px 8px;">${fullDoc.metadata.source_type}</span>
           ${characterTag}
-          <span class="badge badge-gray" style="margin-left: auto; font-size: 0.8em; padding: 4px 8px;">v${fullDoc.metadata.game_version}</span>
+          <span class="badge ${fullDoc.metadata.game_version === '5.4' ? 'badge-success' : 'badge-gray'}" style="margin-left: auto; font-size: 0.8em; padding: 4px 8px;">v${fullDoc.metadata.game_version}${fullDoc.metadata.game_version === '5.4' ? ' Current' : ''}</span>
         </div>
         <div style="display: flex; gap: 16px; align-items: center;">
           ${fullDoc.metadata.character ? 
@@ -1368,6 +1461,7 @@ async function inspectKnowledgeDocument(doc) {
           <strong>Canonical URL:</strong> <a href="${fullDoc.metadata.source_url}" target="_blank" style="color: var(--cyan-accent); text-decoration: underline; word-break: break-all;">${fullDoc.metadata.source_url}</a>
         </div>
       </div>
+      ${staleNoticeHtml}
       <div class="kb-article-body markdown-body" style="line-height: 1.6; font-size: 0.95em; color: rgba(255,255,255,0.9);">
         ${contentHtml}
       </div>
@@ -1375,6 +1469,57 @@ async function inspectKnowledgeDocument(doc) {
   } catch (err) {
     pane.innerHTML = `<div class="text-error">Error loading article details: ${err.message}</div>`;
   }
+}
+
+function compareVersionStrings(a, b) {
+  const parse = (value) => String(value || '0.0').split('.').map((part) => Number.parseInt(part, 10) || 0);
+  const left = parse(a);
+  const right = parse(b);
+  const length = Math.max(left.length, right.length);
+
+  for (let i = 0; i < length; i += 1) {
+    const diff = (left[i] || 0) - (right[i] || 0);
+    if (diff !== 0) return diff;
+  }
+  return 0;
+}
+
+function renderKnowledgeSummary(docs = kbCache) {
+  const summaryHost = document.getElementById('kb-summary-bar');
+  if (!summaryHost) return;
+
+  const total = docs.length;
+  const authoritative = docs.filter((d) => d.metadata.source_type === 'AUTHORITATIVE').length;
+  const theorycrafting = docs.filter((d) => d.metadata.source_type === 'THEORYCRAFTING').length;
+  const mechanics = docs.filter((d) => d.metadata.topic === 'Game Mechanics').length;
+  const activeVersion = window.__latestHealthSnapshot?.version?.current_version || '5.4';
+
+  summaryHost.innerHTML = `
+    <div class="diag-item" style="min-width: 150px;">
+      <span class="diag-label">Documents</span>
+      <span class="diag-val">${total}</span>
+    </div>
+    <div class="diag-item" style="min-width: 150px;">
+      <span class="diag-label">Authoritative</span>
+      <span class="diag-val">${authoritative}</span>
+    </div>
+    <div class="diag-item" style="min-width: 150px;">
+      <span class="diag-label">Theorycrafting</span>
+      <span class="diag-val">${theorycrafting}</span>
+    </div>
+    <div class="diag-item" style="min-width: 150px;">
+      <span class="diag-label">Mechanics</span>
+      <span class="diag-val">${mechanics}</span>
+    </div>
+    <div class="diag-item" style="min-width: 150px;">
+      <span class="diag-label">Patch Notes</span>
+      <span class="diag-val">${patchNotes}</span>
+    </div>
+    <div class="diag-item" style="min-width: 170px;">
+      <span class="diag-label">Active Live Version</span>
+      <span class="diag-val" style="color: var(--accent-gold); font-weight: 700;">v${activeVersion}</span>
+    </div>
+  `;
 }
 
 function parseMarkdownToHtml(md) {
@@ -1642,5 +1787,3 @@ function removeTypingIndicator(id) {
     indicator.remove();
   }
 }
-
-

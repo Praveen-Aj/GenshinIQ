@@ -5,10 +5,12 @@ import os
 import json
 import logging
 import re
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 from pathlib import Path
 
 from backend.models.knowledge import KnowledgeDocument, KnowledgeSearchResult, SourceType
+from backend.models.version import StalenessEvaluation
+from backend.services.version_service import version_service
 
 logger = logging.getLogger(__name__)
 
@@ -77,9 +79,12 @@ class KnowledgeService:
         topic: Optional[str] = None,
         source_type: Optional[SourceType] = None,
         game_version: Optional[str] = None,
+        only_current: bool = False,
+        max_staleness_patches: Optional[int] = None,
     ) -> List[KnowledgeDocument]:
-        """List all documents matching optional filters."""
+        """List all documents matching optional filters, including version and staleness constraints."""
         results = list(self.documents.values())
+        curr_version = version_service.get_current_version().version
 
         if character:
             char_lower = character.lower()
@@ -93,13 +98,55 @@ class KnowledgeService:
             results = [doc for doc in results if doc.metadata.source_type == source_type]
 
         if game_version:
-            results = [doc for doc in results if doc.metadata.game_version == game_version]
+            clean_req = game_version.strip().lstrip("v")
+            results = [doc for doc in results if doc.metadata.game_version.lstrip("v") == clean_req]
+
+        if only_current:
+            results = [doc for doc in results if doc.metadata.game_version.lstrip("v") == curr_version]
+
+        if max_staleness_patches is not None:
+            results = [
+                doc for doc in results
+                if version_service.calculate_distance(doc.metadata.game_version) <= max_staleness_patches
+            ]
 
         return results
 
-    def search_documents(self, query: str, limit: int = 5) -> List[KnowledgeSearchResult]:
+    def evaluate_document(self, doc_id: str) -> Optional[StalenessEvaluation]:
+        """Evaluate staleness for a specific document ID."""
+        doc = self.documents.get(doc_id)
+        if not doc:
+            return None
+        return version_service.evaluate_staleness(doc.metadata.game_version)
+
+    def get_stale_documents(self, stale_threshold_patches: int = 4) -> List[Dict[str, Any]]:
+        """Retrieve all documents considered stale relative to the active game version."""
+        stale_list = []
+        for doc in self.documents.values():
+            eval_res = version_service.evaluate_staleness(
+                doc.metadata.game_version,
+                stale_threshold_patches=stale_threshold_patches,
+            )
+            if eval_res.is_stale:
+                stale_list.append({
+                    "document_id": doc.id,
+                    "title": doc.title,
+                    "topic": doc.metadata.topic,
+                    "document_version": doc.metadata.game_version,
+                    "current_version": eval_res.current_version,
+                    "version_distance": eval_res.version_distance,
+                    "warning": eval_res.warning,
+                })
+        return stale_list
+
+    def search_documents(
+        self,
+        query: str,
+        limit: int = 5,
+        prefer_current: bool = True,
+    ) -> List[KnowledgeSearchResult]:
         """
-        Simple keyword search over titles, summaries, and contents.
+        Keyword search over titles, summaries, and contents with version-aware boost.
         Returns ranked KnowledgeSearchResult list.
         """
         if not query or not query.strip():
@@ -150,6 +197,16 @@ class KnowledgeService:
                     score += 3.0
 
             if score > 0:
+                # Version boost: prioritize current live version documents
+                if prefer_current:
+                    dist = version_service.calculate_distance(doc.metadata.game_version)
+                    if dist == 0:
+                        score *= 1.15  # 15% boost for current live version
+                    elif dist <= 2:
+                        score *= 1.05  # 5% boost for recent compatible version
+                    elif dist > 4:
+                        score *= max(0.65, 1.0 - dist * 0.04)  # downrank distant/stale documents
+
                 # Build snippet from summary or content matches
                 snippet = doc.summary
                 content_match_idx = content_lower.find(expanded_terms[0])
@@ -169,7 +226,7 @@ class KnowledgeService:
                         game_version=doc.metadata.game_version,
                         summary=doc.summary,
                         snippet=snippet,
-                        relevance_score=score,
+                        relevance_score=round(score, 2),
                     )
                 )
 

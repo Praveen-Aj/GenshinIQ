@@ -124,7 +124,9 @@
       "Famed Handguard",
       "Bloodjade Branch",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "2.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000003,
@@ -244,7 +246,9 @@
       "Ominous Mask",
       "Dvalin's Plume",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000006,
@@ -364,7 +368,9 @@
       "Slime Concentrate",
       "Dvalin's Claw",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000014,
@@ -484,7 +490,9 @@
       "Forbidden Curse Scroll",
       "Ring of Boreas",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000015,
@@ -604,7 +612,9 @@
       "Golden Raven Insignia",
       "Spirit Locket of Boreas",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000016,
@@ -724,7 +734,9 @@
       "Lieutenant's Insignia",
       "Dvalin's Plume",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000020,
@@ -851,7 +863,9 @@
       "Ominous Mask",
       "Dvalin's Claw",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000021,
@@ -971,7 +985,9 @@
       "Weathered Arrowhead",
       "Dvalin's Sigh",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000022,
@@ -1098,7 +1114,9 @@
       "Slime Concentrate",
       "Tail of Boreas",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000023,
@@ -1218,7 +1236,9 @@
       "Slime Concentrate",
       "Dvalin's Claw",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000024,
@@ -1345,7 +1365,9 @@
       "Golden Raven Insignia",
       "Dvalin's Sigh",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000025,
@@ -1465,7 +1487,9 @@
       "Ominous Mask",
       "Tail of Boreas",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000026,
@@ -1585,7 +1609,9 @@
       "Slime Concentrate",
       "Shadow of the Warrior",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.3",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000027,
@@ -1705,7 +1731,9 @@
       "Lieutenant's Insignia",
       "Spirit Locket of Boreas",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000029,
@@ -1832,7 +1860,9 @@
       "Forbidden Curse Scroll",
       "Ring of Boreas",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000030,
@@ -1952,7 +1982,9 @@
       "Slime Concentrate",
       "Tusk of Monoceros Caeli",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.1",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000031,
@@ -2079,7 +2111,9 @@
       "Weathered Arrowhead",
       "Spirit Locket of Boreas",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000032,
@@ -2199,7 +2233,9 @@
       "Golden Raven Insignia",
       "Dvalin's Plume",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000033,
@@ -2319,7 +2355,9 @@
       "Lieutenant's Insignia",
       "Shard of a Foul Legacy",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.1",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000034,
@@ -2439,7 +2477,9 @@
       "Ominous Mask",
       "Dvalin's Claw",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000035,
@@ -2566,7 +2606,9 @@
       "Forbidden Curse Scroll",
       "Tail of Boreas",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000036,
@@ -2686,7 +2728,9 @@
       "Ominous Mask",
       "Dvalin's Sigh",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000037,
@@ -2806,7 +2850,9 @@
       "Energy Nectar",
       "Shadow of the Warrior",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.2",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000038,
@@ -2933,7 +2979,9 @@
       "Forbidden Curse Scroll",
       "Tusk of Monoceros Caeli",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.2",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000039,
@@ -3060,7 +3108,9 @@
       "Weathered Arrowhead",
       "Shard of a Foul Legacy",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.1",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000041,
@@ -3194,7 +3244,9 @@
       "Energy Nectar",
       "Ring of Boreas",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000042,
@@ -3314,7 +3366,9 @@
       "Energy Nectar",
       "Ring of Boreas",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000043,
@@ -3441,7 +3495,9 @@
       "Energy Nectar",
       "Spirit Locket of Boreas",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000044,
@@ -3561,7 +3617,9 @@
       "Golden Raven Insignia",
       "Tusk of Monoceros Caeli",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.1",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000045,
@@ -3681,7 +3739,9 @@
       "Lieutenant's Insignia",
       "Shadow of the Warrior",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000046,
@@ -3801,7 +3861,9 @@
       "Energy Nectar",
       "Shard of a Foul Legacy",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.3",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000047,
@@ -3921,7 +3983,9 @@
       "Golden Raven Insignia",
       "Gilded Scale",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.6",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000048,
@@ -4041,7 +4105,9 @@
       "Golden Raven Insignia",
       "Bloodjade Branch",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.5",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000049,
@@ -4161,7 +4227,9 @@
       "Forbidden Curse Scroll",
       "Dragon Lord's Crown",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "2.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000050,
@@ -4281,7 +4349,9 @@
       "Golden Raven Insignia",
       "Hellfire Butterfly",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "2.2",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000051,
@@ -4401,7 +4471,9 @@
       "Ominous Mask",
       "Dragon Lord's Crown",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.5",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000052,
@@ -4528,7 +4600,9 @@
       "Famed Handguard",
       "Molten Moment",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "2.1",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000053,
@@ -4648,7 +4722,9 @@
       "Energy Nectar",
       "Gilded Scale",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "2.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000054,
@@ -4775,7 +4851,9 @@
       "Spectral Nucleus",
       "Hellfire Butterfly",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "2.1",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000055,
@@ -4895,7 +4973,9 @@
       "Spectral Nucleus",
       "Molten Moment",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "2.3",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000056,
@@ -5015,7 +5095,9 @@
       "Ominous Mask",
       "Ashen Heart",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "2.1",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000057,
@@ -5135,7 +5217,9 @@
       "Slime Concentrate",
       "Ashen Heart",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "2.3",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000058,
@@ -5262,7 +5346,9 @@
       "Famed Handguard",
       "The Meaning of Aeons",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "2.5",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000059,
@@ -5382,7 +5468,9 @@
       "Golden Raven Insignia",
       "The Meaning of Aeons",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "2.8",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000060,
@@ -5502,7 +5590,9 @@
       "Lieutenant's Insignia",
       "Gilded Scale",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "2.7",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000061,
@@ -5622,7 +5712,9 @@
       "Spectral Nucleus",
       "Everamber",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "3.7",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000062,
@@ -5742,7 +5834,9 @@
       "Spectral Nucleus",
       "Molten Moment",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "2.1",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000063,
@@ -5862,7 +5956,9 @@
       "Energy Nectar",
       "Hellfire Butterfly",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "2.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000064,
@@ -5982,7 +6078,9 @@
       "Ominous Mask",
       "Ashen Heart",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "2.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000065,
@@ -6102,7 +6200,9 @@
       "Spectral Nucleus",
       "Tears of the Calamitous God",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "2.7",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000066,
@@ -6222,7 +6322,9 @@
       "Famed Handguard",
       "Mudra of the Malefic General",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "2.6",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000067,
@@ -6342,7 +6444,9 @@
       "Weathered Arrowhead",
       "Tears of the Calamitous God",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "3.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000068,
@@ -6462,7 +6566,9 @@
       "Rich Red Brocade",
       "Bloodjade Branch",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "3.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000069,
@@ -6582,7 +6688,9 @@
       "Crystalline Cyst Dust",
       "The Meaning of Aeons",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "3.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000070,
@@ -6702,7 +6810,9 @@
       "Crystalline Cyst Dust",
       "Tears of the Calamitous God",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "3.1",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000071,
@@ -6829,7 +6939,9 @@
       "Forbidden Curse Scroll",
       "Mudra of the Malefic General",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "3.1",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000072,
@@ -6949,7 +7061,9 @@
       "Rich Red Brocade",
       "Tears of the Calamitous God",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "3.1",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000073,
@@ -7069,7 +7183,9 @@
       "Crystalline Cyst Dust",
       "Puppet Strings",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "3.2",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000074,
@@ -7189,7 +7305,9 @@
       "Forbidden Curse Scroll",
       "Mirror of Mushin",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "3.2",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000075,
@@ -7309,7 +7427,9 @@
       "Famed Handguard",
       "Daka's Bell",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "3.3",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000076,
@@ -7429,7 +7549,9 @@
       "Rich Red Brocade",
       "Puppet Strings",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "3.3",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000077,
@@ -7549,7 +7671,9 @@
       "Slime Concentrate",
       "Daka's Bell",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "3.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000078,
@@ -7669,7 +7793,9 @@
       "Rich Red Brocade",
       "Mirror of Mushin",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "3.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000079,
@@ -7789,7 +7915,9 @@
       "Rich Red Brocade",
       "Puppet Strings",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "3.5",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000080,
@@ -7909,7 +8037,9 @@
       "Lieutenant's Insignia",
       "Mirror of Mushin",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "3.5",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000081,
@@ -8029,7 +8159,9 @@
       "Crystalline Cyst Dust",
       "Primordial Greenbloom",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "3.6",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000082,
@@ -8149,7 +8281,9 @@
       "Crystalline Cyst Dust",
       "Worldspan Fern",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "3.6",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000083,
@@ -8269,7 +8403,9 @@
       "Artificed Dynamic Gear",
       "Everamber",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "4.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000084,
@@ -8389,7 +8525,9 @@
       "Lieutenant's Insignia",
       "Primordial Greenbloom",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "4.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000085,
@@ -8509,7 +8647,9 @@
       "Xenochromatic Crystal",
       "Worldspan Fern",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "4.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000086,
@@ -8636,7 +8776,9 @@
       "Artificed Dynamic Gear",
       "Primordial Greenbloom",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "4.1",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000087,
@@ -8756,7 +8898,9 @@
       "Xenochromatic Crystal",
       "Everamber",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "4.1",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000088,
@@ -8876,7 +9020,9 @@
       "Artificed Dynamic Gear",
       "Lightless Silk String",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "4.2",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000089,
@@ -8996,7 +9142,9 @@
       "Energy Nectar",
       "Lightless Mass",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "4.2",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000090,
@@ -9116,7 +9264,9 @@
       "Artificed Dynamic Gear",
       "Lightless Eye of the Maelstrom",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "4.3",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000091,
@@ -9236,7 +9386,9 @@
       "Xenochromatic Crystal",
       "Lightless Silk String",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "4.3",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000092,
@@ -9356,7 +9508,9 @@
       "Slime Concentrate",
       "Lightless Mass",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "4.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000093,
@@ -9476,7 +9630,9 @@
       "Forbidden Curse Scroll",
       "Lightless Eye of the Maelstrom",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "4.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000094,
@@ -9596,7 +9752,9 @@
       "Spectral Nucleus",
       "Lightless Silk String",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "4.5",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000095,
@@ -9716,7 +9874,9 @@
       "Xenochromatic Crystal",
       "Lightless Eye of the Maelstrom",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "4.7",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000096,
@@ -9836,7 +9996,9 @@
       "Lieutenant's Insignia",
       "Fading Candle",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "4.6",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000097,
@@ -9956,7 +10118,9 @@
       "Rich Red Brocade",
       "Daka's Bell",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "4.7",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000098,
@@ -10076,7 +10240,9 @@
       "Xenochromatic Crystal",
       "Everamber",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "4.7",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000099,
@@ -10196,7 +10362,9 @@
       "Artificed Dynamic Gear",
       "Silken Feather",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "4.8",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000100,
@@ -10323,7 +10491,9 @@
       "Saurian-Crowned Warrior's Golden Whistle",
       "Fading Candle",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000101,
@@ -10450,7 +10620,9 @@
       "Tyrant's Fang",
       "Denial and Judgment",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000102,
@@ -10577,7 +10749,9 @@
       "Saurian-Crowned Warrior's Golden Whistle",
       "Lightless Mass",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.0",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000103,
@@ -10704,7 +10878,9 @@
       "Saurian-Crowned Warrior's Golden Whistle",
       "Mirror of Mushin",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.1",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000104,
@@ -10831,7 +11007,9 @@
       "Tyrant's Fang",
       "Silken Feather",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.2",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000105,
@@ -10965,7 +11143,9 @@
       "Tyrant's Fang",
       "Lightless Silk String",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.2",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000106,
@@ -11092,7 +11272,9 @@
       "Saurian-Crowned Warrior's Golden Whistle",
       "Eroded Horn",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.3",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000107,
@@ -11226,7 +11408,9 @@
       "Tyrant's Fang",
       "Denial and Judgment",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.3",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000108,
@@ -11346,7 +11530,9 @@
       "Energy Nectar",
       "Eroded Sunfire",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.3",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000109,
@@ -11473,7 +11659,9 @@
       "Famed Handguard",
       "Fading Candle",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000110,
@@ -11600,7 +11788,9 @@
       "Saurian-Crowned Warrior's Golden Whistle",
       "Denial and Judgment",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000111,
@@ -11727,7 +11917,9 @@
       "Tyrant's Fang",
       "Eroded Scale-Feather",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000112,
@@ -11847,7 +12039,9 @@
       "Artificed Dynamic Gear",
       "Eroded Horn",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000113,
@@ -11974,7 +12168,9 @@
       "Tyrant's Fang",
       "Ascended Sample: Rook",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000114,
@@ -12094,7 +12290,9 @@
       "Artificed Dynamic Gear",
       "Ascended Sample: Knight",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000115,
@@ -12214,7 +12412,9 @@
       "Weathered Arrowhead",
       "Eroded Scale-Feather",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000116,
@@ -12341,7 +12541,9 @@
       "Saurian-Crowned Warrior's Golden Whistle",
       "Eroded Sunfire",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000119,
@@ -12468,7 +12670,9 @@
       "Frost-Etched Warrant",
       "Eroded Scale-Feather",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000120,
@@ -12595,7 +12799,9 @@
       "Precision Drive Shaft",
       "Ascended Sample: Queen",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000121,
@@ -12722,7 +12928,9 @@
       "Precision Drive Shaft",
       "Silken Feather",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000122,
@@ -12849,7 +13057,9 @@
       "Frost-Etched Warrant",
       "Ascended Sample: Rook",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000123,
@@ -12976,7 +13186,9 @@
       "Frost-Etched Warrant",
       "Eroded Sunfire",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000124,
@@ -13103,7 +13315,9 @@
       "Precision Drive Shaft",
       "Ascended Sample: Knight",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000125,
@@ -13230,7 +13444,9 @@
       "Slime Concentrate",
       "Mask of the Virtuous Doctor",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000126,
@@ -13357,7 +13573,9 @@
       "Frost-Etched Warrant",
       "Ascended Sample: Queen",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000127,
@@ -13484,7 +13702,9 @@
       "Precision Drive Shaft",
       "Eroded Horn",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000128,
@@ -13611,7 +13831,9 @@
       "Precision Drive Shaft",
       "Ascended Sample: Rook",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000129,
@@ -13738,7 +13960,9 @@
       "Weathered Arrowhead",
       "Ascended Sample: Knight",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000130,
@@ -13865,7 +14089,9 @@
       "Frost-Etched Warrant",
       "Elixir of the Heretic",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000131,
@@ -13992,7 +14218,9 @@
       "Frost-Etched Warrant",
       "Counterfeit Resin",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000132,
@@ -14119,7 +14347,9 @@
       "Golden Raven Insignia",
       "Mask of the Virtuous Doctor",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000133,
@@ -14246,7 +14476,9 @@
       "Precision Drive Shaft",
       "Madman's Restraint",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000148,
@@ -14373,7 +14605,9 @@
       "Prime Chimeric Nexus",
       "Elixir of the Heretic",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000150,
@@ -14500,7 +14734,9 @@
       "Ethereal Crystalscale Stone",
       "Twisted Withered Branch",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "5.4",
+    "game_version_updated": "5.4"
   },
   {
     "id": 10000005,
@@ -14623,6 +14859,8 @@
       "Philosophies of Freedom",
       "Philosophies of Resistance",
       "Crown of Insight"
-    ]
+    ],
+    "game_version_introduced": "1.0",
+    "game_version_updated": "5.4"
   }
 ]

@@ -9,6 +9,7 @@ canonical Enka mappings, and normalizes it into strict Pydantic models with:
 - Complete character talent kits and constellations
 """
 
+import datetime
 import json
 import os
 import re
@@ -21,6 +22,39 @@ from typing import Any, Dict, List, Optional, Tuple
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT_DIR))
+
+VERSIONS_FILE = ROOT_DIR / "data" / "canonical" / "game_versions.json"
+
+
+def load_patch_registry() -> List[Dict[str, Any]]:
+    if VERSIONS_FILE.exists():
+        try:
+            with open(VERSIONS_FILE, "r", encoding="utf-8") as f:
+                v_list = json.load(f)
+                v_list.sort(key=lambda x: x.get("release_date", ""))
+                return v_list
+        except Exception:
+            return []
+    return []
+
+
+PATCH_REGISTRY = load_patch_registry()
+
+
+def resolve_version_from_timestamp(ts: Optional[int]) -> str:
+    """Map Unix release timestamp to official Genshin patch version."""
+    if not ts or not PATCH_REGISTRY:
+        return "1.0"
+    # 2-day buffer for preload timestamp before official patch launch
+    dt = datetime.datetime.fromtimestamp(ts, tz=datetime.timezone.utc) + datetime.timedelta(days=2)
+    d_str = dt.strftime("%Y-%m-%d")
+    matched = "1.0"
+    for patch in PATCH_REGISTRY:
+        if patch["release_date"] <= d_str:
+            matched = patch["version"]
+        else:
+            break
+    return matched
 
 from backend.models.game_data import (
     ArtifactSetData,
@@ -349,6 +383,10 @@ def normalize_characters(mat_map: Dict[str, str]) -> List[Dict[str, Any]]:
                                         if m_name not in talent_materials:
                                             talent_materials.append(m_name)
 
+        # Resolve introduced version from release timestamp
+        rel_ts = summary.get("release") or char_data.get("release")
+        ver_intro = resolve_version_from_timestamp(rel_ts)
+
         char_obj = {
             "id": avatar_id,
             "name": name,
@@ -369,6 +407,8 @@ def normalize_characters(mat_map: Dict[str, str]) -> List[Dict[str, Any]]:
             "constellations": constellations_list,
             "ascension_materials": asc_materials,
             "talent_materials": talent_materials,
+            "game_version_introduced": ver_intro,
+            "game_version_updated": "5.4",
         }
 
         # Validate with Pydantic model
@@ -469,6 +509,9 @@ def normalize_weapons(mat_map: Dict[str, str]) -> List[Dict[str, Any]]:
                 if m_name not in asc_materials:
                     asc_materials.append(m_name)
 
+        wep_rel_ts = summary.get("release") or wep_data.get("release")
+        wep_ver_intro = resolve_version_from_timestamp(wep_rel_ts) if wep_rel_ts else None
+
         wep_obj = {
             "id": wep_id,
             "name": name,
@@ -483,6 +526,8 @@ def normalize_weapons(mat_map: Dict[str, str]) -> List[Dict[str, Any]]:
             "passive_desc": passive_desc,
             "refinements": refinements,
             "ascension_materials": asc_materials,
+            "game_version_introduced": wep_ver_intro,
+            "game_version_updated": "5.4",
         }
 
         if base_atk_90 <= 0:
@@ -567,6 +612,7 @@ def normalize_artifacts() -> List[Dict[str, Any]]:
             "bonus_2pc": bonus_2pc,
             "bonus_4pc": bonus_4pc,
             "pieces": pieces,
+            "game_version_updated": "5.4",
         }
 
         # Validate with Pydantic model

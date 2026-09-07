@@ -299,14 +299,17 @@
           <div class="db-controls-row">
             <div class="db-tabs">
               <button class="sub-tab-btn active" id="kb-tab-all" data-topic="all">All Guides</button>
+              <button class="sub-tab-btn" id="kb-tab-current" data-topic="current">✨ Current (v5.4)</button>
               <button class="sub-tab-btn" id="kb-tab-characters" data-topic="Character Guide">Character Guides</button>
               <button class="sub-tab-btn" id="kb-tab-mechanics" data-topic="Game Mechanics">Mechanics</button>
               <button class="sub-tab-btn" id="kb-tab-patch" data-topic="Patch Notes">Patch Notes</button>
             </div>
-            <div class="db-search-wrap">
-              <input type="text" id="kb-search-input" placeholder="Search guides, mechanics, reactions...">
+            <div class="db-search-wrap" style="display: flex; gap: 10px; align-items: center;">
+              <input type="text" id="kb-search-input" placeholder="Search guides, mechanics, reactions, or typo-tolerant names...">
+              <button id="refresh-kb-btn" class="btn btn-sm btn-secondary">Refresh Library</button>
             </div>
           </div>
+          <div id="kb-summary-bar" class="diagnostics-grid" style="margin-top: 16px;"></div>
         </div>
 
         <div class="db-main-layout">
@@ -331,12 +334,79 @@
 
       <!-- Diagnostics Tab Content -->
       <section id="tab-content-diagnostics" class="tab-pane">
+        <!-- Phase 2: Live Game Version & Patch Health Card -->
+        <div class="card card-glass" style="margin-bottom: 18px; border: 1px solid rgba(230, 204, 131, 0.25);">
+          <div class="card-header" style="padding: 12px 18px; border-bottom: 1px solid rgba(255,255,255,0.06);">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 20px;">🌟</span>
+              <div>
+                <h3 style="margin: 0; font-size: 15px; font-weight: 700; color: var(--accent-gold);">Live Game Version &amp; Patch Registry</h3>
+                <p style="margin: 0; font-size: 12px; color: var(--text-muted);">Validated against official HoYoverse update history</p>
+              </div>
+            </div>
+            <span id="game-version-badge" class="badge badge-success" style="font-weight: 700;">Version 5.4 Active</span>
+          </div>
+          <div class="card-body" style="padding: 16px 18px;">
+            <div class="diagnostics-grid">
+              <div class="diag-item">
+                <span class="diag-label">Current Live Version</span>
+                <span id="diag-game-ver" class="diag-val" style="color: var(--accent-gold); font-weight: 700;">v5.4</span>
+              </div>
+              <div class="diag-item">
+                <span class="diag-label">Patch Title</span>
+                <span id="diag-game-patch-name" class="diag-val">Dreams of Light Upon the Flowing Star</span>
+              </div>
+              <div class="diag-item">
+                <span class="diag-label">Release Date</span>
+                <span id="diag-game-release" class="diag-val font-mono">2025-02-12</span>
+              </div>
+              <div class="diag-item">
+                <span class="diag-label">Active Region</span>
+                <span id="diag-game-region" class="diag-val">Chenyu Vale / Natlan</span>
+              </div>
+              <div class="diag-item">
+                <span class="diag-label">Tracked Patch Registry</span>
+                <span id="diag-game-total-versions" class="diag-val">39 Patches</span>
+              </div>
+              <div class="diag-item">
+                <span class="diag-label">Stale Document Notice</span>
+                <span id="diag-game-stale-docs" class="diag-val">0 flagged</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="card card-glass">
           <div class="card-header">
             <h2>System Diagnostics &amp; Foundation Status</h2>
-            <button id="refresh-health-btn" class="btn btn-sm btn-secondary">Refresh Status</button>
+            <div style="display: flex; gap: 8px;">
+              <button id="refresh-health-btn" class="btn btn-sm btn-secondary">Refresh Status</button>
+              <button id="copy-health-btn" class="btn btn-sm btn-secondary">Copy Snapshot</button>
+            </div>
           </div>
           <div class="card-body">
+            <div class="diagnostics-grid" style="margin-bottom: 18px;">
+              <div class="diag-item">
+                <span class="diag-label">Manifest Status</span>
+                <span id="diag-manifest-status" class="diag-val">Loading...</span>
+              </div>
+              <div class="diag-item">
+                <span class="diag-label">Cache Directory</span>
+                <span id="diag-cache-dir" class="diag-val font-mono">—</span>
+              </div>
+              <div class="diag-item">
+                <span class="diag-label">Knowledge Docs</span>
+                <span id="diag-manifest-doc-count" class="diag-val">—</span>
+              </div>
+              <div class="diag-item">
+                <span class="diag-label">Game Data Index</span>
+                <span id="diag-manifest-game-count" class="diag-val">—</span>
+              </div>
+              <div class="diag-item">
+                <span class="diag-label">Source Mix</span>
+                <span id="diag-manifest-source-count" class="diag-val">—</span>
+              </div>
+            </div>
             <div class="diagnostics-grid">
               <div class="diag-item">
                 <span class="diag-label">API Status</span>
@@ -366,7 +436,10 @@
 
             <div class="raw-response-box">
               <h3>Live Health Payload (/api/health)</h3>
-              <pre id="raw-health-json">Fetching payload...</pre>
+              <details open>
+                <summary style="cursor: pointer; margin-bottom: 10px; color: var(--accent-gold);">Show raw diagnostics</summary>
+                <pre id="raw-health-json">Fetching payload...</pre>
+              </details>
             </div>
           </div>
         </div>
@@ -379,6 +452,6 @@
     </footer>
   </div>
 
-  <script src="app.js?v=20260907_1630"></script>
+  <script src="app.js?v=20260907_1825"></script>
 </body>
 </html>

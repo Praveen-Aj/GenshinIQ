@@ -11,6 +11,7 @@ from backend.services.gemini_service import gemini_service
 from backend.services.knowledge_service import knowledge_service
 from backend.services.game_data_service import game_data_service
 from backend.services.account_service import account_service
+from backend.services.version_service import version_service
 
 logger = logging.getLogger(__name__)
 
@@ -22,26 +23,8 @@ class RAGService:
         pass
 
     def _get_latest_game_version(self) -> str:
-        """Helper to scan loaded knowledge base documents and return the latest game version."""
-        try:
-            versions = [doc.metadata.game_version for doc in knowledge_service.documents.values() if doc.metadata.game_version]
-            if not versions:
-                return "6.0"
-            parsed = []
-            for v in versions:
-                parts = []
-                for part in v.split("."):
-                    digits = "".join([c for c in part if c.isdigit()])
-                    if digits:
-                        parts.append(int(digits))
-                if parts:
-                    parsed.append((parts, v))
-            if not parsed:
-                return "6.0"
-            parsed.sort()
-            return parsed[-1][1]
-        except Exception:
-            return "6.0"
+        """Return the canonical current live game version."""
+        return version_service.get_current_version().version
 
     def _classify_query(self, query: str, uid: Optional[str] = None) -> str:
         """
@@ -264,8 +247,10 @@ Artifact Pieces Equipped:
             # 1a. Pull all curated knowledge documents directly linked to this character
             char_docs = knowledge_service.list_documents(character=char_name)
             for doc in char_docs:
+                eval_res = version_service.evaluate_staleness(doc.metadata.game_version)
+                stale_note = f"\n[VERSION WARNING: {eval_res.warning}]" if eval_res.is_stale else ""
                 context_blocks.append(
-                    f"=== KNOWLEDGE SOURCE: {doc.title} ({doc.metadata.source}) ===\n"
+                    f"=== KNOWLEDGE SOURCE: {doc.title} (v{doc.metadata.game_version}, {doc.metadata.source}){stale_note} ===\n"
                     f"URL: {doc.metadata.source_url}\n"
                     f"Content:\n{doc.content}\n"
                     f"=================================================="
@@ -290,8 +275,9 @@ Artifact Pieces Equipped:
                 ]) if canonical_char.talents else "Standard kit"
                 region_val = getattr(canonical_char, 'region', None) or 'Teyvat'
                 affil_val = getattr(canonical_char, 'affiliation', None) or region_val
+                intro_ver = getattr(canonical_char, 'game_version_introduced', None) or '1.0'
                 context_blocks.append(
-                    f"=== CANONICAL GAME DATABASE: {canonical_char.name.upper()} ===\n"
+                    f"=== CANONICAL GAME DATABASE: {canonical_char.name.upper()} (Introduced: v{intro_ver}) ===\n"
                     f"Rarity: {canonical_char.rarity} Star | Element: {canonical_char.element} | Weapon: {canonical_char.weapon_type}\n"
                     f"Region: {region_val} | Affiliation: {affil_val}\n"
                     f"Base HP (Lv 90): {canonical_char.base_hp_lvl90} | Base ATK: {canonical_char.base_atk_lvl90} | Base DEF: {canonical_char.base_def_lvl90}\n"
@@ -314,8 +300,10 @@ Artifact Pieces Equipped:
             # Avoid duplicate citations
             if any(c.source_url == doc.metadata.source_url for c in citations if c.source_url):
                 continue
+            eval_res = version_service.evaluate_staleness(doc.metadata.game_version)
+            stale_note = f"\n[VERSION WARNING: {eval_res.warning}]" if eval_res.is_stale else ""
             context_blocks.append(
-                f"=== KNOWLEDGE SOURCE: {doc.title} ({doc.metadata.source}) ===\n"
+                f"=== KNOWLEDGE SOURCE: {doc.title} (v{doc.metadata.game_version}, {doc.metadata.source}){stale_note} ===\n"
                 f"URL: {doc.metadata.source_url}\n"
                 f"Content:\n{doc.content}\n"
                 f"=================================================="
@@ -374,14 +362,15 @@ Artifact Pieces Equipped:
 
         # 4. Assemble Prompt & Guardrails
         current_date_str = datetime.now().strftime("%B %Y")
-        latest_game_version = self._get_latest_game_version()
+        current_ver = version_service.get_current_version()
         
         system_instruction = (
             "You are GenshinIQ, a personal Genshin Impact AI assistant. Your goal is to provide highly accurate, "
             "grounded character build reviews and game theorycrafting advice. You must adhere to the following rules:\n"
-            f"0. CRITICAL CONTEXT: The current date is {current_date_str}. The current live version of Genshin Impact is Version {latest_game_version} (Natlan and post-Natlan era). "
-            "All characters including Natlan characters (such as Mavuika, Citlali, Kinich, Mualani, Xilonen, Chasca) are officially released characters. "
-            "When provided with character guides or canonical game data in the context, you MUST provide full, authoritative build recommendations (best weapons, artifact sets, main/substats, talent crowning order, and team comps).\n"
+            f"0. CRITICAL CONTEXT: The current date is {current_date_str}. The current live version of Genshin Impact is Version {current_ver.version} ('{current_ver.name}', {current_ver.major_region}). "
+            "All characters including Natlan characters (such as Mavuika, Citlali, Kinich, Mualani, Xilonen, Chasca, Yumemizuki Mizuki) are officially released characters. "
+            "When provided with character guides or canonical game data in the context, you MUST provide full, authoritative build recommendations (best weapons, artifact sets, main/substats, talent crowning order, and team comps). "
+            "If a knowledge source has a [VERSION WARNING: ...], note appropriately that the advice originates from an earlier patch.\n"
             "1. For questions about the user's specific account showcase, builds, or specific local character guide statistics, "
             "answer strictly using the supplied context block. Do not invent stats or builds.\n"
             "2. For general Genshin Impact questions that are not fully covered in the local context, you are permitted to answer using your general knowledge of the game. "

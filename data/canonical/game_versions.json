@@ -1,0 +1,315 @@
+[
+  {
+    "version": "1.0",
+    "name": "Welcome to Teyvat",
+    "release_date": "2020-09-28",
+    "major_region": "Mondstadt / Liyue",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "1.1",
+    "name": "A New Star Approaches",
+    "release_date": "2020-11-11",
+    "major_region": "Liyue",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "1.2",
+    "name": "The Chalk Prince and the Dragon",
+    "release_date": "2020-12-23",
+    "major_region": "Dragonspine",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "1.3",
+    "name": "All That Glitters",
+    "release_date": "2021-02-03",
+    "major_region": "Liyue",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "1.4",
+    "name": "Invitation of Windblume",
+    "release_date": "2021-03-17",
+    "major_region": "Mondstadt",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "1.5",
+    "name": "Beneath the Light of Jadeite",
+    "release_date": "2021-04-28",
+    "major_region": "Liyue",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "1.6",
+    "name": "Midsummer Island Adventure",
+    "release_date": "2021-06-09",
+    "major_region": "Golden Apple Archipelago",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "2.0",
+    "name": "The Immovable God and the Eternal Euthymia",
+    "release_date": "2021-07-21",
+    "major_region": "Inazuma",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "2.1",
+    "name": "Floating World Under the Moonlight",
+    "release_date": "2021-09-01",
+    "major_region": "Inazuma",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "2.2",
+    "name": "Into the Perilous Labyrinth of Fog",
+    "release_date": "2021-10-13",
+    "major_region": "Inazuma",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "2.3",
+    "name": "Shadows Amidst Snowstorms",
+    "release_date": "2021-11-24",
+    "major_region": "Dragonspine",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "2.4",
+    "name": "Fleeting Colors in Flight",
+    "release_date": "2022-01-05",
+    "major_region": "Enkanomiya",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "2.5",
+    "name": "When the Sakura Bloom",
+    "release_date": "2022-02-16",
+    "major_region": "Inazuma",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "2.6",
+    "name": "Zephyr of the Violet Garden",
+    "release_date": "2022-03-30",
+    "major_region": "The Chasm",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "2.7",
+    "name": "Hidden Dreams in the Depths",
+    "release_date": "2022-05-31",
+    "major_region": "The Chasm",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "2.8",
+    "name": "Summer Fantasia",
+    "release_date": "2022-07-13",
+    "major_region": "Golden Apple Archipelago",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "3.0",
+    "name": "The Morn a Thousand Roses Brings",
+    "release_date": "2022-08-24",
+    "major_region": "Sumeru",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "3.1",
+    "name": "King Deshret and the Three Magi",
+    "release_date": "2022-09-28",
+    "major_region": "Sumeru Desert",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "3.2",
+    "name": "Akasha Pulses, the Kalpa Flame Rises",
+    "release_date": "2022-11-02",
+    "major_region": "Sumeru",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "3.3",
+    "name": "All Senses Clear, All Existence Void",
+    "release_date": "2022-12-07",
+    "major_region": "Sumeru",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "3.4",
+    "name": "The Exquisite Night Chimes",
+    "release_date": "2023-01-18",
+    "major_region": "Desert of Hadramaveth",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "3.5",
+    "name": "Windblume's Breath",
+    "release_date": "2023-03-01",
+    "major_region": "Mondstadt",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "3.6",
+    "name": "A Parade of Providence",
+    "release_date": "2023-04-12",
+    "major_region": "Girdle of the Sands",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "3.7",
+    "name": "Duel! The Summoners' Summit!",
+    "release_date": "2023-05-24",
+    "major_region": "Teyvat",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "3.8",
+    "name": "Secret Summer Paradise",
+    "release_date": "2023-07-05",
+    "major_region": "Veluriyam Mirage",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "4.0",
+    "name": "As Light Rain Falls Without Reason",
+    "release_date": "2023-08-16",
+    "major_region": "Fontaine",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "4.1",
+    "name": "To the Stars Shining in the Depths",
+    "release_date": "2023-09-27",
+    "major_region": "Fortress of Meropide",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "4.2",
+    "name": "Masquerade of the Guilty",
+    "release_date": "2023-11-08",
+    "major_region": "Fontaine",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "4.3",
+    "name": "Roses and Muskets",
+    "release_date": "2023-12-20",
+    "major_region": "Fontaine",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "4.4",
+    "name": "Vibrant Harriers Aloft in Spring Breeze",
+    "release_date": "2024-01-31",
+    "major_region": "Chenyu Vale",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "4.5",
+    "name": "Blades Weaving Betwixt Brocade",
+    "release_date": "2024-03-13",
+    "major_region": "Mondstadt",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "4.6",
+    "name": "Two Worlds Flaming, the Crimson Night Fades",
+    "release_date": "2024-04-24",
+    "major_region": "Remuria / Petrichor",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "4.7",
+    "name": "An Everlasting Dream Intertwined",
+    "release_date": "2024-06-05",
+    "major_region": "Imaginarium Theater",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "4.8",
+    "name": "Summertide Scales and Tales",
+    "release_date": "2024-07-17",
+    "major_region": "Simulanka",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "5.0",
+    "name": "Flowers Resplendent on the Sun-Scorched Sojourn",
+    "release_date": "2024-08-28",
+    "major_region": "Natlan",
+    "is_current": false,
+    "is_upcoming": false,
+    "patch_notes_doc_id": "official_patch_5_0_nightsoul_notes"
+  },
+  {
+    "version": "5.1",
+    "name": "The Rainbow Destined to Burn",
+    "release_date": "2024-10-09",
+    "major_region": "Natlan",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "5.2",
+    "name": "Tapestry of Spirit and Flame",
+    "release_date": "2024-11-20",
+    "major_region": "Ochkanatlan",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "5.3",
+    "name": "Incandescent Ode of Resurrection",
+    "release_date": "2025-01-01",
+    "major_region": "Natlan",
+    "is_current": false,
+    "is_upcoming": false
+  },
+  {
+    "version": "5.4",
+    "name": "Dreams of Light Upon the Flowing Star",
+    "release_date": "2025-02-12",
+    "major_region": "Chenyu Vale / Natlan",
+    "is_current": true,
+    "is_upcoming": false
+  }
+]
