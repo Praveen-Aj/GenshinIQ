@@ -1,11 +1,14 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-07T14:49:10.517327+00:00",
+  "generated_at": "2026-09-07T15:12:04.590831+00:00",
   "app_version": "0.3.0",
   "runtime_cache_dir": "C:/Users/Praveen/Downloads/Python Scripts/GenshinIQ/data/runtime/showcases",
   "game_data": {
     "directory": "C:/Users/Praveen/Downloads/Python Scripts/GenshinIQ/data/processed/game_data",
-    "aggregate_sha256": "2e1b94dcb5ab92a2036b4ff5accab369d5e8fff3f755fc7106395738d5fbc3e0",
+    "source_type": "STRUCTURED_COMMUNITY_DATAMINED",
+    "source_provider": "Project Amber (Ambr API v2) & Dimbreath AnimeGameData ExcelBinOutput",
+    "official_status": "Community-maintained structured datamining, not direct HoYoverse official API",
+    "aggregate_sha256": "bf2cccbc3d3aa10283001b3d515c0e7a0f8ef4e40fb7d8c05153c48fda444edb",
     "files": [
       {
         "file_name": "artifacts.json",
@@ -15,9 +18,9 @@
       },
       {
         "file_name": "characters.json",
-        "record_count": 121,
-        "sha256": "77dbcb35334f5ed3a350f97f86d380b943904ba460d16dc7b61b193ed2ec745d",
-        "size_bytes": 897554
+        "record_count": 119,
+        "sha256": "7faff8c1734980c39bc216f488ab292f7766993f1d9192e5fa9dd78ea2cb84ab",
+        "size_bytes": 889780
       },
       {
         "file_name": "materials.json",

@@ -12344,152 +12344,6 @@
     ]
   },
   {
-    "id": 10000117,
-    "name": "Manekin",
-    "title": "",
-    "element": "Pyro",
-    "weapon_type": "Sword",
-    "rarity": 5,
-    "region": "MAINACTOR",
-    "affiliation": "A Manekin gifted to you and Paimon by a witch who uses the pseudonym \"Octavia.\" They are gifted at exploring the mysteries sealed within the Miliastra Wonderland.",
-    "description": "",
-    "icon": "UI_AvatarIcon_MannequinBoy",
-    "base_hp_lvl90": 11231.0,
-    "base_atk_lvl90": 219.0,
-    "base_def_lvl90": 705.0,
-    "ascension_stat": "ATK%",
-    "ascension_stat_val_lvl90": "24.0%",
-    "talents": [
-      {
-        "name": "Outlander Arts: Vigilant Watch",
-        "unlock": "Normal Attack",
-        "type": "normal",
-        "description": "Normal Attack\nPerforms up to 4 rapid strikes.\n\nCharged Attack\nConsumes a certain amount of Stamina to unleash 2 rapid sword strikes.\n\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.",
-        "icon": "Skill_A_01"
-      },
-      {
-        "name": "Punishing Barrage",
-        "unlock": "Elemental Skill",
-        "type": "skill",
-        "description": "The Manekin attacks nearby opponents once, dealing AoE DMG corresponding to their own Elemental Type before pulling back rapidly. After unleashing an Elemental Skill, the Manekin's Normal Attacks, Charged Attacks, and Plunging Attacks are converted to deal the corresponding elemental DMG, which cannot be overridden by other Elemental infusions, for a period of time. This effect will disappear when the Manekin leaves the field.\n\nHas 2 charges.\n\n<i>\"A well-measured blow is a necessary warning.\"</i>",
-        "icon": "Skill_S_LittleIdol_01"
-      },
-      {
-        "name": "No Entry",
-        "unlock": "Elemental Burst",
-        "type": "burst",
-        "description": "The Manekin summons a \"Restricted Area\" that follows them around, dealing 1 instance of DMG corresponding to the Manekin's Elemental Type to nearby opponents.\nAdditionally, when opponents enter the Restricted Area, they will receive 1 instance of DMG corresponding to the Manekin's Elemental Type. This effect can trigger once every 0.5s.\nThe Restricted Area will disappear when the Manekin leaves the field.\n\n<i>\"Those who insist on trespassing within the restricted area will be regarded as hostile and expelled with maximum force.\"</i>",
-        "icon": "Skill_E_LittleIdol_01"
-      },
-      {
-        "name": "Battlelines Redrawn",
-        "unlock": "Passive Talent 1",
-        "type": "passive",
-        "description": "When the Manekin leaves the field, if a Restricted Area that they summoned is still active, it will explode, dealing AoE DMG of the Manekin's Elemental Type equal to 200% of the Manekin's ATK.",
-        "icon": "UI_Talent_S_LittleIdol_05"
-      },
-      {
-        "name": "Combat Readiness",
-        "unlock": "Passive Talent 2",
-        "type": "passive",
-        "description": "When the Manekin is not on the field and their Elemental Energy is below 30%, they will recover 2 Elemental Energy per second.",
-        "icon": "UI_Talent_S_LittleIdol_06"
-      },
-      {
-        "name": "Agile Stance",
-        "unlock": "Passive Talent 3",
-        "type": "passive",
-        "description": "When the Manekin unleashes an Elemental Skill or Burst, it will change to one of its existing Cosmetic Plans at random.",
-        "icon": "UI_Talent_S_LittleIdol_07"
-      }
-    ],
-    "constellations": [],
-    "ascension_materials": [],
-    "talent_materials": [
-      "Teachings of Conflict",
-      "Sentry's Wooden Whistle",
-      "Guide to Conflict",
-      "Warrior's Metal Whistle",
-      "Philosophies of Conflict",
-      "Saurian-Crowned Warrior's Golden Whistle",
-      "Eroded Sunfire",
-      "Crown of Insight"
-    ]
-  },
-  {
-    "id": 10000118,
-    "name": "Manekina",
-    "title": "",
-    "element": "Pyro",
-    "weapon_type": "Sword",
-    "rarity": 5,
-    "region": "MAINACTOR",
-    "affiliation": "A Manekin gifted to you and Paimon by a witch who uses the pseudonym \"Octavia.\" They are gifted at exploring the mysteries sealed within the Miliastra Wonderland.",
-    "description": "",
-    "icon": "UI_AvatarIcon_MannequinGirl",
-    "base_hp_lvl90": 11231.0,
-    "base_atk_lvl90": 219.0,
-    "base_def_lvl90": 705.0,
-    "ascension_stat": "ATK%",
-    "ascension_stat_val_lvl90": "24.0%",
-    "talents": [
-      {
-        "name": "Outlander Arts: Vigilant Watch",
-        "unlock": "Normal Attack",
-        "type": "normal",
-        "description": "Normal Attack\nPerforms up to 4 rapid strikes.\n\nCharged Attack\nConsumes a certain amount of Stamina to unleash 2 rapid sword strikes.\n\nPlunging Attack\nPlunges from mid-air to strike the ground below, damaging opponents along the path and dealing AoE DMG upon impact.",
-        "icon": "Skill_A_01"
-      },
-      {
-        "name": "Punishing Barrage",
-        "unlock": "Elemental Skill",
-        "type": "skill",
-        "description": "The Manekin attacks nearby opponents once, dealing AoE DMG corresponding to their own Elemental Type before pulling back rapidly. After unleashing an Elemental Skill, the Manekin's Normal Attacks, Charged Attacks, and Plunging Attacks are converted to deal the corresponding elemental DMG, which cannot be overridden by other Elemental infusions, for a period of time. This effect will disappear when the Manekin leaves the field.\n\nHas 2 charges.\n\n<i>\"A well-measured blow is a necessary warning.\"</i>",
-        "icon": "Skill_S_LittleIdol_01"
-      },
-      {
-        "name": "No Entry",
-        "unlock": "Elemental Burst",
-        "type": "burst",
-        "description": "The Manekin summons a \"Restricted Area\" that follows them around, dealing 1 instance of DMG corresponding to the Manekin's Elemental Type to nearby opponents.\nAdditionally, when opponents enter the Restricted Area, they will receive 1 instance of DMG corresponding to the Manekin's Elemental Type. This effect can trigger once every 0.5s.\nThe Restricted Area will disappear when the Manekin leaves the field.\n\n<i>\"Those who insist on trespassing within the restricted area will be regarded as hostile and expelled with maximum force.\"</i>",
-        "icon": "Skill_E_LittleIdol_01"
-      },
-      {
-        "name": "Battlelines Redrawn",
-        "unlock": "Passive Talent 1",
-        "type": "passive",
-        "description": "When the Manekin leaves the field, if a Restricted Area that they summoned is still active, it will explode, dealing AoE DMG of the Manekin's Elemental Type equal to 200% of the Manekin's ATK.",
-        "icon": "UI_Talent_S_LittleIdol_05"
-      },
-      {
-        "name": "Combat Readiness",
-        "unlock": "Passive Talent 2",
-        "type": "passive",
-        "description": "When the Manekin is not on the field and their Elemental Energy is below 30%, they will recover 2 Elemental Energy per second.",
-        "icon": "UI_Talent_S_LittleIdol_06"
-      },
-      {
-        "name": "Agile Stance",
-        "unlock": "Passive Talent 3",
-        "type": "passive",
-        "description": "When the Manekin unleashes an Elemental Skill or Burst, it will change to one of its existing Cosmetic Plans at random.",
-        "icon": "UI_Talent_S_LittleIdol_07"
-      }
-    ],
-    "constellations": [],
-    "ascension_materials": [],
-    "talent_materials": [
-      "Teachings of Conflict",
-      "Sentry's Wooden Whistle",
-      "Guide to Conflict",
-      "Warrior's Metal Whistle",
-      "Philosophies of Conflict",
-      "Saurian-Crowned Warrior's Golden Whistle",
-      "Eroded Sunfire",
-      "Crown of Insight"
-    ]
-  },
-  {
     "id": 10000119,
     "name": "Lauma",
     "title": "Evermoon's Sacrament Song",
@@ -14659,9 +14513,9 @@
     "affiliation": "A traveler from another world who had their only kin taken away, forcing them to embark on a journey to find The Seven.",
     "description": "",
     "icon": "UI_AvatarIcon_PlayerBoy",
-    "base_hp_lvl90": 11231.0,
-    "base_atk_lvl90": 219.0,
-    "base_def_lvl90": 705.0,
+    "base_hp_lvl90": 10875.0,
+    "base_atk_lvl90": 212.0,
+    "base_def_lvl90": 683.0,
     "ascension_stat": "ATK%",
     "ascension_stat_val_lvl90": "24.0%",
     "talents": [

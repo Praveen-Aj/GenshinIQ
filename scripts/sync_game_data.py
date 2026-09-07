@@ -45,10 +45,12 @@ HEADERS = {
     "Accept": "application/json",
 }
 
-# Official Genshin Level 90 Curve Multipliers (from client curve configs)
-CHAR_CURVES_90 = {
-    4: 8.349,  # GROW_CURVE_HP_S4 / GROW_CURVE_ATTACK_S4
-    5: 8.739,  # GROW_CURVE_HP_S5 / GROW_CURVE_ATTACK_S5
+# Datamined Genshin Level 90 Curve Multipliers (from client AvatarCurveExcelConfigData)
+AVATAR_CURVES_90 = {
+    "GROW_CURVE_HP_S4": 8.349,
+    "GROW_CURVE_ATTACK_S4": 8.349,
+    "GROW_CURVE_HP_S5": 8.739,
+    "GROW_CURVE_ATTACK_S5": 8.739,
 }
 
 WEAPON_CURVES_90 = {
@@ -203,8 +205,8 @@ def normalize_characters(mat_map: Dict[str, str]) -> List[Dict[str, Any]]:
         else:
             continue
 
-        # Skip traveler variations or test entities beyond standard playable roster
-        if avatar_id > 11000000 and "traveler" not in summary.get("name", "").lower():
+        # Skip traveler variations or internal test dummy entities
+        if avatar_id in [10000117, 10000118] or (avatar_id > 11000000 and "traveler" not in summary.get("name", "").lower()):
             continue
 
         raw_file = char_cache_dir / f"{avatar_id}.json"
@@ -240,25 +242,33 @@ def normalize_characters(mat_map: Dict[str, str]) -> List[Dict[str, Any]]:
         final_promote = promotes[-1] if promotes else {}
         add_props = final_promote.get("addProps", {})
 
-        char_curve = CHAR_CURVES_90.get(rarity, 8.739)
         base_hp = 0.0
         base_atk = 0.0
         base_def = 0.0
 
         if "FIGHT_PROP_BASE_HP" in props:
-            init_hp = props["FIGHT_PROP_BASE_HP"].get("initValue", 0.0)
+            hp_prop = props["FIGHT_PROP_BASE_HP"]
+            init_hp = hp_prop.get("initValue", 0.0)
+            curve_type = hp_prop.get("type", "GROW_CURVE_HP_S5")
+            curve_val = AVATAR_CURVES_90.get(curve_type, 8.739)
             bonus_hp = add_props.get("FIGHT_PROP_BASE_HP", 0.0)
-            base_hp = float(round(init_hp * char_curve + bonus_hp))
+            base_hp = float(round(init_hp * curve_val + bonus_hp))
 
         if "FIGHT_PROP_BASE_ATTACK" in props:
-            init_atk = props["FIGHT_PROP_BASE_ATTACK"].get("initValue", 0.0)
+            atk_prop = props["FIGHT_PROP_BASE_ATTACK"]
+            init_atk = atk_prop.get("initValue", 0.0)
+            curve_type = atk_prop.get("type", "GROW_CURVE_ATTACK_S5")
+            curve_val = AVATAR_CURVES_90.get(curve_type, 8.739)
             bonus_atk = add_props.get("FIGHT_PROP_BASE_ATTACK", 0.0)
-            base_atk = float(round(init_atk * char_curve + bonus_atk))
+            base_atk = float(round(init_atk * curve_val + bonus_atk))
 
         if "FIGHT_PROP_BASE_DEFENSE" in props:
-            init_def = props["FIGHT_PROP_BASE_DEFENSE"].get("initValue", 0.0)
+            def_prop = props["FIGHT_PROP_BASE_DEFENSE"]
+            init_def = def_prop.get("initValue", 0.0)
+            curve_type = def_prop.get("type", "GROW_CURVE_HP_S5")
+            curve_val = AVATAR_CURVES_90.get(curve_type, 8.739)
             bonus_def = add_props.get("FIGHT_PROP_BASE_DEFENSE", 0.0)
-            base_def = float(round(init_def * char_curve + bonus_def))
+            base_def = float(round(init_def * curve_val + bonus_def))
 
         # Detect Ascension Stat
         ascension_stat = "ATK"
@@ -428,7 +438,7 @@ def normalize_weapons(mat_map: Dict[str, str]) -> List[Dict[str, Any]]:
             prop_key = sub_prop.get("propType")
             sub_stat_type = PROP_NAME_MAP.get(prop_key, prop_key)
             init_sub = sub_prop.get("initValue", 0.0)
-            sub_curve = WEAPON_CURVES_90.get(sub_prop.get("type", ""), 4.6000)
+            sub_curve = WEAPON_CURVES_90.get(sub_prop.get("type", ""), 4.594)
             calculated_sub = init_sub * sub_curve
             if calculated_sub <= 1.0:
                 sub_stat_val_90 = f"{round(calculated_sub * 100, 1)}%"

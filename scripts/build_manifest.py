@@ -66,6 +66,9 @@ def main():
         "runtime_cache_dir": str(RUNTIME_CACHE_DIR.as_posix()),
         "game_data": {
             "directory": str(GAME_DATA_DIR.as_posix()),
+            "source_type": "STRUCTURED_COMMUNITY_DATAMINED",
+            "source_provider": "Project Amber (Ambr API v2) & Dimbreath AnimeGameData ExcelBinOutput",
+            "official_status": "Community-maintained structured datamining, not direct HoYoverse official API",
             "aggregate_sha256": aggregate_game_sha256,
             "files": game_files,
         },
