@@ -2,15 +2,29 @@
   "id": "mechanics_damage_formula",
   "title": "Genshin Impact Damage Formula & Combat Calculations",
   "metadata": {
-    "source": "Genshin Impact Theorycrafting Community / KQM",
+    "source_id": "src_kqm_tcl",
+    "source": "KQM Theorycrafting Library (TCL)",
     "source_url": "https://library.keqingmains.com/combat-mechanics/damage/damage-formula",
-    "source_type": "THEORYCRAFTING",
+    "canonical_url": "https://library.keqingmains.com/",
+    "source_type": "TCL",
+    "authority_tier": 2,
     "character": null,
     "topic": "Game Mechanics",
     "game_version": "5.4",
     "published_at": "2020-09-28T00:00:00Z",
     "updated_at": "2024-08-20T00:00:00Z",
-    "tags": ["Damage Formula", "Theorycrafting", "Combat", "Calculations", "DEF", "RES", "CRIT"]
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "a7d45a98ff0ce8c163c952aeb5ac3e3771d15e1046808537c4dace4b576b9641",
+    "freshness_status": "stale",
+    "tags": [
+      "Damage Formula",
+      "Theorycrafting",
+      "Combat",
+      "Calculations",
+      "DEF",
+      "RES",
+      "CRIT"
+    ]
   },
   "summary": "Complete Genshin Impact outgoing and incoming damage formula specifications, covering Base Damage, DMG Bonuses, CRIT, DEF, RES multipliers, and Amplifying Reaction interactions.",
   "content": "# Genshin Impact Damage Formula & Calculations\n\n## The Core Damage Formula\nThe standard outgoing damage (excluding transformative reactions) dealt by a character is computed as:\n\n$$\\text{Damage} = \\text{Base DMG} \\times \\text{DMG Bonus Multiplier} \\times \\text{CRIT Multiplier} \\times \\text{Enemy DEF Multiplier} \\times \\text{Enemy RES Multiplier} \\times \\text{Reaction Multiplier}$$\n\n### 1. Base DMG (Base Damage)\nThis is the starting value before any percentage multipliers are applied. For most talents, it is:\n$$\\text{Base DMG} = \\text{Scaling Stat (e.g. ATK)} \\times \\text{Talent Scaling \\%}$$\nSome characters scale off HP (e.g. Neuvillette, Furina) or DEF (e.g. Albedo, Chiori).\nAdditives (like Zhongli's passive, Shenhe's Icy Quills, or Yun Jin's burst) are added directly here:\n$$\\text{Base DMG} = (\\text{Stat} \\times \\text{Talent \\%}) + \\text{Flat Additives}$$\n\n### 2. DMG Bonus Multiplier\nSum of all relevant damage bonus percentages (e.g., Goblet elemental bonus, weapon passives, 4pc Gladiator bonus, Furina's Fanfare buff):\n$$\\text{DMG Bonus Multiplier} = 1 + \\sum \\text{DMG Bonus \\%}$$\n\n### 3. CRIT Multiplier\nIf the hit crits (based on CRIT Rate):\n$$\\text{CRIT Multiplier} = 1 + \\text{CRIT DMG \\%}$$\nIf the hit does not crit:\n$$\\text{CRIT Multiplier} = 1$$\nAverage expected damage is:\n$$\\text{Average CRIT Multiplier} = 1 + (\\text{CRIT Rate \\%} \\times \\text{CRIT DMG \\%})$$\n\n### 4. Enemy DEF Multiplier\nDepends on character level, enemy level, and defense reduction/ignore effects:\n$$\\text{Enemy DEF Multiplier} = \\frac{\\text{Character Level} + 100}{(\\text{Character Level} + 100) + (\\text{Enemy Level} + 100) \\times (1 - \\text{DEF Reduction}) \\times (1 - \\text{DEF Ignore})}$$\nAgainst an equal-level enemy with no DEF debuffs, this multiplier is exactly **0.5 (50% damage reduction)**.\n\n### 5. Enemy RES (Resistance) Multiplier\nBased on the enemy's elemental/physical resistance after shred effects (e.g. 4pc Viridescent Venerer, Zhongli Shield):\n- If RES > 75%:\n  $$\\text{RES Multiplier} = \\frac{1}{1 + 4 \\times \\text{RES}}$$\n- If 0% <= RES <= 75%:\n  $$\\text{RES Multiplier} = 1 - \\text{RES}$$\n- If RES < 0% (Negative RES):\n  $$\\text{RES Multiplier} = 1 - \\frac{\\text{RES}}{2}$$\nResistance shredding is twice as effective when it pushes the enemy's RES below 0%.\n\n### 6. Amplifying Reaction Multiplier\nFor Vaporize and Melt reactions:\n- **Melt (Pyro on Cryo)** or **Vaporize (Hydro on Pyro)**: $2.0 \\times (1 + \\text{Reaction Bonus \\% from EM} + \\text{Special Bonuses like 4pc Crimson Witch})$\n- **Melt (Cryo on Pyro)** or **Vaporize (Pyro on Hydro)**: $1.5 \\times (1 + \\text{Reaction Bonus \\% from EM} + \\text{Special Bonuses})$\nEM Reaction Bonus for Vaporize/Melt is calculated as: $2.78 \\times \\frac{\\text{EM}}{\\text{EM} + 1400}$."

@@ -2,15 +2,29 @@
   "id": "kqm_neuvillette_guide",
   "title": "KQM Neuvillette Character & Theorycrafting Guide",
   "metadata": {
-    "source": "KeqingMains (KQM)",
+    "source_id": "src_kqm_guides",
+    "source": "KeqingMains Guides (KQM)",
     "source_url": "https://keqingmains.com/neuvillette/",
-    "source_type": "THEORYCRAFTING",
+    "canonical_url": "https://keqingmains.com/neuvillette/",
+    "source_type": "KQM",
+    "authority_tier": 2,
     "character": "Neuvillette",
     "topic": "Character Guide",
     "game_version": "5.4",
     "published_at": "2023-09-27T00:00:00Z",
     "updated_at": "2024-11-01T00:00:00Z",
-    "tags": ["Neuvillette", "Hydro", "DPS", "Hypercarry", "KQM", "Artifacts", "Weapons"]
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "5f3aed5c21ceeab1192980e11696c1e79936e14443df4be8cdc2a4333872d8be",
+    "freshness_status": "stale",
+    "tags": [
+      "Neuvillette",
+      "Hydro",
+      "DPS",
+      "Hypercarry",
+      "KQM",
+      "Artifacts",
+      "Weapons"
+    ]
   },
   "summary": "Authoritative KQM guide covering Neuvillette's Sourcewater Droplet mechanics, Charged Attack Equitable Judgment scaling, Marechaussee Hunter set, and weapon options.",
   "content": "# Neuvillette Character & Theorycrafting Guide (KQM)\n\n## Overview & Playstyle\nNeuvillette is a 5-star Hydro Catalyst user who functions as a premier on-field hypercarry. His damage relies entirely on his HP-scaling Charged Attack: Equitable Judgment, which fires a continuous torrent of water in a straight line, consuming his HP and absorbing Sourcewater Droplets to charge instantly.\n\n### Core Mechanics & Sourcewater Droplets\n- **Equitable Judgment**: If Neuvillette charges his attack, he consumes up to 3 Sourcewater Droplets in front of him to charge the beam instantly and heal himself. Without droplets, the charge takes several seconds.\n- **Skill & Burst Generation**: His Elemental Skill (*O Tears, I Shall Recompense*) generates 3 droplets on hit. His Elemental Burst (*O Tides, I Have Returned*) generates 6 droplets.\n- **A1 Passive (Past Draconic Glories)**: Triggers when a team member causes a Hydro-related reaction. Stackable up to 3 times (increases Equitable Judgment damage by 110%/125%/160%). Encourage running rainbow teams (different elements) at C0.\n\n## Talent Priority\n1. **Normal & Charged Attack: As Water Seeks Equilibrium** (Level 9 or 10 - Responsible for ~90% of total damage)\n2. **Elemental Burst** (Level 8 or 9 - For droplet count and supplemental damage)\n3. **Elemental Skill** (Level 8 - For droplet count)\n\n## Stat Priorities & Substats\n- **Sands**: HP% (or ER if below threshold)\n- **Goblet**: Hydro DMG Bonus or HP% (very comparable, choose better substats)\n- **Circlet**: CRIT DMG or CRIT Rate (careful not to overcap Crit Rate with Marechaussee Hunter set)\n- **Energy Recharge**: Needs ~120% - 140% ER depending on Favonius teammates and double Hydro.\n\n## Recommended Artifact Sets\n1. **Marechaussee Hunter (4-Piece)**: BiS by a significant margin. Provides 15% Normal/Charged Attack DMG and 36% CRIT Rate when HP changes.\n2. **Heart of Depth / Wanderer's Troupe (4-Piece)**: Decent placeholders.\n\n## Weapon Rankings\n1. **Tome of the Eternal Flow (5★)**: Signature and BiS. High CRIT DMG (88.2%), HP bonus, Charged Attack DMG bonus, and Energy recovery.\n2. **Sacrificial Jade (4★ Battle Pass)**: Best alternative. Grants 36.8% CRIT Rate, and large HP and EM bonuses when off-field.\n3. **Prototype Amber (4★ R5)**: Outstanding F2P option. Extends healing to the entire party, restores energy, and scales off HP."

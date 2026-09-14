@@ -1,0 +1,368 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-10T21:00:00Z",
+  "sources": [
+    {
+      "source_id": "src_hoyoverse_official",
+      "name": "HoYoverse Official",
+      "tier": 1,
+      "source_type": "OFFICIAL",
+      "base_url": "https://www.hoyoverse.com/",
+      "canonical_verification_url": "https://www.hoyoverse.com/en-us/news",
+      "trust_level": "AUTHORITATIVE",
+      "supported_topics": [
+        "Patch Notes",
+        "Official Announcements",
+        "System Mechanics",
+        "Game Engine Updates"
+      ],
+      "update_frequency": "PER_PATCH",
+      "enabled": true,
+      "derivation_relationship": "OFFICIAL",
+      "parent_source_id": null,
+      "derived_from": [],
+      "approved_domains": [
+        "patch_version_knowledge",
+        "game_mechanics_knowledge"
+      ],
+      "derivation_notes": "Authoritative official source for version announcements, patch notes, character/weapon releases, and dates."
+    },
+    {
+      "source_id": "src_hoyoverse_patch_notes",
+      "name": "HoYoverse Patch Notes & Maintenance Notices",
+      "tier": 1,
+      "source_type": "OFFICIAL",
+      "base_url": "https://genshin.hoyoverse.com/",
+      "canonical_verification_url": "https://genshin.hoyoverse.com/en/news",
+      "trust_level": "AUTHORITATIVE",
+      "supported_topics": [
+        "Patch Notes",
+        "Version History",
+        "Bug Fixes",
+        "System Adjustments"
+      ],
+      "update_frequency": "PER_PATCH",
+      "enabled": true,
+      "derivation_relationship": "OFFICIAL",
+      "parent_source_id": null,
+      "derived_from": [],
+      "approved_domains": [
+        "patch_version_knowledge"
+      ],
+      "derivation_notes": "Primary official publication for patch changes and system adjustments."
+    },
+    {
+      "source_id": "src_genshin_ingame",
+      "name": "Genshin Impact In-Game Archive",
+      "tier": 1,
+      "source_type": "OFFICIAL",
+      "base_url": "in-game://client/archive",
+      "canonical_verification_url": "https://genshin.hoyoverse.com/",
+      "trust_level": "AUTHORITATIVE",
+      "supported_topics": [
+        "Character Kit",
+        "Weapon Stats",
+        "Artifact Descriptions",
+        "Material Lore"
+      ],
+      "update_frequency": "CONTINUOUS",
+      "enabled": true,
+      "derivation_relationship": "OFFICIAL",
+      "parent_source_id": null,
+      "derived_from": [],
+      "approved_domains": [
+        "character_deterministic",
+        "weapon_knowledge",
+        "artifact_knowledge"
+      ],
+      "derivation_notes": "First-party client string archive text."
+    },
+    {
+      "source_id": "src_animegamedata",
+      "name": "Dimbreath AnimeGameData / GenshinData",
+      "tier": 3,
+      "source_type": "STRUCTURED_DATA",
+      "base_url": "https://github.com/DimbreathBot/AnimeGameData",
+      "canonical_verification_url": "https://github.com/DimbreathBot/AnimeGameData",
+      "trust_level": "STRUCTURED_DATAMINED",
+      "supported_topics": [
+        "Character Base Stats",
+        "Curve Promotion Data",
+        "Weapon Stats and Refinements",
+        "Artifact Progression Tables",
+        "Materials",
+        "Raw Game Attributes"
+      ],
+      "update_frequency": "PER_PATCH",
+      "enabled": true,
+      "derivation_relationship": "PRIMARY_ORIGINAL",
+      "parent_source_id": null,
+      "derived_from": [],
+      "approved_domains": [
+        "character_deterministic",
+        "weapon_knowledge",
+        "artifact_knowledge",
+        "quest_world_knowledge"
+      ],
+      "derivation_notes": "PRIMARY raw structured game-data source for character IDs, base stats, curves, ascension data, weapon stats, artifact progression, and materials. Versioned locally."
+    },
+    {
+      "source_id": "src_project_amber",
+      "name": "Project Amber (Ambr.top)",
+      "tier": 3,
+      "source_type": "STRUCTURED_DATA",
+      "base_url": "https://ambr.top/",
+      "canonical_verification_url": "https://ambr.top/en/archive",
+      "trust_level": "STRUCTURED_DATAMINED",
+      "supported_topics": [
+        "Character Base Stats",
+        "Weapon Scaling Curves",
+        "Ascension Materials",
+        "Talent Scaling Ratios"
+      ],
+      "update_frequency": "PER_PATCH",
+      "enabled": true,
+      "derivation_relationship": "AGGREGATOR",
+      "parent_source_id": "src_animegamedata",
+      "derived_from": [
+        "src_animegamedata"
+      ],
+      "approved_domains": [
+        "character_deterministic",
+        "weapon_knowledge"
+      ],
+      "derivation_notes": "SECONDARY structured and validation source for entity IDs, human-readable structured data, assets, and cross-checking."
+    },
+    {
+      "source_id": "src_genshin_db",
+      "name": "genshin-db",
+      "tier": 3,
+      "source_type": "STRUCTURED_DATA",
+      "base_url": "https://github.com/theBowja/genshin-db",
+      "canonical_verification_url": "https://github.com/theBowja/genshin-db",
+      "trust_level": "NORMALIZED_SECONDARY",
+      "supported_topics": [
+        "Normalized Entities",
+        "Searchable Character Data",
+        "Weapon Catalogs",
+        "Material Lookup"
+      ],
+      "update_frequency": "PER_PATCH",
+      "enabled": true,
+      "derivation_relationship": "DERIVED_FROM",
+      "parent_source_id": "src_animegamedata",
+      "derived_from": [
+        "src_animegamedata",
+        "src_genshin_fandom_wiki"
+      ],
+      "approved_domains": [
+        "character_deterministic",
+        "weapon_knowledge"
+      ],
+      "derivation_notes": "genshin-db explicitly derives from GenshinData and Fandom wiki. Agreement between AnimeGameData and genshin-db is recorded as CORROBORATION (DERIVED_AGREEMENT), not independent confirmation."
+    },
+    {
+      "source_id": "src_genshindev_api",
+      "name": "genshin.dev / genshin.jmp.blue API",
+      "tier": 3,
+      "source_type": "STRUCTURED_DATA",
+      "base_url": "https://genshin.jmp.blue/",
+      "canonical_verification_url": "https://github.com/genshindev/api",
+      "trust_level": "STRUCTURED_COMMUNITY_API",
+      "supported_topics": [
+        "Character Profiles",
+        "Artifact Sets",
+        "Materials Catalog"
+      ],
+      "update_frequency": "VARIABLE",
+      "enabled": true,
+      "derivation_relationship": "AGGREGATOR",
+      "parent_source_id": "src_genshin_fandom_wiki",
+      "derived_from": [
+        "src_genshin_fandom_wiki"
+      ],
+      "approved_domains": [
+        "character_deterministic"
+      ],
+      "derivation_notes": "FALLBACK API for recovery and secondary entity/reference data when another structured source is temporarily unavailable."
+    },
+    {
+      "source_id": "src_kqm_guides",
+      "name": "KeqingMains Guides (KQM)",
+      "tier": 2,
+      "source_type": "KQM",
+      "base_url": "https://keqingmains.com/",
+      "canonical_verification_url": "https://keqingmains.com/",
+      "trust_level": "CURATED_THEORYCRAFTING",
+      "supported_topics": [
+        "Character Guide",
+        "Build Guide",
+        "Weapon Comparison",
+        "Artifact Optimization",
+        "Team Building",
+        "Rotations"
+      ],
+      "update_frequency": "PER_PATCH",
+      "enabled": true,
+      "derivation_relationship": "REFERENCE",
+      "parent_source_id": null,
+      "derived_from": [],
+      "approved_domains": [
+        "character_knowledge",
+        "team_building_knowledge",
+        "theorycrafting_knowledge"
+      ],
+      "derivation_notes": "Curated theorycrafting guides and character build optimizations."
+    },
+    {
+      "source_id": "src_kqm_tcl",
+      "name": "KQM Theorycrafting Library (TCL)",
+      "tier": 2,
+      "source_type": "TCL",
+      "base_url": "https://library.keqingmains.com/",
+      "canonical_verification_url": "https://library.keqingmains.com/",
+      "trust_level": "PEER_REVIEWED_EVIDENCE",
+      "supported_topics": [
+        "Game Mechanics",
+        "Elemental Gauge Theory",
+        "Internal Cooldown (ICD)",
+        "Frame Data",
+        "Damage Formula",
+        "Enemy Resistances"
+      ],
+      "update_frequency": "CONTINUOUS",
+      "enabled": true,
+      "derivation_relationship": "REFERENCE",
+      "parent_source_id": null,
+      "derived_from": [],
+      "approved_domains": [
+        "game_mechanics_knowledge",
+        "theorycrafting_knowledge"
+      ],
+      "derivation_notes": "Peer-reviewed theorycrafting repository for game combat mechanics."
+    },
+    {
+      "source_id": "src_honey_hunter",
+      "name": "Honey Hunter World",
+      "tier": 5,
+      "source_type": "COMMUNITY",
+      "base_url": "https://genshin.honeyhunterworld.com/",
+      "canonical_verification_url": "https://genshin.honeyhunterworld.com/",
+      "trust_level": "HUMAN_READABLE_REFERENCE",
+      "supported_topics": [
+        "Entity Reference",
+        "Sanity Checking",
+        "New Entity Discovery"
+      ],
+      "update_frequency": "PER_PATCH",
+      "enabled": true,
+      "derivation_relationship": "REFERENCE",
+      "parent_source_id": null,
+      "derivation_notes": "HUMAN-READABLE REFERENCE. Used only for sanity check and discovery; never automatically promoted into canonical numerical data without validation."
+    },
+    {
+      "source_id": "src_genshin_optimizer",
+      "name": "Genshin Optimizer",
+      "tier": 2,
+      "source_type": "OTHER",
+      "base_url": "https://frzyc.github.io/genshin-optimizer/",
+      "canonical_verification_url": "https://github.com/frzyc/genshin-optimizer",
+      "trust_level": "TECHNICAL_REFERENCE",
+      "supported_topics": [
+        "Update Workflow Architecture",
+        "Deterministic Stat Formulas",
+        "GOOD Format Interoperability",
+        "Validation Expectations"
+      ],
+      "update_frequency": "PER_PATCH",
+      "enabled": true,
+      "derivation_relationship": "REFERENCE",
+      "parent_source_id": null,
+      "derivation_notes": "TECHNICAL REFERENCE. Used as architectural and algorithmic reference for update workflows, formulas, and GOOD format. NOT a runtime game-data dependency."
+    },
+    {
+      "source_id": "src_akasha",
+      "name": "Akasha System",
+      "tier": 4,
+      "source_type": "STATISTICAL",
+      "base_url": "https://akasha.cv/",
+      "canonical_verification_url": "https://akasha.cv/",
+      "trust_level": "AGGREGATE_STATISTICS",
+      "supported_topics": [
+        "Artifact CV Leaderboards",
+        "Build Benchmarking",
+        "Substat Roll Distributions"
+      ],
+      "update_frequency": "DAILY",
+      "enabled": true,
+      "derivation_relationship": "AGGREGATOR",
+      "parent_source_id": null,
+      "derivation_notes": "Statistical aggregator for showcase leaderboards."
+    },
+    {
+      "source_id": "src_yshelper",
+      "name": "YSHelper (YuanShen Helper)",
+      "tier": 4,
+      "source_type": "STATISTICAL",
+      "base_url": "https://yshelper.com/",
+      "canonical_verification_url": "https://yshelper.com/",
+      "trust_level": "AGGREGATE_STATISTICS",
+      "supported_topics": [
+        "Abyss Usage Rates",
+        "Character Ownership Rates",
+        "Constellation Distributions"
+      ],
+      "update_frequency": "PER_ABYSS_RESET",
+      "enabled": true,
+      "derivation_relationship": "AGGREGATOR",
+      "parent_source_id": null,
+      "derivation_notes": "Statistical aggregator for Spiral Abyss team telemetry."
+    },
+    {
+      "source_id": "src_genshin_fandom_wiki",
+      "name": "Genshin Impact Community Wiki (Fandom)",
+      "tier": 5,
+      "source_type": "COMMUNITY",
+      "base_url": "https://genshin-impact.fandom.com/",
+      "canonical_verification_url": "https://genshin-impact.fandom.com/wiki/Genshin_Impact_Wiki",
+      "trust_level": "COMMUNITY_CROWDSOURCED",
+      "supported_topics": [
+        "Character Guide",
+        "Artifact Set",
+        "Lore",
+        "Quests",
+        "General Reference"
+      ],
+      "update_frequency": "CONTINUOUS",
+      "enabled": true,
+      "derivation_relationship": "REFERENCE",
+      "parent_source_id": null,
+      "derived_from": [],
+      "approved_domains": [
+        "character_knowledge",
+        "artifact_knowledge",
+        "quest_world_knowledge"
+      ],
+      "derivation_notes": "Crowdsourced community wiki."
+    },
+    {
+      "source_id": "src_community_general",
+      "name": "Genshin Community Discussions",
+      "tier": 5,
+      "source_type": "COMMUNITY",
+      "base_url": "https://www.reddit.com/r/Genshin_Impact/",
+      "canonical_verification_url": "https://www.reddit.com/r/Genshin_Impact/",
+      "trust_level": "COMMUNITY_UNVERIFIED",
+      "supported_topics": [
+        "Community Discussion",
+        "Player Feedback",
+        "Anecdotal Interactions"
+      ],
+      "update_frequency": "CONTINUOUS",
+      "enabled": true,
+      "derivation_relationship": "REFERENCE",
+      "parent_source_id": null,
+      "derivation_notes": "General social media and forum community discussions."
+    }
+  ]
+}

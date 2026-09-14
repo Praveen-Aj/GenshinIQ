@@ -1,0 +1,29 @@
+{
+  "id": "structured_daily_talent_books_schedule",
+  "title": "Teyvat Daily Talent Books Domain Farming Schedule & Rotation",
+  "metadata": {
+    "source_id": "src_project_amber",
+    "source": "Project Amber (Ambr.top)",
+    "source_url": "https://ambr.top/en/archive/material",
+    "canonical_url": "https://ambr.top/en/archive",
+    "source_type": "STRUCTURED_DATA",
+    "authority_tier": 3,
+    "character": null,
+    "topic": "Farming & Domains",
+    "game_version": "7.0",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-09-02T00:00:00Z",
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "a75e50689e15e7cefe7616601c5c6794bd46fa413f7be271acc910216b98b7d6",
+    "freshness_status": "current",
+    "tags": [
+      "Talent Books",
+      "Farming Schedule",
+      "Domains",
+      "Materials",
+      "Structured Data"
+    ]
+  },
+  "summary": "Structured reference for character talent books across all 6 released nations, organized by domain schedule (Monday/Thursday, Tuesday/Friday, Wednesday/Saturday, Sunday all available).",
+  "content": "# Teyvat Daily Talent Books Domain Farming Schedule\n\n## 1. Monday & Thursday (and Sunday)\n- **Mondstadt (Forsaken Rift)**: *Freedom* (Amber, Barbara, Diona, Klee, Sucrose, Tartaglia, Aloy).\n- **Liyue (Taishan Mansion)**: *Prosperity* (Keqing, Ningguang, Qiqi, Shenhe, Xiao, Yelan).\n- **Inazuma (Violet Court)**: *Transience* (Yoimiya, Thoma, Kokomi, Shikanoin Heizou, Kirara).\n- **Sumeru (Steeple of Ignorance)**: *Admonition* (Tighnari, Candace, Cyno, Faruzan).\n- **Fontaine (Pale Forgotten Glory)**: *Equity* (Lyney, Neuvillette, Navia).\n- **Natlan (Blazing Ruins)**: *Contention* (Mualani, Kinich, Mavuika).\n\n## 2. Tuesday & Friday (and Sunday)\n- **Mondstadt (Forsaken Rift)**: *Resistance* (Bennett, Diluc, Eula, Jean, Mona, Noelle, Razor).\n- **Liyue (Taishan Mansion)**: *Diligence* (Chongyun, Ganyu, Hu Tao, Kazuha, Xiangling, Yun Jin, Yaoyao).\n- **Inazuma (Violet Court)**: *Elegance* (Ayaka, Ayato, Itto, Kujou Sara, Kuki Shinobu).\n- **Sumeru (Steeple of Ignorance)**: *Ingenuity* (Nahida, Alhaitham, Dori, Layla, Kaveh).\n- **Fontaine (Pale Forgotten Glory)**: *Justice* (Freminet, Furina, Charlotte, Clorinde).\n- **Natlan (Blazing Ruins)**: *Kindling* (Kachina, Citlali, Chasca).\n\n## 3. Wednesday & Saturday (and Sunday)\n- **Mondstadt (Forsaken Rift)**: *Ballad* (Albedo, Fischl, Kaeya, Lisa, Rosaria, Venti).\n- **Liyue (Taishan Mansion)**: *Gold* (Beidou, Xingqiu, Xinyan, Yanfei, Zhongli, Baizhu).\n- **Inazuma (Violet Court)**: *Light* (Raiden Shogun, Yae Miko, Sayu, Gorou).\n- **Sumeru (Steeple of Ignorance)**: *Praxis* (Collei, Dehya, Nilou, Wanderer, Sethos).\n- **Fontaine (Pale Forgotten Glory)**: *Order* (Wriothesley, Chevreuse, Xianyun, Emilie, Arlecchino).\n- **Natlan (Blazing Ruins)**: *Conflict* (Xilonen, Ororon, Ifa).\n\n## 4. Sunday Rule\nOn Sundays, all talent domains unlock all three material types, allowing travelers to freely select their desired drop.\n"
+}

@@ -22,7 +22,11 @@ def test_data_provenance_manifest_endpoint():
     assert data["game_data"]["artifact_sets"] == len(game_data_service.list_artifact_sets())
     assert data["game_data"]["materials"] == len(game_data_service.list_materials())
     assert data["knowledge_base"]["total_documents"] == len(knowledge_service.documents)
-    assert data["knowledge_base"]["source_type_counts"]["AUTHORITATIVE"] > 0
+    assert data["knowledge_base"]["source_type_counts"]["COMMUNITY"] > 0
+    assert data["knowledge_base"]["source_type_counts"]["OFFICIAL"] > 0
+    assert data["knowledge_base"]["source_tier_counts"]["Tier 5"] >= 140
+    assert data["knowledge_base"]["source_tier_counts"]["Tier 2"] >= 16
+    assert data["knowledge_base"]["source_tier_counts"]["Tier 1"] >= 1
     assert len(data["game_data"]["aggregate_sha256"]) == 64
     assert len(data["knowledge_base"]["aggregate_sha256"]) == 64
 

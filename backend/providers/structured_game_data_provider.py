@@ -116,7 +116,12 @@ class StructuredGameDataProvider(
         clean = str(name_or_id).strip()
         if clean.isdigit() and int(clean) in self._weapons_by_id:
             return self._weapons_by_id[int(clean)]
-        return self._weapons_by_name.get(clean.lower())
+        res = self._weapons_by_name.get(clean.lower())
+        if res is None:
+            res = self._weapons_by_name.get(f'"{clean.lower()}"')
+        if res is None and clean.startswith('"') and clean.endswith('"'):
+            res = self._weapons_by_name.get(clean[1:-1].lower())
+        return res
 
     def list_weapons(
         self,

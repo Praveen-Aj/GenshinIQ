@@ -1,0 +1,32 @@
+{
+  "id": "kqm_bennett_extended_guide",
+  "title": "KQM Bennett Support & ATK Buffer Theorycrafting Guide",
+  "metadata": {
+    "source_id": "src_kqm_guides",
+    "source": "KeqingMains Guides (KQM)",
+    "source_url": "https://keqingmains.com/bennett/",
+    "canonical_url": "https://keqingmains.com/bennett/",
+    "source_type": "KQM",
+    "authority_tier": 2,
+    "character": "Bennett",
+    "topic": "Character Guide",
+    "game_version": "7.0",
+    "published_at": "2020-11-15T00:00:00Z",
+    "updated_at": "2026-08-01T00:00:00Z",
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "11b4dc32c48d4be955698e82443327df51d8c9ecd25c80952128f04ad9f29448",
+    "freshness_status": "current",
+    "tags": [
+      "Bennett",
+      "Pyro",
+      "Sword",
+      "Buffer",
+      "Healer",
+      "KQM",
+      "Build Guide",
+      "National"
+    ]
+  },
+  "summary": "KQM guide for Bennett. Detailed mechanics of Fantastic Voyage's Base ATK scaling, Noblesse Oblige set synergy, energy particle generation, and ER thresholds.",
+  "content": "# KQM Bennett Comprehensive Theorycrafting Guide\n\n## Core Mechanics: Fantastic Voyage ATK Buff\nBennett's Elemental Burst (*Fantastic Voyage*) creates an Inspiration Field that heals characters under 70% HP and grants a massive flat ATK buff to active characters inside the circle.\n\n### The Base ATK Rule\nThe ATK buff granted by Fantastic Voyage scales **EXCLUSIVELY off Bennett's Base ATK**:\n$$\\text{ATK Buff} = \\text{Base ATK} \\times \\text{Burst Scaling Ratio (119% at Lv 10, 139% with C1)}$$\n- **Base ATK includes**:\n  1. Bennett's character base ATK (191 at Lv 90).\n  2. The weapon's primary Base ATK stat (ranging from 454 on 4★ up to 674 on 5★ Aquila Favonia/Mistsplitter).\n- **Base ATK DOES NOT include**:\n  - ATK% substats, flat ATK artifact rolls, feather main stats, or external ATK buffs (e.g. Noblesse, Tenacity, Pyro Resonance).\n\n## Energy Recharge Requirements\nBennett must cast his Burst off cooldown every 15 seconds.\n- **Solo Pyro Team**: 220%–250% ER\n- **Double Pyro Team (with Xiangling)**: 200%–220% ER\n- **With Raiden Shogun**: 180%–200% ER\n\n## Weapon Rankings\n1. **Aquila Favonia / Mistsplitter Reforged (5★)**: 674 Base ATK (Maximizes the raw flat ATK buff granted to teammates).\n2. **Skyward Blade (5★)**: 608 Base ATK with a 55.1% ER substat (Best balance of high Base ATK and seamless ER consistency).\n3. **Sapwood Blade (4★ Craftable)**: 565 Base ATK + 30.6% ER. Best accessible F2P weapon for Bennett.\n4. **Alley Flash (4★)**: 620 Base ATK (Highest 4★ base ATK, but requires high ER substats on artifacts).\n5. **Favonius Sword (4★)**: 454 Base ATK + 61.3% ER. Unrivaled team battery performance.\n\n## Artifacts\n- **4-Piece Noblesse Oblige**: Uncontested best set. Casting Burst increases all party members' ATK by an additional 20% for 12 seconds.\n- **Main Stats**: ER% Sands / HP% or Pyro DMG Goblet / Healing Bonus or CRIT Rate (for Favonius procs) Circlet.\n"
+}

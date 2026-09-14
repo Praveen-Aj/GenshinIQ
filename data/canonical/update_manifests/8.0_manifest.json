@@ -1,0 +1,23 @@
+{
+  "version": "8.0",
+  "previous_version": "7.0",
+  "lifecycle_state": "REJECTED",
+  "discovered_at": "2026-09-14T13:07:29.190671+00:00",
+  "completed_at": null,
+  "sources": {
+    "src_animegamedata": {
+      "source_id": "src_animegamedata",
+      "status": "FAILED",
+      "retrieved_at": null,
+      "items_count": 0,
+      "error": "Connection timed out querying upstream repository"
+    }
+  },
+  "delta_summary": {},
+  "validation": {},
+  "completeness_status": "INCOMPLETE",
+  "promotion_status": "BLOCKED",
+  "blockers": [
+    "Source acquisition failed: src_animegamedata"
+  ]
+}

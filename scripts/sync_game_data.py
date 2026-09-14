@@ -41,6 +41,17 @@ def load_patch_registry() -> List[Dict[str, Any]]:
 PATCH_REGISTRY = load_patch_registry()
 
 
+def get_current_live_version() -> str:
+    """Retrieve the official live version marked is_current in registry."""
+    for patch in PATCH_REGISTRY:
+        if patch.get("is_current"):
+            return patch["version"]
+    return "7.0"
+
+
+CURRENT_LIVE_VERSION = get_current_live_version()
+
+
 def resolve_version_from_timestamp(ts: Optional[int]) -> str:
     """Map Unix release timestamp to official Genshin patch version."""
     if not ts or not PATCH_REGISTRY:
@@ -408,7 +419,7 @@ def normalize_characters(mat_map: Dict[str, str]) -> List[Dict[str, Any]]:
             "ascension_materials": asc_materials,
             "talent_materials": talent_materials,
             "game_version_introduced": ver_intro,
-            "game_version_updated": "5.4",
+            "game_version_updated": CURRENT_LIVE_VERSION,
         }
 
         # Validate with Pydantic model
@@ -482,6 +493,9 @@ def normalize_weapons(mat_map: Dict[str, str]) -> List[Dict[str, Any]]:
             calculated_sub = init_sub * sub_curve
             if calculated_sub <= 1.0:
                 sub_stat_val_90 = f"{round(calculated_sub * 100, 1)}%"
+            elif sub_stat_type == "Elemental Mastery":
+                # Elemental Mastery is a flat integer stat in Genshin Impact
+                sub_stat_val_90 = str(round(calculated_sub))
             else:
                 sub_stat_val_90 = str(round(calculated_sub, 1))
 
@@ -527,7 +541,7 @@ def normalize_weapons(mat_map: Dict[str, str]) -> List[Dict[str, Any]]:
             "refinements": refinements,
             "ascension_materials": asc_materials,
             "game_version_introduced": wep_ver_intro,
-            "game_version_updated": "5.4",
+            "game_version_updated": CURRENT_LIVE_VERSION,
         }
 
         if base_atk_90 <= 0:
@@ -612,7 +626,7 @@ def normalize_artifacts() -> List[Dict[str, Any]]:
             "bonus_2pc": bonus_2pc,
             "bonus_4pc": bonus_4pc,
             "pieces": pieces,
-            "game_version_updated": "5.4",
+            "game_version_updated": CURRENT_LIVE_VERSION,
         }
 
         # Validate with Pydantic model

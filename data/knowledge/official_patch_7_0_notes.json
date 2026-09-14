@@ -1,0 +1,31 @@
+{
+  "id": "official_patch_7_0_notes",
+  "title": "Version 7.0 'Everwinter Without Mercy' Official Update Details & System Adjustments",
+  "metadata": {
+    "source_id": "src_hoyoverse_patch_notes",
+    "source": "HoYoverse Patch Notes & Maintenance Notices",
+    "source_url": "https://genshin.hoyoverse.com/en/news/detail/125890",
+    "canonical_url": "https://genshin.hoyoverse.com/en/news",
+    "source_type": "OFFICIAL",
+    "authority_tier": 1,
+    "character": null,
+    "topic": "Patch Notes",
+    "game_version": "7.0",
+    "published_at": "2026-08-12T00:00:00Z",
+    "updated_at": "2026-08-12T00:00:00Z",
+    "retrieved_at": "2026-09-10T22:15:00Z",
+    "content_hash": "c8a6b143e39242b3568306c5db3d8faaef85e1985cce6ff593697fa8af3d7f0c",
+    "freshness_status": "current",
+    "tags": [
+      "Version 7.0",
+      "Everwinter Without Mercy",
+      "Snezhnaya",
+      "Patch Notes",
+      "System Adjustments",
+      "Stellar Swirl",
+      "Prime Ice Construct"
+    ]
+  },
+  "summary": "Official HoYoverse release notes for Genshin Impact Version 7.0 'Everwinter Without Mercy' featuring Snezhnaya, Chapter VII Archon Quests, Stellar Swirl reaction, and system optimizations.",
+  "content": "# Version 7.0 'Everwinter Without Mercy' Update Details\n\n## 1. New Major Region: Snezhnaya\n- **New Open World Areas**: Volkodlak Tundra, White Birch Snowgrave, Everfrozen Earth, Flamefeather Valley, and Fellfrost Peak.\n- **Environmental Hazards**: Sub-zero blizzard conditions requiring heat sources and special insulation gadgets.\n- **New Regional Exploration**: Snezhnaya reputation system, Frostfall Statues of The Seven, and Frost Sigil offerings.\n\n## 2. Archon Quest Chapter VII\n- **Archon Quest Chapter VII: Act I & Act II 'Everwinter Without Mercy'**: The Traveler and Paimon journey into the frozen north following the events of Natlan to uncover the Tsaritsa's final plans.\n- **Story Quests**: Unlocks new character narrative chapters for Odette and Alyosha.\n\n## 3. New Characters & Elements\n- **Odette**: 5-star character introducing unique sustained Cryo sub-DPS capabilities.\n- **Alyosha**: 5-star character focusing on rapid physical and elemental conversion combos.\n- **Cryo Traveler**: Unlocked upon resonating with the Statue of The Seven in Snezhnaya, featuring freezing crowd control bursts.\n\n## 4. Combat & Gameplay Systems\n- **Stellar Swirl Reaction**: A specialized reaction interacting with celestial and frozen states.\n- **New Bosses & Enemies**: Prime Ice Construct world boss and elite Fatui Vanguard skirmishers.\n- **New Gadget**: Eye of Graeae, revealing hidden thermal conduits and underground pathways across frozen tundras.\n\n## 5. System Optimizations & Adjustments\n- **Multi-layered Map Navigation**: Enhanced 3D verticality indicator and multi-tiered floor transitions.\n- **Treasure Compass Optimization**: Oculus locator priority increased with direct directional audio cues.\n- **Domain Sorting**: Adventurer Handbook Domains tab sorted dynamically by current-day rotation and active resin priorities.\n- **Fast Quest Navigation**: Direct waypoint teleportation for select long-distance objectives."
+}

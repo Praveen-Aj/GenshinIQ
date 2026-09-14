@@ -2,15 +2,29 @@
   "id": "kqm_raiden_shogun_guide",
   "title": "KQM Raiden Shogun Character & Theorycrafting Guide",
   "metadata": {
-    "source": "KeqingMains (KQM)",
+    "source_id": "src_kqm_guides",
+    "source": "KeqingMains Guides (KQM)",
     "source_url": "https://keqingmains.com/raiden/",
-    "source_type": "THEORYCRAFTING",
+    "canonical_url": "https://keqingmains.com/raiden-shogun/",
+    "source_type": "KQM",
+    "authority_tier": 2,
     "character": "Raiden Shogun",
     "topic": "Character Guide",
     "game_version": "5.4",
     "published_at": "2021-09-01T00:00:00Z",
     "updated_at": "2024-10-15T00:00:00Z",
-    "tags": ["Raiden Shogun", "Electro", "Sub-DPS", "Buffer", "KQM", "Artifacts", "Weapons"]
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "c580e76ecb25fc7209bdfcb5f286181cd26f265055628a717b3d8f3af358e206",
+    "freshness_status": "stale",
+    "tags": [
+      "Raiden Shogun",
+      "Electro",
+      "Sub-DPS",
+      "Buffer",
+      "KQM",
+      "Artifacts",
+      "Weapons"
+    ]
   },
   "summary": "Authoritative KQM guide covering Raiden Shogun's Resolve stacking, Energy Recharge conversion, Emblem of Severed Fate set, and team archetypes (Rational vs Hypercarry).",
   "content": "# Raiden Shogun Character & Theorycrafting Guide (KQM)\n\n## Overview & Playstyle\nRaiden Shogun is a 5-star Electro Polearm user who functions as an on-field driver, energy battery, and burst damage dealer. She buffs her teammates' Elemental Burst damage, generates flat energy for the whole team during her Burst state, and gains personal damage scaling from the energy cost of her teammates' bursts (Resolve stacks).\n\n### Core Mechanics & Resolve\n- **Chakra Desiderata (Resolve Stacks)**: When nearby party members use their Elemental Bursts, Raiden builds Resolve stacks based on the Energy consumed by those bursts. Max 60 stacks. Higher Resolve directly increases Raiden's Burst damage scaling.\n- **Musou Shinsetsu (Elemental Burst)**: Unleashes an Electro slash and enters the Musou Isshin state (converts all attacks to Electro DMG, which is considered Burst DMG). During this state, hitting enemies restores energy to all party members up to 5 times.\n- **ER-to-Electro DMG Scaling**: Her passive (*Enlightenment*) grants her 0.4% Electro DMG Bonus and 0.6% extra energy restoration for every 1% Energy Recharge above 100%.\n\n## Talent Priority\n1. **Elemental Burst: Secret Art: Musou Shinsetsu** (Level 9 or 10 - Primary damage source)\n2. **Elemental Skill: Transcendence: Baleful Omen** (Level 8 or 9 - Coordinated Electro attacks and Burst DMG buff scaling)\n3. **Normal Attack** (Leave at Level 1 - Musou Isshin scaling is entirely determined by Burst level, not Normal Attack level)\n\n## Stat Priorities & ER Benchmarks\n- **Sands**: Energy Recharge or ATK%\n- **Goblet**: Electro DMG Bonus or ATK%\n- **Circlet**: CRIT Rate or CRIT DMG\n- **ER Benchmark**: 200 - 250% ER with ATK% sands (or 250% - 280%+ with ER sands and Engulfing Lightning).\n\n## Recommended Artifact Sets\n1. **Emblem of Severed Fate (4-Piece)**: Unequivocal BiS. Grants 20% ER and increases Burst DMG by 25% of Energy Recharge (up to 75% DMG bonus).\n2. **Gilded Dreams (4-Piece)**: Specialized BiS in Hyperbloom (Full EM build).\n\n## Weapon Rankings\n1. **Engulfing Lightning (5★)**: Signature and BiS. Converts ER above 100% into ATK% and grants extra ER after using Burst.\n2. **Staff of Homa / Primordial Jade Winged-Spear (5★)**: Excellent hypercarry stat sticks.\n3. **\"The Catch\" (4★ R5)**: Best F2P option. Grants 45.9% ER, +32% Burst DMG, and +12% Burst CRIT Rate at R5 (obtained via fishing).\n4. **Favonius Lance (4★)**: Solid battery alternative."

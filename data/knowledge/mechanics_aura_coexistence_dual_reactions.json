@@ -1,0 +1,29 @@
+{
+  "id": "mechanics_aura_coexistence_dual_reactions",
+  "title": "Genshin Impact Elemental Aura Coexistence & Dual Reaction Priority",
+  "metadata": {
+    "source_id": "src_kqm_tcl",
+    "source": "KQM Theorycrafting Library (TCL)",
+    "source_url": "https://library.keqingmains.com/combat-mechanics/elemental-gauge-theory",
+    "canonical_url": "https://library.keqingmains.com/",
+    "source_type": "TCL",
+    "authority_tier": 2,
+    "character": null,
+    "topic": "Game Mechanics",
+    "game_version": "7.0",
+    "published_at": "2022-09-10T00:00:00Z",
+    "updated_at": "2026-07-10T00:00:00Z",
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "168372611dc00f8061979fb002011c9fe749bf7bf1d5b9ff90f71db3c8b186a2",
+    "freshness_status": "current",
+    "tags": [
+      "Aura Coexistence",
+      "Quicken",
+      "Freeze",
+      "Electro-Charged",
+      "Dual Reactions"
+    ]
+  },
+  "summary": "KQM TCL specification of aura coexistence. Details how multiple elemental auras exist simultaneously on a single target and reaction consumption hierarchy.",
+  "content": "# Elemental Aura Coexistence & Simultaneous Reactions\n\n## 1. Aura Coexistence Pairs\nCertain elemental combinations do not immediately neutralize each other, instead forming coexisting composite auras:\n1. **Electro-Charged (Hydro + Electro)**: Hydro and Electro exist together, ticking Electro damage once per second while slowly consuming both auras at 0.4U/s.\n2. **Frozen (Cryo + Hydro)**: Forms a Frozen aura. Excess Hydro or Cryo can coexist beneath the Frozen aura.\n3. **Quicken (Dendro + Electro)**: Forms a Quicken (Catalyze) aura that behaves as Dendro for subsequent elemental reactions. Excess Dendro or Electro can coexist with Quicken.\n\n## 2. Dual Reaction Triggering\nWhen an element strikes an enemy bearing a coexisting aura, it triggers **two reactions simultaneously** in strict priority order:\n\n### Pyro striking Electro-Charged (Hydro + Electro)\n1. Priority 1: Pyro reacts with **Electro** to trigger **Overloaded**.\n2. Priority 2: Remaining Pyro reacts with **Hydro** to trigger **Vaporize**.\n*Enables the powerful 'Overvape' interaction utilized by Xiangling in National teams.*\n\n### Hydro striking Quicken (Catalyze Aura)\n1. Hydro reacts with the Quicken aura to generate a **Dendro Core (Bloom)**.\n2. The Quicken aura loses a portion of its gauge but remains active if initially strong.\n3. Subsequent Electro attacks immediately trigger **Aggravate** on the remaining Quicken aura while also triggering **Hyperbloom** on the generated Dendro Core (*Quickbloom Archetype*).\n\n### Cryo striking Burning (Pyro + Dendro)\n1. Cryo reacts with the Pyro aura to trigger **Melt** (Forward 2.0x multiplier).\n2. The underlying Dendro aura fuels continuous Pyro reapplication, enabling persistent Melt uptime for Ganyu and Wriothesley.\n"
+}

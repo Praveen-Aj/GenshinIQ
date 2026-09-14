@@ -19,6 +19,16 @@ from backend.models.version import (
     StalenessEvaluation,
 )
 
+from backend.models.character_knowledge_package import (
+    CharacterKnowledgePackage,
+    CharacterReleaseStatus,
+    DeterministicCharacterKnowledge,
+    CuratedCharacterKnowledge,
+    DerivedCalculation,
+    FieldQualityClassification,
+    FieldQualityRecord,
+)
+
 __all__ = [
     "ArtifactSlot",
     "StatValue",
@@ -33,4 +43,11 @@ __all__ = [
     "GameVersion",
     "VersionStatus",
     "StalenessEvaluation",
+    "CharacterKnowledgePackage",
+    "CharacterReleaseStatus",
+    "DeterministicCharacterKnowledge",
+    "CuratedCharacterKnowledge",
+    "DerivedCalculation",
+    "FieldQualityClassification",
+    "FieldQualityRecord",
 ]

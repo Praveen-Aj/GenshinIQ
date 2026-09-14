@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.0] - 2026-09-14
+
+### Added
+- **Phase 3: Canonical Data Pipeline Rebuild**: Complete rebuild of the game data pipeline using verified datamined sources (AnimeGameData). Zero fabricated stats, zero duplicate IDs, deterministic character level 90 scalings, and property-specific avatar curve lookups.
+- **Phase 4: Game Version Architecture**: Explicit decoupled version model (current game version, latest known, project target, document content version). DISCOVER → VERIFY → PROMOTE lifecycle with fail-closed gates. Change-aware freshness semantics (CURRENT, RECENT_COMPATIBLE, STALE, HISTORICAL).
+- **Phase 5: Hybrid Retrieval Architecture**: Production-grade BM25 Okapi lexical search + local subword dense vector similarity (256-dim) with hybrid score fusion, provenance-validated composite reranking, authority tier multipliers, freshness weighting, entity alignment boosts, and deduplication. Evaluation benchmark: Precision@1 = 100%, Recall@5 = 100%, MRR = 0.9844.
+- **Phase 6: GOOD v3 Account Import**: Full account inventory import from Genshin Optimizer exports. Canonical entity resolution (EXACT_MATCH, ALIAS_MATCH, LEGACY_MATCH, UNRESOLVED). Idempotent ingestion, deterministic instance IDs, multi-copy weapon support, individual artifact identity, raw preservation with hash manifests, and snapshot diffing.
+- **Phase 7: Deterministic Stat Engine**: Pure mathematical build calculation pipeline. Character base stats (level curves, ascension phases) + weapon base ATK + artifact main/substats + set bonuses. Zero AI-generated values. Reproducible build snapshots, build comparisons with exact attribute deltas, auditable contribution breakdowns.
+- **Phase 8: Knowledge Contract & Escalation System**: Multi-tier knowledge escalation service with freshness tracking and version-aware revalidation. Knowledge contracts defining completeness requirements per character. Source registry with registered providers, authority tiers, and derivation relationships. Version completeness gates and knowledge gap detection.
+- **Phase 9: Source Provenance & Audit Architecture**: Comprehensive source registry service with registered providers, authority tier validation, and automated provenance auditing. Version delta service for tracking patch-level changes across knowledge documents. Audit scenario test suites for provenance chain integrity.
+- **Phase 10: Citation & Grounding System**: 4-level citation assembly (DATASET, SOURCE, CALCULATION, ACCOUNT). Automated claim extraction and corroboration logic against evidence bundles. Grounding score/status classification (FULLY_GROUNDED, PARTIALLY_GROUNDED, UNGROUNDED). Non-decorative citation relevance filtering. Frontend grounding transparency badges and expandable citation drawers.
+- **Extended Knowledge Base**: 10 extended KQM guides (Alhaitham, Bennett, Citlali, Hu Tao, Mavuika, Nahida, Xiangling, Xingqiu, Yelan, Zhongli). 5 game mechanics documents (defense/resistance math, poise/interruption, snapshotting/dynamic buffs, aura coexistence/dual reactions, combat system mechanics). Structured daily farming schedules (talent books, weapon materials, weekly boss conversions). Official patch 7.0 notes.
+- **Automated Test Suite**: Expanded to **342 test cases** across 26 test modules covering canonical data pipeline, version discovery, GOOD account import, stat engine, source registry, knowledge contracts, knowledge escalation, retrieval evaluation, query routing, citation grounding, and full regression.
+
+### Changed
+- **Data Pipeline**: Replaced community API (`genshin.jmp.blue`) data fetching with verified datamined source pipeline. All game data now traceable to AnimeGameData canonical repository.
+- **Knowledge Provenance**: All wiki documents reclassified from `AUTHORITATIVE` to correct `COMMUNITY` tier. KQM extended guides properly tagged as `THEORYCRAFTING`.
+- **Retrieval**: Upgraded from simple keyword search to hybrid BM25 + dense vector retrieval with composite reranking.
+- **Frontend**: Enhanced app.js with grounding transparency badges, citation drawers, and improved character detection for multi-word names.
+- **Query Router**: Enhanced intent classification with multi-word character name part matching for improved account query detection.
+
+---
+
 ## [0.3.0] - 2026-09-07
 
 ### Added

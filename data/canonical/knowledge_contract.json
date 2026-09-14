@@ -1,0 +1,413 @@
+{
+  "$schema": "./knowledge_contract_schema.json",
+  "contract_name": "GenshinIQ Knowledge Contract",
+  "contract_version": "1.0",
+  "game_version": "7.0",
+  "created_at": "2026-09-12T12:00:00Z",
+  "description": "Formal, finite, evidence-based knowledge contract specifying required knowledge capabilities, field constraints, source authority, derivation rules, and validation criteria for GenshinIQ across its five core product areas: Chat, My Account, Characters & Data, Guides, System Health.",
+  "product_areas": {
+    "chat": {
+      "name": "Chat Assistant",
+      "required_domains": [
+        "character_knowledge",
+        "weapon_knowledge",
+        "artifact_knowledge",
+        "team_building_knowledge",
+        "theorycrafting_knowledge",
+        "game_mechanics_knowledge",
+        "patch_version_knowledge"
+      ],
+      "fallback_policy": "NO_BLIND_FAILURE",
+      "fallback_guideline": "Retrieve canonical structured data, user account state, and available curated knowledge. Determine exact missing fields. Answer verified portions and explicitly qualify only the genuinely unknown portion."
+    },
+    "my_account": {
+      "name": "My Account / Showcase",
+      "required_domains": [
+        "character_knowledge",
+        "weapon_knowledge",
+        "artifact_knowledge",
+        "stat_engine_calculations"
+      ],
+      "source_authority": "Enka.Network / GOOD import (Account layer only; never canonical game knowledge)"
+    },
+    "characters_and_data": {
+      "name": "Characters & Canonical Data",
+      "required_domains": [
+        "character_deterministic",
+        "weapon_deterministic",
+        "artifact_deterministic",
+        "material_deterministic",
+        "game_content"
+      ]
+    },
+    "guides": {
+      "name": "Guides & Theorycrafting",
+      "required_domains": [
+        "character_knowledge",
+        "artifact_knowledge",
+        "team_building_knowledge",
+        "theorycrafting_knowledge",
+        "game_mechanics_knowledge",
+        "farming_knowledge"
+      ]
+    },
+    "system_health": {
+      "name": "System Health & Version Release Gate",
+      "required_domains": [
+        "structured_data",
+        "game_content",
+        "character_knowledge",
+        "weapon_knowledge",
+        "artifact_knowledge",
+        "team_building_knowledge",
+        "theorycrafting_knowledge",
+        "game_mechanics_knowledge",
+        "farming_knowledge",
+        "patch_version_knowledge",
+        "provenance_integrity",
+        "freshness"
+      ]
+    }
+  },
+  "domains": {
+    "character_knowledge": {
+      "capability": "Character Build, Optimization & Strategic Guidance",
+      "description": "Provides authoritative build recommendations, stat targets, weapon/artifact choices, and rotation guidance for playable characters.",
+      "mandatory_for_version_completeness": true,
+      "source_authority": "src_kqm_guides",
+      "secondary_sources": ["src_genshin_fandom_wiki", "src_project_amber"],
+      "version_requirement": "7.0",
+      "freshness_requirement": "Within 2 minor patches unless affected systems modified",
+      "provenance_requirement": "MANDATORY_REGISTERED_SOURCE",
+      "is_deterministic": false,
+      "is_editorial": true,
+      "can_be_derived": false,
+      "playable_character_requirement": "All released playable characters must have validated curated knowledge. Unreleased/datamined client entries are classified as UNRELEASED_PREVIEW with deterministic stats only.",
+      "required_fields": {
+        "deterministic": [
+          "identity",
+          "element",
+          "weapon_type",
+          "rarity",
+          "base_stats",
+          "level_stats",
+          "ascension",
+          "talents",
+          "talent_scaling",
+          "constellations",
+          "relevant_mechanics"
+        ],
+        "curated": [
+          "role",
+          "strengths",
+          "weaknesses",
+          "build_priorities",
+          "weapon_recommendations",
+          "artifact_recommendations",
+          "team_archetypes",
+          "team_synergy",
+          "rotation",
+          "energy_requirements",
+          "playstyle",
+          "important_mechanics",
+          "relevant_caveats"
+        ]
+      },
+      "validation_rules": [
+        "no_forbidden_placeholders",
+        "valid_character_id",
+        "non_empty_build_priorities",
+        "len(weapon_recommendations) >= 2",
+        "len(artifact_recommendations) >= 1",
+        "valid_source_hash"
+      ]
+    },
+    "weapon_knowledge": {
+      "capability": "Weapon Evaluation, Comparison & User Recommendation",
+      "description": "Provides weapon base attributes, stat scaling, passive descriptions, refinement tables, and validated user suitability without requiring redundant prose articles.",
+      "mandatory_for_version_completeness": true,
+      "source_authority": "src_animegamedata",
+      "secondary_sources": ["src_project_amber", "src_genshin_optimizer", "src_kqm_guides"],
+      "version_requirement": "7.0",
+      "freshness_requirement": "Current version",
+      "provenance_requirement": "MANDATORY_REGISTERED_SOURCE",
+      "is_deterministic": true,
+      "is_editorial": false,
+      "can_be_derived": true,
+      "required_fields": [
+        "id",
+        "name",
+        "weapon_type",
+        "rarity",
+        "base_atk_lvl1",
+        "base_atk_lvl90",
+        "secondary_stat",
+        "passive_desc",
+        "refinements",
+        "role_suitability",
+        "version_compatibility",
+        "provenance"
+      ],
+      "validation_rules": [
+        "base_atk_lvl90 >= base_atk_lvl1",
+        "no_forbidden_placeholders",
+        "rarity <= 2 or len(passive_desc) > 0",
+        "rarity <= 2 or len(refinements) == 5"
+      ]
+    },
+    "artifact_knowledge": {
+      "capability": "Artifact Set Mechanics, Farming & Allocation",
+      "description": "Defines 2-piece and 4-piece set bonuses, recommended characters, main-stat recommendations, substat priority weights, and domain farming sources.",
+      "mandatory_for_version_completeness": true,
+      "source_authority": "src_animegamedata",
+      "secondary_sources": ["src_genshin_fandom_wiki", "src_kqm_guides"],
+      "version_requirement": "7.0",
+      "freshness_requirement": "Current version",
+      "provenance_requirement": "MANDATORY_REGISTERED_SOURCE",
+      "is_deterministic": true,
+      "is_editorial": true,
+      "can_be_derived": false,
+      "required_fields": [
+        "set_id",
+        "set_name",
+        "two_piece_effect",
+        "four_piece_effect",
+        "recommended_characters",
+        "main_stat_priorities",
+        "substat_priorities",
+        "domain_source",
+        "relevant_version",
+        "provenance"
+      ],
+      "validation_rules": [
+        "non_empty_two_piece_effect",
+        "valid_domain_source",
+        "no_forbidden_placeholders"
+      ]
+    },
+    "team_building_knowledge": {
+      "capability": "Team Synergy, Archetypes & Rotations",
+      "description": "Defines team composition archetypes, elemental interactions, reaction compatibility, buffs, debuffs, energy/battery requirements, field time, and rotations.",
+      "mandatory_for_version_completeness": true,
+      "source_authority": "src_kqm_guides",
+      "secondary_sources": ["src_kqm_tcl"],
+      "version_requirement": "7.0",
+      "freshness_requirement": "Within 2 minor patches",
+      "provenance_requirement": "MANDATORY_REGISTERED_SOURCE",
+      "is_deterministic": false,
+      "is_editorial": true,
+      "can_be_derived": false,
+      "required_fields": [
+        "archetype_name",
+        "core_characters",
+        "elemental_interactions",
+        "reaction_compatibility",
+        "roles",
+        "buffs_debuffs",
+        "energy_battery_requirements",
+        "field_time_distribution",
+        "rotations",
+        "substitutions",
+        "limitations"
+      ],
+      "validation_rules": [
+        "synergy_documented",
+        "energy_battery_specified",
+        "no_speculative_claims"
+      ]
+    },
+    "theorycrafting_knowledge": {
+      "capability": "Mathematical Formulas, Scaling & Optimization Tradeoffs",
+      "description": "Answers why a specific build, weapon, or team performs better through verified calculations, stat weightings, damage formulas, and energy recharge requirements.",
+      "mandatory_for_version_completeness": true,
+      "source_authority": "src_kqm_guides",
+      "secondary_sources": ["src_kqm_tcl", "src_genshin_optimizer"],
+      "version_requirement": "7.0",
+      "freshness_requirement": "Within 2 minor patches",
+      "provenance_requirement": "MANDATORY_REGISTERED_SOURCE",
+      "is_deterministic": true,
+      "is_editorial": true,
+      "can_be_derived": true,
+      "required_fields": [
+        "scaling_formulas",
+        "buffs_and_multipliers",
+        "reaction_behavior",
+        "icd_profile",
+        "elemental_application_gauge",
+        "er_requirements",
+        "rotation_assumptions",
+        "stat_weighting",
+        "tradeoff_caveats"
+      ],
+      "validation_rules": [
+        "mathematical_formula_verified",
+        "er_assumptions_explicit",
+        "no_fabricated_numbers"
+      ]
+    },
+    "game_mechanics_knowledge": {
+      "capability": "Underlying Combat & Elemental Engine Rules",
+      "description": "Catalog of combat system rules, elemental reactions, internal cooldown (ICD), gauge theory, snapshotting, and damage scaling.",
+      "mandatory_for_version_completeness": true,
+      "source_authority": "src_kqm_tcl",
+      "secondary_sources": ["src_hoyoverse_official"],
+      "version_requirement": "7.0",
+      "freshness_requirement": "Perpetual unless system patch notes override",
+      "provenance_requirement": "MANDATORY_REGISTERED_SOURCE",
+      "is_deterministic": true,
+      "is_editorial": false,
+      "can_be_derived": true,
+      "evidence_classifications": [
+        "OFFICIALLY_DOCUMENTED",
+        "EXPERT_TESTED",
+        "DERIVED_CALCULATED",
+        "COMMUNITY_INTERPRETATION",
+        "UNKNOWN"
+      ],
+      "required_fields": [
+        "mechanic_id",
+        "name",
+        "category",
+        "rule_description",
+        "formula",
+        "evidence_classification",
+        "tested_versions",
+        "provenance"
+      ],
+      "validation_rules": [
+        "valid_evidence_classification",
+        "evidence_classification != 'COMMUNITY_INTERPRETATION' or requires_caveat",
+        "no_forbidden_placeholders"
+      ]
+    },
+    "quest_world_knowledge": {
+      "capability": "World Content, Quests, Domains & Entity Discovery",
+      "description": "Structured records for Archon quests, story quests, world quests, events, domains, bosses, enemies, regions, achievements, and crafting recipes.",
+      "mandatory_for_version_completeness": true,
+      "source_authority": "src_animegamedata",
+      "secondary_sources": ["src_hoyoverse_official", "src_project_amber"],
+      "version_requirement": "7.0",
+      "freshness_requirement": "Current version",
+      "provenance_requirement": "MANDATORY_REGISTERED_SOURCE",
+      "is_deterministic": true,
+      "is_editorial": false,
+      "can_be_derived": false,
+      "sub_catalogs": [
+        "quests",
+        "events",
+        "domains",
+        "enemies",
+        "regions",
+        "achievements",
+        "recipes"
+      ],
+      "required_fields": [
+        "id",
+        "name_or_title",
+        "type_or_category",
+        "game_version_introduced",
+        "provenance"
+      ],
+      "validation_rules": [
+        "non_empty_title_or_name",
+        "valid_entity_id",
+        "no_forbidden_placeholders"
+      ]
+    },
+    "patch_version_knowledge": {
+      "capability": "Official Version Release Notes & System Adjustments",
+      "description": "Authoritative HoYoverse patch notes, version release announcements, character introductions, weapon additions, and system balance modifications.",
+      "mandatory_for_version_completeness": true,
+      "source_authority": "src_hoyoverse_patch_notes",
+      "secondary_sources": ["src_hoyoverse_official"],
+      "version_requirement": "7.0",
+      "freshness_requirement": "Current version",
+      "provenance_requirement": "MANDATORY_REGISTERED_SOURCE",
+      "is_deterministic": false,
+      "is_editorial": false,
+      "can_be_derived": false,
+      "required_fields": [
+        "version",
+        "patch_name",
+        "release_date",
+        "release_notes",
+        "new_characters",
+        "new_weapons",
+        "new_artifacts",
+        "new_quests",
+        "system_adjustments",
+        "source_url",
+        "retrieved_at"
+      ],
+      "validation_rules": [
+        "version == target_version",
+        "release_date_valid",
+        "authoritative_source_url"
+      ]
+    }
+  },
+  "quality_states": [
+    "VERIFIED",
+    "VERIFIED_DERIVED",
+    "CURRENT",
+    "RECENT_COMPATIBLE",
+    "HISTORICAL",
+    "STALE",
+    "PARTIAL",
+    "UNKNOWN",
+    "CONFLICT",
+    "UNVERIFIED"
+  ],
+  "source_derivation_graph": {
+    "description": "Explicit source hierarchy and dependency graph to prevent false corroboration from downstream derivatives.",
+    "rules": [
+      "A derived source cannot independently corroborate its parent source.",
+      "Official and primary datamined sources take precedence over secondary normalized sources.",
+      "Curated theorycrafting requires peer review from Tier 2 expert sources.",
+      "Statistical aggregate sources are informational and cannot override canonical base values."
+    ],
+    "relationships": [
+      {
+        "source_id": "src_genshin_db",
+        "derived_from": ["src_animegamedata", "src_genshin_fandom_wiki"],
+        "relationship": "DERIVED_FROM",
+        "independence_status": "DEPENDENT"
+      },
+      {
+        "source_id": "src_project_amber",
+        "derived_from": ["src_animegamedata"],
+        "relationship": "AGGREGATOR",
+        "independence_status": "DEPENDENT"
+      },
+      {
+        "source_id": "src_genshindev_api",
+        "derived_from": ["src_genshin_fandom_wiki"],
+        "relationship": "AGGREGATOR",
+        "independence_status": "DEPENDENT"
+      }
+    ]
+  },
+  "automation_boundaries": {
+    "automatable": [
+      "character_base_stats",
+      "weapon_stats_and_refinements",
+      "artifact_set_definitions",
+      "material_records",
+      "stat_curves",
+      "quest_catalogs",
+      "domain_catalogs",
+      "enemy_catalogs",
+      "achievement_catalogs",
+      "recipe_catalogs",
+      "official_patch_notes_text"
+    ],
+    "expert_editorial_required": [
+      "team_synergy_and_rotations",
+      "build_priority_rankings",
+      "er_threshold_calculations",
+      "comparative_weapon_rankings",
+      "meta_analysis",
+      "nuanced_combat_mechanic_caveats"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "official_combat_system_mechanics",
+  "title": "Genshin Impact Official Combat Rules & System Archive Specification",
+  "metadata": {
+    "source_id": "src_genshin_ingame",
+    "source": "Genshin Impact In-Game Archive",
+    "source_url": "in-game://client/archive/combat_rules",
+    "canonical_url": "https://genshin.hoyoverse.com/",
+    "source_type": "OFFICIAL",
+    "authority_tier": 1,
+    "character": null,
+    "topic": "Game Mechanics",
+    "game_version": "7.0",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-09-02T00:00:00Z",
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "17c2ff45dfd9f70d84866ab8f2e815a1954e568d199f636a39d0ff9b458e8a21",
+    "freshness_status": "current",
+    "tags": [
+      "Combat Rules",
+      "Elemental Sight",
+      "Stamina",
+      "Fall Damage",
+      "In-Game Archive"
+    ]
+  },
+  "summary": "Official in-game archive specification of core combat mechanics, stamina consumption, Elemental Sight visual tracking, fall damage physics, and character level suppression.",
+  "content": "# Genshin Impact Official Combat Rules & System Archive\n\n## 1. Elemental Sight and Aura Identification\nElemental Sight allows travelers to observe ambient elemental traces, elemental lifeforms, and applied elemental auras on enemies:\n- **Pyro**: Displayed as vibrant crimson.\n- **Hydro**: Displayed as deep cerulean blue.\n- **Cryo**: Displayed as pale cyan.\n- **Electro**: Displayed as violet.\n- **Dendro**: Displayed as emerald green.\n- **Geo**: Displayed as amber ochre.\n- **Anemo**: Displayed as teal turquoise.\n\n## 2. Stamina System Specifications\nCharacters possess a base maximum Stamina pool of **240 points** (expanded via Statues of the Seven in Mondstadt and Liyue).\n- **Sprinting**: Consumes 18 stamina per second.\n- **Dodging (I-Frames)**: Initial dodge sprint consumption is 25 stamina and provides approximately 0.3 seconds of invulnerability frames.\n- **Charged Attacks**: Stamina cost varies by weapon type:\n  - Swords: 20 stamina\n  - Claymores: 40 stamina initial startup, then 10/s during continuous spin or slash\n  - Polearms: 25 stamina\n  - Catalysts: 50 stamina (standard)\n  - Bows: 0 stamina (aimed mode charging)\n\n## 3. Fall Damage Mechanics\nFall damage is calculated based on maximum character HP and terminal velocity upon contact with ground collision:\n- Fall damage deals **True Physical Damage**, completely ignoring character DEF and Elemental RES.\n- Shield barriers (such as Zhongli's Jade Shield) absorb fall damage only up to their remaining numerical shield HP pool.\n- Plunge attacks eliminate accumulated fall velocity when initiated, mitigating fall damage regardless of drop height.\n"
+}

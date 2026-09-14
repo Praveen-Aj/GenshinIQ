@@ -177,10 +177,32 @@ Executed via `.venv\Scripts\pytest backend/tests -v`:
 - `test_game_data.py`: Character/weapon/artifact lookups, filters, global search.
 - `test_knowledge_base.py`: Document ingestion, source hierarchy, search relevance.
 - `test_rag.py`: Query classification, prompt construction, dynamic date grounding, chat endpoint.
-- **Result**: **33/33 tests passing (100% pass rate)**.
+- `test_settings.py`: Pydantic settings configuration validation.
+- `test_provenance.py`: Dataset provenance manifest integrity.
+- `test_data_pipeline_integrity.py`: Canonical data pipeline determinism and zero-duplicate verification.
+- `test_canonical_data_pipeline.py`: Full canonical pipeline rebuild validation with verified datamined sources.
+- `test_version_system.py`: Game version registry, discovery lifecycle, and patch change tracking.
+- `test_version_discovery.py`: DISCOVER → VERIFY → PROMOTE lifecycle gate validation.
+- `test_version_completeness_gate.py`: Version completeness requirements and knowledge gap detection.
+- `test_retrieval.py`: Hybrid BM25 + dense retrieval, score fusion, composite reranking, and evaluation benchmarks.
+- `test_good_account.py`: GOOD v3 account import, canonical entity resolution, idempotent ingestion, and snapshot diffing.
+- `test_stat_engine.py`: Deterministic stat engine calculations, character level curves, weapon scalings, artifact aggregation, and build comparison.
+- `test_source_registry.py`: Source registry service, registered providers, authority tier validation, and derivation relationships.
+- `test_knowledge_contract.py`: Knowledge contract definitions, completeness requirements, and gap analysis.
+- `test_knowledge_contract_audit_scenarios.py`: Audit scenario suites for knowledge contract compliance.
+- `test_knowledge_escalation.py`: Multi-tier knowledge escalation, freshness tracking, and version-aware revalidation.
+- `test_knowledge_rebuild.py`: Knowledge base rebuild integrity and incremental update validation.
+- `test_live_update_pipeline.py`: Live update pipeline orchestration and version promotion.
+- `test_query_router.py`: Intent classification, character detection, multi-word name matching, and data source routing.
+- `test_character_knowledge_packages.py`: Character knowledge package assembly and completeness validation.
+- `test_audit_phase9_scenarios.py`: Phase 9 audit scenarios for provenance chain integrity.
+- `test_citation_grounding.py`: Citation assembly, claim extraction, corroboration logic, grounding status classification, and citation relevance filtering.
+- **Result**: **342/342 tests passing (100% pass rate)**.
 
 ### 7.2 End-to-End Browser Subagent Verification
 - Verified on live instance `http://127.0.0.1:8000/`.
 - Tested showcase fetching for UID `817739968`.
 - Verified player profile picture (Yelan), Skirk avatar (`UI_AvatarIcon_SkirkNew.png`), and Cryo element badge.
 - Verified instant chat review generation with Gemini analyzing Mistsplitter Reforged, CRIT 73.8% / 225.0%, and talent priorities.
+- Verified grounding transparency badges and expandable citation drawers on AI responses.
+

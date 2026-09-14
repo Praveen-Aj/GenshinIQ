@@ -1,0 +1,43 @@
+{
+  "version": "7.2",
+  "previous_version": "7.0",
+  "lifecycle_state": "CANDIDATE",
+  "discovered_at": "2026-09-14T13:07:29.185166+00:00",
+  "completed_at": null,
+  "sources": {
+    "src_hoyoverse_patch_notes": {
+      "source_id": "src_hoyoverse_patch_notes",
+      "status": "ACQUIRED",
+      "retrieved_at": "2026-09-14T13:07:29.185166+00:00",
+      "items_count": 1,
+      "error": null
+    },
+    "src_animegamedata": {
+      "source_id": "src_animegamedata",
+      "status": "ACQUIRED",
+      "retrieved_at": "2026-09-14T13:07:29.185166+00:00",
+      "items_count": 15,
+      "error": null
+    },
+    "src_kqm_guides": {
+      "source_id": "src_kqm_guides",
+      "status": "PARTIAL",
+      "retrieved_at": null,
+      "items_count": 0,
+      "error": "Curated guides not yet published for new version characters"
+    }
+  },
+  "delta_summary": {
+    "target_version": "7.2",
+    "base_version": "7.0",
+    "evaluated_at": "2026-09-14T13:07:29.185166+00:00"
+  },
+  "validation": {
+    "knowledge": "FAIL_INCOMPLETE"
+  },
+  "completeness_status": "INCOMPLETE",
+  "promotion_status": "BLOCKED",
+  "blockers": [
+    "Knowledge incomplete for Version 7.2"
+  ]
+}

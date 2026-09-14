@@ -1,0 +1,29 @@
+{
+  "id": "mechanics_snapshotting_dynamic_buffs",
+  "title": "Genshin Impact Snapshotting vs Dynamic Buffing Mechanics",
+  "metadata": {
+    "source_id": "src_kqm_tcl",
+    "source": "KQM Theorycrafting Library (TCL)",
+    "source_url": "https://library.keqingmains.com/combat-mechanics/snapshotting",
+    "canonical_url": "https://library.keqingmains.com/",
+    "source_type": "TCL",
+    "authority_tier": 2,
+    "character": null,
+    "topic": "Game Mechanics",
+    "game_version": "7.0",
+    "published_at": "2021-04-12T00:00:00Z",
+    "updated_at": "2026-06-10T00:00:00Z",
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "40c1cd8f7641f5403b7e0a0d4d092635f4de10a3fcc33977eb097e115506426d",
+    "freshness_status": "current",
+    "tags": [
+      "Snapshotting",
+      "Dynamic Buffs",
+      "Mechanics",
+      "KQM TCL",
+      "Buff Locking"
+    ]
+  },
+  "summary": "Comprehensive KQM TCL specification of snapshotting mechanics. Details which abilities lock stats upon cast and which calculate dynamically in real time.",
+  "content": "# Snapshotting vs Dynamic Ability Mechanics\n\n## 1. What is Snapshotting?\n**Snapshotting** is a combat engine behavior where a persistent skill locks in the character's active attributes (ATK, Elemental/Physical DMG%, CRIT Rate, CRIT DMG, and Elemental Mastery) at the exact frame of initiation. These locked stats persist for the entire duration of the skill, completely ignoring any subsequent buff expirations or character swaps.\n\n## 2. Abilities That Snapshot\nThe following key meta abilities snapshot their stats upon cast:\n- **Xiangling**: *Pyronado* (locks Bennett's Fantastic Voyage buff for all 14s)\n- **Beidou**: *Stormbreaker* (locks buffs for its 15s duration)\n- **Fischl**: *Nightrider (Oz)* (snapshots on cast; can be re-snapshotted by casting Burst or refreshing E)\n- **Ganyu**: *Celestial Shower* (AoE icicle drops snapshot stats)\n- **Kaeya**: *Glacial Waltz* (orbiting icicles snapshot)\n- **Rosaria**: *Rites of Termination* (ice lance AoE snapshots)\n- **Sucrose**: *Forbidden Creation - Isomer 75 / Type II*\n\n## 3. Abilities That Scale Dynamically\nThe following abilities recalculate damage dynamically on every individual damage tick based on current active stats:\n- **Xingqiu**: *Raincutter* (sword waves calculate dynamically on each hit)\n- **Yelan**: *Exquisite Throw* (coordinated dice calculate dynamically)\n- **Furina**: *Salon Solitaire* (guests scale dynamically with active Fanfare stacks)\n- **Raiden Shogun**: *Eye of Stormy Judgment* (coordinated slashes scale dynamically)\n- **Nahida**: *Tri-Karma Purification* (recalculates stats dynamically on each reaction trigger)\n- **Albedo**: *Abiogenesis: Solar Isotoma* (DEF calculations update dynamically)\n\n## 4. Transformative Reaction Exception\nElemental Mastery for **Transformative Reactions** (Swirl, Electro-Charged, Hyperbloom, Burgeon, Overloaded) **NEVER snapshots**. Transformative reactions always calculate damage based on the triggering character's live Elemental Mastery and character level at the precise millisecond the reaction detonates.\n"
+}

@@ -2,15 +2,28 @@
   "id": "mechanics_energy_recharge",
   "title": "Genshin Impact Energy Particles & Recharge Mechanics",
   "metadata": {
-    "source": "Genshin Impact Theorycrafting Community / KQM",
+    "source_id": "src_kqm_tcl",
+    "source": "KQM Theorycrafting Library (TCL)",
     "source_url": "https://library.keqingmains.com/combat-mechanics/energy",
-    "source_type": "THEORYCRAFTING",
+    "canonical_url": "https://library.keqingmains.com/",
+    "source_type": "TCL",
+    "authority_tier": 2,
     "character": null,
     "topic": "Game Mechanics",
     "game_version": "5.4",
     "published_at": "2020-09-28T00:00:00Z",
     "updated_at": "2024-07-10T00:00:00Z",
-    "tags": ["Energy Recharge", "Particles", "Orbs", "Funneling", "Combat Mechanics", "Favonius"]
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "9ce47f37493a962945bbb5f9c4efd64cab3a8c1c2e124d5b4d4d5c1050ce98c9",
+    "freshness_status": "stale",
+    "tags": [
+      "Energy Recharge",
+      "Particles",
+      "Orbs",
+      "Funneling",
+      "Combat Mechanics",
+      "Favonius"
+    ]
   },
   "summary": "Technical explanation of energy particle and orb generation, element matching multipliers, active vs off-field absorption math, energy funneling, and Favonius weapon interactions.",
   "content": "# Genshin Impact Energy Particles & Recharge Mechanics\n\n## Overview\nTo cast an Elemental Burst, a character must accumulate a specified amount of Energy (ranging from 40 to 90). Energy is gained by absorbing **Energy Particles** and **Energy Orbs** generated during combat by using Elemental Skills, hitting HP thresholds on enemies, or triggering weapon passives (like Favonius series).\n\n---\n\n## Particle Absorption Multipliers\nThe base energy granted by a particle or orb depends on whether it matches the absorbing character's element, and whether that character is active (on-field) or off-field:\n\n### 1. Energy Particles\n- **Matching Element**: \n  - On-Field: **3.0 Base Energy**\n  - Off-Field: **1.8 Base Energy**\n- **Non-Matching (Different Element)**:\n  - On-Field: **1.0 Base Energy**\n  - Off-Field: **0.6 Base Energy**\n- **Clear/Neutral Particles** (e.g., from Favonius weapons):\n  - On-Field: **2.0 Base Energy**\n  - Off-Field: **1.2 Base Energy**\n\n### 2. Energy Orbs\nOrbs are equivalent to exactly **3 particles** of the same classification:\n- **Matching Element**: On-Field = 9.0 | Off-Field = 5.4\n- **Non-Matching Element**: On-Field = 3.0 | Off-Field = 1.8\n- **Clear/Neutral Orbs**: On-Field = 6.0 | Off-Field = 3.6\n\n### Party Size Correction Multiplier\nIn smaller parties, off-field characters receive slightly more energy to compensate for fewer characters:\n- **4-character party**: 60% of active energy (the multipliers 1.8, 0.6, 1.2 listed above).\n- **3-character party**: 70% of active energy.\n- **2-character party**: 80% of active energy.\n\n---\n\n## Energy Recharge (ER) Formula\nThe actual energy a character receives upon absorbing a particle/orb is scaled by their **Energy Recharge (ER%)** stat:\n\n$$\\text{Energy Gained} = \\text{Base Energy} \\times \\text{ER \\%}$$\n\n### Energy Funneling Technique\nSince matching-element particles absorbable on-field give the maximum base energy (3.0 per particle), players use **funneling**:\n1. Character A (e.g. Bennett) uses their Elemental Skill, which generates matching particles.\n2. The player immediately swaps to Character B (e.g. Xiangling) who has a high burst cost.\n3. Character B catches the particles on-field, gaining three times more energy than they would off-field.\n\n### Favonius Weapons (Neutral Particles)\nFavonius weapons generate **3 clear/neutral particles** on a CRIT hit once every few seconds. Because neutral particles yield a base of 2.0 energy to the active character, they are highly effective for lowering the ER requirements of the entire team."

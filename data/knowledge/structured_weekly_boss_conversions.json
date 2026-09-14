@@ -1,0 +1,29 @@
+{
+  "id": "structured_weekly_boss_conversions",
+  "title": "Weekly Boss Talent Materials & Dream Solvent Conversion Specification",
+  "metadata": {
+    "source_id": "src_project_amber",
+    "source": "Project Amber (Ambr.top)",
+    "source_url": "https://ambr.top/en/archive/material",
+    "canonical_url": "https://ambr.top/en/archive",
+    "source_type": "STRUCTURED_DATA",
+    "authority_tier": 3,
+    "character": null,
+    "topic": "Farming & Domains",
+    "game_version": "7.0",
+    "published_at": "2021-04-28T00:00:00Z",
+    "updated_at": "2026-09-02T00:00:00Z",
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "20a0606fc876bf40c790f93f32f29a85c19cac1ffc70815bd50f4d87567ecb5a",
+    "freshness_status": "current",
+    "tags": [
+      "Weekly Bosses",
+      "Dream Solvent",
+      "Trounce Domains",
+      "Alchemy",
+      "Structured Data"
+    ]
+  },
+  "summary": "Structured specification of weekly boss talent material drops and transmutation rules using Dream Solvent at the crafting bench.",
+  "content": "# Weekly Boss Talent Materials & Transmutation Guide\n\n## 1. Trounce Domain Cost and Rewards\n- The first **3 Trounce Domains or Dominator of the Wolves challenges** completed each weekly reset cost **30 Original Resin** (50% discount).\n- Subsequent weekly bosses cost **60 Original Resin**.\n- Bosses guarantee 2 (and often 3 at World Level 8+) unique talent level-up materials required for Talents Lv. 7 through Lv. 10.\n\n## 2. Dream Solvent Conversion Rules\nAt the Crafting Bench (Alchemy Table), players can transmute weekly boss materials within the **same boss category**:\n- **Recipe**: 1 Target Boss Material = 1 Source Boss Material (from same boss) + **1 Dream Solvent**.\n- Materials from different bosses cannot be cross-converted (e.g. you cannot convert a Dvalin's Plume into an All-Devouring Narwhal drop).\n\n## 3. Major Weekly Bosses & Materials\n1. **The Knave (Arlecchino)**: Fading Candle, Silken Feather, Denial and Judgment.\n2. **All-Devouring Narwhal**: Lightless Silkstring, Lightless Eye of the Maelstrom, Lightless Mass.\n3. **Guardian of Apep's Oasis**: Worldspan Fern, Primordial Greenbloom, Everamber.\n4. **Journeyman / Scaramouche**: Daka's Bell, Mirror of Mushin, Tears of the Calamitous God.\n5. **Magatsu Mitake Narukami no Mikoto (Raiden)**: Mudra of the Malefic General, Tears of the Calamitous God, The Meaning of Aeons.\n6. **Signora**: Molten Moment, Hellfire Butterfly, Ashen Heart.\n7. **Azhdaha**: Dragon Lord's Crown, Bloodjade Branch, Gilded Scale.\n"
+}

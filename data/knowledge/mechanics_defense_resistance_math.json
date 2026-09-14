@@ -1,0 +1,29 @@
+{
+  "id": "mechanics_defense_resistance_math",
+  "title": "Genshin Impact DEF and Elemental RES Calculation Formula",
+  "metadata": {
+    "source_id": "src_kqm_tcl",
+    "source": "KQM Theorycrafting Library (TCL)",
+    "source_url": "https://library.keqingmains.com/combat-mechanics/damage-formula",
+    "canonical_url": "https://library.keqingmains.com/",
+    "source_type": "TCL",
+    "authority_tier": 2,
+    "character": null,
+    "topic": "Game Mechanics",
+    "game_version": "7.0",
+    "published_at": "2021-01-20T00:00:00Z",
+    "updated_at": "2026-07-01T00:00:00Z",
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "e709cabfa8aec9ba6cbe7d56044ec933bd3b5478dd2f1ab184ca4849467d0974",
+    "freshness_status": "current",
+    "tags": [
+      "Damage Formula",
+      "DEF Multiplier",
+      "RES Multiplier",
+      "Viridescent Venerer",
+      "Calculations"
+    ]
+  },
+  "summary": "Detailed KQM TCL mathematical formula for enemy DEF reduction and Elemental Resistance mitigation, including the negative RES halving rule.",
+  "content": "# Defense and Resistance Calculation Specification\n\n## 1. Enemy DEF Multiplier\nOutgoing damage is mitigated by the enemy's level and DEF according to the formula:\n$$\\text{DEF Multiplier} = \\frac{\\text{Character Level} + 100}{(\\text{Character Level} + 100) + (\\text{Enemy Level} + 100) \\times (1 - \\text{DEF Reduction}) \\times (1 - \\text{DEF Ignore})}$$\n\n### Equal Level Benchmark\nAgainst an enemy of equal level (e.g. Lv 90 character vs Lv 90 enemy with zero DEF shred):\n$$\\text{DEF Multiplier} = \\frac{190}{190 + 190} = 0.50 \\quad (50\\% \\text{ damage mitigation})$$\n\n## 2. Enemy Elemental Resistance (RES) Multiplier\nEvery enemy possesses base elemental resistances (standard humanoid/hilichurl baseline is 10% across all elements, while automatons possess 70% Physical RES).\n\nThe RES Multiplier follows a piecewise mathematical function based on effective resistance ($R$):\n1. **Positive Resistance ($0 \\le R < 0.75$)**:\n   $$\\text{RES Multiplier} = 1 - R$$\n2. **Negative Resistance ($R < 0$) — The Halving Rule**:\n   $$\\text{RES Multiplier} = 1 - \\frac{R}{2}$$\n   *When enemy resistance drops below 0%, any further resistance reduction is halved in effectiveness.*\n3. **High Resistance ($R \\ge 0.75$)**:\n   $$\\text{RES Multiplier} = \\frac{1}{4R + 1}$$\n\n### Viridescent Venerer Example\nA 4-Piece Viridescent Venerer Swirl shreds 40% Elemental RES against a standard 10% RES enemy:\n1. Effective Resistance: $10\\% - 40\\% = -30\\%$\n2. Apply Negative Halving Rule: $\\text{RES Multiplier} = 1 - (-0.30 / 2) = 1 + 0.15 = 1.15$\n3. Net Damage Increase: Compared to the initial $0.90$ multiplier ($1 - 0.10$), damage increases by $\\frac{1.15}{0.90} - 1 = +27.78\\%$.\n"
+}

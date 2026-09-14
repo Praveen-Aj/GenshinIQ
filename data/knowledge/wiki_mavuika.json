@@ -1,0 +1,29 @@
+{
+  "id": "wiki_mavuika",
+  "title": "Mavuika — Complete Character Guide & Talent Reference",
+  "metadata": {
+    "source_id": "src_genshin_fandom_wiki",
+    "source": "Genshin Impact Community Wiki (Fandom)",
+    "source_url": "https://genshin-impact.fandom.com/wiki/Mavuika",
+    "canonical_url": "https://genshin-impact.fandom.com/wiki/Mavuika",
+    "source_type": "COMMUNITY",
+    "authority_tier": 5,
+    "character": "Mavuika",
+    "topic": "Character Guide",
+    "game_version": "5.4",
+    "published_at": "2025-01-01T00:00:00Z",
+    "updated_at": "2025-02-15T00:00:00Z",
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "558c87364fcedd9fd4ad42265526d3841ea380f5d8d5745f75fd2ced2c63c685",
+    "freshness_status": "stale",
+    "tags": [
+      "Mavuika",
+      "Pyro",
+      "Claymore",
+      "Natlan",
+      "Character"
+    ]
+  },
+  "summary": "Complete reference for Mavuika: 5-star Pyro Claymore user, the Pyro Archon of Natlan. Includes Normal Attack, Elemental Skill (Flamestrider), Elemental Burst talent descriptions with scaling values, passive talents, constellations, and ascension material requirements.",
+  "content": "# Mavuika — Complete Character Reference\n\n## Overview\n- **Name**: Mavuika\n- **Title**: Ancient Flame of Natlan\n- **Rarity**: ★★★★★\n- **Element / Vision**: Pyro\n- **Weapon Type**: Claymore\n- **Nation**: Natlan\n- **Affiliation**: Stadium of the Sacred Flame\n- **Constellation**: Sol Invictus\n\n> The Habitant of the Sacred Flame, the reigning Pyro Archon of Natlan.\n\n## Combat Talents\n\n### Normal Attack: Blazing Strike\nPerforms up to 4 consecutive strikes dealing Physical DMG.\n\n### Elemental Skill: Flamestrider's Traverse\nSummons the Flamestrider, entering the Nightsoul's Blessing state. Deals AoE Pyro DMG and grants Mavuika enhanced traversal abilities across terrain and liquid Phlogiston while delivering coordinate off-field Pyro attacks to opponents.\n\n### Elemental Burst: Radiance of the Sun\nUnleashes the full power of the Sacred Flame, consuming Fighting Spirit and Nightsoul points to deal massive AoE Pyro DMG, entering the Radiant Incandescence state where her attacks are infused with un-overrideable Pyro DMG.\n\n## Passive Talents\n- **Gift of the Sacred Flame**: Enhances Phlogiston recovery in Natlan.\n- **Unwavering Conviction**: Party members consuming Nightsoul points grant Mavuika Fighting Spirit, increasing her Burst damage.\n\n## Constellations\n- **C1: Morning Sun's Dawn**: Increases Nightsoul capacity and initial Fighting Spirit.\n- **C2: Burning Crucible**: Increases Mavuika's ATK% and ignores 30% opponent DEF during Radiant Incandescence.\n- **C3: Pinnacle of the Sacred Flame**: Elemental Burst Level +3.\n- **C4: Undying Embers**: Increases party members' ATK by 20% after using Elemental Burst.\n- **C5: Scorching Wheel**: Elemental Skill Level +3.\n- **C6: Sun of Salvation**: Grants massive additional Pyro strikes during Flamestrider traversal and combat.\n\n## Ascension Materials\n- Agnidus Agate Gemstones, Mark of the Binding Blessing, Withering Purpurbloom, Sentry's Wooden Whistle / Metal Whistle."
+}

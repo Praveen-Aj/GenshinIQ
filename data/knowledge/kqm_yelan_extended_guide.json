@@ -1,0 +1,32 @@
+{
+  "id": "kqm_yelan_extended_guide",
+  "title": "KQM Yelan Hydro Sub-DPS & Damage Buffer Theorycrafting Guide",
+  "metadata": {
+    "source_id": "src_kqm_guides",
+    "source": "KeqingMains Guides (KQM)",
+    "source_url": "https://keqingmains.com/yelan/",
+    "canonical_url": "https://keqingmains.com/yelan/",
+    "source_type": "KQM",
+    "authority_tier": 2,
+    "character": "Yelan",
+    "topic": "Character Guide",
+    "game_version": "7.0",
+    "published_at": "2022-05-31T00:00:00Z",
+    "updated_at": "2026-08-05T00:00:00Z",
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "26acb51545e3f9ca4dde71632840a9cc99a05cd01bd18a14b5ea25255c69912b",
+    "freshness_status": "current",
+    "tags": [
+      "Yelan",
+      "Hydro",
+      "Bow",
+      "Sub-DPS",
+      "Buffer",
+      "KQM",
+      "Build Guide",
+      "Double Hydro"
+    ]
+  },
+  "summary": "Comprehensive KQM guide to Yelan. Covers pure Max HP scaling, Depth-Clarion Dice ramp-up DMG buff (up to 50%), Favonius Warbow vs Aqua Simulacra, and Double Hydro pairings.",
+  "content": "# KQM Yelan Comprehensive Theorycrafting Guide\n\n## Core Mechanics & Pure HP Scaling\nEvery component of Yelan's combat kit (Skill, Burst coordinated attacks, Breakthrough Barb) **scales 100% off Max HP**. Her base ATK and ATK% buffs have zero effect on her damage output.\n- **Adapt With Ease (A4 Passive)**: While Depth-Clarion Dice is active, the on-field character's damage increases by 1% plus an additional 3.5% per second, reaching up to **50% bonus DMG** at the end of the 15-second duration.\n\n## Energy Requirements & Favonius Warbow\nYelan's Burst costs **70 Energy**. Her single skill cast generates 4 Hydro particles.\n- **Solo Hydro (C0)**: 200%–220% ER (Requires ER Sands or Favonius Warbow).\n- **Double Hydro (C0 with Xingqiu)**: 160%–180% ER.\n- **With C1 (Two Skill Charges)**: Reduces ER requirements by approximately 30%–40%.\n\n## Weapon Rankings\n1. **Aqua Simulacra (5★)**: Signature weapon. 88.2% CRIT DMG + 16% Max HP + 20% unconditional DMG bonus.\n2. **Favonius Warbow (4★)**: The most practical and reliable weapon in the game for C0 Yelan. Resolves her ER needs and batteries the active carry.\n3. **Elegy for the End (5★)**: Supreme team utility (+100 EM and +20% ATK party buff) while solving ER.\n\n## Artifacts\n- **4-Piece Emblem of Severed Fate**: Unequivocal Best-in-Slot, converting high ER into massive coordinated attack multipliers.\n- **Main Stats**: HP% or ER% Sands / Hydro DMG Bonus Goblet / CRIT Rate or CRIT DMG Circlet.\n"
+}

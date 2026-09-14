@@ -1,0 +1,3663 @@
+[
+  {
+    "id": 101,
+    "name": "Dendro Slime",
+    "title": "",
+    "icon": "UI_MonsterIcon_Slime_Grass_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 102,
+    "name": "Large Dendro Slime",
+    "title": "",
+    "icon": "UI_MonsterIcon_Slime_Grass_03",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 103,
+    "name": "Anemo Slime",
+    "title": "",
+    "icon": "UI_MonsterIcon_Slime_Wind_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 104,
+    "name": "Large Anemo Slime",
+    "title": "",
+    "icon": "UI_MonsterIcon_Slime_Wind_03",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 105,
+    "name": "Electro Slime",
+    "title": "",
+    "icon": "UI_MonsterIcon_Slime_Electric_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 106,
+    "name": "Large Electro Slime",
+    "title": "",
+    "icon": "UI_MonsterIcon_Slime_Electric_03",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 107,
+    "name": "Mutant Electro Slime",
+    "title": "",
+    "icon": "UI_MonsterIcon_Slime_Electric_03_Positive",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 108,
+    "name": "Cryo Slime",
+    "title": "",
+    "icon": "UI_MonsterIcon_Slime_Ice_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 109,
+    "name": "Large Cryo Slime",
+    "title": "",
+    "icon": "UI_MonsterIcon_Slime_Ice_03",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 110,
+    "name": "Hydro Slime",
+    "title": "",
+    "icon": "UI_MonsterIcon_Slime_Water_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 111,
+    "name": "Large Hydro Slime",
+    "title": "",
+    "icon": "UI_MonsterIcon_Slime_Water_03",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 112,
+    "name": "Pyro Slime",
+    "title": "",
+    "icon": "UI_MonsterIcon_Slime_Fire_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 113,
+    "name": "Large Pyro Slime",
+    "title": "",
+    "icon": "UI_MonsterIcon_Slime_Fire_03",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 114,
+    "name": "Geo Slime",
+    "title": "",
+    "icon": "UI_MonsterIcon_Slime_Rock_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 115,
+    "name": "Large Geo Slime",
+    "title": "",
+    "icon": "UI_MonsterIcon_Slime_Rock_03",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 116,
+    "name": "Hydro Hypostasis Summon",
+    "title": "",
+    "icon": "UI_MonsterIcon_Slime_Fire_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 123,
+    "name": "Battle-Hardened Prism Slime",
+    "title": "",
+    "icon": "UI_MonsterIcon_Slime_Moon_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 201,
+    "name": "Eye of the Storm",
+    "title": "",
+    "icon": "UI_MonsterIcon_Elemental_Wind_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 401,
+    "name": "Electro Hypostasis",
+    "title": "",
+    "icon": "UI_MonsterIcon_Effigy_Electric",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 402,
+    "name": "Anemo Hypostasis",
+    "title": "",
+    "icon": "UI_MonsterIcon_Effigy_Wind",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 403,
+    "name": "Geo Hypostasis",
+    "title": "",
+    "icon": "UI_MonsterIcon_Effigy_Rock",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 404,
+    "name": "Hydro Hypostasis",
+    "title": "",
+    "icon": "UI_MonsterIcon_Effigy_Water",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 405,
+    "name": "Cryo Hypostasis",
+    "title": "",
+    "icon": "UI_MonsterIcon_Effigy_Ice",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 406,
+    "name": "Pyro Hypostasis",
+    "title": "",
+    "icon": "UI_MonsterIcon_Effigy_Fire",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 407,
+    "name": "Dendro Hypostasis",
+    "title": "",
+    "icon": "UI_MonsterIcon_Effigy_Grass",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 501,
+    "name": "Oceanid",
+    "title": "",
+    "icon": "UI_MonsterIcon_Oceanid",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 502,
+    "name": "Hydro Mimic Boar",
+    "title": "",
+    "icon": "UI_MonsterIcon_Oceanid_Underling",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 503,
+    "name": "Hydro Mimic Crane",
+    "title": "",
+    "icon": "UI_MonsterIcon_Oceanid_Underling",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 504,
+    "name": "Hydro Mimic Crab",
+    "title": "",
+    "icon": "UI_MonsterIcon_Oceanid_Underling",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 505,
+    "name": "Hydro Mimic Finch",
+    "title": "",
+    "icon": "UI_MonsterIcon_Oceanid_Underling",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 506,
+    "name": "Hydro Mimic Mallard",
+    "title": "",
+    "icon": "UI_MonsterIcon_Oceanid_Underling",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 507,
+    "name": "Hydro Mimic Squirrel",
+    "title": "",
+    "icon": "UI_MonsterIcon_Oceanid_Underling",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 508,
+    "name": "Hydro Mimic Frog",
+    "title": "",
+    "icon": "UI_MonsterIcon_Oceanid_Underling",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 509,
+    "name": "Hydro Mimic Raptor",
+    "title": "",
+    "icon": "UI_MonsterIcon_Oceanid_Underling",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 510,
+    "name": "Tainted Water-Splitting Phantasm",
+    "title": "",
+    "icon": "UI_MonsterIcon_Necalevia_Normal",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 511,
+    "name": "Tainted Water-Spouting Phantasm",
+    "title": "",
+    "icon": "UI_MonsterIcon_Necalevia_Big",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 512,
+    "name": "Hydro Tulpa",
+    "title": "",
+    "icon": "UI_MonsterIcon_Narcissusborn_Normal_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 513,
+    "name": "Half-Tulpa",
+    "title": "",
+    "icon": "",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 514,
+    "name": "Veteran Tainted Water-Splitting Phantasm",
+    "title": "",
+    "icon": "UI_MonsterIcon_Necalevia_Normal",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 515,
+    "name": "Veteran Tainted Water-Spouting Phantasm",
+    "title": "",
+    "icon": "UI_MonsterIcon_Necalevia_Big",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 601,
+    "name": "Hydro Specter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Sylph_Water_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 602,
+    "name": "Geo Specter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Sylph_Rock_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 603,
+    "name": "Anemo Specter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Sylph_Wind_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 604,
+    "name": "Cryo Specter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Sylph_Ice_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 605,
+    "name": "Electro Specter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Sylph_Electric_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 606,
+    "name": "Pyro Specter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Sylph_Fire_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 607,
+    "name": "Dendro Specter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Sylph_Grass_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 701,
+    "name": "Thunder Manifestation",
+    "title": "",
+    "icon": "UI_MonsterIcon_Raijin",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 801,
+    "name": "Gleaming Charge: Frostnight Scion",
+    "title": "",
+    "icon": "UI_MonsterIcon_Moonbeast_Electric",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 802,
+    "name": "Tangled Vines: Frostnight Scion",
+    "title": "",
+    "icon": "UI_MonsterIcon_Moonbeast_Grass",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 803,
+    "name": "Blazing Brilliance: Frostnight Scion",
+    "title": "",
+    "icon": "UI_MonsterIcon_Moonbeast_Fire",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 804,
+    "name": "Icy Crystal: Frostnight Scion",
+    "title": "",
+    "icon": "UI_MonsterIcon_Moonbeast_Ice",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 805,
+    "name": "Surging Currents: Frostnight Scion",
+    "title": "",
+    "icon": "UI_MonsterIcon_Moonbeast_Water",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 806,
+    "name": "Veiled Cloudchaser: Frostnight Scion",
+    "title": "",
+    "icon": "UI_MonsterIcon_Moonbeast_Wind",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 807,
+    "name": "Gilded Sunshard: Frostnight Scion",
+    "title": "",
+    "icon": "UI_MonsterIcon_Moonbeast_Rock",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 810,
+    "name": "Frostnight Herra",
+    "title": "",
+    "icon": "UI_MonsterIcon_HerraFrost",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 812,
+    "name": "Hexadecatonic Battle-Hardened Mandragora",
+    "title": "",
+    "icon": "UI_MonsterIcon_Mandragora_Elite",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10101,
+    "name": "Hilichurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10102,
+    "name": "Hilichurl Fighter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10103,
+    "name": "Wooden Shield Hilichurl Guard",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10104,
+    "name": "Hilichurl Shooter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10105,
+    "name": "Pyro Hilichurl Shooter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_Fire_Range",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10106,
+    "name": "Hilichurl Grenadier",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_Fire_Range",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10107,
+    "name": "Hilichurl Berserker",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_Fire_Range",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10109,
+    "name": "Cryo Hilichurl Shooter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_Ice_Range",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10110,
+    "name": "Electro Hilichurl Shooter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_Electric_Range",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10112,
+    "name": "Rock Shield Hilichurl Guard",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10113,
+    "name": "Cryo Hilichurl Grenadier",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_Ice_Range",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10114,
+    "name": "Ice Shield Hilichurl Guard",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10115,
+    "name": "Unusual Hilichurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_Wei",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10116,
+    "name": "Electro Hilichurl Grenadier",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_Electric_Range",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10201,
+    "name": "Wooden Shieldwall Mitachurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_Brute_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10202,
+    "name": "Blazing Axe Mitachurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_Brute_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10203,
+    "name": "Rock Shieldwall Mitachurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_Brute_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10204,
+    "name": "Frostarm Lawachurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_Brute_Ice_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10205,
+    "name": "Stonehide Lawachurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_Brute_Rock_None",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10206,
+    "name": "Ice Shieldwall Mitachurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_Brute_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10207,
+    "name": "Crackling Axe Mitachurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_Brute_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10208,
+    "name": "Thunderhelm Lawachurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_Brute_Electric_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10301,
+    "name": "Hydro Samachurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_Shaman_Water_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10302,
+    "name": "Dendro Samachurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_Shaman_Grass_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10303,
+    "name": "Anemo Samachurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_Shaman_Wind_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10304,
+    "name": "Geo Samachurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_Shaman_Rock_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10305,
+    "name": "Cryo Samachurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_Shaman_Ice_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10306,
+    "name": "Electro Samachurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_Shaman_Electric_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10307,
+    "name": "Mystifying Megachurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_Shaman_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10308,
+    "name": "Battle-Hardened Samachurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_Shaman_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10401,
+    "name": "Anemo Hilichurl Rogue",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hilistray_Wind",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 10402,
+    "name": "Hydro Hilichurl Rogue",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hilistray_Water",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 20101,
+    "name": "Pyro Abyss Mage",
+    "title": "",
+    "icon": "UI_MonsterIcon_Abyss_Fire_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 20102,
+    "name": "Cryo Abyss Mage",
+    "title": "",
+    "icon": "UI_MonsterIcon_Abyss_Ice_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 20103,
+    "name": "Hydro Abyss Mage",
+    "title": "",
+    "icon": "UI_MonsterIcon_Abyss_Water_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 20104,
+    "name": "Electro Abyss Mage",
+    "title": "",
+    "icon": "UI_MonsterIcon_Abyss_Electric_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 20201,
+    "name": "Abyss Herald: Wicked Torrents",
+    "title": "",
+    "icon": "UI_MonsterIcon_Invoker_Herald_Water_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 20202,
+    "name": "Abyss Herald: Frost Fall",
+    "title": "",
+    "icon": "UI_MonsterIcon_Invoker_Herald_Ice",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 20301,
+    "name": "Abyss Lector: Violet Lightning",
+    "title": "",
+    "icon": "UI_MonsterIcon_Invoker_Deacon_Electric_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 20302,
+    "name": "Abyss Lector: Fathomless Flames",
+    "title": "",
+    "icon": "UI_MonsterIcon_Invoker_Deacon_Fire",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 20401,
+    "name": "Rockfond Rifthound Whelp",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hound_Kanis_Rock",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 20402,
+    "name": "Thundercraven Rifthound Whelp",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hound_Kanis_Electric",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 20501,
+    "name": "Rockfond Rifthound",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hound_Riftstalker_Rock",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 20502,
+    "name": "Thundercraven Rifthound",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hound_Riftstalker_Electric",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 20601,
+    "name": "Golden Wolflord",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hound_Planelurker",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 20701,
+    "name": "Shadowy Husk: Standard Bearer",
+    "title": "",
+    "icon": "UI_MonsterIcon_ForlornVessel_Strong_Warbanner_Fire",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 20702,
+    "name": "Shadowy Husk: Line Breaker",
+    "title": "",
+    "icon": "UI_MonsterIcon_ForlornVessel_Strong_Lance_Water",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 20703,
+    "name": "Shadowy Husk: Defender",
+    "title": "",
+    "icon": "UI_MonsterIcon_ForlornVessel_Strong_Chargebow_Ice",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 20801,
+    "name": "Black Serpent Knight: Windcutter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Darkwraith_Strong_Wind",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 20802,
+    "name": "Black Serpent Knight: Rockbreaker Ax",
+    "title": "",
+    "icon": "UI_MonsterIcon_Darkwraith_Fat_Rock",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21001,
+    "name": "Iniquitous Baptist - Invoker of Fire, Frost, and Fulmination",
+    "title": "",
+    "icon": "UI_MonsterIcon_Invoker_Archdeacon",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21002,
+    "name": "Iniquitous Baptist - Bringer of Flood, Flame, and Frost",
+    "title": "",
+    "icon": "UI_MonsterIcon_Invoker_Archdeacon",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21003,
+    "name": "Iniquitous Baptist - Caller of Flood, Flame, and Fulmination",
+    "title": "",
+    "icon": "UI_MonsterIcon_Invoker_Archdeacon",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21004,
+    "name": "Iniquitous Baptist - Summoner of Flood, Frost, and Fulmination",
+    "title": "",
+    "icon": "UI_MonsterIcon_Invoker_Archdeacon",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21005,
+    "name": "Iniquitous Baptist",
+    "title": "",
+    "icon": "UI_MonsterIcon_Invoker_Archdeacon",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21101,
+    "name": "Large Shatterstone Breacher Primus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Ovacua_Order_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21102,
+    "name": "Shatterstone Breacher Primus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Ovacua_Order_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21103,
+    "name": "Large Overgrown Breacher Primus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Ovacua_Chaos_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21104,
+    "name": "Overgrown Breacher Primus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Ovacua_Chaos_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21201,
+    "name": "Tenebrous Papilla: Type I",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Dendrite",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21202,
+    "name": "Tenebrous Mimiflora",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Rhizome",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21203,
+    "name": "Tenebrous Mimesis - Ruin Guard",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Rhizome",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21204,
+    "name": "Tenebrous Mimesis - Anemo Hilichurl Rogue",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Rhizome",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21205,
+    "name": "Tenebrous Mimesis - Secret Source Automaton: Hunter-Seeker",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Rhizome",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21206,
+    "name": "Tenebrous Mimesis - Crackling Axe Mitachurl",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Rhizome",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21207,
+    "name": "Tenebrous Mimesis: Tepetlisaurus",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Rhizome",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21208,
+    "name": "Tenebrous Mimesis: Koholasaurus",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Rhizome",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21209,
+    "name": "Tenebrous Mimesis: Yumkasaurus",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Rhizome",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21210,
+    "name": "Tenebrous Mimesis - Tepetlisaurus Warrior: Shard Striker",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Rhizome",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21211,
+    "name": "Tenebrous Mimesis - Tepetlisaurus Warrior: Rockbreaker Blade",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Rhizome",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21212,
+    "name": "Tenebrous Mimesis - Yumkasaurus Warrior: Flowing Skyfire",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Rhizome",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21213,
+    "name": "Tenebrous Mimesis - Qucusaurus Warrior: Heartstar Hammer",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Rhizome",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21214,
+    "name": "Tenebrous Mimesis - Qucusaurus Warrior: Blazing Sky",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Rhizome",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21215,
+    "name": "Tenebrous Mimesis - Iktomisaurus Warrior: Icy Tidebearer",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Rhizome",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21216,
+    "name": "Tenebrous Papilla: Type II",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Dendrite",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21217,
+    "name": "Tenebrous Papilla: Type III",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Dendrite",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21218,
+    "name": "Tenebrous Mimesis: Geovishap Hatchling",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Rhizome",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21219,
+    "name": "Tenebrous Mimesis: Tatankasaurus",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyss_Rhizome",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21300,
+    "name": "Wilderness Exile",
+    "title": "",
+    "icon": "UI_MonsterIcon_WildHunt",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21310,
+    "name": "Wilderness Hunter",
+    "title": "",
+    "icon": "UI_MonsterIcon_WildHunt_Elite",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21320,
+    "name": "Battle-Hardened Lightkeeper",
+    "title": "",
+    "icon": "UI_MonsterIcon_WildHunt_Male_Sigurd",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21401,
+    "name": "Fisher of Hidden Depths",
+    "title": "",
+    "icon": "UI_MonsterIcon_Lloigor_Sub",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 21501,
+    "name": "Lord of the Hidden Depths: Whisperer of Nightmares",
+    "title": "",
+    "icon": "UI_MonsterIcon_Lloigor_Primo",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30101,
+    "name": "Fatui Skirmisher - Cryogunner Legionnaire",
+    "title": "",
+    "icon": "UI_MonsterIcon_Skirmisher_Male_Fat_SprayGun_Ice_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30102,
+    "name": "Fatui Skirmisher - Hydrogunner Legionnaire",
+    "title": "",
+    "icon": "UI_MonsterIcon_Skirmisher_Male_Fat_SprayGun_Water_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30103,
+    "name": "Fatui Skirmisher - Electrohammer Vanguard",
+    "title": "",
+    "icon": "UI_MonsterIcon_Skirmisher_Male_Strong_GreatHammer_Electric_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30104,
+    "name": "Fatui Skirmisher - Geochanter Bracer",
+    "title": "",
+    "icon": "UI_MonsterIcon_Skirmisher_Male_Standard_Staff_Rock_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30105,
+    "name": "Fatui Skirmisher - Anemoboxer Vanguard",
+    "title": "",
+    "icon": "UI_MonsterIcon_Skirmisher_Male_Strong_Gloves_Wind_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30106,
+    "name": "Fatui Skirmisher - Pyroslinger Bracer",
+    "title": "",
+    "icon": "UI_MonsterIcon_Skirmisher_Male_Standard_Rifle_Fire_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30111,
+    "name": "Veteran Fatui Skirmisher - Cryogunner Legionnaire",
+    "title": "",
+    "icon": "UI_MonsterIcon_Skirmisher_Male_Fat_SprayGun_Ice_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30113,
+    "name": "Veteran Fatui Skirmisher - Electrohammer Vanguard",
+    "title": "",
+    "icon": "UI_MonsterIcon_Skirmisher_Male_Strong_GreatHammer_Electric_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30116,
+    "name": "Veteran Fatui Skirmisher - Pyroslinger Bracer",
+    "title": "",
+    "icon": "UI_MonsterIcon_Skirmisher_Male_Standard_Rifle_Fire_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30201,
+    "name": "Fatui Pyro Agent",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fatuus_Fire_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30211,
+    "name": "Veteran Fatui Pyro Agent",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fatuus_Fire_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30301,
+    "name": "Fatui Electro Cicin Mage",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fatuus_Summoner_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30401,
+    "name": "Fatui Cryo Cicin Mage",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fatuus_Mage_Ice_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30501,
+    "name": "Mirror Maiden",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fatuus_Maiden_Water",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30601,
+    "name": "Frost Operative",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fatuus_Escadron_Ice",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30602,
+    "name": "Wind Operative",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fatuus_Escadron_Wind",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30603,
+    "name": "Veteran Frost Operative",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fatuus_Escadron_Ice",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30604,
+    "name": "Veteran Wind Operative",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fatuus_Escadron_Wind",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30701,
+    "name": "Oprichniki Line Trooper",
+    "title": "",
+    "icon": "UI_MonsterIcon_NodKrai_Oprichnik_Male",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30703,
+    "name": "Oprichniki Sniper",
+    "title": "",
+    "icon": "UI_MonsterIcon_Soldier_Male_Standard_Gun_Rifle",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30704,
+    "name": "Fatui Skirmisher - Hydrogunner",
+    "title": "",
+    "icon": "UI_MonsterIcon_Skirmisher_Male_Standard_Rifle_Water_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30705,
+    "name": "Fatui Skirmisher - Pyroslinger",
+    "title": "",
+    "icon": "UI_MonsterIcon_Skirmisher_Male_Standard_Rifle_Fire_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30706,
+    "name": "Oprichniki Engineer",
+    "title": "",
+    "icon": "UI_MonsterIcon_NodKrai_Oprichnik_Male",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30708,
+    "name": "Shimmerlight: Self-Destructing Roaming Device",
+    "title": "",
+    "icon": "UI_MonsterIcon_ExplosiveDrone_Water",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30709,
+    "name": "Roaring Thunder: Self-Destructing Roaming Device",
+    "title": "",
+    "icon": "UI_MonsterIcon_ExplosiveDrone_Electric",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30721,
+    "name": "Oprichniki Support Trooper",
+    "title": "",
+    "icon": "UI_MonsterIcon_NodKrai_Oprichnik_MuscleMan",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30731,
+    "name": "Oprichniki Grenadier",
+    "title": "",
+    "icon": "UI_MonsterIcon_NodKrai_Oprichnik_Female",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30741,
+    "name": "Oprichniki Vanguard",
+    "title": "",
+    "icon": "UI_MonsterIcon_NodKrai_Oprichnik_Male",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30761,
+    "name": "Oprichniki Medic",
+    "title": "",
+    "icon": "UI_MonsterIcon_NodKrai_Oprichnik_Male",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30781,
+    "name": "Oprichniki Bombardier",
+    "title": "",
+    "icon": "UI_MonsterIcon_NodKrai_Oprichnik_Male",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30791,
+    "name": "Oprichniki Fireblade Shock Trooper",
+    "title": "",
+    "icon": "UI_MonsterIcon_Oprichnik_Male_Strong_LanceArquebus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30792,
+    "name": "Oprichniki Hailstorm Cannoneer",
+    "title": "",
+    "icon": "UI_MonsterIcon_Oprichnik_Male_Fat_CannonShield",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30793,
+    "name": "Oprichniki Thunderblitz Gvardiya",
+    "title": "",
+    "icon": "UI_MonsterIcon_Oprichnik_Female_Slim_MachineGun",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30794,
+    "name": "Battle-Hardened Fireblade Shock Trooper",
+    "title": "",
+    "icon": "UI_MonsterIcon_Oprichnik_Male_Strong_LanceArquebus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30801,
+    "name": "Close Combat Storm Landcruiser",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fatuimecha_CoreA_MoveB_AttackA_Fire",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30802,
+    "name": "Close Combat Scout Landcruiser",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fatuimecha_CoreA_MoveA_AttackC_Water",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30803,
+    "name": "Force Recon Storm Landcruiser",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fatuimecha_CoreB_MoveB_AttackB_Grass",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30804,
+    "name": "Force Recon Scout Landcruiser",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fatuimecha_CoreB_MoveA_AttackB_Ice",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30805,
+    "name": "Force Recon Ground Effect Landcruiser",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fatuimecha_CoreB_MoveE_AttackB_Wind",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30851,
+    "name": "Cutting Edge All-Purpose Storm Landcruiser",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fatuimecha_CoreC_MoveD_AttackA_AttackC_AttackB_Electric",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30852,
+    "name": "Cutting Edge All-Purpose Scout Landcruiser",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fatuimecha_CoreC_MoveC_AttackD_AttackC_AttackB_Water",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30853,
+    "name": "Cutting Edge Fire Support Ground Effect Landcruiser",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fatuimecha_CoreC_MoveF_AttackB_Fire",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 30901,
+    "name": "Super-Heavy Landrover: Mechanized Fortress",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fatuimecha_AMP",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40101,
+    "name": "Ruin Guard",
+    "title": "",
+    "icon": "UI_MonsterIcon_Defender_Noner_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40102,
+    "name": "Ruin Hunter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Formathr_None",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40103,
+    "name": "Ruin Grader",
+    "title": "",
+    "icon": "UI_MonsterIcon_Konungmathr",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40104,
+    "name": "Ruin Serpent",
+    "title": "",
+    "icon": "UI_MonsterIcon_Nithhoggr_None",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40201,
+    "name": "Ruin Cruiser",
+    "title": "",
+    "icon": "UI_MonsterIcon_Apparatus_Enigma_BionicDrone",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40202,
+    "name": "Ruin Destroyer",
+    "title": "",
+    "icon": "UI_MonsterIcon_Apparatus_Enigma_BionicFlora",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40203,
+    "name": "Ruin Defender",
+    "title": "",
+    "icon": "UI_MonsterIcon_Apparatus_Enigma_BionicInsecta",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40204,
+    "name": "Ruin Scout",
+    "title": "",
+    "icon": "UI_MonsterIcon_Apparatus_Enigma_BionicNettler",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40211,
+    "name": "Perpetual Mechanical Array",
+    "title": "",
+    "icon": "UI_MonsterIcon_Apparatus_Perpetual",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40301,
+    "name": "Ruin Drake: Skywatch",
+    "title": "",
+    "icon": "UI_MonsterIcon_Gargoyle",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40302,
+    "name": "Ruin Drake: Earthguard",
+    "title": "",
+    "icon": "UI_MonsterIcon_Gargoyle",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40303,
+    "name": "Aeonblight Drake",
+    "title": "",
+    "icon": "UI_MonsterIcon_Gargoyle_Fafnir",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40304,
+    "name": "Battle-Hardened Ruin Drake: Earthguard",
+    "title": "",
+    "icon": "UI_MonsterIcon_Gargoyle",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40401,
+    "name": "Primal Construct: Repulsor",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40402,
+    "name": "Primal Construct: Reshaper",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40403,
+    "name": "Primal Construct: Prospector",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40501,
+    "name": "Algorithm of Semi-Intransient Matrix of Overseer Network",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Starchild",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40601,
+    "name": "Recon Log Mek - Ousia",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Sentry",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40651,
+    "name": "Recon Log Mek - Pneuma",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Sentry",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40681,
+    "name": "Recon Log Mek",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Sentry",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40602,
+    "name": "Arithmetic Enhancer Mek - Ousia",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Pylon",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40652,
+    "name": "Arithmetic Enhancer Mek - Pneuma",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Pylon",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40682,
+    "name": "Arithmetic Enhancer Mek",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Pylon",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40603,
+    "name": "Underwater Survey Mek - Ousia",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Recon",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40653,
+    "name": "Underwater Survey Mek - Pneuma",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Recon",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40683,
+    "name": "Underwater Survey Mek",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Recon",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40604,
+    "name": "Geological Survey Mek - Ousia",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Probe",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40654,
+    "name": "Geological Survey Mek - Pneuma",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Probe",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40684,
+    "name": "Geological Survey Mek",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Probe",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40605,
+    "name": "Underwater Patrol Mek - Ousia",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Nautilus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40655,
+    "name": "Underwater Patrol Mek - Pneuma",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Nautilus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40685,
+    "name": "Underwater Patrol Mek",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Nautilus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40606,
+    "name": "Deepwater Assault Mek: Ousia",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Frigate",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40656,
+    "name": "Deepwater Assault Mek: Pneuma",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Frigate",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40686,
+    "name": "Deepwater Assault Mek",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Frigate",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40607,
+    "name": "Nimble Harvester Mek - Ousia",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Assimilator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40657,
+    "name": "Nimble Harvester Mek - Pneuma",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Assimilator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40687,
+    "name": "Nimble Harvester Mek",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Assimilator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40608,
+    "name": "Assault Specialist Mek - Ousia",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Ruggiero_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40658,
+    "name": "Assault Specialist Mek - Pneuma",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Ruggiero_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40688,
+    "name": "Assault Specialist Mek",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Ruggiero_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40609,
+    "name": "Suppression Specialist Mek - Ousia",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Ruggiero_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40659,
+    "name": "Suppression Specialist Mek - Pneuma",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Ruggiero_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40689,
+    "name": "Suppression Specialist Mek",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Ruggiero_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40610,
+    "name": "Annihilation Specialist Mek - Ousia",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Bradamante",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40660,
+    "name": "Annihilation Specialist Mek - Pneuma",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Bradamante",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40690,
+    "name": "Annihilation Specialist Mek",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Bradamante",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40611,
+    "name": "Area Alert Mek - Ousia",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_LengthShifter",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40661,
+    "name": "Area Alert Mek - Pneuma",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_LengthShifter",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40691,
+    "name": "Area Alert Mek",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_LengthShifter",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40612,
+    "name": "Construction Specialist Mek - Ousia",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Excavator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40662,
+    "name": "Construction Specialist Mek - Pneuma",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Excavator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40692,
+    "name": "Construction Specialist Mek",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Excavator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40613,
+    "name": "Veteran Arithmetic Enhancer Mek",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Pylon",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40701,
+    "name": "Icewind Suite: Nemesis of Coppelius",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Nutcracker",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40702,
+    "name": "Icewind Suite: Dirge of Coppelia",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Nutcracker",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40703,
+    "name": "Icewind Suite",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Nutcracker",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40801,
+    "name": "Experimental Field Generator",
+    "title": "",
+    "icon": "UI_MonsterIcon_MachinaIustitia_Gravitas",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40901,
+    "name": "Secret Source Automaton: Hunter-Seeker",
+    "title": "",
+    "icon": "UI_MonsterIcon_ToothTrap",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40902,
+    "name": "Secret Source Automaton: Configuration Device",
+    "title": "",
+    "icon": "UI_MonsterIcon_DragonClaw",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40903,
+    "name": "Primeval Source Dragon Mech",
+    "title": "",
+    "icon": "UI_MonsterIcon_DragonClaw",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40905,
+    "name": "Secret Source Automaton: Overseer Device",
+    "title": "",
+    "icon": "UI_MonsterIcon_DragonCollar",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40906,
+    "name": "Precursor's Secret Source Matrix of Overseer Network",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monitor_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 40907,
+    "name": "Battle-Hardened Precursor's Secret Source Matrix of Overseer Network",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monitor_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 41001,
+    "name": "Knuckle Duckle",
+    "title": "",
+    "icon": "UI_MonsterIcon_Gastrobot_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 41101,
+    "name": "Domain Keeper",
+    "title": "",
+    "icon": "UI_MonsterIcon_Watcher_Normal_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 41111,
+    "name": "Watcher: Fallen Vigil",
+    "title": "",
+    "icon": "UI_MonsterIcon_Watcher_Primo_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 41112,
+    "name": "Watcher: Elemental Star",
+    "title": "",
+    "icon": "",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 41113,
+    "name": "Watcher: Deep Melancholy",
+    "title": "",
+    "icon": "",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 48101,
+    "name": "Basic Defensive Pyro Tower",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 48102,
+    "name": "Advanced Defensive Pyro Tower",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 48103,
+    "name": "Basic Defensive Electro Tower",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 48104,
+    "name": "Advanced Defensive Electro Tower",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 48105,
+    "name": "Basic Defensive Hydro Tower",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 48106,
+    "name": "Advanced Defensive Hydro Tower",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 48107,
+    "name": "Basic Defensive Cryo Tower",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 48108,
+    "name": "Advanced Defensive Cryo Tower",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 48109,
+    "name": "Basic Defensive Anemo Tower",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 48110,
+    "name": "Advanced Defensive Anemo Tower",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 48111,
+    "name": "Defensive Physical Tower",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 48112,
+    "name": "Defensive Point (5.6 Push Contest) (Defense)",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 49201,
+    "name": "Automaton: Small Slime Balloon",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 49202,
+    "name": "Automaton: Large Slime Balloon",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 49203,
+    "name": "Automaton: Fungus Balloon",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 49204,
+    "name": "(test) Nod-Krai Infiltration Event - Robot 1",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 49205,
+    "name": "(test) Nod-Krai Infiltration Event - Robot 2",
+    "title": "",
+    "icon": "UI_MonsterIcon_Monolith_Ordinator",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50101,
+    "name": "Treasure Hoarders: Liuliu",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_Male_NoWeapon_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50102,
+    "name": "Treasure Hoarders: Scout",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_Male_Rogue_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50103,
+    "name": "Treasure Hoarders: Pyro Potioneer",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_Male_Chemist_Fire_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50104,
+    "name": "Treasure Hoarders: Hydro Potioneer",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_Male_Chemist_Water_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50105,
+    "name": "Treasure Hoarders: Electro Potioneer",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_Male_Chemist_Electric_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50106,
+    "name": "Treasure Hoarders: Cryo Potioneer",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_Male_Chemist_Ice_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50107,
+    "name": "Treasure Hoarders: Handyman",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_Male_Rogue_Fat_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50108,
+    "name": "Liam",
+    "title": "",
+    "icon": "UI_MonsterIcon_Male_Standard_Rocky_001",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50201,
+    "name": "Treasure Hoarders: Raptor",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_Male_Crossbow_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50202,
+    "name": "Treasure Hoarders: Marksman",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_Male_Hunter_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50301,
+    "name": "Treasure Hoarders: Carmen",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_Male_Shovel_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50302,
+    "name": "Treasure Hoarders: Gravedigger",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_Male_Rogue_Fat_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50303,
+    "name": "Treasure Hoarders: Seaman",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_Male_Sailor_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50401,
+    "name": "Treasure Hoarders: Boss",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_Female_Hatchet_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50501,
+    "name": "Millelith Soldier",
+    "title": "",
+    "icon": "UI_MonsterIcon_Millelith_Male_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50502,
+    "name": "Millelith Sergeant",
+    "title": "",
+    "icon": "UI_MonsterIcon_Millelith_Male_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50503,
+    "name": "Shogunate Infantry",
+    "title": "",
+    "icon": "UI_MonsterIcon_Aahigaru_Male_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50504,
+    "name": "Shogunate Infantry Captain",
+    "title": "",
+    "icon": "UI_MonsterIcon_AahigaruTaisho_Male_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50505,
+    "name": "Sangonomiya Cohort",
+    "title": "",
+    "icon": "UI_MonsterIcon_Millelith_Male_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50601,
+    "name": "Treasure Hoarders: Pugilist",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_MuscleMan_Boxer_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50602,
+    "name": "Rocky Avildsen",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_MuscleMan_Boxer_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50701,
+    "name": "Treasure Hoarders: Crusher",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_MuscleMan_Miner_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50702,
+    "name": "Treasure Hoarders: Wallenstein",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_MuscleMan_Miner_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50801,
+    "name": "Nobushi: Jintouban",
+    "title": "",
+    "icon": "UI_MonsterIcon_Samurai_Ronin_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50802,
+    "name": "Nobushi: Hitsukeban",
+    "title": "",
+    "icon": "UI_MonsterIcon_Samurai_Ronin_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50803,
+    "name": "Nobushi: Kikouban",
+    "title": "",
+    "icon": "UI_MonsterIcon_Samurai_Ronin_03",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50804,
+    "name": "Yoriki Samurai",
+    "title": "",
+    "icon": "UI_MonsterIcon_Samurai_Hatamoto_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50901,
+    "name": "Maguu Kenki",
+    "title": "",
+    "icon": "UI_MonsterIcon_Samurai_Ningyo",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50902,
+    "name": "Maguu Kenki: Lone Gale",
+    "title": "",
+    "icon": "UI_MonsterIcon_Samurai_Ningyo_Wind",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50903,
+    "name": "Maguu Kenki: Galloping Frost",
+    "title": "",
+    "icon": "UI_MonsterIcon_Samurai_Ningyo_Ice",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 50904,
+    "name": "Maguu Kenki: Mask of Terror",
+    "title": "",
+    "icon": "UI_MonsterIcon_Samurai_Ningyo_Mask",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51001,
+    "name": "Kairagi: Dancing Thunder",
+    "title": "",
+    "icon": "UI_MonsterIcon_Samurai_Kairagi_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51002,
+    "name": "Kairagi: Fiery Might",
+    "title": "",
+    "icon": "UI_MonsterIcon_Samurai_Kairagi_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51003,
+    "name": "Ochimusha: Ensorcelled Thunder",
+    "title": "",
+    "icon": "UI_MonsterIcon_Samurai_Kairagi_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51004,
+    "name": "Ochimusha: Cankered Flame",
+    "title": "",
+    "icon": "UI_MonsterIcon_Samurai_Kairagi_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51101,
+    "name": "Spirit of Omen: Stone Drake",
+    "title": "",
+    "icon": "UI_MonsterIcon_Eremite_Male_Strong_Katar",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51102,
+    "name": "Spirit of Omen: Wind Glede",
+    "title": "",
+    "icon": "UI_MonsterIcon_Eremite_Female_Standard_Longbow",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51103,
+    "name": "Spirit of Omen: Pyro Scorpion",
+    "title": "",
+    "icon": "UI_MonsterIcon_Samurai_Kairagi_05",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51104,
+    "name": "Spirit of Omen: Dendro Spirit-Serpent",
+    "title": "",
+    "icon": "UI_MonsterIcon_Samurai_Kairagi_05",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51301,
+    "name": "Winged Halberd-Knight",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_Girl_Vila_Glaive",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51302,
+    "name": "Winged Soarer Knight",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_Girl_Vila_Blade",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51310,
+    "name": "Volkodlak Lobber",
+    "title": "",
+    "icon": "UI_MonsterIcon_Vukodlak_Strong_NoWeapon",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51312,
+    "name": "Volkodlak Basher",
+    "title": "",
+    "icon": "UI_MonsterIcon_Vukodlak_Strong_Sword",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51314,
+    "name": "Volkodlak Raider",
+    "title": "",
+    "icon": "UI_MonsterIcon_Vukodlak_Thin_Sword",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51316,
+    "name": "Volkodlak Sharpshooter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Vukodlak_Thin_Pistol",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51326,
+    "name": "Leomastiff Guard",
+    "title": "",
+    "icon": "UI_MonsterIcon_Volkodlak_Sheepdog",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51327,
+    "name": "Long-Eared Striker",
+    "title": "",
+    "icon": "UI_MonsterIcon_Volkodlak_Arctichare",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51328,
+    "name": "Channel Contact",
+    "title": "",
+    "icon": "UI_MonsterIcon_Volkodlak_Beaver",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51336,
+    "name": "Fanged Zealot",
+    "title": "",
+    "icon": "UI_MonsterIcon_Volkodlak_Mammoth",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51337,
+    "name": "Voywolf Hunter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Volkodlak_Greyhound",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51338,
+    "name": "Battle-Hardened Chimeric Volkodlak Archer",
+    "title": "",
+    "icon": "UI_MonsterIcon_Volkodlak_Greyhound_Furiosa",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51350,
+    "name": "Glaciomancer",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_Female_Staff_Snegurochka",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51351,
+    "name": "Glacial Warden",
+    "title": "",
+    "icon": "UI_MonsterIcon_Snegurochka_Male",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51370,
+    "name": "Rugged Elder Leshy",
+    "title": "",
+    "icon": "UI_MonsterIcon_Leshy_Mature_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51380,
+    "name": "Juvenile Tree Segment",
+    "title": "",
+    "icon": "UI_MonsterIcon_Leshy_Normal_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51390,
+    "name": "Battle-Hardened Domovoy Sculptor",
+    "title": "",
+    "icon": "UI_MonsterIcon_Karzelek_Tsereteli_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51401,
+    "name": "Immortal Construct",
+    "title": "",
+    "icon": "UI_MonsterIcon_Zharptitsa_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 51402,
+    "name": "Ever-Burning Illusion",
+    "title": "",
+    "icon": "UI_MonsterIcon_Zharptitsa_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 52101,
+    "name": "Eremite Axe Vanguard",
+    "title": "",
+    "icon": "UI_MonsterIcon_Eremite_Female_Hatchet",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 52102,
+    "name": "Eremite Crossbow",
+    "title": "",
+    "icon": "UI_MonsterIcon_Eremite_Male_Standard_Crossbow",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 52103,
+    "name": "Eremite Ravenbeak Halberdier",
+    "title": "",
+    "icon": "UI_MonsterIcon_Eremite_Male_Standard_Pole",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 52104,
+    "name": "Eremite Linebreaker",
+    "title": "",
+    "icon": "UI_MonsterIcon_Eremite_MuscleMan_Gloves",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 52105,
+    "name": "Eremite Sword-Dancer",
+    "title": "",
+    "icon": "UI_MonsterIcon_Eremite_MuscleMan_Simitar",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 53101,
+    "name": "Eremite Desert Clearwater",
+    "title": "",
+    "icon": "UI_MonsterIcon_Eremite_Female_Slim_PushDagger",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 53102,
+    "name": "Eremite Sunfrost",
+    "title": "",
+    "icon": "UI_MonsterIcon_Eremite_Male_Standard_Glaive",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 53103,
+    "name": "Eremite Daythunder",
+    "title": "",
+    "icon": "UI_MonsterIcon_Eremite_Male_Standard_Polearm",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 54101,
+    "name": "Eremite Stone Enchanter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Eremite_Male_Strong_Katar",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 54102,
+    "name": "Eremite Galehunter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Eremite_Female_Standard_Longbow",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 54103,
+    "name": "Eremite Scorching Loremaster",
+    "title": "",
+    "icon": "UI_MonsterIcon_Eremite_Female_Standard_Oracle",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 54104,
+    "name": "Eremite Floral Ring-Dancer",
+    "title": "",
+    "icon": "UI_MonsterIcon_Eremite_Female_Standard_Dancer",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55001,
+    "name": "Flowing Blade Skirmisher",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_Female_NoWeapon_Mosasaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55002,
+    "name": "Winged Warrior: Skysoarer",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_Female_NoWeapon_Flamingo",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55011,
+    "name": "Forged Sand Interrogator",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_Female_NoWeapon_Drillhead",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55012,
+    "name": "Swiftstep Seeker",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_Female_Sword_Hookwalker",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55013,
+    "name": "Winged Warrior: Feathershedder",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_Female_Sword_Flamingo",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55014,
+    "name": "Spiritspeaker Warrior: Determinator",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_Female_Sword_Shamansaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55021,
+    "name": "Swiftstep Storm Scout",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_Male_Sword_Hookwalker",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55022,
+    "name": "Flowing Blade Grease-Saw",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_Male_Sword_Mosasaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55023,
+    "name": "Spiritspeaker Warrior: Psychokinetic",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_Male_Sword_Shamansaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55024,
+    "name": "Ferocious Warrior: Human Ram",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_Male_Sword_Bisonsaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55031,
+    "name": "Swiftstep Armed Courier",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_Male_Claymore_Hookwalker",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55032,
+    "name": "Spiritspeaker Warrior: Contemplator",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_Male_Claymore_Shamansaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55041,
+    "name": "Forged Sand Shieldbreaker",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_MuscleMan_Claymore_Drillhead",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55042,
+    "name": "Winged Warrior: Skymaster",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_MuscleMan_Claymore_Flamingo",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55043,
+    "name": "Ferocious Warrior: Wrestler",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_MuscleMan_Claymore_Bisonsaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55051,
+    "name": "Forged Sand Javelineer",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_Fat_NoWeapon_Drillhead",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55052,
+    "name": "Flowing Blade Harpoon-Thrower",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_Fat_NoWeapon_Mosasaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55053,
+    "name": "Ferocious Warrior: Grappler",
+    "title": "",
+    "icon": "UI_MonsterIcon_Human_Fat_Sword_Bisonsaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55101,
+    "name": "Tepetlisaurus Warrior: Shard Striker",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tribalwarrior_Powermaul_Drillhead",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55102,
+    "name": "Tepetlisaurus Warrior: Rockbreaker Blade",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tribalwarrior_Chainsword_Drillhead",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55103,
+    "name": "Yumkasaurus Warrior: Whirling Leaves",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tribalwarrior_Chainsword_Hookwalker",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55104,
+    "name": "Yumkasaurus Warrior: Flowing Skyfire",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tribalwarrior_Launcher_Hookwalker",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55105,
+    "name": "Koholasaurus Warrior: Waveshuttler",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tribalwarrior_Slingshot_Mosasaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55106,
+    "name": "Koholasaurus Warrior: Reefsplitter",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tribalwarrior_Launcher_Mosasaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55107,
+    "name": "Qucusaurus Warrior: Heartstar Hammer",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tribalwarrior_Powermaul_Flamingo",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55108,
+    "name": "Qucusaurus Warrior: Blazing Sky",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tribalwarrior_Slingshot_Flamingo",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55109,
+    "name": "Iktomisaurus Warrior: Icy Tidebearer",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tribalwarrior_Chainsword_Shamansaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55110,
+    "name": "Iktomisaurus Warrior: Cryocrystal Cannon",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tribalwarrior_Launcher_Shamansaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55111,
+    "name": "Tatankasaurus Warrior: Skybreaker",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tribalwarrior_Powermaul_Bisonsaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55112,
+    "name": "Tatankasaurus Warrior: Spiritlight Chaser",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tribalwarrior_Slingshot_Bisonsaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55151,
+    "name": "Veteran Tepetlisaurus Warrior: Rockbreaker Blade",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tribalwarrior_Chainsword_Drillhead",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55152,
+    "name": "Battle-Hardened Waveshuttler",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tribalwarrior_Slingshot_Mosasaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55153,
+    "name": "Veteran Yumkasaurus Warrior: Flowing Skyfire",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tribalwarrior_Launcher_Hookwalker",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55154,
+    "name": "???",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_MuscleMan_Miner_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55155,
+    "name": "Battle-Hardened Iktomisaurus Warrior: Cryocrystal Cannon",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_MuscleMan_Miner_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55156,
+    "name": "Veteran Tatankasaurus Warrior: Spiritlight Chaser",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tribalwarrior_Chainsword_Drillhead",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55201,
+    "name": "Wayward Hermetic Spiritspeaker",
+    "title": "",
+    "icon": "UI_MonsterIcon_TribalWarrior_Udugan",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55507,
+    "name": "Tepetlisaurus Tribe Chief",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_MuscleMan_Miner_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 55602,
+    "name": "Battle-Hardened Pipilpan Idol",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tenoyollotzin",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 56001,
+    "name": "Battle-Hardened Elite Treasure Hoarder",
+    "title": "",
+    "icon": "UI_MonsterIcon_Thoarder_Elder_Standard_Hildegard_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60101,
+    "name": "Cryo Whopperflower",
+    "title": "",
+    "icon": "UI_MonsterIcon_Mimik_Ice",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60102,
+    "name": "Pyro Whopperflower",
+    "title": "",
+    "icon": "UI_MonsterIcon_Mimik_Fire",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60103,
+    "name": "Electro Whopperflower",
+    "title": "",
+    "icon": "UI_MonsterIcon_Mimik_Electric",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60201,
+    "name": "Cryo Regisvine",
+    "title": "",
+    "icon": "UI_MonsterIcon_Regisvine_Ice",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60202,
+    "name": "Pyro Regisvine",
+    "title": "",
+    "icon": "UI_MonsterIcon_Regisvine_Fire",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60203,
+    "name": "Electro Regisvine",
+    "title": "",
+    "icon": "UI_MonsterIcon_Regisvine_Electric",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60301,
+    "name": "Geovishap Hatchling",
+    "title": "",
+    "icon": "UI_MonsterIcon_Wyrm_Rock",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60401,
+    "name": "Geovishap",
+    "title": "",
+    "icon": "UI_MonsterIcon_Drake_Rock",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60402,
+    "name": "Ruler of the Chizhang Mountains: Yiji",
+    "title": "",
+    "icon": "UI_MonsterIcon_Drake_Rock",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60403,
+    "name": "Ruler of the Chizhang Mountains: Tianyu",
+    "title": "",
+    "icon": "UI_MonsterIcon_Drake_Rock",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60501,
+    "name": "Primo Geovishap",
+    "title": "",
+    "icon": "UI_MonsterIcon_Drake_Primo_Rock",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60506,
+    "name": "Primordial Bathysmal Vishap",
+    "title": "",
+    "icon": "UI_MonsterIcon_Drake_Deepsea_Water",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60507,
+    "name": "Rimebiter Bathysmal Vishap",
+    "title": "",
+    "icon": "UI_MonsterIcon_Drake_Deepsea_Ice",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60508,
+    "name": "Bolteater Bathysmal Vishap",
+    "title": "",
+    "icon": "UI_MonsterIcon_Drake_Deepsea_Electric",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60509,
+    "name": "Primordial Bathysmal Vishap Hatchling",
+    "title": "",
+    "icon": "UI_MonsterIcon_Drake_Deepsea_Water",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60510,
+    "name": "Rimebiter Bathysmal Vishap Hatchling",
+    "title": "",
+    "icon": "UI_MonsterIcon_Drake_Deepsea_Ice",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60511,
+    "name": "Bolteater Bathysmal Vishap Hatchling",
+    "title": "",
+    "icon": "UI_MonsterIcon_Drake_Deepsea_Electric",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60512,
+    "name": "Battle-Hardened Primordial Bathysmal Vishap",
+    "title": "",
+    "icon": "UI_MonsterIcon_Drake_Deepsea_Water",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60601,
+    "name": "Electro Cicin",
+    "title": "",
+    "icon": "UI_MonsterIcon_Cicin_Thunder_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60602,
+    "name": "Hydro Cicin",
+    "title": "",
+    "icon": "UI_MonsterIcon_Cicin_Water_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60603,
+    "name": "Cryo Cicin",
+    "title": "",
+    "icon": "UI_MonsterIcon_Cicin_Ice_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60801,
+    "name": "Beisht",
+    "title": "",
+    "icon": "UI_MonsterIcon_Cicin_Ice_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60901,
+    "name": "Floating Hydro Fungus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fungus_Un_Gamma_Water",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60902,
+    "name": "Floating Dendro Fungus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fungus_Un_Delta_Grass",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60903,
+    "name": "Floating Anemo Fungus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fungus_Un_Delta_Wind",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60904,
+    "name": "Whirling Electro Fungus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fungus_Trois_Epsilon_Electric",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60905,
+    "name": "Whirling Cryo Fungus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fungus_Trois_Alpha_Ice",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60906,
+    "name": "Whirling Pyro Fungus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fungus_Trois_Gamma_Fire",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60907,
+    "name": "Stretchy Pyro Fungus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fungus_Deux_Alpha_Fire",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60908,
+    "name": "Stretchy Anemo Fungus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fungus_Deux_Epsilon_Wind",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60909,
+    "name": "Stretchy Geo Fungus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fungus_Deux_Beta_Rock",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 60910,
+    "name": "Stretchy Electro Fungus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fungus_Deux_Delta_Electric",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61001,
+    "name": "Consecrated Horned Crocodile",
+    "title": "",
+    "icon": "UI_MonsterIcon_Gator_Sacred_Water",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61002,
+    "name": "Consecrated Fanged Beast",
+    "title": "",
+    "icon": "UI_MonsterIcon_Panther_Sacred_Grass",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61003,
+    "name": "Consecrated Red Vulture",
+    "title": "",
+    "icon": "UI_MonsterIcon_Vulture_Sacred_Fire",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61004,
+    "name": "Consecrated Scorpion",
+    "title": "",
+    "icon": "UI_MonsterIcon_Scorpion_Sacred_Electric",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61005,
+    "name": "Consecrated Flying Serpent",
+    "title": "",
+    "icon": "UI_MonsterIcon_Chrysopelea_Sacred_Wind",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61101,
+    "name": "Jadeplume Terrorshroom",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fungus_Raptor",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61201,
+    "name": "Winged Dendroshroom",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fungus_Amanita_Unu_Anudatta_Grass",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61202,
+    "name": "Winged Cryoshroom",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fungus_Amanita_Unu_Svarita_Ice",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61203,
+    "name": "Grounded Hydroshroom",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fungus_Amanita_Du_Anudatta_Water",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61204,
+    "name": "Grounded Geoshroom",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fungus_Amanita_Du_Udatta_Rock",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61205,
+    "name": "Battle-Hardened Grounded Geoshroom",
+    "title": "",
+    "icon": "UI_MonsterIcon_Fungus_Amanita_Du_Udatta_Rock_Elite",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61301,
+    "name": "Setekh Wenut",
+    "title": "",
+    "icon": "UI_MonsterIcon_Sandworm",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61401,
+    "name": "Legatus Golem",
+    "title": "",
+    "icon": "UI_MonsterIcon_Golem_Centaur",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61402,
+    "name": "Praetorian Golem",
+    "title": "",
+    "icon": "UI_MonsterIcon_Golem_Legion",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61510,
+    "name": "Hunter's Ray",
+    "title": "",
+    "icon": "UI_MonsterIcon_MantaRay_Larva_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61521,
+    "name": "Armored Crab",
+    "title": "",
+    "icon": "UI_MonsterIcon_HermitCrab_Larva_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61531,
+    "name": "Blubberbeast",
+    "title": "",
+    "icon": "UI_MonsterIcon_Seal_Larva_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61541,
+    "name": "Hat Jellyfish",
+    "title": "",
+    "icon": "UI_MonsterIcon_JellyFish_Larva_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61551,
+    "name": "Bubbly Seahorse",
+    "title": "",
+    "icon": "UI_MonsterIcon_SeaHorse_Larva_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61561,
+    "name": "Ball Octopus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Octopus_Larva_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61571,
+    "name": "Angelic Sea Hare",
+    "title": "",
+    "icon": "UI_MonsterIcon_Aplysia_Larva_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61601,
+    "name": "Sternshield Crab",
+    "title": "",
+    "icon": "UI_MonsterIcon_HermitCrab_Mature",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61602,
+    "name": "Cherubic Sea Hare",
+    "title": "",
+    "icon": "UI_MonsterIcon_Aplysia_Mature",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61603,
+    "name": "Bubbler Seahorse",
+    "title": "",
+    "icon": "UI_MonsterIcon_SeaHorse_Mature",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61621,
+    "name": "Local Legend: Armored Crab",
+    "title": "",
+    "icon": "UI_MonsterIcon_HermitCrab_Mature_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61622,
+    "name": "Local Legend: Hunter's Ray",
+    "title": "",
+    "icon": "UI_MonsterIcon_MantaRay_Larva_03",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61623,
+    "name": "Local Legend: Blubberbeast",
+    "title": "",
+    "icon": "UI_MonsterIcon_Seal_Larva_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61624,
+    "name": "Local Legend: Cherubic Sea Hare",
+    "title": "",
+    "icon": "UI_MonsterIcon_Aplysia_Mature",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61625,
+    "name": "Local Legend: Hat Jellyfish",
+    "title": "",
+    "icon": "UI_MonsterIcon_Aplysia_Mature",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61626,
+    "name": "Battle-Scarred Rock Crab",
+    "title": "",
+    "icon": "UI_MonsterIcon_HermitCrab_Mature_Elite",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61701,
+    "name": "Emperor of Fire and Iron",
+    "title": "",
+    "icon": "UI_MonsterIcon_HermitCrab_Primo",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61801,
+    "name": "Millennial Pearl Seahorse",
+    "title": "",
+    "icon": "UI_MonsterIcon_SeaHorse_Primo_Electric",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61901,
+    "name": "Solitary Suanni",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hermit",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 61902,
+    "name": "Xuanwen Beast",
+    "title": "",
+    "icon": "UI_MonsterIcon_Striped",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62001,
+    "name": "Tepetlisaur Whelp",
+    "title": "",
+    "icon": "UI_MonsterIcon_Natsaurus_Drillhead_Small",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62002,
+    "name": "Tepetlisaurus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Natsaurus_Drillhead_Normal",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62101,
+    "name": "Koholasaur Whelp",
+    "title": "",
+    "icon": "UI_MonsterIcon_Natsaurus_Mosasaurus_Small",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62102,
+    "name": "Koholasaurus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Natsaurus_Mosasaurus_Normal",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62201,
+    "name": "Yumkasaur Whelp",
+    "title": "",
+    "icon": "UI_MonsterIcon_Natsaurus_Hookwalker_Small",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62202,
+    "name": "Yumkasaurus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Natsaurus_Hookwalker_Normal",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62203,
+    "name": "Gluttonous Yumkasaur Mountain King",
+    "title": "",
+    "icon": "UI_MonsterIcon_Natsaurus_Hookwalker_Primo",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62301,
+    "name": "Qucusaurus Chick",
+    "title": "",
+    "icon": "UI_MonsterIcon_Natsaurus_Flamingo_Small",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62302,
+    "name": "Qucusaurus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Natsaurus_Flamingo_Normal",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62303,
+    "name": "Goldflame Qucusaur Tyrant",
+    "title": "",
+    "icon": "UI_MonsterIcon_Natsaurus_Flamingo_Primo",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62401,
+    "name": "Iktomisaurus Chick",
+    "title": "",
+    "icon": "UI_MonsterIcon_Natsaurus_Shamansaurus_Small",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62402,
+    "name": "Iktomisaurus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Natsaurus_Shamansaurus_Normal",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62403,
+    "name": "Battle-Hardened Iktomisaurus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Aplysia_Larva_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62501,
+    "name": "Tatankasaur Whelp",
+    "title": "",
+    "icon": "UI_MonsterIcon_Natsaurus_Bisonsaurus_Small",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62502,
+    "name": "Tatankasaurus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Natsaurus_Bisonsaurus_Normal",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62503,
+    "name": "Battle-Hardened Tatankasaurus",
+    "title": "",
+    "icon": "UI_MonsterIcon_Natsaurus_Bisonsaurus_Crystal",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62601,
+    "name": "Rock-Cavernous Wayob Manifestation",
+    "title": "",
+    "icon": "UI_MonsterIcon_Wayob_Drillhead",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62602,
+    "name": "Flow-Inverted Wayob Manifestation",
+    "title": "",
+    "icon": "UI_MonsterIcon_Wayob_Mosasaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62603,
+    "name": "Foliar-Swift Wayob Manifestation",
+    "title": "",
+    "icon": "UI_MonsterIcon_Wayob_Hookwalker",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62604,
+    "name": "Battle-Hardened Rock-Cavernous Wayob Manifestation",
+    "title": "",
+    "icon": "UI_MonsterIcon_Wayob_Drillhead",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62605,
+    "name": "Battle-Hardened Flow-Inverted Wayob Manifestation",
+    "title": "",
+    "icon": "UI_MonsterIcon_Wayob_Mosasaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62606,
+    "name": "Battle-Hardened Foliar-Swift Wayob Manifestation",
+    "title": "",
+    "icon": "UI_MonsterIcon_Wayob_Hookwalker",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62607,
+    "name": "Battle-Hardened Burning-Aflame Wayob Manifestation",
+    "title": "",
+    "icon": "UI_MonsterIcon_Wayob_Flamingo",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62608,
+    "name": "Biting-Cold Wayob Manifestation",
+    "title": "",
+    "icon": "UI_MonsterIcon_Wayob_Shamansaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62609,
+    "name": "Burning-Aflame Wayob Manifestation",
+    "title": "",
+    "icon": "UI_MonsterIcon_Wayob_Flamingo",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62610,
+    "name": "Battle-Hardened Biting-Cold Wayob Manifestation",
+    "title": "",
+    "icon": "UI_MonsterIcon_Wayob_Shamansaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62611,
+    "name": "Thundering Wayob Manifestation",
+    "title": "",
+    "icon": "UI_MonsterIcon_Wayob_Bisonsaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62612,
+    "name": "Battle-Hardened Thundering Wayob Manifestation",
+    "title": "",
+    "icon": "UI_MonsterIcon_Wayob_Bisonsaurus",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62701,
+    "name": "Fluid Avatar of Lava",
+    "title": "",
+    "icon": "UI_MonsterIcon_Lava_Liquid",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62702,
+    "name": "Eroding Avatar of Lava",
+    "title": "",
+    "icon": "UI_MonsterIcon_Lava_Solid",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62703,
+    "name": "Lava Dragon Statue",
+    "title": "",
+    "icon": "UI_MonsterIcon_LavaTitan",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62704,
+    "name": "\"Infinitesimal\"",
+    "title": "",
+    "icon": "UI_MonsterIcon_LavaTitan_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62801,
+    "name": "Bakunawa",
+    "title": "",
+    "icon": "UI_MonsterIcon_LavaTitan_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 62901,
+    "name": "Furnace Shell Mountain Weasel",
+    "title": "",
+    "icon": "UI_MonsterIcon_VolcanoWeasel",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 63001,
+    "name": "Radiant Antelope",
+    "title": "",
+    "icon": "UI_MonsterIcon_Magbeast_Argali",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 63002,
+    "name": "Radiant Bladehorn",
+    "title": "",
+    "icon": "UI_MonsterIcon_Magbeast_Rhino",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 63003,
+    "name": "Radiant Lunapod",
+    "title": "",
+    "icon": "UI_MonsterIcon_Magbeast_Squid",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 63004,
+    "name": "Radiant Glacial Wolf",
+    "title": "",
+    "icon": "UI_MonsterIcon_Magbeast_Steppenwolf",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 63005,
+    "name": "Battle-Hardened Glacial Wolf",
+    "title": "",
+    "icon": "UI_MonsterIcon_Magbeast_Steppenwolf_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 63011,
+    "name": "Radiant Moonfly",
+    "title": "",
+    "icon": "UI_MonsterIcon_Magbeast_Pergesa",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 63021,
+    "name": "Radiant Moongecko",
+    "title": "",
+    "icon": "UI_MonsterIcon_Magbeast_Gecko",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 63101,
+    "name": "Chimeric Armored Beast",
+    "title": "",
+    "icon": "UI_MonsterIcon_Chimera_BeetleLion",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 63102,
+    "name": "Chimeric Burrowbeast",
+    "title": "",
+    "icon": "UI_MonsterIcon_Chimera_OwlPangolin",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 63103,
+    "name": "Chimeric Winged Elephant",
+    "title": "",
+    "icon": "UI_MonsterIcon_Chimera_ElephantBird",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 63104,
+    "name": "Chimeric Horned Bear",
+    "title": "",
+    "icon": "UI_MonsterIcon_Chimera_BearDeer",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 63105,
+    "name": "Chimeric Winged Lion",
+    "title": "",
+    "icon": "UI_MonsterIcon_Chimera_Manticore",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 63106,
+    "name": "Battle-Hardened Chimeric Burrowbeast",
+    "title": "",
+    "icon": "UI_MonsterIcon_Chimera_OwlPangolin_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 63109,
+    "name": "Ever-Lingering Illusion",
+    "title": "",
+    "icon": "UI_MonsterIcon_Chimera_Manticore_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 80209,
+    "name": "Kageroumaru",
+    "title": "",
+    "icon": "UI_MonsterIcon_Inu_Taroumaru_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 80213,
+    "name": "Battle-Hardened Tent Tortoise",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tortoise_Electric",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 80226,
+    "name": "Battle-Hardened Capybara",
+    "title": "",
+    "icon": "UI_MonsterIcon_Capybara_02",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 80228,
+    "name": "Battlegoat's Wraith",
+    "title": "",
+    "icon": "UI_MonsterIcon_Capra_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 80310,
+    "name": "Ironclaw's Phantom",
+    "title": "",
+    "icon": "UI_MonsterIcon_Penguin_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 90101,
+    "name": "Stormterror",
+    "title": "",
+    "icon": "UI_MonsterIcon_Dvalin",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 90201,
+    "name": "Lupus Boreas, Dominator of Wolves",
+    "title": "",
+    "icon": "UI_MonsterIcon_LupiBoreas",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 90301,
+    "name": "Childe",
+    "title": "",
+    "icon": "UI_MonsterIcon_Tartaglia",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 90401,
+    "name": "Azhdaha",
+    "title": "",
+    "icon": "UI_MonsterIcon_Dahaka",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 90501,
+    "name": "La Signora",
+    "title": "",
+    "icon": "UI_MonsterIcon_LaSignora",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 90601,
+    "name": "Raiden Shogun",
+    "title": "",
+    "icon": "UI_MonsterIcon_Shougun_Mitakenarukami",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 90602,
+    "name": "Magatsu Mitake Narukami no Mikoto",
+    "title": "",
+    "icon": "UI_MonsterIcon_Shougun_Mitakenarukami",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 90701,
+    "name": "Shouki no Kami, the Prodigal",
+    "title": "",
+    "icon": "UI_MonsterIcon_Nada",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 90801,
+    "name": "Guardian of Apep's Oasis",
+    "title": "",
+    "icon": "UI_MonsterIcon_Apep",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 90802,
+    "name": "Preliminary Proliferating Organism",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 90803,
+    "name": "Predatory Proliferating Organism",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 90804,
+    "name": "Protective Proliferating Organism",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 90805,
+    "name": "Provender Proliferating Organism",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 90806,
+    "name": "Pernicious Proliferating Organism",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 90807,
+    "name": "Perch Proliferating Organism",
+    "title": "",
+    "icon": "UI_MonsterIcon_Hili_None_01",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 90901,
+    "name": "All-Devouring Narwhal",
+    "title": "",
+    "icon": "UI_MonsterIcon_Ptahur_Devourer",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 91001,
+    "name": "The Knave",
+    "title": "",
+    "icon": "UI_MonsterIcon_Nihil",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 91101,
+    "name": "Lord of Eroded Primal Fire",
+    "title": "",
+    "icon": "UI_MonsterIcon_TheAbyssXiuhcoatl",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 91201,
+    "name": "Chess Game: King Piece",
+    "title": "",
+    "icon": "",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 91202,
+    "name": "Chess Game: Queen Piece",
+    "title": "",
+    "icon": "",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 91211,
+    "name": "Ascended King",
+    "title": "",
+    "icon": "UI_MonsterIcon_GiantChess_King",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 91212,
+    "name": "Sublimated Queen",
+    "title": "",
+    "icon": "UI_MonsterIcon_GiantChess_Queen",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 91220,
+    "name": "The Game Before the Gate",
+    "title": "",
+    "icon": "UI_MonsterIcon_GiantChess",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 91301,
+    "name": "The Doctor",
+    "title": "",
+    "icon": "",
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 91501,
+    "name": "Il Dottore",
+    "title": "",
+    "icon": "UI_MonsterIcon_DrData",
+    "game_version_introduced": "7.0"
+  }
+]

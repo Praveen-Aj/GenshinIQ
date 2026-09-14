@@ -2,15 +2,28 @@
   "id": "mechanics_elemental_reactions",
   "title": "Genshin Impact Elemental Reactions Formula Guide",
   "metadata": {
-    "source": "Genshin Impact Wiki / Theorycrafting Library",
+    "source_id": "src_kqm_tcl",
+    "source": "KQM Theorycrafting Library (TCL)",
     "source_url": "https://library.keqingmains.com/combat-mechanics/elemental-reactions",
-    "source_type": "AUTHORITATIVE",
+    "canonical_url": "https://library.keqingmains.com/",
+    "source_type": "TCL",
+    "authority_tier": 2,
     "character": null,
     "topic": "Game Mechanics",
     "game_version": "5.4",
     "published_at": "2020-09-28T00:00:00Z",
     "updated_at": "2024-05-10T00:00:00Z",
-    "tags": ["Elemental Reactions", "Vaporize", "Melt", "Swirl", "Hyperbloom", "Mechanics"]
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "894b247cf2153cef43beb959953b765a1482f19ecabb47700f2ed269997e004c",
+    "freshness_status": "stale",
+    "tags": [
+      "Elemental Reactions",
+      "Vaporize",
+      "Melt",
+      "Swirl",
+      "Hyperbloom",
+      "Mechanics"
+    ]
   },
   "summary": "Authoritative formulas and multipliers for Genshin Impact's three categories of elemental reactions: Amplifying, Transformative, and Additive (Catalyze).",
   "content": "# Elemental Reactions Formula Specification\n\n## 1. Amplifying Reactions (Vaporize & Melt)\nAmplifying reactions multiply the damage of the triggering attack. They do not deal separate damage and can Crit.\n- **Vaporize**:\n  - Hydro trigger on Pyro: **2.0x** multiplier (\"Forward Vaporize\")\n  - Pyro trigger on Hydro: **1.5x** multiplier (\"Reverse Vaporize\")\n- **Melt**:\n  - Pyro trigger on Cryo: **2.0x** multiplier (\"Forward Melt\")\n  - Cryo trigger on Pyro: **1.5x** multiplier (\"Reverse Melt\")\n- **Formula**: `Reaction DMG = Base Damage * Reaction Multiplier * (1 + EM Bonus + Reaction Bonus)`\n  - EM Bonus: `2.78 * EM / (EM + 1400)`\n\n## 2. Transformative Reactions\nTransformative reactions deal flat damage scaling solely off **Character Level** and **Elemental Mastery**. They ignore target DEF and character ATK/Crit.\n- **Multipliers**:\n  - Overloaded / Bloom: **2.0**\n  - Superconduct: **0.5**\n  - Swirl: **0.6**\n  - Electro-Charged: **1.2**\n  - Shattered: **1.5**\n  - Hyperbloom / Burgeon: **3.0**\n- **Formula**: `Reaction DMG = Reaction Base * Reaction Multiplier * (1 + EM Bonus + Set Bonus) * Enemy RES Multiplier`\n  - EM Bonus: `16 * EM / (EM + 2000)`\n\n## 3. Additive Reactions (Catalyze: Quicken, Spread, Aggravate)\nAdditive reactions add a flat damage bonus directly to the character's base damage before Crit and damage multipliers.\n- **Aggravate** (Electro trigger on Quicken): **1.15** multiplier\n- **Spread** (Dendro trigger on Quicken): **1.25** multiplier\n- **Formula**: `Reaction Bonus = Level Base * Reaction Multiplier * (1 + EM Bonus + Reaction Bonus)`\n  - EM Bonus: `5 * EM / (EM + 1200)`"

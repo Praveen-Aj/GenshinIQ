@@ -1,0 +1,32 @@
+{
+  "id": "kqm_nahida_extended_guide",
+  "title": "KQM Nahida Extended Character & Theorycrafting Guide",
+  "metadata": {
+    "source_id": "src_kqm_guides",
+    "source": "KeqingMains Guides (KQM)",
+    "source_url": "https://keqingmains.com/nahida/",
+    "canonical_url": "https://keqingmains.com/nahida/",
+    "source_type": "KQM",
+    "authority_tier": 2,
+    "character": "Nahida",
+    "topic": "Character Guide",
+    "game_version": "7.0",
+    "published_at": "2022-11-02T00:00:00Z",
+    "updated_at": "2026-08-15T00:00:00Z",
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "e39d335538617109c214a863fd092e7ebfbbbf760d0bc122d2a3f626eb412740",
+    "freshness_status": "current",
+    "tags": [
+      "Nahida",
+      "Dendro",
+      "Catalyst",
+      "Archon",
+      "KQM",
+      "Build Guide",
+      "Hyperbloom",
+      "Quicken"
+    ]
+  },
+  "summary": "Comprehensive KQM guide for Nahida. Covers Tri-Karma Purification scaling, 800-1000 EM thresholds, Deepwood vs Gilded Dreams, weapon rankings, and optimal team rotations.",
+  "content": "# KQM Nahida Comprehensive Theorycrafting Guide\n\n## Overview & Talent Priorities\nNahida is the premier Dendro enabler, sub-DPS, and EM buffer in Genshin Impact. Her Elemental Skill (*All Schemes to Know*) applies a 1.5U Dendro aura and links up to 8 enemies with Tri-Karma Purification, which triggers Dendro DMG whenever an elemental reaction occurs.\n\n### Talent Priority\n1. **Elemental Skill (All Schemes to Know)**: Highest priority. Scales on both ATK (185.8% at Lv 10) and Elemental Mastery (371.5% at Lv 10).\n2. **Elemental Burst (Illusory Heart)**: High priority. Grants flat buffs to Tri-Karma based on active party elements (Pyro increases DMG, Electro reduces trigger interval, Hydro extends duration). Also buffs on-field character EM by up to 250 (25% of highest party member's EM).\n3. **Normal Attack**: Low priority unless playing on-field driver Nahida in Quicken/Hyperbloom.\n\n## Elemental Mastery Targets\n- **Off-Field Support**: Strive for **900–1,000 EM**. Her A4 passive (*Compassion Illuminated*) converts EM above 200 into up to 24% CRIT Rate and 80% DMG Bonus for Tri-Karma Purification, capping at exactly 1,000 EM.\n- **On-Field Driver**: Aim for **750–850 EM**, because her Burst will provide up to 250 EM to the on-field character (bringing her to the 1,000 EM cap). Invest subsequent rolls into Dendro DMG% and CRIT Rate/CRIT DMG.\n\n## Weapon Rankings\n1. **A Thousand Floating Dreams (5★)**: Best-in-Slot. Massive 265 EM substat, party EM buff, and personal Dendro DMG bonus.\n2. **Kagura's Verity (5★)**: Top-tier for personal Tri-Karma damage, especially in Quicken teams.\n3. **Wandering Evenstar (4★)**: Exceptional support catalyst granting party-wide flat ATK based on Nahida's total EM.\n4. **Sacrificial Fragments (4★)**: Strong stat stick (221 EM), ideal for off-field support builds.\n5. **Magic Guide (3★)**: Highly competitive F2P option (187 EM) with a 24% DMG bonus against Hydro/Electro-affected enemies.\n6. **Favonius Codex (4★)**: Recommended when party ER requirements are extremely steep.\n\n## Artifact Sets & Stat Optimization\n- **4-Piece Deepwood Memories**: Default and best choice if no other teammate is holding it (-30% Dendro RES shred is indispensable for team DPS).\n- **4-Piece Gilded Dreams**: Preferred for personal damage if a teammate (such as Zhongli or Kuki Shinobu) already carries 4-Piece Deepwood.\n- **Main Stats**:\n  - Sands: Elemental Mastery\n  - Goblet: Elemental Mastery or Dendro DMG Bonus (Dendro DMG pulls ahead if Nahida already exceeds 850 EM).\n  - Circlet: CRIT Rate, CRIT DMG, or Elemental Mastery.\n\n## Top Team Compositions\n1. **Hyperbloom**: Nahida + Xingqiu/Yelan + Kuki Shinobu/Raiden Shogun (Full EM) + Flex (Zhongli, Furina, or Beidou).\n2. **Quicken / Spread**: Alhaitham/Tighnari + Nahida + Yae Miko/Fischl + Zhongli/Kazuha.\n3. **Nilou Bountiful Bloom**: Nilou + Nahida + Kokomi/Barbara + Collei/Dendro Traveler.\n"
+}

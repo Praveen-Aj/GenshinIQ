@@ -1,0 +1,31 @@
+{
+  "id": "kqm_citlali_guide",
+  "title": "KQM Citlali Character & Theorycrafting Guide",
+  "metadata": {
+    "source_id": "src_kqm_guides",
+    "source": "KeqingMains Guides (KQM)",
+    "source_url": "https://keqingmains.com/citlali/",
+    "canonical_url": "https://keqingmains.com/citlali/",
+    "source_type": "KQM",
+    "authority_tier": 2,
+    "character": "Citlali",
+    "topic": "Character Guide",
+    "game_version": "5.4",
+    "published_at": "2025-01-10T00:00:00Z",
+    "updated_at": "2025-02-15T00:00:00Z",
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "37b467b35d941f3194f83f4a3dc082296e5c540e8cc6d8d1023cbb3d1d63c510",
+    "freshness_status": "stale",
+    "tags": [
+      "Citlali",
+      "Cryo",
+      "Catalyst",
+      "Natlan",
+      "Shield",
+      "Melt",
+      "KQM"
+    ]
+  },
+  "summary": "Authoritative KQM theorycrafting guide for Citlali: 5-star Cryo Catalyst shielder and off-field Cryo buffer. Details shield scaling with Elemental Mastery/ATK, Freeze and Melt synergies with Mavuika/Arlecchino, artifact sets (Scroll of the Hero of Cinder City), and weapon choices.",
+  "content": "# Citlali Character & Theorycrafting Guide (KQM)\n\n![Citlali](https://enka.network/ui/UI_AvatarIcon_Citlali.png)\n\n## Overview & Playstyle\nCitlali is a 5-star Cryo Catalyst support and shielder hailing from Natlan's Masters of the Night-Wind tribe. She excels at providing high-uptime Cryo shields, consistent off-field Cryo application, and powerful Elemental Mastery/DMG buffs via Nightsoul reactions.\n\n## Talent Priority & Crowning Order\n1. **Elemental Skill (Highest Priority)**: Dictates her shield strength and off-field Tzitzimitl summon damage.\n2. **Elemental Burst (High Priority)**: Delivers AoE Cryo damage and triggers coordinated bursts.\n3. **Normal Attack (Low Priority)**: Can be left at Level 1 unless played in niche on-field driver comps.\n\n## Stat Priorities & Desired Substats\n- **Sands**: Elemental Mastery (or Energy Recharge)\n- **Goblet**: Elemental Mastery (or Cryo DMG Bonus)\n- **Circlet**: Elemental Mastery (or CRIT Rate for Favonius Codex)\n- **Substat Priority**: Elemental Mastery > Energy Recharge (~140-160%) > CRIT Rate > ATK%.\n\n## Recommended Artifact Sets\n1. **Scroll of the Hero of Cinder City (4-Piece)**: BiS support set. Provides +40% Elemental DMG bonus to reacted elements (Cryo + Pyro for Melt teams).\n2. **Instructor (4-Piece)**: Strong 4-star option for +120 teamwide EM.\n3. **Tenacity of the Millelith / Noblesse Oblige**: Solid alternatives for ATK buffs.\n\n## Weapon Rankings\n1. **Starcaller's Watch (5★)**: Signature weapon providing massive EM and partywide buffs.\n2. **A Thousand Floating Dreams (5★)**: High EM stat stick with party EM sharing.\n3. **Favonius Codex (4★)**: Top-tier utility for team energy generation.\n4. **Sacrificial Fragments (4★)**: 221 EM with Skill CD reset.\n\n## Best Team Compositions\n1. **Mavuika Forward Melt**: Mavuika + Citlali + Kaedehara Kazuha / Xilonen + Bennett. Citlali's consistent off-field Cryo enables Mavuika to trigger massive 2.0x Forward Melt multipliers.\n2. **Arlecchino Reverse Melt**: Arlecchino + Citlali + Yelan + Bennett.\n3. **Neuvillette Freeze**: Neuvillette + Citlali + Furina + Kazuha."
+}

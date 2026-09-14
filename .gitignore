@@ -71,3 +71,11 @@ data/runtime/
 data/raw/game_data/
 *.sqlite
 *.db
+
+# User-Specific Exports & Archives
+# GOOD v3 exports contain personal account data and should not be committed.
+genshinData_GOOD_*.json
+*.zip
+
+# Agents / IDE Artifacts
+.agents/

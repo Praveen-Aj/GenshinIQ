@@ -1,0 +1,398 @@
+{
+  "$schema": "./coverage_contract_schema.json",
+  "contract_version": "1.0",
+  "game_version": "7.0",
+  "patch_name": "The Stars Turn Anew",
+  "release_date": "2026-09-02",
+  "created_at": "2026-09-10T16:45:00Z",
+  "description": "Formal version-completeness coverage contract specifying mandatory entity requirements, sources, required fields, and validation rules for Genshin Impact Version 7.0.",
+  "structured_data": {
+    "characters": {
+      "expected_count": 119,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "mandatory": true,
+      "required_fields": [
+        "id",
+        "name",
+        "element",
+        "weapon_type",
+        "rarity",
+        "base_hp_lvl90",
+        "base_atk_lvl90",
+        "base_def_lvl90",
+        "talents",
+        "constellations"
+      ],
+      "validation_rules": [
+        "base_hp_lvl90 > 0",
+        "base_atk_lvl90 > 0",
+        "base_def_lvl90 > 0",
+        "len(talents) >= 3",
+        "len(constellations) == 6"
+      ]
+    },
+    "weapons": {
+      "expected_count": 246,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "mandatory": true,
+      "required_fields": [
+        "id",
+        "name",
+        "weapon_type",
+        "rarity",
+        "base_atk_lvl1",
+        "base_atk_lvl90"
+      ],
+      "validation_rules": [
+        "base_atk_lvl1 > 0",
+        "base_atk_lvl90 >= base_atk_lvl1"
+      ]
+    },
+    "artifacts": {
+      "expected_count": 63,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "mandatory": true,
+      "required_fields": [
+        "id",
+        "name"
+      ],
+      "validation_rules": [
+        "len(name) > 0"
+      ]
+    },
+    "materials": {
+      "expected_count": 200,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "mandatory": true,
+      "required_fields": [
+        "id",
+        "name"
+      ],
+      "validation_rules": [
+        "len(name) > 0"
+      ]
+    },
+    "curves": {
+      "expected_count": 2,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "mandatory": true,
+      "required_fields": [
+        "avatar_curves",
+        "weapon_curves"
+      ],
+      "validation_rules": [
+        "strictly_non_decreasing_1_to_90"
+      ]
+    },
+    "domains": {
+      "expected_count": 1,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "mandatory": true,
+      "required_fields": [
+        "schedules"
+      ],
+      "validation_rules": [
+        "valid_rotation_mapping"
+      ]
+    },
+    "relationships": {
+      "expected_count": 1,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "mandatory": true,
+      "required_fields": [
+        "character_talent_material_links"
+      ],
+      "validation_rules": [
+        "all_materials_exist"
+      ]
+    }
+  },
+  "game_content": {
+    "quests": {
+      "expected_count": 50,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "source_tables": [
+        "ChapterExcelConfigData.json",
+        "MainQuestExcelConfigData.json"
+      ],
+      "mandatory": true,
+      "required_fields": [
+        "id",
+        "title"
+      ],
+      "validation_rules": [
+        "non_empty_title"
+      ]
+    },
+    "events": {
+      "expected_count": 10,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "source_tables": [
+        "ActivityExcelConfigData.json"
+      ],
+      "mandatory": true,
+      "required_fields": [
+        "id",
+        "name"
+      ],
+      "validation_rules": [
+        "non_empty_name"
+      ]
+    },
+    "domains": {
+      "expected_count": 40,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "source_tables": [
+        "DungeonExcelConfigData.json",
+        "DailyDungeonConfigData.json"
+      ],
+      "mandatory": true,
+      "required_fields": [
+        "id",
+        "name",
+        "type"
+      ],
+      "validation_rules": [
+        "non_empty_name"
+      ]
+    },
+    "enemies": {
+      "expected_count": 80,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "source_tables": [
+        "MonsterDescribeExcelConfigData.json"
+      ],
+      "mandatory": true,
+      "required_fields": [
+        "id",
+        "name",
+        "title"
+      ],
+      "validation_rules": [
+        "non_empty_name"
+      ]
+    },
+    "regions": {
+      "expected_count": 7,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "source_tables": [
+        "CityConfigData.json",
+        "WorldAreaConfigData.json"
+      ],
+      "mandatory": true,
+      "required_fields": [
+        "id",
+        "name"
+      ],
+      "validation_rules": [
+        "non_empty_name"
+      ]
+    },
+    "achievements": {
+      "expected_count": 100,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "source_tables": [
+        "AchievementExcelConfigData.json"
+      ],
+      "mandatory": true,
+      "required_fields": [
+        "id",
+        "title",
+        "description"
+      ],
+      "validation_rules": [
+        "non_empty_title"
+      ]
+    },
+    "crafting": {
+      "expected_count": 50,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "source_tables": [
+        "CookRecipeExcelConfigData.json",
+        "CompoundExcelConfigData.json"
+      ],
+      "mandatory": true,
+      "required_fields": [
+        "id",
+        "name"
+      ],
+      "validation_rules": [
+        "non_empty_name"
+      ]
+    },
+    "farming": {
+      "expected_count": 3,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "mandatory": true,
+      "required_fields": [
+        "daily_schedule"
+      ],
+      "validation_rules": [
+        "weekday_rotation_valid"
+      ]
+    },
+    "mechanics": {
+      "expected_source": "src_hoyoverse_official",
+      "source_authority": "OFFICIAL",
+      "expected_count": 1,
+      "mandatory": true,
+      "required_fields": [
+        "combat_system_rules"
+      ],
+      "validation_rules": [
+        "authoritative_verified"
+      ]
+    }
+  },
+  "knowledge": {
+    "character_guides": {
+      "expected_count": 96,
+      "expected_source": "src_genshin_fandom_wiki",
+      "source_authority": "COMMUNITY",
+      "mandatory": true,
+      "required_fields": [
+        "overview",
+        "talents"
+      ],
+      "validation_rules": [
+        "no_forbidden_placeholders",
+        "valid_character_name"
+      ]
+    },
+    "weapon_knowledge": {
+      "expected_count": 246,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "mandatory": true,
+      "required_fields": [
+        "base_atk",
+        "sub_stat",
+        "passives",
+        "refinements"
+      ],
+      "validation_rules": [
+        "no_forbidden_placeholders"
+      ]
+    },
+    "artifact_guides": {
+      "expected_count": 51,
+      "expected_source": "src_genshin_fandom_wiki",
+      "source_authority": "COMMUNITY",
+      "mandatory": true,
+      "required_fields": [
+        "set_effects"
+      ],
+      "validation_rules": [
+        "valid_set_name"
+      ]
+    },
+    "team_building": {
+      "expected_count": 1,
+      "expected_source": "src_kqm_guides",
+      "source_authority": "THEORYCRAFTING",
+      "mandatory": true,
+      "required_fields": [
+        "team_archetypes"
+      ],
+      "validation_rules": [
+        "synergy_documented"
+      ]
+    },
+    "mechanics": {
+      "expected_count": 12,
+      "expected_source": "src_kqm_tcl",
+      "source_authority": "THEORYCRAFTING",
+      "mandatory": true,
+      "required_fields": [
+        "formula",
+        "mechanic_description"
+      ],
+      "validation_rules": [
+        "no_speculative_claims"
+      ]
+    },
+    "theorycrafting": {
+      "expected_count": 15,
+      "expected_source": "src_kqm_guides",
+      "source_authority": "THEORYCRAFTING",
+      "mandatory": true,
+      "required_fields": [
+        "stat_priorities",
+        "weapon_rankings",
+        "artifact_rankings",
+        "rotation_notes"
+      ],
+      "validation_rules": [
+        "valid_kqm_extended_guide"
+      ]
+    },
+    "farming": {
+      "expected_count": 3,
+      "expected_source": "src_hoyoverse_official",
+      "source_authority": "OFFICIAL",
+      "mandatory": true,
+      "required_fields": [
+        "schedule"
+      ],
+      "validation_rules": [
+        "valid_domain_mapping"
+      ]
+    },
+    "current_version_changes": {
+      "expected_count": 1,
+      "expected_source": "src_hoyoverse_patch_notes",
+      "source_authority": "OFFICIAL",
+      "mandatory": true,
+      "required_fields": [
+        "version",
+        "patch_name",
+        "release_notes",
+        "source_url"
+      ],
+      "validation_rules": [
+        "game_version == '7.0'",
+        "freshness == 'current'"
+      ]
+    }
+  },
+  "provenance_rules": {
+    "required_fields": [
+      "source_id",
+      "source_url",
+      "retrieved_at",
+      "content_hash"
+    ],
+    "approved_source_ids": [
+      "src_hoyoverse_official",
+      "src_hoyoverse_patch_notes",
+      "src_animegamedata",
+      "src_project_amber",
+      "src_kqm_guides",
+      "src_kqm_tcl",
+      "src_genshin_db",
+      "src_genshindev_api",
+      "src_genshin_fandom_wiki"
+    ],
+    "forbid_placeholders": true,
+    "forbid_unregistered_sources": true
+  },
+  "freshness_rules": {
+    "target_version": "7.0",
+    "max_compatible_patch_distance": 2.0
+  }
+}

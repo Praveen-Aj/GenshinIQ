@@ -1,0 +1,29 @@
+{
+  "id": "mechanics_poise_interruption_resistance",
+  "title": "Genshin Impact Poise, Stagger, and Interruption Resistance Mechanics",
+  "metadata": {
+    "source_id": "src_kqm_tcl",
+    "source": "KQM Theorycrafting Library (TCL)",
+    "source_url": "https://library.keqingmains.com/combat-mechanics/poise",
+    "canonical_url": "https://library.keqingmains.com/",
+    "source_type": "TCL",
+    "authority_tier": 2,
+    "character": null,
+    "topic": "Game Mechanics",
+    "game_version": "7.0",
+    "published_at": "2021-08-14T00:00:00Z",
+    "updated_at": "2026-06-25T00:00:00Z",
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "7ba35d358f869179972a23009e21ec422d47b84324a53ecfd9c8da8e7db21382",
+    "freshness_status": "current",
+    "tags": [
+      "Poise",
+      "Interruption Resistance",
+      "Stagger",
+      "Hyperarmor",
+      "Mechanics"
+    ]
+  },
+  "summary": "KQM TCL specification of character and enemy poise health, stagger thresholds, and multiplicative interruption resistance stacking.",
+  "content": "# Poise Health, Stagger, and Interruption Resistance\n\n## 1. Poise Health and Poise Damage\nEvery entity (player character and enemy monster) has a hidden **Poise Health** bar:\n- **Base Character Poise**: Most humanoid characters have a base Poise Health of **100 points**.\n- When an enemy attack connects, it inflicts **Poise Damage**.\n- If accumulated Poise Damage exceeds the character's remaining Poise Health, the character suffers a **Stagger State** (Flinch, Knockback, or Knockup).\n- Poise Health regenerates to full after 3.0 seconds without taking poise damage.\n\n## 2. Interruption Resistance Multipliers\nAbilities modify the incoming Poise Damage via an **Interruption Resistance Multiplier** ($M$):\n$$\\text{Effective Poise Damage Taken} = \\text{Incoming Poise Damage} \\times M$$\n- Lower values of $M$ provide stronger poise. An $M = 0$ corresponds to **Infinite Poise (Hyperarmor)**.\n\n### Common Skill Multipliers:\n- **Active Shields (Zhongli, Layla, Thoma, Diona)**: $M = 0$ (Complete immunity to stagger as long as shield holds).\n- **Raiden Shogun (Musou Isshin state)**: $M = 0$ (Unconditional hyperarmor).\n- **Xingqiu Rain Swords**: $M = 0.30$ (70% reduction in incoming poise damage).\n- **Dehya Fiery Sanctum (Gold-Forged Form)**: $M = 0$ for 9s after casting.\n- **Hu Tao (Paramita Papilio)**: $M = 0.50$ (50% reduction in incoming poise damage).\n\n## 3. Multiplicative Stacking of Interruption Resistance\nInterruption resistance buffs **stack multiplicatively**:\n$$\\text{Combined } M = M_1 \\times M_2$$\n- Example: Pairing **Xingqiu ($M=0.30$)** with **Hu Tao ($M=0.50$)**:\n  $$\\text{Combined } M = 0.30 \\times 0.50 = 0.15$$\n  Incoming poise damage is reduced by 85%, creating near-unbreakable resistance to stagger without a shielder.\n"
+}

@@ -2,15 +2,29 @@
   "id": "kqm_kaedehara_kazuha_guide",
   "title": "KQM Kaedehara Kazuha Character & Theorycrafting Guide",
   "metadata": {
-    "source": "KeqingMains (KQM)",
+    "source_id": "src_kqm_guides",
+    "source": "KeqingMains Guides (KQM)",
     "source_url": "https://keqingmains.com/kazuha/",
-    "source_type": "THEORYCRAFTING",
+    "canonical_url": "https://keqingmains.com/kaedehara-kazuha/",
+    "source_type": "KQM",
+    "authority_tier": 2,
     "character": "Kaedehara Kazuha",
     "topic": "Character Guide",
     "game_version": "5.4",
     "published_at": "2021-06-29T00:00:00Z",
     "updated_at": "2024-09-20T00:00:00Z",
-    "tags": ["Kaedehara Kazuha", "Anemo", "Support", "Buffer", "KQM", "Artifacts", "Weapons"]
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "e9cb50b3a14f49fc8a32611662ed989e4f60b04c0c766b47e469942045b02201",
+    "freshness_status": "stale",
+    "tags": [
+      "Kaedehara Kazuha",
+      "Anemo",
+      "Support",
+      "Buffer",
+      "KQM",
+      "Artifacts",
+      "Weapons"
+    ]
   },
   "summary": "Authoritative KQM guide covering Kaedehara Kazuha's Elemental Mastery scaling, Swirl double-buffing techniques, Viridescent Venerer set, and weapon options (Favonius vs Xiphos vs Freedom-Sworn).",
   "content": "# Kaedehara Kazuha Character & Theorycrafting Guide (KQM)\n\n![Kaedehara Kazuha](https://enka.network/ui/UI_AvatarIcon_Kazuha.png)\n\n## Overview & Playstyle\nKaedehara Kazuha is a 5-star Anemo Sword support who stands as one of the game's premier elemental buffers and crowd-controllers. He groups enemies, shreds their elemental resistances via Swirl, and grants elemental damage buffs to his team scaling directly off his total Elemental Mastery.\n\n### Core Mechanics & Swirl Buffing\n- **Poetics of Fuubutsu (Passive)**: Upon triggering a Swirl reaction, Kazuha grants all party members a 0.04% Elemental DMG Bonus to the swirled element for every point of Elemental Mastery he has for 8s. (e.g. 1,000 EM yields a 40% DMG bonus).\n- **Double Swirling**: By utilizing specific elemental application orders, Kazuha can swirl two different elements (e.g. Pyro and Hydro in Vaporize teams) in a single rotation, buffing and shredding resistances for both elements simultaneously.\n- **Chihayaburu (Elemental Skill)**: Pulls enemies and objects in while launching Kazuha into the air. Triggering Midare Ranzan (Plunging Attack) converts plunge damage to Anemo and creates a small wind tunnel.\n\n## Talent Priority\n- **Triple Level 8 (Balanced Support)**: While his personal swirl damage scales entirely off character level and EM (ignoring talent levels), leveling his Normal Attack (for Midare Ranzan plunge scaling), Elemental Skill, and Elemental Burst provides good extra raw damage. Normal/Plunge > Skill/Burst.\n\n## Stat Priorities & ER Requirements\n- **Sands**: Elemental Mastery (or ER if struggling to burst)\n- **Goblet**: Elemental Mastery\n- **Circlet**: Elemental Mastery\n- **Energy Recharge Requirements**:\n  - Solo Anemo: 160 - 200% ER\n  - Double Anemo or Favonius: 140 - 160% ER\n  - Prioritize hitting your ER requirements first; a Kazuha who cannot burst is a significant team damage loss.\n\n## Recommended Artifact Sets\n1. **Viridescent Venerer (4-Piece)**: Mandatory and non-negotiable. Shreds swirled elemental resistance by 40% for 10s. This is the cornerstone of his utility.\n\n## Weapon Rankings\n\n![Freedom-Sworn](https://enka.network/ui/UI_EquipIcon_Sword_Narukami.png)\n\n1. **Freedom-Sworn (5★)**: Signature and BiS. Grants EM, increases overall team Normal/Charged/Plunging DMG by 16% and ATK by 20%.\n2. **Xiphos' Moonlight (4★ R5)**: Best alternative. Grants EM and converts EM into personal ER and flat ER for the entire team (greatly lowering team ER requirements).\n3. **Favonius Sword (4★)**: Exceptional utility. Generates clear particles on crit, lowering team-wide ER needs.\n4. **Iron Sting (4★)**: F2P craftable stat stick for EM."

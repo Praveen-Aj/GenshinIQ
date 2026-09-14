@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-12T09:34:10.701680+00:00",
+  "total_gaps_tracked": 8,
+  "gaps": [
+    {
+      "gap_id": "gap_natlan_nightsoul_burst_gauge_consumption",
+      "topic": "Game Mechanics",
+      "entity": "Natlan Nightsoul & Phlogiston Systems",
+      "version": "5.0+",
+      "question": "What are the exact Nightsoul Transmission point decay rates and Phlogiston consumption curves while traversing steep cliff faces vs lava terrain in Natlan?",
+      "status": "OPEN_INVESTIGATING",
+      "recommended_source": "src_kqm_tcl",
+      "notes": "Ongoing measurement in KQM TCL; exact terrain angle multipliers have not yet been fully parameterized into structured data."
+    },
+    {
+      "gap_id": "gap_plunge_collision_damage_scaling",
+      "topic": "Game Mechanics",
+      "entity": "Plunge Attack Physics & Xianyun Synergy",
+      "version": "4.4+",
+      "question": "What is the exact low-plunge vs high-plunge collision hitbox radius and damage falloff percentage for claymore characters during Xianyun high jumps?",
+      "status": "OPEN_INVESTIGATING",
+      "recommended_source": "src_kqm_tcl",
+      "notes": "Low vs high plunge threshold is determined by vertical fall duration (approx 0.3s cutoff); hitlag interaction against flying enemies requires further verified empirical data."
+    },
+    {
+      "gap_id": "gap_spiral_abyss_12_poise_decay_rates",
+      "topic": "Combat Theorycrafting",
+      "entity": "Elite Consecrated & Local Legend Enemies",
+      "version": "5.0+",
+      "question": "What are the exact Poise Health recovery rates and stagger immunity cooldown windows for Natlan Local Legends (e.g., Cautious Balachko, Polychrome Tri-Stars)?",
+      "status": "AWAITING_SOURCE",
+      "recommended_source": "src_kqm_tcl",
+      "notes": "Local legends possess modified stagger thresholds that do not conform to standard humanoid 100 poise bar recovery; awaiting standardized poise data catalog."
+    },
+    {
+      "gap_id": "gap_xilonen_build_and_rotations",
+      "topic": "Character Theorycrafting",
+      "entity": "Xilonen (ID 10000103)",
+      "field": "build_and_rotations",
+      "version": "7.0",
+      "question": "What are the authoritative 7.0 build and rotations recommendations for Xilonen?",
+      "status": "AWAITING_EXPERT_SOURCE",
+      "recommended_source": "src_kqm_guides",
+      "notes": "Character released in 5.1; peer-reviewed KQM guide not yet published for 7.0",
+      "registered_at": "2026-09-12T09:28:09.936611+00:00"
+    },
+    {
+      "gap_id": "gap_chasca_build_and_rotations",
+      "topic": "Character Theorycrafting",
+      "entity": "Chasca (ID 10000104)",
+      "field": "build_and_rotations",
+      "version": "7.0",
+      "question": "What are the authoritative 7.0 build and rotations recommendations for Chasca?",
+      "status": "AWAITING_EXPERT_SOURCE",
+      "recommended_source": "src_kqm_guides",
+      "notes": "Character released in 5.2; peer-reviewed KQM guide not yet published for 7.0",
+      "registered_at": "2026-09-12T09:28:10.029196+00:00"
+    },
+    {
+      "gap_id": "gap_ororon_build_and_rotations",
+      "topic": "Character Theorycrafting",
+      "entity": "Ororon (ID 10000105)",
+      "field": "build_and_rotations",
+      "version": "7.0",
+      "question": "What are the authoritative 7.0 build and rotations recommendations for Ororon?",
+      "status": "AWAITING_EXPERT_SOURCE",
+      "recommended_source": "src_kqm_guides",
+      "notes": "Character released in 5.2; peer-reviewed KQM guide not yet published for 7.0",
+      "registered_at": "2026-09-12T09:28:10.110700+00:00"
+    },
+    {
+      "gap_id": "gap_lan_yan_build_and_rotations",
+      "topic": "Character Theorycrafting",
+      "entity": "Lan Yan (ID 10000108)",
+      "field": "build_and_rotations",
+      "version": "7.0",
+      "question": "What are the authoritative 7.0 build and rotations recommendations for Lan Yan?",
+      "status": "AWAITING_EXPERT_SOURCE",
+      "recommended_source": "src_kqm_guides",
+      "notes": "Character released in 5.3; peer-reviewed KQM guide not yet published for 7.0",
+      "registered_at": "2026-09-12T09:28:10.372701+00:00"
+    },
+    {
+      "gap_id": "gap_yumemizuki_mizuki_build_and_rotations",
+      "topic": "Character Theorycrafting",
+      "entity": "Yumemizuki Mizuki (ID 10000109)",
+      "field": "build_and_rotations",
+      "version": "7.0",
+      "question": "What are the authoritative 7.0 build and rotations recommendations for Yumemizuki Mizuki?",
+      "status": "AWAITING_EXPERT_SOURCE",
+      "recommended_source": "src_kqm_guides",
+      "notes": "Character released in 5.4; peer-reviewed KQM guide not yet published for 7.0",
+      "registered_at": "2026-09-12T09:28:10.457761+00:00"
+    }
+  ]
+}

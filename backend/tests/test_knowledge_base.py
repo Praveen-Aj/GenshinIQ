@@ -18,8 +18,8 @@ def test_load_knowledge_documents():
     assert arle.title == (
         "KQM Arlecchino Extended Character & Theorycrafting Guide"
     )
-    assert arle.metadata.source == "KeqingMains (KQM)"
-    assert arle.metadata.source_type == SourceType.THEORYCRAFTING
+    assert "KeqingMains" in arle.metadata.source
+    assert arle.metadata.source_type in (SourceType.KQM, SourceType.THEORYCRAFTING)
     assert arle.metadata.character == "Arlecchino"
     assert "Bond of Life" in arle.content
 
@@ -39,17 +39,26 @@ def test_list_knowledge_documents_with_filters():
     assert "mechanics_elemental_reactions" in ids
 
     # Filter by source type
-    auth_docs = knowledge_service.list_documents(
-        source_type=SourceType.AUTHORITATIVE
+    tcl_docs = knowledge_service.list_documents(
+        source_type=SourceType.TCL
     )
-    assert len(auth_docs) >= 3
+    assert len(tcl_docs) >= 8
+
+    community_docs = knowledge_service.list_documents(
+        source_type=SourceType.COMMUNITY
+    )
+    assert len(community_docs) >= 140
 
 
 def test_get_document_by_id():
     """Verify retrieval of specific documents."""
     doc = knowledge_service.get_document("mechanics_bond_of_life")
     assert doc is not None
-    assert doc.metadata.source_type == SourceType.AUTHORITATIVE
+    assert doc.metadata.source_type == SourceType.TCL
+    assert doc.metadata.authority_tier == 2
+    assert doc.metadata.source_id == "src_kqm_tcl"
+    assert doc.metadata.canonical_url == "https://library.keqingmains.com/"
+    assert len(doc.metadata.content_hash) == 64
     assert "200% of their Max HP" in doc.content
 
 
@@ -73,7 +82,7 @@ def test_api_list_documents():
     data = response.json()
     assert len(data) >= 1
     assert any(d["id"] == "kqm_furina_guide" for d in data)
-    assert any(d["metadata"]["source_type"] == "THEORYCRAFTING" for d in data)
+    assert any(d["metadata"]["source_type"] in ("KQM", "THEORYCRAFTING") for d in data)
 
 
 def test_api_get_document():

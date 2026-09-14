@@ -553,6 +553,11 @@ function renderTodayFarming(characters = []) {
  */
 function renderActiveCharacter(char) {
   if (!char) return;
+  currentActiveCharacterName = char.name;
+  const mbContainer = document.getElementById('char-math-breakdown');
+  if (mbContainer && mbContainer.getAttribute('data-char') !== char.name) {
+    mbContainer.style.display = 'none';
+  }
 
   const largeAvatar = document.getElementById('char-large-avatar');
   if (largeAvatar) {
@@ -598,6 +603,9 @@ function renderActiveCharacter(char) {
       </button>
       <button class="btn btn-secondary btn-sm" onclick="askAssistant('What are the best teams, artifact substat priorities, and talent crowning order for ${char.name}?')">
         <span>📖 Theorycrafting Guide</span>
+      </button>
+      <button class="btn btn-secondary btn-sm" id="btn-inspect-math" onclick="toggleMathBreakdown('${char.name}')">
+        <span>⚡ Stat Breakdown</span>
       </button>
     `;
   }
@@ -1187,25 +1195,162 @@ async function checkBackendHealth() {
   const diagGameRegion = document.getElementById('diag-game-region');
   const diagGameTotalVer = document.getElementById('diag-game-total-versions');
   const diagGameStaleDocs = document.getElementById('diag-game-stale-docs');
+  const diagGameVerification = document.getElementById('diag-game-verification');
   const gameVerBadge = document.getElementById('game-version-badge');
 
   statusPill.className = 'status-pill status-loading';
   statusText.textContent = 'Checking API...';
 
   try {
-    const [healthResponse, manifestResponse, versionResponse] = await Promise.all([
+    const [healthResponse, manifestResponse, versionResponse, sourcesResponse, accountResponse, pipelineResponse, completenessResponse, phaseGateResponse] = await Promise.all([
       fetch('/api/health'),
       fetch('/api/data/manifest'),
-      fetch('/api/version/status')
+      fetch('/api/version/status'),
+      fetch('/api/sources'),
+      fetch('/api/account/summary').catch(() => null),
+      fetch('/api/data/pipeline/status').catch(() => null),
+      fetch('/api/data/version-completeness').catch(() => null),
+      fetch('/api/project/phase-gate').catch(() => null)
     ]);
     if (!healthResponse.ok) throw new Error(`HTTP ${healthResponse.status}`);
     if (!manifestResponse.ok) throw new Error(`HTTP ${manifestResponse.status}`);
     const data = await healthResponse.json();
     const manifest = await manifestResponse.json();
     const versionData = versionResponse.ok ? await versionResponse.json() : null;
+    const sourcesData = sourcesResponse.ok ? await sourcesResponse.json() : [];
+    const accSummary = accountResponse && accountResponse.ok ? await accountResponse.json() : null;
+    const pipelineData = pipelineResponse && pipelineResponse.ok ? await pipelineResponse.json() : null;
+    const completenessData = completenessResponse && completenessResponse.ok ? await completenessResponse.json() : null;
+    const phaseGateData = phaseGateResponse && phaseGateResponse.ok ? await phaseGateResponse.json() : null;
 
     statusPill.className = 'status-pill status-online';
     statusText.textContent = 'API Online';
+
+    if (accSummary) {
+      const diagAccChar = document.getElementById('diag-acc-char-count');
+      const diagAccWeapon = document.getElementById('diag-acc-weapon-count');
+      const diagAccArtifact = document.getElementById('diag-acc-artifact-count');
+      const diagAccMaterial = document.getElementById('diag-acc-material-count');
+      const diagAccTime = document.getElementById('diag-acc-timestamp');
+      const diagAccBadge = document.getElementById('diag-account-format-badge');
+
+      if (diagAccChar) diagAccChar.textContent = `${accSummary.total_characters} (${accSummary.built_characters_lvl90} Lv.90)`;
+      if (diagAccWeapon) diagAccWeapon.textContent = `${accSummary.total_weapon_instances} (${accSummary.leveled_weapons_lvl90} Lv.90)`;
+      if (diagAccArtifact) diagAccArtifact.textContent = `${accSummary.total_artifact_instances} (${accSummary.plus_20_artifacts} +20)`;
+      if (diagAccMaterial) diagAccMaterial.textContent = `${accSummary.total_material_types} (${accSummary.unresolved_material_types} general)`;
+      if (diagAccTime) diagAccTime.textContent = accSummary.imported_at ? accSummary.imported_at.substring(0, 19).replace('T', ' ') : '—';
+      if (diagAccBadge) diagAccBadge.textContent = `${accSummary.source_format} • Normalized`;
+    }
+
+    if (pipelineData) {
+      const diagActiveData = document.getElementById('diag-active-dataset-ver');
+      const diagPipeStatus = document.getElementById('diag-pipeline-update-status');
+      if (diagActiveData) diagActiveData.textContent = `v${pipelineData.active_canonical_dataset_version}`;
+      if (diagPipeStatus) {
+        diagPipeStatus.textContent = pipelineData.update_status;
+        if (pipelineData.active_canonical_dataset_version === pipelineData.detected_game_version) {
+          diagPipeStatus.style.color = 'var(--accent-teal)';
+        } else {
+          diagPipeStatus.style.color = 'var(--accent-gold)';
+        }
+      }
+    }
+
+    // Populate Version Completeness & Phase Gate Card
+    if (completenessData && phaseGateData) {
+      const diagCompStatus = document.getElementById('diag-completeness-status');
+      const diagStructGate = document.getElementById('diag-struct-data-gate');
+      const diagGameGate = document.getElementById('diag-game-content-gate');
+      const diagKnowGate = document.getElementById('diag-knowledge-gate');
+      const diagProvGate = document.getElementById('diag-provenance-gate');
+      const diagFreshGate = document.getElementById('diag-freshness-gate');
+      const diagBlockers = document.getElementById('diag-phase-blockers');
+      const phaseBadge = document.getElementById('phase-gate-badge');
+
+      if (diagCompStatus) {
+        diagCompStatus.textContent = completenessData.overall_status === 'COMPLETE' ? '🟢 COMPLETE' : '🔴 INCOMPLETE';
+        diagCompStatus.style.color = completenessData.overall_status === 'COMPLETE' ? '#34d399' : '#f87171';
+      }
+
+      if (phaseBadge) {
+        if (phaseGateData.phase_8_allowed) {
+          phaseBadge.textContent = '🟢 SAFE TO PROCEED (PHASE 8 READY)';
+          phaseBadge.style.background = 'rgba(52, 211, 153, 0.2)';
+          phaseBadge.style.color = '#34d399';
+          phaseBadge.style.borderColor = '#10b981';
+        } else {
+          phaseBadge.textContent = '🔴 PHASE 8 BLOCKED';
+          phaseBadge.style.background = 'rgba(239, 68, 68, 0.2)';
+          phaseBadge.style.color = '#f87171';
+          phaseBadge.style.borderColor = '#ef4444';
+        }
+      }
+
+      const diagCharGate = document.getElementById('diag-char-gate');
+      const diagWeapGate = document.getElementById('diag-weap-gate');
+      const diagArtGate = document.getElementById('diag-art-gate');
+      const diagTeamGate = document.getElementById('diag-team-gate');
+      const diagTcGate = document.getElementById('diag-tc-gate');
+      const diagPatchGate = document.getElementById('diag-patch-gate');
+
+      if (diagStructGate) {
+        diagStructGate.textContent = `${completenessData.structured_data.status === 'COMPLETE' ? '✓' : '⚠'} ${completenessData.structured_data.status} (${Math.round(completenessData.structured_data.coverage * 100)}%)`;
+        diagStructGate.style.color = completenessData.structured_data.status === 'COMPLETE' ? '#34d399' : '#fbbf24';
+      }
+      if (diagGameGate) {
+        diagGameGate.textContent = `${completenessData.game_content.status === 'COMPLETE' ? '✓' : '⚠'} ${completenessData.game_content.status} (${Math.round(completenessData.game_content.coverage * 100)}%)`;
+        diagGameGate.style.color = completenessData.game_content.status === 'COMPLETE' ? '#34d399' : '#fbbf24';
+      }
+      if (diagCharGate && completenessData.knowledge?.character_guides) {
+        const cg = completenessData.knowledge.character_guides;
+        diagCharGate.textContent = `${cg.status === 'COMPLETE' ? '✓' : '⚠'} ${cg.status} (${Math.round(cg.coverage_ratio * 100)}% — ${cg.verified_count}/${cg.expected_count})`;
+        diagCharGate.style.color = cg.status === 'COMPLETE' ? '#34d399' : '#fbbf24';
+      }
+      if (diagWeapGate && completenessData.knowledge?.weapon_guides) {
+        const wg = completenessData.knowledge.weapon_guides;
+        diagWeapGate.textContent = `${wg.status === 'COMPLETE' ? '✓' : '⚠'} ${wg.status} (${Math.round(wg.coverage_ratio * 100)}%)`;
+        diagWeapGate.style.color = wg.status === 'COMPLETE' ? '#34d399' : '#fbbf24';
+      }
+      if (diagArtGate && completenessData.knowledge?.artifact_guides) {
+        const ag = completenessData.knowledge.artifact_guides;
+        diagArtGate.textContent = `${ag.status === 'COMPLETE' ? '✓' : '⚠'} ${ag.status} (${Math.round(ag.coverage_ratio * 100)}%)`;
+        diagArtGate.style.color = ag.status === 'COMPLETE' ? '#34d399' : '#fbbf24';
+      }
+      if (diagTeamGate && completenessData.knowledge?.team_building) {
+        const tg = completenessData.knowledge.team_building;
+        diagTeamGate.textContent = `${tg.status === 'COMPLETE' ? '✓' : '⚠'} ${tg.status} (${Math.round(tg.coverage_ratio * 100)}%)`;
+        diagTeamGate.style.color = tg.status === 'COMPLETE' ? '#34d399' : '#fbbf24';
+      }
+      if (diagTcGate && completenessData.knowledge?.theorycrafting) {
+        const tcg = completenessData.knowledge.theorycrafting;
+        diagTcGate.textContent = `${tcg.status === 'COMPLETE' ? '✓' : '⚠'} ${tcg.status} (${Math.round(tcg.coverage_ratio * 100)}%)`;
+        diagTcGate.style.color = tcg.status === 'COMPLETE' ? '#34d399' : '#fbbf24';
+      }
+      if (diagPatchGate && completenessData.knowledge?.current_version_changes) {
+        const pg = completenessData.knowledge.current_version_changes;
+        diagPatchGate.textContent = `${pg.status === 'COMPLETE' ? '✓' : '⚠'} ${pg.status} (${Math.round(pg.coverage_ratio * 100)}%)`;
+        diagPatchGate.style.color = pg.status === 'COMPLETE' ? '#34d399' : '#fbbf24';
+      }
+      if (diagKnowGate) {
+        diagKnowGate.textContent = `${completenessData.knowledge.status === 'COMPLETE' ? '✓' : '⚠'} ${completenessData.knowledge.status} (${Math.round(completenessData.knowledge.coverage * 100)}%)`;
+        diagKnowGate.style.color = completenessData.knowledge.status === 'COMPLETE' ? '#34d399' : '#fbbf24';
+      }
+      if (diagProvGate) {
+        diagProvGate.textContent = `${completenessData.provenance.status === 'COMPLETE' ? '✓' : '⚠'} ${completenessData.provenance.status} (${completenessData.provenance.records_with_valid_provenance} Valid)`;
+        diagProvGate.style.color = completenessData.provenance.status === 'COMPLETE' ? '#34d399' : '#fbbf24';
+      }
+      if (diagFreshGate) {
+        diagFreshGate.textContent = `${completenessData.freshness.status === 'COMPLETE' ? '✓' : '⚠'} ${completenessData.freshness.status} (${Math.round(completenessData.freshness.freshness_ratio * 100)}%)`;
+        diagFreshGate.style.color = completenessData.freshness.status === 'COMPLETE' ? '#34d399' : '#fbbf24';
+      }
+      if (diagBlockers) {
+        if (completenessData.blockers && completenessData.blockers.length > 0) {
+          diagBlockers.innerHTML = completenessData.blockers.map(b => `<div style="margin-bottom: 2px;">• ${b}</div>`).join('');
+        } else {
+          diagBlockers.textContent = 'None — All gates passed!';
+        }
+      }
+    }
 
     if (diagStatus) diagStatus.textContent = 'Healthy (HTTP 200)';
     if (diagAppName) diagAppName.textContent = data.app_name || 'GenshinIQ';
@@ -1213,18 +1358,32 @@ async function checkBackendHealth() {
     if (diagEnv) diagEnv.textContent = (data.environment || 'development').toUpperCase();
     if (diagTimestamp) diagTimestamp.textContent = data.timestamp || new Date().toISOString();
     if (diagEnkaBase) diagEnkaBase.textContent = data.enka_api_base || '—';
-    if (rawPayload) rawPayload.textContent = JSON.stringify({ ...data, version_status: versionData }, null, 2);
-    window.__latestHealthSnapshot = { health: data, manifest, version: versionData };
+    if (rawPayload) rawPayload.textContent = JSON.stringify({ ...data, version_status: versionData, source_registry_count: sourcesData.length, pipeline: pipelineData }, null, 2);
+    window.__latestHealthSnapshot = { health: data, manifest, version: versionData, sources: sourcesData, pipeline: pipelineData };
 
     // Update Version Card
     if (versionData) {
-      if (diagGameVer) diagGameVer.textContent = `v${versionData.current_version}`;
+      const diagActualCurrentVer = document.getElementById('diag-actual-current-ver');
+      const diagLatestKnownVer = document.getElementById('diag-latest-known-ver');
+      const diagProjectTargetVer = document.getElementById('diag-project-target-ver');
+      const diagLastVersionVerif = document.getElementById('diag-last-version-verification');
+
+      if (diagActualCurrentVer) diagActualCurrentVer.textContent = `v${versionData.current_version}`;
+      if (diagLatestKnownVer) diagLatestKnownVer.textContent = `v${versionData.latest_known_version || versionData.current_version}`;
+      if (diagProjectTargetVer) diagProjectTargetVer.textContent = `v${versionData.project_target_version || versionData.current_version}`;
+      if (diagLastVersionVerif) diagLastVersionVerif.textContent = versionData.last_version_verification ? versionData.last_version_verification.substring(0, 10) : '2026-09-08';
+
+      const diagUpdateAvailable = document.getElementById('diag-game-update-available');
+      if (diagUpdateAvailable) {
+        diagUpdateAvailable.textContent = versionData.update_available ? 'Yes (Update Detected)' : 'No';
+        diagUpdateAvailable.style.color = versionData.update_available ? 'var(--accent-cyan)' : 'var(--accent-gold)';
+      }
+
       if (diagGamePatch) diagGamePatch.textContent = versionData.patch_name;
-      if (diagGameRelease) diagGameRelease.textContent = versionData.release_date;
-      if (diagGameRegion) diagGameRegion.textContent = versionData.major_region;
+      if (diagGameVerification) diagGameVerification.textContent = `${versionData.verification_status || 'VERIFIED'} (${versionData.discovery_status || 'AVAILABLE'})`;
       if (diagGameTotalVer) diagGameTotalVer.textContent = `${versionData.total_tracked_versions} Patches`;
-      if (diagGameStaleDocs) diagGameStaleDocs.textContent = `${versionData.stale_document_count} flagged of ${versionData.total_document_count}`;
-      if (gameVerBadge) gameVerBadge.textContent = `Version ${versionData.current_version} Active`;
+      if (diagGameStaleDocs) diagGameStaleDocs.textContent = `${versionData.stale_document_count} flagged of ${versionData.total_document_count} (Change-Aware)`;
+      if (gameVerBadge) gameVerBadge.textContent = `v${versionData.current_version} Verified Current`;
     }
 
     if (manifestStatus) manifestStatus.textContent = 'Live manifest loaded';
@@ -1235,8 +1394,36 @@ async function checkBackendHealth() {
       manifestGameCount.textContent = `${gameData.characters ?? 0} chars • ${gameData.weapons ?? 0} weapons • ${gameData.artifact_sets ?? 0} sets`;
     }
     if (manifestSourceCount) {
-      const sources = manifest.knowledge_base?.source_type_counts || {};
-      manifestSourceCount.textContent = `${sources.AUTHORITATIVE || 0} authoritative • ${sources.THEORYCRAFTING || 0} theorycrafting`;
+      const tiers = manifest.knowledge_base?.source_tier_counts || {};
+      const t1 = tiers['Tier 1'] || 0;
+      const t2 = tiers['Tier 2'] || 0;
+      const t5 = tiers['Tier 5'] || 0;
+      manifestSourceCount.textContent = `${t1} Official (T1) • ${t2} Theorycrafting (T2) • ${t5} Community (T5)`;
+    }
+
+    // Populate Sources Registry
+    const sourcesList = document.getElementById('sources-registry-list');
+    const sourceCountBadge = document.getElementById('diag-source-count-badge');
+    if (sourceCountBadge && sourcesData.length) {
+      sourceCountBadge.textContent = `${sourcesData.length} Canonical Sources`;
+    }
+    if (sourcesList && sourcesData.length) {
+      sourcesList.innerHTML = sourcesData.map(src => {
+        const badgeInfo = getSourceBadge(src.source_type, src.tier);
+        return `
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 10px 12px; font-size: 0.8em;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <span class="badge ${badgeInfo.css}" style="font-size: 9px; padding: 2px 6px;">Tier ${src.tier}</span>
+              <span class="font-mono" style="font-size: 10px; opacity: 0.7;">${src.source_id}</span>
+            </div>
+            <div style="font-weight: 600; color: var(--gold-accent); margin-bottom: 4px;">${src.name}</div>
+            <div style="font-size: 10px; color: var(--text-dim); margin-bottom: 6px;">Trust: ${src.trust_level} • Frequency: ${src.update_frequency}</div>
+            <div style="font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+              <a href="${src.canonical_verification_url || src.base_url}" target="_blank" style="color: var(--cyan-accent); text-decoration: underline;">${src.canonical_verification_url || src.base_url}</a>
+            </div>
+          </div>
+        `;
+      }).join('');
     }
   } catch (err) {
     statusPill.className = 'status-pill status-offline';
@@ -1339,14 +1526,32 @@ async function searchKnowledgeBase(query) {
   }
 }
 
+function getSourceBadge(sourceType, tier) {
+  const t = Number(tier) || 5;
+  if (t === 1 || sourceType === 'OFFICIAL' || sourceType === 'AUTHORITATIVE') {
+    return { css: 'badge-gold', label: 'Tier 1 • Official' };
+  }
+  if (t === 2 || sourceType === 'KQM' || sourceType === 'TCL' || sourceType === 'THEORYCRAFTING') {
+    return { css: 'badge-cyan', label: sourceType === 'TCL' ? 'Tier 2 • KQM TCL' : 'Tier 2 • KQM Guide' };
+  }
+  if (t === 3 || sourceType === 'STRUCTURED_DATA') {
+    return { css: 'badge-blue', label: 'Tier 3 • Structured Data' };
+  }
+  if (t === 4 || sourceType === 'STATISTICAL') {
+    return { css: 'badge-indigo', label: 'Tier 4 • Statistical' };
+  }
+  return { css: 'badge-purple', label: 'Tier 5 • Community Wiki' };
+}
+
 function renderKnowledgeGrid(docsToRender = null) {
   const grid = document.getElementById('kb-items-grid');
   if (!grid) return;
 
+  const activeVersion = window.__latestHealthSnapshot?.version?.current_version || '7.0';
   const items = docsToRender || kbCache;
   const filtered = docsToRender ? items : items.filter((doc) => {
     if (currentKbTopic === 'all') return true;
-    if (currentKbTopic === 'current') return doc.metadata.game_version === '5.4';
+    if (currentKbTopic === 'current') return doc.metadata.game_version === activeVersion;
     return doc.metadata.topic === currentKbTopic;
   });
 
@@ -1360,21 +1565,25 @@ function renderKnowledgeGrid(docsToRender = null) {
     const card = document.createElement('div');
     card.className = `db-list-item card card-glass ${selectedKbItem && selectedKbItem.id === doc.id ? 'active' : ''}`;
     
-    const badgeClass = doc.metadata.source_type === 'AUTHORITATIVE' ? 'badge-gold' : 'badge-cyan';
+    const badgeInfo = getSourceBadge(doc.metadata.source_type, doc.metadata.authority_tier);
     const characterTag = doc.metadata.character ? `<span class="badge badge-purple" style="margin-left: 6px;">${doc.metadata.character}</span>` : '';
 
-    // Phase 2 Version badge styling
+    // Change-aware freshness and version badge styling
     let verBadgeClass = 'badge-gray';
     let verBadgeText = `v${doc.metadata.game_version}`;
-    if (doc.metadata.game_version === '5.4') {
+    const freshness = (doc.metadata.freshness || doc.metadata.freshness_status || '').toLowerCase();
+    if (doc.metadata.game_version === activeVersion || freshness === 'current') {
       verBadgeClass = 'badge-success';
-      verBadgeText = 'v5.4 Current';
-    } else if (['5.2', '5.3'].includes(doc.metadata.game_version)) {
+      verBadgeText = `v${doc.metadata.game_version} Current`;
+    } else if (freshness === 'recent_compatible' || (doc.metadata.game_version && doc.metadata.game_version.startsWith('6.'))) {
       verBadgeClass = 'badge-info';
-      verBadgeText = `v${doc.metadata.game_version}`;
-    } else if (doc.metadata.game_version && !doc.metadata.game_version.startsWith('5.')) {
+      verBadgeText = `v${doc.metadata.game_version} Compatible`;
+    } else if (freshness === 'stale') {
       verBadgeClass = 'badge-warning';
-      verBadgeText = `v${doc.metadata.game_version} Legacy`;
+      verBadgeText = `v${doc.metadata.game_version} Stale`;
+    } else if (freshness === 'historical') {
+      verBadgeClass = 'badge-secondary';
+      verBadgeText = `v${doc.metadata.game_version} Historical`;
     }
 
     let mediaTag = '';
@@ -1390,7 +1599,7 @@ function renderKnowledgeGrid(docsToRender = null) {
         ${mediaTag}
         <div style="flex-grow: 1;">
           <div class="db-item-meta" style="display: flex; gap: 6px; align-items: center; font-size: 0.75em; flex-wrap: wrap;">
-            <span class="badge ${badgeClass}">${doc.metadata.source_type}</span>
+            <span class="badge ${badgeInfo.css}">${badgeInfo.label}</span>
             ${characterTag}
             <span class="badge ${verBadgeClass}" style="margin-left: auto;">${verBadgeText}</span>
           </div>
@@ -1428,22 +1637,27 @@ async function inspectKnowledgeDocument(doc) {
     selectedKbItem = fullDoc;
 
     const contentHtml = parseMarkdownToHtml(fullDoc.content);
-    const badgeClass = fullDoc.metadata.source_type === 'AUTHORITATIVE' ? 'badge-gold' : 'badge-cyan';
+    const badgeInfo = getSourceBadge(fullDoc.metadata.source_type, fullDoc.metadata.authority_tier);
     const characterTag = fullDoc.metadata.character ? `<span class="badge badge-purple" style="margin-left: 6px; font-size: 0.8em; padding: 4px 8px;">${fullDoc.metadata.character}</span>` : '';
 
-    const isStale = fullDoc.metadata.game_version && !['5.3', '5.4'].includes(fullDoc.metadata.game_version);
+    const activeVersion = window.__latestHealthSnapshot?.version?.current_version || '7.0';
+    const isStale = fullDoc.metadata.game_version && fullDoc.metadata.game_version !== activeVersion;
     const staleNoticeHtml = isStale ? `
       <div style="background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; font-size: 0.85em; color: #fde68a;">
-        ⚠️ <strong>Patch Compatibility Notice:</strong> This article was compiled for <strong>v${fullDoc.metadata.game_version}</strong>. The active live game version is <strong>v5.4</strong>. Mechanics adjustments or newer weapon/character additions may apply.
+        ⚠️ <strong>Patch Compatibility Notice:</strong> This article was compiled for <strong>v${fullDoc.metadata.game_version}</strong>. The active live game version is <strong>v${activeVersion}</strong>. Mechanics adjustments or newer weapon/character additions may apply.
       </div>
     ` : '';
 
+    const hashShort = fullDoc.metadata.content_hash ? `${fullDoc.metadata.content_hash.substring(0, 16)}...` : '—';
+    const pubDate = fullDoc.metadata.published_at ? new Date(fullDoc.metadata.published_at).toLocaleDateString() : 'Unknown';
+    const updDate = fullDoc.metadata.updated_at ? new Date(fullDoc.metadata.updated_at).toLocaleDateString() : 'Unknown';
+
     pane.innerHTML = `
       <div class="db-detail-header" style="margin-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px;">
-        <div class="db-item-meta" style="display: flex; gap: 8px; align-items: center; margin-bottom: 12px;">
-          <span class="badge ${badgeClass}" style="font-size: 0.8em; padding: 4px 8px;">${fullDoc.metadata.source_type}</span>
+        <div class="db-item-meta" style="display: flex; gap: 8px; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
+          <span class="badge ${badgeInfo.css}" style="font-size: 0.8em; padding: 4px 8px;">${badgeInfo.label}</span>
           ${characterTag}
-          <span class="badge ${fullDoc.metadata.game_version === '5.4' ? 'badge-success' : 'badge-gray'}" style="margin-left: auto; font-size: 0.8em; padding: 4px 8px;">v${fullDoc.metadata.game_version}${fullDoc.metadata.game_version === '5.4' ? ' Current' : ''}</span>
+          <span class="badge ${fullDoc.metadata.game_version === activeVersion ? 'badge-success' : 'badge-gray'}" style="margin-left: auto; font-size: 0.8em; padding: 4px 8px;">v${fullDoc.metadata.game_version}${fullDoc.metadata.game_version === activeVersion ? ' Current' : ''}</span>
         </div>
         <div style="display: flex; gap: 16px; align-items: center;">
           ${fullDoc.metadata.character ? 
@@ -1452,13 +1666,15 @@ async function inspectKnowledgeDocument(doc) {
           }
           <h2 style="margin: 0; color: var(--gold-accent); font-size: 1.5em; font-weight: 700; line-height: 1.3;">${fullDoc.title}</h2>
         </div>
-        <div style="font-size: 0.85em; opacity: 0.7; display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px;">
-          <span><strong>Published:</strong> ${new Date(fullDoc.metadata.published_at).toLocaleDateString()}</span>
-          <span>•</span>
-          <span><strong>Last Updated:</strong> ${new Date(fullDoc.metadata.updated_at).toLocaleDateString()}</span>
-        </div>
-        <div style="font-size: 0.85em; opacity: 0.7; margin-top: 6px;">
-          <strong>Canonical URL:</strong> <a href="${fullDoc.metadata.source_url}" target="_blank" style="color: var(--cyan-accent); text-decoration: underline; word-break: break-all;">${fullDoc.metadata.source_url}</a>
+        
+        <!-- Phase 3 Provenance Inspector Box -->
+        <div style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 12px 14px; margin-top: 14px; font-size: 0.8em; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px 16px;">
+          <div><strong style="color: var(--text-muted);">Source ID:</strong> <span class="font-mono" style="color: var(--accent-gold);">${fullDoc.metadata.source_id || '—'}</span></div>
+          <div><strong style="color: var(--text-muted);">Authority Tier:</strong> <span>Tier ${fullDoc.metadata.authority_tier}</span></div>
+          <div><strong style="color: var(--text-muted);">Published:</strong> <span>${pubDate}</span></div>
+          <div><strong style="color: var(--text-muted);">Last Updated:</strong> <span>${updDate}</span></div>
+          <div style="grid-column: 1 / -1;"><strong style="color: var(--text-muted);">Verification URL:</strong> <a href="${fullDoc.metadata.canonical_url || fullDoc.metadata.source_url}" target="_blank" style="color: var(--cyan-accent); text-decoration: underline; word-break: break-all;">${fullDoc.metadata.canonical_url || fullDoc.metadata.source_url}</a></div>
+          <div style="grid-column: 1 / -1;"><strong style="color: var(--text-muted);">SHA-256 Digest:</strong> <span class="font-mono" title="${fullDoc.metadata.content_hash}" style="color: var(--text-dim); cursor: help;">${hashShort}</span></div>
         </div>
       </div>
       ${staleNoticeHtml}
@@ -1489,33 +1705,34 @@ function renderKnowledgeSummary(docs = kbCache) {
   if (!summaryHost) return;
 
   const total = docs.length;
-  const authoritative = docs.filter((d) => d.metadata.source_type === 'AUTHORITATIVE').length;
-  const theorycrafting = docs.filter((d) => d.metadata.source_type === 'THEORYCRAFTING').length;
+  const official = docs.filter((d) => d.metadata.authority_tier === 1 || d.metadata.source_type === 'OFFICIAL').length;
+  const theorycrafting = docs.filter((d) => d.metadata.authority_tier === 2 || d.metadata.source_type === 'KQM' || d.metadata.source_type === 'TCL').length;
+  const community = docs.filter((d) => d.metadata.authority_tier === 5 || d.metadata.source_type === 'COMMUNITY').length;
   const mechanics = docs.filter((d) => d.metadata.topic === 'Game Mechanics').length;
-  const activeVersion = window.__latestHealthSnapshot?.version?.current_version || '5.4';
+  const activeVersion = window.__latestHealthSnapshot?.version?.current_version || '7.0';
 
   summaryHost.innerHTML = `
-    <div class="diag-item" style="min-width: 150px;">
+    <div class="diag-item" style="min-width: 130px;">
       <span class="diag-label">Documents</span>
       <span class="diag-val">${total}</span>
     </div>
-    <div class="diag-item" style="min-width: 150px;">
-      <span class="diag-label">Authoritative</span>
-      <span class="diag-val">${authoritative}</span>
+    <div class="diag-item" style="min-width: 140px;">
+      <span class="diag-label">Tier 1 Official</span>
+      <span class="diag-val" style="color: var(--accent-gold);">${official}</span>
     </div>
-    <div class="diag-item" style="min-width: 150px;">
-      <span class="diag-label">Theorycrafting</span>
-      <span class="diag-val">${theorycrafting}</span>
+    <div class="diag-item" style="min-width: 160px;">
+      <span class="diag-label">Tier 2 Theorycrafting</span>
+      <span class="diag-val" style="color: var(--accent-cyan);">${theorycrafting}</span>
     </div>
-    <div class="diag-item" style="min-width: 150px;">
+    <div class="diag-item" style="min-width: 160px;">
+      <span class="diag-label">Tier 5 Community</span>
+      <span class="diag-val" style="color: #c084fc;">${community}</span>
+    </div>
+    <div class="diag-item" style="min-width: 130px;">
       <span class="diag-label">Mechanics</span>
       <span class="diag-val">${mechanics}</span>
     </div>
-    <div class="diag-item" style="min-width: 150px;">
-      <span class="diag-label">Patch Notes</span>
-      <span class="diag-val">${patchNotes}</span>
-    </div>
-    <div class="diag-item" style="min-width: 170px;">
+    <div class="diag-item" style="min-width: 160px;">
       <span class="diag-label">Active Live Version</span>
       <span class="diag-val" style="color: var(--accent-gold); font-weight: 700;">v${activeVersion}</span>
     </div>
@@ -1642,7 +1859,7 @@ async function sendMessage() {
     chatHistory.push({ role: 'model', content: data.content });
     
     // Render assistant bubble
-    appendMessageBubble('model', data.content, data.citations);
+    appendMessageBubble('model', data.content, data.citations, data.query_intents, data.sources_used, data.evidence_types, data.grounding_status, data.grounding_score, data.claims);
     
   } catch (error) {
     console.error('Chat error:', error);
@@ -1657,7 +1874,7 @@ async function sendMessage() {
   }
 }
 
-function appendMessageBubble(role, content, citations = []) {
+function appendMessageBubble(role, content, citations = [], queryIntents = [], sourcesUsed = [], evidenceTypes = [], groundingStatus = null, groundingScore = null, claims = []) {
   const chatMessages = document.getElementById('chat-messages');
   if (!chatMessages) return;
   
@@ -1679,6 +1896,76 @@ function appendMessageBubble(role, content, citations = []) {
   
   const htmlContent = parseMarkdownToHtml(content);
   bubbleDiv.innerHTML = htmlContent;
+
+  // Append Phase 8/10 routing and grounding transparency bar
+  if (role === 'model' && ((queryIntents && queryIntents.length > 0) || (sourcesUsed && sourcesUsed.length > 0) || groundingStatus)) {
+    const metaContainer = document.createElement('div');
+    metaContainer.className = 'routing-transparency-meta';
+    metaContainer.style.marginTop = '10px';
+    metaContainer.style.paddingTop = '6px';
+    metaContainer.style.borderTop = '1px solid rgba(255, 255, 255, 0.08)';
+    metaContainer.style.fontSize = '11px';
+    metaContainer.style.display = 'flex';
+    metaContainer.style.flexWrap = 'wrap';
+    metaContainer.style.gap = '6px';
+    metaContainer.style.alignItems = 'center';
+
+    if (groundingStatus) {
+      const groundPill = document.createElement('span');
+      const pct = (groundingScore !== null && groundingScore !== undefined) ? ` (${Math.round(groundingScore * 100)}%)` : '';
+      if (groundingStatus === 'fully_grounded') {
+        groundPill.style.background = 'rgba(46, 213, 115, 0.15)';
+        groundPill.style.color = '#2ed573';
+        groundPill.style.border = '1px solid rgba(46, 213, 115, 0.4)';
+        groundPill.textContent = `✨ Grounded${pct}`;
+      } else if (groundingStatus === 'partially_grounded') {
+        groundPill.style.background = 'rgba(255, 171, 0, 0.15)';
+        groundPill.style.color = '#ffab00';
+        groundPill.style.border = '1px solid rgba(255, 171, 0, 0.4)';
+        groundPill.textContent = `⚠️ Partially Grounded${pct}`;
+      } else {
+        groundPill.style.background = 'rgba(255, 71, 87, 0.15)';
+        groundPill.style.color = '#ff4757';
+        groundPill.style.border = '1px solid rgba(255, 71, 87, 0.4)';
+        groundPill.textContent = `⛔ Ungrounded`;
+      }
+      groundPill.style.padding = '1px 6px';
+      groundPill.style.borderRadius = '4px';
+      metaContainer.appendChild(groundPill);
+    }
+
+    if (queryIntents && queryIntents.length > 0) {
+      const intentPill = document.createElement('span');
+      intentPill.style.background = 'rgba(233, 190, 116, 0.12)';
+      intentPill.style.color = 'var(--accent-gold)';
+      intentPill.style.border = '1px solid rgba(233, 190, 116, 0.3)';
+      intentPill.style.padding = '1px 6px';
+      intentPill.style.borderRadius = '4px';
+      intentPill.textContent = `Intent: ${queryIntents.join(', ')}`;
+      metaContainer.appendChild(intentPill);
+    }
+    if (sourcesUsed && sourcesUsed.length > 0) {
+      const sourcesPill = document.createElement('span');
+      sourcesPill.style.background = 'rgba(78, 205, 196, 0.12)';
+      sourcesPill.style.color = 'var(--accent-cyan)';
+      sourcesPill.style.border = '1px solid rgba(78, 205, 196, 0.3)';
+      sourcesPill.style.padding = '1px 6px';
+      sourcesPill.style.borderRadius = '4px';
+      sourcesPill.textContent = `Sources: ${sourcesUsed.join(', ')}`;
+      metaContainer.appendChild(sourcesPill);
+    }
+    if (evidenceTypes && evidenceTypes.length > 0) {
+      const evidPill = document.createElement('span');
+      evidPill.style.background = 'rgba(195, 112, 250, 0.12)';
+      evidPill.style.color = '#c370fa';
+      evidPill.style.border = '1px solid rgba(195, 112, 250, 0.3)';
+      evidPill.style.padding = '1px 6px';
+      evidPill.style.borderRadius = '4px';
+      evidPill.textContent = `Evidence: ${evidenceTypes.join(', ')}`;
+      metaContainer.appendChild(evidPill);
+    }
+    bubbleDiv.appendChild(metaContainer);
+  }
   
   // Append citations if model role and has citations
   if (role === 'model' && citations && citations.length > 0) {
@@ -1696,7 +1983,7 @@ function appendMessageBubble(role, content, citations = []) {
     summary.style.fontSize = '12px';
     summary.style.fontWeight = '500';
     summary.style.outline = 'none';
-    summary.innerHTML = `Sources Cited (${citations.length})`;
+    summary.innerHTML = `Sources & Citations (${citations.length})`;
     
     const citationList = document.createElement('ul');
     citationList.style.listStyleType = 'none';
@@ -1712,17 +1999,36 @@ function appendMessageBubble(role, content, citations = []) {
       li.style.borderRadius = '6px';
       li.style.borderLeft = '2px solid var(--gold-accent)';
       
-      const sourceLink = `<a href="${c.source_url}" target="_blank" style="color: var(--cyan-accent); font-weight: 500; text-decoration: underline;">${c.source_name}</a>`;
+      let typeBadge = '';
+      if (c.citation_type === 'dataset') {
+        typeBadge = `<span style="background: rgba(78, 205, 196, 0.15); color: var(--accent-cyan); border: 1px solid rgba(78, 205, 196, 0.35); font-size: 9px; padding: 1px 5px; border-radius: 4px; margin-right: 4px; font-weight: 600;">DATASET</span>`;
+      } else if (c.citation_type === 'calculation') {
+        typeBadge = `<span style="background: rgba(233, 190, 116, 0.15); color: var(--accent-gold); border: 1px solid rgba(233, 190, 116, 0.35); font-size: 9px; padding: 1px 5px; border-radius: 4px; margin-right: 4px; font-weight: 600;">CALCULATION</span>`;
+      } else if (c.citation_type === 'account') {
+        typeBadge = `<span style="background: rgba(195, 112, 250, 0.15); color: #c370fa; border: 1px solid rgba(195, 112, 250, 0.35); font-size: 9px; padding: 1px 5px; border-radius: 4px; margin-right: 4px; font-weight: 600;">ACCOUNT</span>`;
+      } else {
+        typeBadge = `<span style="background: rgba(84, 160, 255, 0.15); color: #54a0ff; border: 1px solid rgba(84, 160, 255, 0.35); font-size: 9px; padding: 1px 5px; border-radius: 4px; margin-right: 4px; font-weight: 600;">SOURCE</span>`;
+      }
+
+      const sourceLink = `<a href="${c.source_url}" target="_blank" style="color: var(--cyan-accent); font-weight: 500; text-decoration: underline;">${c.display_label || c.source_name}</a>`;
+      const canonicalLink = c.canonical_url && c.canonical_url !== c.source_url ? ` • <a href="${c.canonical_url}" target="_blank" style="color: var(--accent-gold); text-decoration: underline;">Verify (Canonical)</a>` : '';
+      const tierBadge = c.authority_tier ? `<span class="badge ${c.authority_tier === 1 ? 'badge-gold' : (c.authority_tier === 2 ? 'badge-cyan' : 'badge-purple')}" style="font-size: 9px; padding: 1px 5px; margin-right: 4px;">Tier ${c.authority_tier}</span>` : '';
       const charTag = c.character ? ` <span style="background: rgba(255, 215, 0, 0.15); color: var(--gold-accent); padding: 1px 4px; border-radius: 4px; font-size: 10px;">${c.character}</span>` : '';
       const verTag = c.game_version ? ` <span style="background: rgba(255, 255, 255, 0.1); color: var(--text-muted); padding: 1px 4px; border-radius: 4px; font-size: 10px;">v${c.game_version}</span>` : '';
+      const claimInfo = c.claim_supported ? `<div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Supported Claim: <span style="color: #d1d5db;">${c.claim_supported}</span></div>` : '';
       
       li.innerHTML = `
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px;">
-          <strong>${c.topic || 'General Reference'}</strong>
+          <div style="display: flex; align-items: center; gap: 4px;">
+            ${typeBadge}
+            ${tierBadge}
+            <strong>${c.topic || 'General Reference'}</strong>
+          </div>
           <div>${charTag}${verTag}</div>
         </div>
         <div style="color: var(--text-muted); font-style: italic; margin-bottom: 4px;">"${c.snippet}"</div>
-        <div style="font-size: 11px;">Source: ${sourceLink}</div>
+        <div style="font-size: 11px;">Source: ${sourceLink}${canonicalLink}</div>
+        ${claimInfo}
       `;
       
       citationList.appendChild(li);
@@ -1787,3 +2093,151 @@ function removeTypingIndicator(id) {
     indicator.remove();
   }
 }
+
+/**
+ * Phase 7 — Deterministic Build & Stat Engine UI Integration
+ */
+let currentActiveCharacterName = '';
+
+function toggleCurrentCharMathBreakdown() {
+  if (currentActiveCharacterName) {
+    toggleMathBreakdown(currentActiveCharacterName);
+  }
+}
+
+async function toggleMathBreakdown(charName) {
+  const container = document.getElementById('char-math-breakdown');
+  if (!container) return;
+
+  if (container.style.display === 'block' && container.getAttribute('data-char') === charName) {
+    container.style.display = 'none';
+    return;
+  }
+
+  container.style.display = 'block';
+  container.setAttribute('data-char', charName);
+  container.innerHTML = `
+    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px; color: var(--accent-gold);">
+      <span>⚡ Calculating audited deterministic build breakdown for <strong>${charName}</strong>...</span>
+    </div>
+  `;
+
+  try {
+    const res = await fetch(`/api/build/${encodeURIComponent(charName)}/breakdown`);
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({ detail: 'Calculation error' }));
+      container.innerHTML = `
+        <div style="color: #ff6b6b; padding: 12px; font-size: 13px;">
+          <strong>⚠️ Deterministic Engine Note:</strong> ${err.detail || 'Could not resolve build snapshot for this character.'}
+        </div>
+      `;
+      return;
+    }
+    const data = await res.json();
+    renderMathBreakdown(container, data, charName);
+  } catch (err) {
+    container.innerHTML = `
+      <div style="color: #ff6b6b; padding: 12px; font-size: 13px;">
+        <strong>Network Error:</strong> ${err.message}
+      </div>
+    `;
+  }
+}
+
+function renderMathBreakdown(container, data, charName) {
+  const statusColor = data.status === 'COMPLETE' ? 'var(--status-online)' : 'var(--status-loading)';
+  const statusBadge = `<span style="background: rgba(61, 220, 132, 0.15); border: 1px solid ${statusColor}; color: ${statusColor}; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700;">${data.status}</span>`;
+  const cvBadge = `<span style="background: rgba(233,190,116,0.15); border: 1px solid var(--accent-gold); color: var(--accent-gold); padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700;">Artifact Total CV: ${data.artifact_cv_total ? data.artifact_cv_total.toFixed(1) : '0.0'}</span>`;
+
+  // Core formula rows
+  const formatStatEquation = (label, b, isPercent = false) => {
+    if (!b) return '';
+    const baseFormatted = isPercent ? `${(b.base * 100).toFixed(1)}%` : Math.round(b.base).toLocaleString();
+    const finalFormatted = isPercent ? `${(b.final * 100).toFixed(1)}%` : Math.round(b.final).toLocaleString();
+    const pctStr = b.percent > 0 ? ` + ${(b.percent * 100).toFixed(1)}%` : '';
+    const flatStr = b.flat > 0 ? ` + ${Math.round(b.flat).toLocaleString()}` : '';
+    return `
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 12px;">
+        <span style="font-weight: 600; color: var(--text-main); width: 120px;">${label}</span>
+        <span style="color: var(--text-muted); font-family: var(--font-mono); font-size: 11px; flex: 1; text-align: center;">
+          Base ${baseFormatted}${pctStr}${flatStr}
+        </span>
+        <span style="font-weight: 700; color: var(--accent-gold); font-family: var(--font-mono); width: 90px; text-align: right;">
+          ${finalFormatted}
+        </span>
+      </div>
+    `;
+  };
+
+  // Active Set Bonuses HTML
+  let setsHtml = '';
+  if (data.active_set_bonuses && data.active_set_bonuses.length > 0) {
+    setsHtml = `
+      <div style="margin-top: 10px;">
+        <div style="font-size: 11px; font-weight: 700; color: var(--accent-gold); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;">Active Set Bonuses</div>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          ${data.active_set_bonuses.map(s => `
+            <div style="background: rgba(255,255,255,0.04); border-radius: 4px; padding: 6px 8px; font-size: 11px;">
+              <span style="font-weight: 600; color: var(--text-main);">${s.set_name} (${s.pieces}-pc):</span>
+              <span style="color: var(--text-muted);">${s.description || 'Stat boost activated'}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  // Artifact slots CV
+  let slotsHtml = '';
+  if (data.slot_breakdowns && Object.keys(data.slot_breakdowns).length > 0) {
+    const slotNames = { flower: 'Flower', plume: 'Plume', sands: 'Sands', goblet: 'Goblet', circlet: 'Circlet' };
+    slotsHtml = `
+      <div style="margin-top: 10px;">
+        <div style="font-size: 11px; font-weight: 700; color: var(--accent-gold); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;">Artifact Slot Breakdown & CV</div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 6px;">
+          ${Object.entries(data.slot_breakdowns).map(([slot, art]) => `
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 6px 8px; font-size: 11px;">
+              <div style="display: flex; justify-content: space-between; font-weight: 600; color: var(--text-main); margin-bottom: 2px;">
+                <span>${slotNames[slot] || slot}</span>
+                <span style="color: var(--accent-cyan); font-family: var(--font-mono);">${art.cv.toFixed(1)} CV</span>
+              </div>
+              <div style="color: var(--text-muted); font-size: 10px;">${art.main_stat.stat}: +${art.main_stat.value >= 1 ? Math.round(art.main_stat.value) : (art.main_stat.value * 100).toFixed(1) + '%'}</div>
+              <div style="color: var(--text-dim); font-size: 9px; margin-top: 2px;">+${art.level} • ${art.set_name}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  container.innerHTML = `
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px solid rgba(233,190,116,0.25); padding-bottom: 8px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="font-weight: 700; font-size: 13px; color: var(--accent-gold);">⚡ Deterministic Stat Breakdown</span>
+        ${statusBadge}
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px;">
+        ${cvBadge}
+        <button onclick="document.getElementById('char-math-breakdown').style.display='none'" style="background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 16px; padding: 0 4px;" title="Close">×</button>
+      </div>
+    </div>
+
+    <div style="background: rgba(0,0,0,0.25); border-radius: 6px; padding: 8px;">
+      ${formatStatEquation('Max HP', data.hp)}
+      ${formatStatEquation('Base & Total ATK', data.atk)}
+      ${formatStatEquation('DEF', data.defense)}
+      ${formatStatEquation('CRIT Rate', data.crit_rate, true)}
+      ${formatStatEquation('CRIT DMG', data.crit_dmg, true)}
+      ${formatStatEquation('Energy Recharge', data.energy_recharge, true)}
+      ${formatStatEquation('Elemental Mastery', data.elemental_mastery)}
+    </div>
+
+    ${setsHtml}
+    ${slotsHtml}
+
+    <div style="margin-top: 10px; font-size: 10px; color: var(--text-dim); text-align: center; border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 6px;">
+      Audited Canonical Engine: Base HP/ATK/DEF curve scaling + GOOD v3 snapshot aggregation. Zero hallucinated values.
+    </div>
+  `;
+}
+

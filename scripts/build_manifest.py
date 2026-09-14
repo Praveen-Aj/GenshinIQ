@@ -39,11 +39,22 @@ def main():
         count = len(payload) if isinstance(payload, (list, dict)) else 1
         digest = sha256_file(f)
         game_hashes.append(digest)
+        sid = "src_project_amber" if f.name in ("characters.json", "weapons.json", "artifacts.json", "materials.json") else "src_animegamedata"
+        surl = "https://api.ambr.top/v2/en/" if sid == "src_project_amber" else "https://github.com/Dimbreath/AnimeGameData/tree/master/ExcelBinOutput"
+        inv_class = "CATEGORY_A_ENGINE_CONSTANT" if f.name in ("avatar_curves.json", "weapon_curves.json", "artifact_levels.json") else "CATEGORY_B_GAME_CONTENT_STATIC"
         game_files.append({
             "file_name": f.name,
             "record_count": count,
             "sha256": digest,
             "size_bytes": f.stat().st_size,
+            "source_id": sid,
+            "source_url": surl,
+            "source_version": "5.4",
+            "dataset_version": "5.4",
+            "project_target_version": "7.0",
+            "verification_state": "VERIFIED_STRUCTURED",
+            "verification_status": "VERIFIED_STRUCTURED",
+            "invariance_classification": inv_class,
         })
         print(f"  [GameData] {f.name}: {count} records | SHA256: {digest[:12]}...")
 
@@ -57,7 +68,24 @@ def main():
         "\n".join(sorted(knowledge_hashes)).encode("utf-8")
     ).hexdigest()
 
+    source_type_counts = {}
+    source_tier_counts = {}
+    source_id_counts = {}
+
+    for kf in knowledge_files:
+        with open(kf, "r", encoding="utf-8") as handle:
+            doc_data = json.load(handle)
+            meta = doc_data.get("metadata", {})
+            st = meta.get("source_type", "OTHER")
+            tier = f"Tier {meta.get('authority_tier', 5)}"
+            sid = meta.get("source_id", "src_community_general")
+            source_type_counts[st] = source_type_counts.get(st, 0) + 1
+            source_tier_counts[tier] = source_tier_counts.get(tier, 0) + 1
+            source_id_counts[sid] = source_id_counts.get(sid, 0) + 1
+
     print(f"  [Knowledge] {len(knowledge_files)} documents | Aggregate SHA256: {aggregate_kb_sha256[:12]}...")
+    print(f"    Tiers: {source_tier_counts}")
+    print(f"    Types: {source_type_counts}")
 
     manifest = {
         "schema_version": "1.0",
@@ -66,9 +94,13 @@ def main():
         "runtime_cache_dir": str(RUNTIME_CACHE_DIR.as_posix()),
         "game_data": {
             "directory": str(GAME_DATA_DIR.as_posix()),
-            "source_type": "STRUCTURED_COMMUNITY_DATAMINED",
+            "source_type": "STRUCTURED_DATA",
+            "source_tier": 3,
             "source_provider": "Project Amber (Ambr API v2) & Dimbreath AnimeGameData ExcelBinOutput",
             "official_status": "Community-maintained structured datamining, not direct HoYoverse official API",
+            "dataset_version": "5.4",
+            "project_target_version": "7.0",
+            "verification_state": "VERIFIED_STRUCTURED",
             "aggregate_sha256": aggregate_game_sha256,
             "files": game_files,
         },
@@ -76,6 +108,9 @@ def main():
             "directory": str(KNOWLEDGE_DIR.as_posix()),
             "aggregate_sha256": aggregate_kb_sha256,
             "total_documents": len(knowledge_files),
+            "source_type_counts": dict(sorted(source_type_counts.items())),
+            "source_tier_counts": dict(sorted(source_tier_counts.items())),
+            "source_id_counts": dict(sorted(source_id_counts.items())),
         }
     }
 

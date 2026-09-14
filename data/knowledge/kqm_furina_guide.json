@@ -2,15 +2,29 @@
   "id": "kqm_furina_guide",
   "title": "KQM Furina Character & Theorycrafting Guide",
   "metadata": {
-    "source": "KeqingMains (KQM)",
+    "source_id": "src_kqm_guides",
+    "source": "KeqingMains Guides (KQM)",
     "source_url": "https://keqingmains.com/furina/",
-    "source_type": "THEORYCRAFTING",
+    "canonical_url": "https://keqingmains.com/furina/",
+    "source_type": "KQM",
+    "authority_tier": 2,
     "character": "Furina",
     "topic": "Character Guide",
     "game_version": "5.4",
     "published_at": "2023-11-08T00:00:00Z",
     "updated_at": "2024-12-15T00:00:00Z",
-    "tags": ["Furina", "Hydro", "Sub-DPS", "Buffer", "KQM", "Artifacts", "Weapons"]
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "5936e1871e606ba2dc4eb7b4a659b4281f545cd2431b0680e4b5e66dff07e526",
+    "freshness_status": "stale",
+    "tags": [
+      "Furina",
+      "Hydro",
+      "Sub-DPS",
+      "Buffer",
+      "KQM",
+      "Artifacts",
+      "Weapons"
+    ]
   },
   "summary": "Authoritative KQM guide covering Furina's Fanfare mechanics, party-wide healer requirements, artifact sets (Golden Troupe), and weapon choices (Splendor vs Fleuve Pipe).",
   "content": "# Furina Character & Theorycrafting Guide (KQM)\n\n![Furina](https://enka.network/ui/UI_AvatarIcon_Furina.png)\n\n## Overview & Playstyle\nFurina is a 5-star Hydro Sword user who acts as an exceptionally powerful off-field Sub-DPS and universal damage buffer. Her gameplay centers around consuming party-wide HP to power up her summons and obtaining **Fanfare** points through active HP changes to increase the entire team's damage.\n\n### Core Mechanics & Fanfare\n- **Salon Solitaire (Elemental Skill)**: Summons either the Salon Members (Ousia - drains party HP above 50% to deal high Hydro damage) or the Singer of Many Waters (Pneuma - heals the active character).\n- **Let the People Rejoice (Elemental Burst)**: Triggers a state where the party gains **Fanfare** points when their HP increases or decreases. Fanfare points scale up the party's outgoing DMG (up to 75% at C0) and healing incoming bonus.\n- **Healer Requirement**: Because Salon members constantly drain party HP, a reliable party-wide healer (Jean, Baizhu, Xianyun, Charlotte) is highly recommended to sustain the HP drains and maximize Fanfare generation.\n\n## Talent Priority\n1. **Elemental Skill: Salon Solitaire** (Level 9 or 10 - Primary damage source)\n2. **Elemental Burst: Let the People Rejoice** (Level 9 or 10 - Primary buff source)\n3. **Normal Attack** (Leave at Level 1 - Low contribution unless C6)\n\n## Stat Priorities & ER Requirements\n- **Sands**: HP% or Energy Recharge\n- **Goblet**: HP% or Hydro DMG Bonus (HP% is often equal or better due to high Burst DMG buffs)\n- **Circlet**: CRIT Rate or CRIT DMG\n- **Energy Recharge Requirements**:\n  - Solo Hydro: 180 - 220% ER\n  - Double Hydro (with Yelan/Neuvillette/Xingqiu): 130 - 160% ER\n  - Triple Hydro or Favonius weapons: 110 - 130% ER\n\n## Recommended Artifact Sets\n1. **Golden Troupe (4-Piece)**: Signature and BiS. Increases Elemental Skill DMG by up to 70% when off-field.\n2. **2pc HP / 2pc Hydro / 2pc Golden Troupe**: Viable transition sets.\n\n## Weapon Rankings\n\n![Splendor of Tranquil Waters](https://enka.network/ui/UI_EquipIcon_Sword_Regalia.png)\n\n1. **Splendor of Tranquil Waters (5★)**: Signature and BiS. Low base ATK but massive CRIT DMG (88.2%) and HP/Skill DMG buffs.\n2. **Key of Khaj-Nisut / Primordial Jade Cutter (5★)**: Excellent stat sticks.\n3. **Fleuve Cendre Ferryman (4★ R5)**: Best F2P option. Grants 45.9% ER, +16% Skill CRIT Rate, and extra ER after using Skill.\n4. **Festering Desire (4★ R5)**: Outstanding if owned. Grants ER, +32% Skill DMG, and +12% Skill CRIT Rate.\n5. **Favonius Sword (4★)**: Exceptional for reducing team-wide ER requirements."

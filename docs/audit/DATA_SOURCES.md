@@ -77,13 +77,38 @@ The audit revealed multiple uncoordinated data-generation scripts in `scripts/`:
 
 ---
 
-## 3. Data Pipeline Target Architecture (Phase 1+)
+## 3. Implemented Canonical Data Refresh & Acquisition Architecture
 
-To comply with the Remediation Plan:
-1. Consolidate all ingestion into a single verified pipeline:
-   - `scripts/sync_game_data.py`: Fetches raw data into `data/raw/`.
-   - `scripts/validate_game_data.py`: Validates against strict Pydantic models with zero fabricated stats.
-   - `scripts/build_manifest.py`: Builds deterministic checksums and records.
-2. Eliminate Python's randomized `hash()`: All entities must possess canonical, provider-stable numeric IDs.
-3. Remove all fabricated defaults: Missing data must be quarantined or fail validation rather than silently defaulted.
-4. Integrate authoritative references (Ambr/Project Amber, KQM, KQM TCL, official patch notes).
+The data pipeline has been restructured to adhere strictly to the verified multi-source hierarchy and version decoupling model:
+
+### Verified Source Roles & Derivation Relationships
+| Source ID | Name | Role | Derivation Relationship | Authority Level |
+|---|---|---|---|---|
+| `src_hoyoverse_official` | HoYoverse Official | Official announcements, patch notes, dates, mechanics | `OFFICIAL` | Highest for official statements |
+| `src_animegamedata` | Dimbreath / AnimeGameData | Primary raw structured game-data (curves, stats, talents) | `PRIMARY_ORIGINAL` | Primary canonical game data |
+| `src_project_amber` | Project Amber / Ambr | Secondary structured / cross-validation | `AGGREGATOR` | High (Secondary validation) |
+| `src_genshin_db` | genshin-db | Secondary normalized package | `DERIVED_FROM` (`src_animegamedata`) | Corroboration only (`DERIVED_AGREEMENT`) |
+| `src_genshindev_api` | genshin.dev API | Community aggregator / fallback | `AGGREGATOR` | Fallback recovery |
+| `src_honey_hunter` | Honey Hunter World | Human-readable sanity check & discovery | `REFERENCE` | Non-authoritative reference |
+| `src_genshin_optimizer` | Genshin Optimizer | Technical reference (formulas & mechanics) | `REFERENCE` | Non-runtime technical reference |
+| `src_enka_network` | Enka.Network API | Player showcase retrieval | Account Data | Strictly account-data |
+| `src_good_standard` | Genshin Open Object Description | Account export schema | Account Data | Strictly account-data |
+
+### Architecture Principles Implemented
+1. **No Naive Majority Voting**: Agreement between `src_animegamedata` and `src_genshin_db` is formally tracked as `DERIVED_AGREEMENT` (corroboration), never as independent confirmation.
+2. **Decoupled Version Model**:
+   - `detected_game_version`: Live game version detected from official announcements/patch notes.
+   - `latest_known_game_version`: Highest known game version from authoritative sources.
+   - `latest_available_dataset_version`: Highest version available in upstream repositories.
+   - `latest_verified_dataset_version`: Highest version having passed all validation gates.
+   - `active_canonical_dataset_version`: Version currently used by StatEngine and runtime services (`5.4`).
+   - `project_target_version`: Version currently targeted by the application (`7.0`).
+3. **Immutable Versioned Storage**:
+   - Raw data: `data/raw/game_data/versions/<version>/` with `raw_manifest.json`.
+   - Processed data: `data/processed/game_data/versions/<version>/` with `version_manifest.json`.
+   - Active canonical pointer: `data/processed/game_data/active_version.json`.
+4. **Fail-Closed Gate & Rollback**:
+   - Discrepancies on critical numerical fields generate `CONFLICT` and block canonical promotion.
+   - Any validation failure leaves the active canonical version pointer untouched.
+   - The system supports instantaneous deterministic rollback to any verified historical dataset version.
+

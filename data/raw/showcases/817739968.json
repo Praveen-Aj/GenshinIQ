@@ -1,7 +1,7 @@
 {
-  "_cached_at": 1788779840.911332,
-  "_cached_expires_at": 1788779900.911332,
-  "ttl": 60,
+  "_cached_at": 1788781067.4392152,
+  "_cached_expires_at": 1788781125.4392152,
+  "ttl": 58,
   "data": {
     "playerInfo": {
       "nickname": "praveen",
@@ -4533,7 +4533,7 @@
         }
       }
     ],
-    "ttl": 60,
+    "ttl": 58,
     "uid": "817739968",
     "region": "ASIA"
   }

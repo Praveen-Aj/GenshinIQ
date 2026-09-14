@@ -1,0 +1,2891 @@
+[
+  {
+    "id": 1001,
+    "name": "Lantern Rite",
+    "activity_type": "NEW_ACTIVITY_SEA_LAMP",
+    "cond_group_id": [
+      1
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5001,
+    "name": "Elemental Crucible",
+    "activity_type": "NEW_ACTIVITY_CRUCIBLE",
+    "cond_group_id": [
+      500101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5002,
+    "name": "Test Run",
+    "activity_type": "NEW_ACTIVITY_TRIAL_AVATAR",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5003,
+    "name": "Marvelous Merchandise",
+    "activity_type": "NEW_ACTIVITY_SALESMAN",
+    "cond_group_id": [
+      500301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2001,
+    "name": "Unreconciled Stars",
+    "activity_type": "NEW_ACTIVITY_ASTER",
+    "cond_group_id": [
+      2001001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5004,
+    "name": "Astrolabos Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5006,
+    "name": "While It's Warm",
+    "activity_type": "NEW_ACTIVITY_DELIVERY",
+    "cond_group_id": [
+      500601
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5007,
+    "name": "Gliding Challenge",
+    "activity_type": "NEW_ACTIVITY_FLIGHT",
+    "cond_group_id": [
+      500701
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 3001,
+    "name": "The Chalk Prince and the Dragon",
+    "activity_type": "NEW_ACTIVITY_DRAGONSPINE",
+    "cond_group_id": [
+      3001001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5008,
+    "name": "Pristina Nola Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5009,
+    "name": "Historia Antiqua Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5010,
+    "name": "Monoceros Caeli Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5011,
+    "name": "Lost Riches",
+    "activity_type": "NEW_ACTIVITY_TREASURE_MAP",
+    "cond_group_id": [
+      501101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5014,
+    "name": "Hypostatic Symphony",
+    "activity_type": "NEW_ACTIVITY_EFFIGY",
+    "cond_group_id": [
+      501401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5015,
+    "name": "Sinae Unicornis Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5016,
+    "name": "Five Flushes of Fortune",
+    "activity_type": "NEW_ACTIVITY_BLESSING",
+    "cond_group_id": [
+      501601
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5017,
+    "name": "Vishaps and Where to Find Them",
+    "activity_type": "NEW_ACTIVITY_EXPEDITION",
+    "cond_group_id": [
+      501701
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 6002,
+    "name": "Even Mountains Tremble",
+    "activity_type": "NEW_ACTIVITY_MONSTER_BANNER_DRAKE_PRIMO_ROCK",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 6003,
+    "name": "Outland Gastronomy",
+    "activity_type": "NEW_ACTIVITY_SIGNIN_COMPANION",
+    "cond_group_id": [
+      600301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5018,
+    "name": "Papilio Charontis Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5019,
+    "name": "Contending Tides",
+    "activity_type": "NEW_ACTIVITY_ARENA_CHALLENGE",
+    "cond_group_id": [
+      501901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2003,
+    "name": "Windblume Festival",
+    "activity_type": "NEW_ACTIVITY_FLEUR_FAIR",
+    "cond_group_id": [
+      2003001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5020,
+    "name": "Wishful Drops",
+    "activity_type": "NEW_ACTIVITY_WATER_SPIRIT_CHALLENGE",
+    "cond_group_id": [
+      502001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5021,
+    "name": "Hangout Event",
+    "activity_type": "NEW_ACTIVITY_COOP",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2004,
+    "name": "Energy Amplifier",
+    "activity_type": "NEW_ACTIVITY_CHANNELER_SLAB",
+    "cond_group_id": [
+      200401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5022,
+    "name": "Battlefront: Misty Dungeon",
+    "activity_type": "NEW_ACTIVITY_MISTTRIAL",
+    "cond_group_id": [
+      502201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5023,
+    "name": "Windtrace",
+    "activity_type": "NEW_ACTIVITY_HIDEANDSEEK",
+    "cond_group_id": [
+      502301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5024,
+    "name": "Mimi Tomo",
+    "activity_type": "NEW_ACTIVITY_FIND_HILICHURL",
+    "cond_group_id": [
+      502401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5026,
+    "name": "Chilled to the Bone",
+    "activity_type": "NEW_ACTIVITY_MONSTER_BANNER_EFFIGY_ICE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5027,
+    "name": "A Teapot to Call Home",
+    "activity_type": "NEW_ACTIVITY_HOMEWORLD",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2005,
+    "name": "Midsummer Island Adventure",
+    "activity_type": "NEW_ACTIVITY_SUMMER_TIME",
+    "cond_group_id": [
+      200501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5029,
+    "name": "Aphros Delos Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5030,
+    "name": "Never-Ending Battle",
+    "activity_type": "NEW_ACTIVITY_BUOYANT_COMBAT",
+    "cond_group_id": [
+      503001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5031,
+    "name": "Legend of the Vagabond Sword",
+    "activity_type": "NEW_ACTIVITY_EFFIGY",
+    "cond_group_id": [
+      503101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5032,
+    "name": "Kaboomball Kombat",
+    "activity_type": "NEW_ACTIVITY_BOUNCE_CONJURING",
+    "cond_group_id": [
+      503201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5033,
+    "name": "Echoing Tales",
+    "activity_type": "NEW_ACTIVITY_ECHO_SHELL",
+    "cond_group_id": [
+      503301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 6005,
+    "name": "Autumn Winds, Scarlet Leaves",
+    "activity_type": "NEW_ACTIVITY_DAOQI_ADVERTISEMENT",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 6006,
+    "name": "Machine Battlefront",
+    "activity_type": "NEW_ACTIVITY_MONSTER_BANNER_PERPETUAL",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5034,
+    "name": "Phantom Flow",
+    "activity_type": "NEW_ACTIVITY_ARENA_CHALLENGE",
+    "cond_group_id": [
+      503401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2006,
+    "name": "Thunder Sojourn",
+    "activity_type": "NEW_ACTIVITY_BLITZ_RUSH",
+    "cond_group_id": [
+      200601
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5036,
+    "name": "Bellowing Blaze",
+    "activity_type": "NEW_ACTIVITY_MONSTER_BANNER_EFFIGY_FIRE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5037,
+    "name": "Theater Mechanicus: Stage of Wonders",
+    "activity_type": "NEW_ACTIVITY_CHESS",
+    "cond_group_id": [
+      503701
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5038,
+    "name": "Carassius Auratus Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5039,
+    "name": "Grus Nivis Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE_2",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5040,
+    "name": "Hyakunin Ikki",
+    "activity_type": "NEW_ACTIVITY_SUMO",
+    "cond_group_id": [
+      504001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5041,
+    "name": "Lunar Realm",
+    "activity_type": "NEW_ACTIVITY_MOONFIN_TRIAL",
+    "cond_group_id": [
+      504101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2007,
+    "name": "Moonlight Merriment",
+    "activity_type": "NEW_ACTIVITY_LUNA_RITE",
+    "cond_group_id": [
+      200701
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5042,
+    "name": "Mendacious Waves",
+    "activity_type": "NEW_ACTIVITY_MONSTER_BANNER_EFFIGY_WATER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5043,
+    "name": "Distant Storm",
+    "activity_type": "NEW_ACTIVITY_MONSTER_BANNER_RAIJIN",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5044,
+    "name": "Spectral Secrets",
+    "activity_type": "NEW_ACTIVITY_EXPEDITION",
+    "cond_group_id": [
+      504401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5045,
+    "name": "Dracaena Somnolenta Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5046,
+    "name": "Imperatrix Umbrosa Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5047,
+    "name": "Dreams of Bloom",
+    "activity_type": "NEW_ACTIVITY_PLANT_FLOWER",
+    "cond_group_id": [
+      504701
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2008,
+    "name": "Labyrinth Warriors",
+    "activity_type": "NEW_ACTIVITY_ROGUELIKE_DUNGEON",
+    "cond_group_id": [
+      200801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5049,
+    "name": "Shadow of the Ancients",
+    "activity_type": "NEW_ACTIVITY_DIG",
+    "cond_group_id": [
+      504901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5050,
+    "name": "Tuned to the World's Sounds",
+    "activity_type": "NEW_ACTIVITY_MUSIC_GAME",
+    "cond_group_id": [
+      505001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2009,
+    "name": "Shadows Amidst Snowstorms",
+    "activity_type": "NEW_ACTIVITY_WINTER_CAMP",
+    "cond_group_id": [
+      200901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5051,
+    "name": "Bantan Sango Case Files: The Warrior Dog",
+    "activity_type": "NEW_ACTIVITY_HACHI",
+    "cond_group_id": [
+      505101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5052,
+    "name": "Exploding Population",
+    "activity_type": "NEW_ACTIVITY_MOONFIN_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5054,
+    "name": "Misty Dungeon: Realm of Light",
+    "activity_type": "NEW_ACTIVITY_MISTTRIAL",
+    "cond_group_id": [
+      505401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2010,
+    "name": "Fleeting Colors in Flight",
+    "activity_type": "NEW_ACTIVITY_SEA_LAMP_2_4",
+    "cond_group_id": [
+      201001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5055,
+    "name": "Eight Locales Over Mountains and Seas",
+    "activity_type": "NEW_ACTIVITY_TANUKI_TRAVEL",
+    "cond_group_id": [
+      505501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5058,
+    "name": "A Study in Potions",
+    "activity_type": "NEW_ACTIVITY_POTION",
+    "cond_group_id": [
+      505801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5059,
+    "name": "Taurus Iracundus Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5060,
+    "name": "Beastly Rift",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5061,
+    "name": "With Sleet and Storm",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": [
+      506101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2011,
+    "name": "Three Realms Gateway Offering",
+    "activity_type": "NEW_ACTIVITY_MICHIAE_MATSURI",
+    "cond_group_id": [
+      201101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5062,
+    "name": "Of Drink A-Dreaming",
+    "activity_type": "NEW_ACTIVITY_BARTENDER",
+    "cond_group_id": [
+      506201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5063,
+    "name": "The Crane Returns on the Wind",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5064,
+    "name": "Enkanomiya",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5065,
+    "name": "Divine Ingenuity",
+    "activity_type": "NEW_ACTIVITY_UGC",
+    "cond_group_id": [
+      506501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5066,
+    "name": "Spices From the West",
+    "activity_type": "NEW_ACTIVITY_SPICE",
+    "cond_group_id": [
+      506601
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5067,
+    "name": "Vibro-Crystal Research",
+    "activity_type": "NEW_ACTIVITY_CRYSTAL_LINK",
+    "cond_group_id": [
+      506701
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2012,
+    "name": "Hues of the Violet Garden",
+    "activity_type": "NEW_ACTIVITY_IRODORI",
+    "cond_group_id": [
+      201201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5068,
+    "name": "Outside the Canvas, Inside the Lens",
+    "activity_type": "NEW_ACTIVITY_PHOTO",
+    "cond_group_id": [
+      506801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5069,
+    "name": "Divina Vulpes Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5071,
+    "name": "Chasmic Serpent",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5072,
+    "name": "The Almighty Arataki Great and Glorious Drumalong Festival",
+    "activity_type": "NEW_ACTIVITY_MUSIC_GAME",
+    "cond_group_id": [
+      507201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5075,
+    "name": "The Chasm",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5077,
+    "name": "Requiem of the Echoing Depths",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5078,
+    "name": "Cypressus Custos Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5079,
+    "name": "A Muddy Bizarre Adventure",
+    "activity_type": "NEW_ACTIVITY_LUMINANCE_STONE_CHALLENGE",
+    "cond_group_id": [
+      507901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5080,
+    "name": "Core of the Apparatus",
+    "activity_type": "NEW_ACTIVITY_GACHA",
+    "cond_group_id": [
+      508001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2013,
+    "name": "Perilous Trail",
+    "activity_type": "NEW_ACTIVITY_ROGUE_DIARY",
+    "cond_group_id": [
+      201301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5081,
+    "name": "Umbrabilis Orchis Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2014,
+    "name": "Summertime Odyssey",
+    "activity_type": "NEW_ACTIVITY_SUMMER_TIME_2_8",
+    "cond_group_id": [
+      201401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5082,
+    "name": "Evermotion Mechanical Painting",
+    "activity_type": "NEW_ACTIVITY_GEAR",
+    "cond_group_id": [
+      508201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5083,
+    "name": "Reminiscent Regimen",
+    "activity_type": "NEW_ACTIVITY_ISLAND_PARTY",
+    "cond_group_id": [
+      508301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5084,
+    "name": "Resonating Visions",
+    "activity_type": "NEW_ACTIVITY_ECHO_SHELL",
+    "cond_group_id": [
+      508401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5085,
+    "name": "Hidden Strife",
+    "activity_type": "NEW_ACTIVITY_ARENA_CHALLENGE",
+    "cond_group_id": [
+      508501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5086,
+    "name": "Murkwood Fungal Raptor",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5087,
+    "name": "Tablet Analytics",
+    "activity_type": "NEW_ACTIVITY_INSTABLE_SPRAY",
+    "cond_group_id": [
+      508701
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2015,
+    "name": "Graven Innocence",
+    "activity_type": "NEW_ACTIVITY_GRAVEN_INNOCENCE",
+    "cond_group_id": [
+      201501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5088,
+    "name": "Acer Palmatum Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5089,
+    "name": "Rumbleflower",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5090,
+    "name": "Fayz Trials",
+    "activity_type": "NEW_ACTIVITY_MUQADAS_POTION",
+    "cond_group_id": [
+      509001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5092,
+    "name": "Vulpes Zerda Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5093,
+    "name": "Dharma Forest",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2016,
+    "name": "Of Ballads and Brews",
+    "activity_type": "NEW_ACTIVITY_VINTAGE",
+    "cond_group_id": [
+      201601
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5095,
+    "name": "Wind Chaser",
+    "activity_type": "NEW_ACTIVITY_WIND_FIELD",
+    "cond_group_id": [
+      509501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5096,
+    "name": "Star-Seeker's Sojourn",
+    "activity_type": "NEW_ACTIVITY_ROCK_BOARD_EXPLORE",
+    "cond_group_id": [
+      509601
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2017,
+    "name": "Fabulous Fungus Frenzy",
+    "activity_type": "NEW_ACTIVITY_FUNGUS_FIGHTER",
+    "cond_group_id": [
+      201701
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5099,
+    "name": "Adventurer's Trials",
+    "activity_type": "NEW_ACTIVITY_CHAR_AMUSEMENT",
+    "cond_group_id": [
+      509901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5100,
+    "name": "Lupus Aureus Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5101,
+    "name": "Lotos Somno Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5102,
+    "name": "Searing Dreams in the Sea of Sand",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5103,
+    "name": "Perpetual Motion Dragon",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5104,
+    "name": "Matrix of Overseer Network",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5105,
+    "name": "Dreams, Emptiness, Deception",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5106,
+    "name": "The Verdant Takeover",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5107,
+    "name": "Hypostatic Symphony: Dissonant Verse",
+    "activity_type": "NEW_ACTIVITY_EFFIGY_CHALLENGE_V2",
+    "cond_group_id": [
+      510701
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5108,
+    "name": "Outside the Canvas, Inside the Lens: Greenery Chapter",
+    "activity_type": "NEW_ACTIVITY_PHOTO",
+    "cond_group_id": [
+      510801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5109,
+    "name": "Akasha Pulses, the Kalpa Flame Rises",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5110,
+    "name": "Battlefield of Dice, Cats, and Cards",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5112,
+    "name": "Across the Wilderness",
+    "activity_type": "NEW_ACTIVITY_COIN_COLLECT",
+    "cond_group_id": [
+      511201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5113,
+    "name": "Sapientia Oromasdis Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5114,
+    "name": "Misty Dungeon: Realm of Sand",
+    "activity_type": "NEW_ACTIVITY_MISTTRIAL",
+    "cond_group_id": [
+      511401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2018,
+    "name": "Akitsu Kimodameshi",
+    "activity_type": "NEW_ACTIVITY_BRICK_BREAKER",
+    "cond_group_id": [
+      201801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5115,
+    "name": "Inversion of Genesis",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5116,
+    "name": "Second Blooming",
+    "activity_type": "NEW_ACTIVITY_TEAM_CHAIN",
+    "cond_group_id": [
+      511601
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2019,
+    "name": "The Exquisite Night Chimes",
+    "activity_type": "NEW_ACTIVITY_SEA_LAMP_3_4",
+    "cond_group_id": [
+      201901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5117,
+    "name": "Warrior's Spirit",
+    "activity_type": "NEW_ACTIVITY_DUEL_HEART",
+    "cond_group_id": [
+      511701
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5118,
+    "name": "Almighty Arataki Extraordinary and Exhilarating Extreme Beetle Brawl",
+    "activity_type": "NEW_ACTIVITY_ELECTROHERCULES_BATTLE",
+    "cond_group_id": [
+      511801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5119,
+    "name": "Heated Battle Mode: Tactical Formation",
+    "activity_type": "NEW_ACTIVITY_GCG_FESTIVAL",
+    "cond_group_id": [
+      511901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5230,
+    "name": "Heated Battle Mode: Automatic Artistry",
+    "activity_type": "NEW_ACTIVITY_GCG_AUTO_BATTLE_CARD",
+    "cond_group_id": [
+      523001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2020,
+    "name": "Windblume's Breath",
+    "activity_type": "NEW_ACTIVITY_FLEURFAIR_V2",
+    "cond_group_id": [
+      202001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5120,
+    "name": "Fungus Mechanicus",
+    "activity_type": "NEW_ACTIVITY_FUNGUS_FIGHTER_V2",
+    "cond_group_id": [
+      512001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5121,
+    "name": "Vultur Volans Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5122,
+    "name": "Lord of the Desert",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5123,
+    "name": "Vibro-Crystal Verification",
+    "activity_type": "NEW_ACTIVITY_CRYSTAL_LINK",
+    "cond_group_id": [
+      512301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5124,
+    "name": "Caribert",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5125,
+    "name": "Spices From the West: Northerly Search",
+    "activity_type": "NEW_ACTIVITY_SPICE",
+    "cond_group_id": [
+      512501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5126,
+    "name": "Desert of Hadramaveth",
+    "activity_type": "NEW_ACTIVITY_SANDY_LAND_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2021,
+    "name": "A Parade of Providence",
+    "activity_type": "NEW_ACTIVITY_AKA_FES",
+    "cond_group_id": [
+      202101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5128,
+    "name": "Fulminating Sandstorm",
+    "activity_type": "NEW_ACTIVITY_SANDWORM_CANNON",
+    "cond_group_id": [
+      512801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5129,
+    "name": "Brewing Developments",
+    "activity_type": "NEW_ACTIVITY_INSTABLE_SPRAY",
+    "cond_group_id": [
+      512901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5130,
+    "name": "Mantichora Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5131,
+    "name": "Girdle of the Sands",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5132,
+    "name": "The Recollector's Path",
+    "activity_type": "NEW_ACTIVITY_SORUSH_TRIAL",
+    "cond_group_id": [
+      513201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5133,
+    "name": "Divine Ingenuity: Collector's Chapter",
+    "activity_type": "NEW_ACTIVITY_UGC_V2",
+    "cond_group_id": [
+      513301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5134,
+    "name": "Cleansing of Sin",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5135,
+    "name": "Feast of the Departed Warriors",
+    "activity_type": "NEW_ACTIVITY_EFFIGY_CHALLENGE_V4",
+    "cond_group_id": [
+      513501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5136,
+    "name": "Lagenaria Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2022,
+    "name": "Duel! The Summoners' Summit!",
+    "activity_type": "NEW_ACTIVITY_JOURNEY",
+    "cond_group_id": [
+      202201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5138,
+    "name": "Fayz Trials: Hypothesis",
+    "activity_type": "NEW_ACTIVITY_MUQADAS_POTION",
+    "cond_group_id": [
+      513801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2023,
+    "name": "Secret Summer Paradise",
+    "activity_type": "NEW_ACTIVITY_PENUMBRA_ADVENTURE",
+    "cond_group_id": [
+      202301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5140,
+    "name": "Perilous Expedition",
+    "activity_type": "NEW_ACTIVITY_MULTI_CHARACTER_FIGHT",
+    "cond_group_id": [
+      514001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5141,
+    "name": "Adventurer's Trials: Advanced",
+    "activity_type": "NEW_ACTIVITY_CHAR_AMUSEMENT",
+    "cond_group_id": [
+      514101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5142,
+    "name": "Shared Sight",
+    "activity_type": "NEW_ACTIVITY_ANIMAL_VIEW",
+    "cond_group_id": [
+      514201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5143,
+    "name": "The Forge Realm's Temper: Clever Stratagems",
+    "activity_type": "NEW_ACTIVITY_GCG_PVE",
+    "cond_group_id": [
+      514301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5148,
+    "name": "The Forge Realm's Temper: Endless Swarm",
+    "activity_type": "NEW_ACTIVITY_GCG_PVE_INFINITE",
+    "cond_group_id": [
+      514801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5152,
+    "name": "The Forge Realm's Temper: Game of Wits",
+    "activity_type": "NEW_ACTIVITY_GCG_PVE_PUZZLE",
+    "cond_group_id": [
+      515201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5146,
+    "name": "Genius Invokation TCG: Radiant Secrets",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5147,
+    "name": "Studies in Light and Shadow: A Fontaine of Enchantment",
+    "activity_type": "NEW_ACTIVITY_PHOTO_UNDERSEA",
+    "cond_group_id": [
+      514701
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2024,
+    "name": "Mega Meka Melee",
+    "activity_type": "NEW_ACTIVITY_TOY_BATTLE",
+    "cond_group_id": [
+      202401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5149,
+    "name": "Felis Fuscus Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5150,
+    "name": "Relic Records: Creations of the Hydro Nation",
+    "activity_type": "NEW_ACTIVITY_FONTAINE_GATHER",
+    "cond_group_id": [
+      515001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5151,
+    "name": "Verdict of Blades",
+    "activity_type": "NEW_ACTIVITY_ARENA_CHALLENGE",
+    "cond_group_id": [
+      515101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5153,
+    "name": "Lone Suzerain of Land and Sea",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5154,
+    "name": "Gear and Clockwork Roundelay",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5155,
+    "name": "Gravity Field",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5156,
+    "name": "Chasm Seahorse",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5157,
+    "name": "Radiant Harvest",
+    "activity_type": "NEW_ACTIVITY_COLLECT_UNDERWATER",
+    "cond_group_id": [
+      515701
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5158,
+    "name": "The Terrestrial Sea, Origin of All Waters",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5159,
+    "name": "The Peaks and Troughs of Life",
+    "activity_type": "NEW_ACTIVITY_QUICK_TIME_COMBAT",
+    "cond_group_id": [
+      515901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2025,
+    "name": "Waterborne Poetry",
+    "activity_type": "NEW_ACTIVITY_POETRY_FESTIVAL",
+    "cond_group_id": [
+      202501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5160,
+    "name": "Dodoco's Bomb-Tastic Adventure",
+    "activity_type": "NEW_ACTIVITY_FISHBLASTER",
+    "cond_group_id": [
+      516001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5161,
+    "name": "Diluvies Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5162,
+    "name": "Cerberus Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5163,
+    "name": "Variation on Debris and Metal",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5164,
+    "name": "To the Stars Shining in the Depths",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5165,
+    "name": "Graph Adversarial Technology Experiment Log",
+    "activity_type": "NEW_ACTIVITY_BLESSING_V2",
+    "cond_group_id": [
+      516501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2026,
+    "name": "Thelxie's Fantastic Adventures",
+    "activity_type": "NEW_ACTIVITY_RAINBOW_PRINCE",
+    "cond_group_id": [
+      202601
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5166,
+    "name": "Lil' Fungi's Fun-Tastic Fiesta",
+    "activity_type": "NEW_ACTIVITY_FUNGUS_FIGHTER_V3",
+    "cond_group_id": [
+      516601
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5167,
+    "name": "Misty Dungeon: Realm of Water",
+    "activity_type": "NEW_ACTIVITY_MISTTRIAL",
+    "cond_group_id": [
+      516701
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5168,
+    "name": "About Lakelight and Foggy Forests, the Terrestrial Sea and Fathomless Tower",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5169,
+    "name": "Masquerade of the Guilty",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5170,
+    "name": "Awakening Water",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5171,
+    "name": "Animula Choragi Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5172,
+    "name": "Dance of Resolute Will",
+    "activity_type": "NEW_ACTIVITY_GOAL_CHALLENGE",
+    "cond_group_id": [
+      517201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2027,
+    "name": "Roses and Muskets",
+    "activity_type": "NEW_ACTIVITY_FILMFEST",
+    "cond_group_id": [
+      202701
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5173,
+    "name": "Arataki Blazing Armor Beetle Battle Boot Camp",
+    "activity_type": "NEW_ACTIVITY_ELECTROHERCULES_BATTLE",
+    "cond_group_id": [
+      517301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2028,
+    "name": "Vibrant Harriers Aloft in Spring Breeze",
+    "activity_type": "NEW_ACTIVITY_LANTERN_RITE_V4",
+    "cond_group_id": [
+      202801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5175,
+    "name": "Journey Through Hilinigmatic Terrain",
+    "activity_type": "NEW_ACTIVITY_LOST_SAMACHURL",
+    "cond_group_id": [
+      517501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5176,
+    "name": "Triumphant Frenzy",
+    "activity_type": "NEW_ACTIVITY_STAMINA_FIGHT",
+    "cond_group_id": [
+      517601
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5177,
+    "name": "Gazing Up at Eternity, Looking Down at the World",
+    "activity_type": "NEW_ACTIVITY_FURNITURE_BROADCAST",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5178,
+    "name": "Receiver of Friends From Afar",
+    "activity_type": "NEW_ACTIVITY_COOK_GAME",
+    "cond_group_id": [
+      517801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5179,
+    "name": "Rosa Multiflora Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5180,
+    "name": "Lithic Oath in Chenyu",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5181,
+    "name": "Mist-Cloaked Paths",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2029,
+    "name": "Alchemical Ascension",
+    "activity_type": "NEW_ACTIVITY_ALCHEMY_SIM",
+    "cond_group_id": [
+      202901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5182,
+    "name": "The Great Fayz Reaction Debate",
+    "activity_type": "NEW_ACTIVITY_AUTO_TIME_STOP",
+    "cond_group_id": [
+      518201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5183,
+    "name": "Feline Fortress Furrdyssey",
+    "activity_type": "NEW_ACTIVITY_CATCAFE",
+    "cond_group_id": [
+      518301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5184,
+    "name": "Rolling Crossfire",
+    "activity_type": "NEW_ACTIVITY_SLIME_CANNON",
+    "cond_group_id": [
+      518401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5185,
+    "name": "Grus Serena Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5186,
+    "name": "Cisoria Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5188,
+    "name": "Specially-Shaped Saurian Search",
+    "activity_type": "NEW_ACTIVITY_EFFIGY_CHALLENGE_V5",
+    "cond_group_id": [
+      518801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2030,
+    "name": "Iridescent Arataki Rockin' for Life Tour de Force of Awesomeness",
+    "activity_type": "NEW_ACTIVITY_GREAT_FESTIVAL_V2",
+    "cond_group_id": [
+      203001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5189,
+    "name": "Vibro-Crystal Applications",
+    "activity_type": "NEW_ACTIVITY_CRYSTAL_LINK",
+    "cond_group_id": [
+      518901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5190,
+    "name": "Windtrace: Seekers and Strategy",
+    "activity_type": "NEW_ACTIVITY_HIDE_AND_SEEK_V4",
+    "cond_group_id": [
+      519001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5191,
+    "name": "Spino Doubleblaster",
+    "activity_type": "NEW_ACTIVITY_WATERGUN",
+    "cond_group_id": [
+      519101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5192,
+    "name": "Endless Forms Most Martial",
+    "activity_type": "NEW_ACTIVITY_ACROBATICS_BATTLE",
+    "cond_group_id": [
+      519201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5193,
+    "name": "Ignis Purgatorius Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5195,
+    "name": "Statue of Marble and Brass",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5196,
+    "name": "The Undersea Capital, the Lost Homeland",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5197,
+    "name": "Nereides Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5198,
+    "name": "Rapperia Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2031,
+    "name": "Mutual Security Enhancing Simulation",
+    "activity_type": "NEW_ACTIVITY_MONSTER_VS_MONSTER",
+    "cond_group_id": [
+      203101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5199,
+    "name": "Record of Reflective Writing",
+    "activity_type": "NEW_ACTIVITY_BULLET_HELL",
+    "cond_group_id": [
+      519901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5200,
+    "name": "Bing-Bang Finchball",
+    "activity_type": "NEW_ACTIVITY_BIRD_BALL",
+    "cond_group_id": [
+      520001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5201,
+    "name": "Outside the Canvas, Inside the Lens: Dew-Kissed Chapter",
+    "activity_type": "NEW_ACTIVITY_PHOTO",
+    "cond_group_id": [
+      520101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2032,
+    "name": "Summertide Scales and Tales",
+    "activity_type": "NEW_ACTIVITY_FAIRY_TALES",
+    "cond_group_id": [
+      203201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5202,
+    "name": "Energy Amplifier: Lemma",
+    "activity_type": "NEW_ACTIVITY_RECHARGE_DISK",
+    "cond_group_id": [
+      520201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5203,
+    "name": "Bedtime Story",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5204,
+    "name": "Dodoco's Boom-Bastic Escapades",
+    "activity_type": "NEW_ACTIVITY_BOMBER_DODOCO",
+    "cond_group_id": [
+      520401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5205,
+    "name": "Mementos of Teyvat",
+    "activity_type": "NEW_ACTIVITY_PHOTO",
+    "cond_group_id": [
+      520501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5206,
+    "name": "Envisaged Echoes",
+    "activity_type": "NEW_ACTIVITY_CHAR_MASTER_BROADCAST",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5207,
+    "name": "Of Thorns and Crowns",
+    "activity_type": "NEW_ACTIVITY_GAIN_BUFF",
+    "cond_group_id": [
+      520701
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5208,
+    "name": "Pomum de Ambra Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2033,
+    "name": "Traces of Artistry",
+    "activity_type": "NEW_ACTIVITY_NATLAN_TOUR",
+    "cond_group_id": [
+      203301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5209,
+    "name": "Yupanqui's Turnfire",
+    "activity_type": "NEW_ACTIVITY_TRIBAL_PERSONAL_LINE_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5210,
+    "name": "Where the Springs Return",
+    "activity_type": "NEW_ACTIVITY_TRIBAL_PERSONAL_LINE_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5211,
+    "name": "Flowers Resplendent on the Sun-Scorched Sojourn",
+    "activity_type": "NEW_ACTIVITY_MAIN_LINE_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2034,
+    "name": "Chromatic Ode of Candies and Roses",
+    "activity_type": "NEW_ACTIVITY_NAHIDA_BIRTH",
+    "cond_group_id": [
+      203401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5214,
+    "name": "Feast of Pursuit",
+    "activity_type": "NEW_ACTIVITY_ARENA_CHALLENGE_V5",
+    "cond_group_id": [
+      521401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5215,
+    "name": "Reminiscent Regimen: Thrill",
+    "activity_type": "NEW_ACTIVITY_COOPERATE_CHALLENGE",
+    "cond_group_id": [
+      521501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5216,
+    "name": "Aphid Treasure Trace",
+    "activity_type": "NEW_ACTIVITY_BOLTBUG_ABYSS",
+    "cond_group_id": [
+      521601
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5217,
+    "name": "Turbo Twirly!",
+    "activity_type": "NEW_ACTIVITY_BONUS_AVATAR_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5226,
+    "name": "Land of Vibrant Stone and Flaming Springs",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5227,
+    "name": "Lord of the Mountain",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5228,
+    "name": "Feather of Proclamation",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5229,
+    "name": "The Rainbow Destined to Burn",
+    "activity_type": "NEW_ACTIVITY_MAIN_LINE_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5231,
+    "name": "Tenebrous Papilla",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5232,
+    "name": "Adventurer's Trials: Metamorphosis",
+    "activity_type": "NEW_ACTIVITY_CHAR_AMUSEMENT",
+    "cond_group_id": [
+      523201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5233,
+    "name": "Exercise Surging Storm",
+    "activity_type": "NEW_ACTIVITY_MONSTER_CHESS",
+    "cond_group_id": [
+      523301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2035,
+    "name": "Iktomi Spiritseeking Scrolls",
+    "activity_type": "NEW_ACTIVITY_CEREMONY",
+    "cond_group_id": [
+      203501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5234,
+    "name": "Of Fading Flowers and Falling Feathers",
+    "activity_type": "NEW_ACTIVITY_TRIBAL_PERSONAL_LINE_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5236,
+    "name": "A Prayer for Blessings, Told to Crested Peaks",
+    "activity_type": "NEW_ACTIVITY_TRIBAL_PERSONAL_LINE_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5237,
+    "name": "Secret Source Constructor",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2036,
+    "name": "Springtime Charms",
+    "activity_type": "NEW_ACTIVITY_LANTERN_RITE_V5",
+    "cond_group_id": [
+      203601
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5238,
+    "name": "Claw Convoy",
+    "activity_type": "NEW_ACTIVITY_ANIMAL_VIEW",
+    "cond_group_id": [
+      523801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 6010,
+    "name": "A Quest to Kindle Ancient Flames",
+    "activity_type": "NEW_ACTIVITY_PERMANENT_BANNER",
+    "cond_group_id": [
+      601001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5239,
+    "name": "Facing the Windborne Cliff and City of Flowing Ash",
+    "activity_type": "NEW_ACTIVITY_LIMITED_TIME_REWARD_AREA_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5240,
+    "name": "Emblem of Steadfast Valor",
+    "activity_type": "NEW_ACTIVITY_NATLAN_RACE",
+    "cond_group_id": [
+      524001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5242,
+    "name": "All Fires Fuel the Flame",
+    "activity_type": "NEW_ACTIVITY_QUICK_LAUNCH_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5243,
+    "name": "Shuyu's Baffling Beetle Battle Bowl",
+    "activity_type": "NEW_ACTIVITY_ELECTROHERCULES_BATTLE_V3",
+    "cond_group_id": [
+      524301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5244,
+    "name": "Repertoire of Myriad Melodies",
+    "activity_type": "NEW_ACTIVITY_MUSIC_GAME_BOOK_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5245,
+    "name": "On the Trail of Behemoths",
+    "activity_type": "NEW_ACTIVITY_EFFIGY_CHALLENGE_V5",
+    "cond_group_id": [
+      524501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5246,
+    "name": "As the Blazing Sun",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5247,
+    "name": "Memories Flowing With Color",
+    "activity_type": "NEW_ACTIVITY_TRIBAL_PERSONAL_LINE_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5248,
+    "name": "Incandescent Ode of Resurrection",
+    "activity_type": "NEW_ACTIVITY_MAIN_LINE_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5249,
+    "name": "Wayward Hermetic Spiritspeaker",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2037,
+    "name": "Enchanted Tales of the Mikawa Festival",
+    "activity_type": "NEW_ACTIVITY_MIKAWA_FLOWER",
+    "cond_group_id": [
+      203701
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5250,
+    "name": "Tapirus Somniator Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5251,
+    "name": "Invasive Fish Wrangler",
+    "activity_type": "NEW_ACTIVITY_FISHING_JOY",
+    "cond_group_id": [
+      525101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5252,
+    "name": "Realm of Tempered Valor",
+    "activity_type": "NEW_ACTIVITY_TOWER_CHALLENGE",
+    "cond_group_id": [
+      525201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5253,
+    "name": "Travelers' Tales: Anthology Chapter",
+    "activity_type": "NEW_ACTIVITY_ANECDOTE",
+    "cond_group_id": [
+      525301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5254,
+    "name": "Reel Ad-Venture",
+    "activity_type": "NEW_ACTIVITY_AD_SHOOTING",
+    "cond_group_id": [
+      525401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5255,
+    "name": "Mushroom Realm Mystery",
+    "activity_type": "NEW_ACTIVITY_TRIBAL_PERSONAL_LINE_BANNER",
+    "cond_group_id": [
+      525501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5257,
+    "name": "Lava Dragon Statue",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2038,
+    "name": "Tournament of Glory in Bloom",
+    "activity_type": "NEW_ACTIVITY_NATLAN_DRILL",
+    "cond_group_id": [
+      203801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5258,
+    "name": "The Sacred Mountain and Sanctified Land",
+    "activity_type": "NEW_ACTIVITY_LIMITED_TIME_REWARD_AREA_BANNER",
+    "cond_group_id": [
+      525801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5259,
+    "name": "Quirky Quaking Arena",
+    "activity_type": "NEW_ACTIVITY_PARTY",
+    "cond_group_id": [
+      525901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5260,
+    "name": "Unlimited Fighting Championship",
+    "activity_type": "NEW_ACTIVITY_NATLAN_ARENA",
+    "cond_group_id": [
+      526001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5261,
+    "name": "Rhythm Ball Meztli",
+    "activity_type": "NEW_ACTIVITY_BRICK_BREAKER",
+    "cond_group_id": [
+      526101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5262,
+    "name": "Chronicle of Shifting Stratagems",
+    "activity_type": "NEW_ACTIVITY_DIVERSITY_BATTLE",
+    "cond_group_id": [
+      526201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2039,
+    "name": "Whirling Waltz",
+    "activity_type": "NEW_ACTIVITY_THEME_PARK_SIM",
+    "cond_group_id": [
+      203901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5263,
+    "name": "Paralogism",
+    "activity_type": "NEW_ACTIVITY_QUICK_LAUNCH_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5264,
+    "name": "Treasured Above All",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": [
+      526401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5265,
+    "name": "Ancient Ruins Master Terminal",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5266,
+    "name": "Operation Downpour Simulation",
+    "activity_type": "NEW_ACTIVITY_MVM2",
+    "cond_group_id": [
+      526601
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5268,
+    "name": "Legends Ablaze: Cross-Border Brawl",
+    "activity_type": "NEW_ACTIVITY_SAURUS_1V3",
+    "cond_group_id": [
+      526801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5269,
+    "name": "Stygian Onslaught",
+    "activity_type": "NEW_ACTIVITY_LEY_LINE_CHALLENGE",
+    "cond_group_id": [
+      526901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2040,
+    "name": "Battle of Imagined Arrays",
+    "activity_type": "NEW_ACTIVITY_AUTO_CHESS",
+    "cond_group_id": [
+      204001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5270,
+    "name": "Fearsome Ferocious Firepower",
+    "activity_type": "NEW_ACTIVITY_SLIME_CANNON",
+    "cond_group_id": [
+      527001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5271,
+    "name": "Reminiscent Regimen: Frenzy",
+    "activity_type": "NEW_ACTIVITY_COOPERATE_CHALLENGE",
+    "cond_group_id": [
+      527101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5272,
+    "name": "Crystallina Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": [
+      527201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5273,
+    "name": "A Space and Time for You",
+    "activity_type": "NEW_ACTIVITY_QUICK_LAUNCH_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5275,
+    "name": "Travelers' Tales: Gilded Chapter",
+    "activity_type": "NEW_ACTIVITY_ANECDOTE",
+    "cond_group_id": [
+      527501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2041,
+    "name": "Sunspray Summer Resort",
+    "activity_type": "NEW_ACTIVITY_HOLIDAY_RESORT",
+    "cond_group_id": [
+      204101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5278,
+    "name": "Tracing Vanishing Trails",
+    "activity_type": "NEW_ACTIVITY_AGENTRECON",
+    "cond_group_id": [
+      527801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5279,
+    "name": "Mementos of Teyvat: Prelude of the Frozen Veil",
+    "activity_type": "NEW_ACTIVITY_PHOTO",
+    "cond_group_id": [
+      527901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5280,
+    "name": "Dodoco's Blow-Up-Erative Bomb-Nanza",
+    "activity_type": "NEW_ACTIVITY_BOMBER_V3",
+    "cond_group_id": [
+      528001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5281,
+    "name": "The Journey Home",
+    "activity_type": "NEW_ACTIVITY_MAIN_LINE_BANNER",
+    "cond_group_id": [
+      528101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5282,
+    "name": "An Easy-Breezy Natlan in an Easy-Breezy Summer!",
+    "activity_type": "NEW_ACTIVITY_LIMITED_TIME_REWARD_AREA_BANNER",
+    "cond_group_id": [
+      528201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5283,
+    "name": "Natlan: Plains of Flowing Flames",
+    "activity_type": "NEW_ACTIVITY_MUSIC_GAME_BOOK_LIMITED_TIME_BANNER",
+    "cond_group_id": [
+      528301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2042,
+    "name": "Clink Clank Clash",
+    "activity_type": "NEW_ACTIVITY_NODKRAI_TOUR",
+    "cond_group_id": [
+      204201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5284,
+    "name": "The Isle of Cold Moonlight",
+    "activity_type": "NEW_ACTIVITY_LIMITED_TIME_REWARD_AREA_BANNER",
+    "cond_group_id": [
+      528401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5285,
+    "name": "Lightgleaner's Journey",
+    "activity_type": "NEW_ACTIVITY_PHOTO",
+    "cond_group_id": [
+      528501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 6011,
+    "name": "Uncover Lunar Realms, Hone the Eventide Radiance",
+    "activity_type": "NEW_ACTIVITY_PERMANENT_BANNER",
+    "cond_group_id": [
+      601101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5287,
+    "name": "Travelers' Tales",
+    "activity_type": "NEW_ACTIVITY_ANECDOTE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5288,
+    "name": "Knuckle Duckle",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5289,
+    "name": "Radiant Moonfly",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5290,
+    "name": "The Clink Clank Whiz-Kid!",
+    "activity_type": "NEW_ACTIVITY_BONUS_AVATAR_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5291,
+    "name": "A Dance of Snowy Tides and Hoarfrost Groves",
+    "activity_type": "NEW_ACTIVITY_MAIN_LINE_BANNER",
+    "cond_group_id": [
+      529101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5292,
+    "name": "Encounter: Memories of a Boundless Journey",
+    "activity_type": "NEW_ACTIVITY_MUSIC_GAME_BOOK_LIMITED_TIME_BANNER",
+    "cond_group_id": [
+      529201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5293,
+    "name": "Frostnight Herra",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5294,
+    "name": "To Temper Thyself and Journey Far",
+    "activity_type": "NEW_ACTIVITY_WEEK_ACTIVE",
+    "cond_group_id": [
+      529401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2043,
+    "name": "Ruins Exploration: Fieldwise Center",
+    "activity_type": "NEW_ACTIVITY_SUMERU_ADVENTURE_TRAINING",
+    "cond_group_id": [
+      204301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5295,
+    "name": "Saurian Sojourn",
+    "activity_type": "NEW_ACTIVITY_HUMAN_DRAGON_PUZZLE",
+    "cond_group_id": [
+      529501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5296,
+    "name": "Dance Dance Dynamic Disco",
+    "activity_type": "NEW_ACTIVITY_MUSIC_PARTY",
+    "cond_group_id": [
+      529601
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2044,
+    "name": "Soulblazers' Snowbound Journey",
+    "activity_type": "NEW_ACTIVITY_SNOW_RACE",
+    "cond_group_id": [
+      204401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5298,
+    "name": "An Elegy for Faded Moonlight",
+    "activity_type": "NEW_ACTIVITY_MAIN_LINE_BANNER",
+    "cond_group_id": [
+      529801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5299,
+    "name": "Wonderland Treasures: Phantasmagoric Discourse",
+    "activity_type": "NEW_ACTIVITY_BEYOND_COSTUME_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5300,
+    "name": "Heroic Clash: Saurian Brawl",
+    "activity_type": "NEW_ACTIVITY_NATLAN_DRAGON_PARTY",
+    "cond_group_id": [
+      530001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5301,
+    "name": "A Nocturne of the Far North",
+    "activity_type": "NEW_ACTIVITY_MAIN_LINE_BANNER",
+    "cond_group_id": [
+      530101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5302,
+    "name": "Draco Rubedo Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": [
+      530201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5303,
+    "name": "A Traveler on a Winter's Night",
+    "activity_type": "NEW_ACTIVITY_MAIN_LINE_BANNER",
+    "cond_group_id": [
+      530301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5304,
+    "name": "Super-Heavy Landrover: Mechanized Fortress",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5305,
+    "name": "Moonlit Patrol Exercise",
+    "activity_type": "NEW_ACTIVITY_MONSTER_CHESS_V2",
+    "cond_group_id": [
+      530501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5306,
+    "name": "The Lament of the Cliff-Shadowed Hollow",
+    "activity_type": "NEW_ACTIVITY_LIMITED_TIME_REWARD_AREA_BANNER",
+    "cond_group_id": [
+      530601
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5307,
+    "name": "Shutterflash Memory Hunt",
+    "activity_type": "NEW_ACTIVITY_TIME_STOP_PHOTO",
+    "cond_group_id": [
+      530701
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2045,
+    "name": "A Lanternlit Ode to the Silver Moon",
+    "activity_type": "NEW_ACTIVITY_LANTERN_RITE_V6",
+    "cond_group_id": [
+      204501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5308,
+    "name": "Lord of the Hidden Depths: Whisperer of Nightmares",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5309,
+    "name": "A Gift From the Sea Spirits",
+    "activity_type": "NEW_ACTIVITY_SKIN_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2046,
+    "name": "Homeward, He Who Caught the Wind",
+    "activity_type": "NEW_ACTIVITY_BUBBLE_DRAMA",
+    "cond_group_id": [
+      204601
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5310,
+    "name": "Lupus Majoris Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": [
+      531001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5311,
+    "name": "Radiant Moongecko",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5312,
+    "name": "Sightseeing With Friends",
+    "activity_type": "NEW_ACTIVITY_MONSTER_SNAP",
+    "cond_group_id": [
+      531201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5313,
+    "name": "Operation Stronghold Defense",
+    "activity_type": "NEW_ACTIVITY_TOWER_DEFENSE",
+    "cond_group_id": [
+      531301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5314,
+    "name": "Nod-Krai: Gateway to the Borderland Elysium",
+    "activity_type": "NEW_ACTIVITY_MUSIC_GAME_BOOK_LIMITED_TIME_BANNER",
+    "cond_group_id": [
+      531401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5315,
+    "name": "Surveying & Mapping Studies",
+    "activity_type": "NEW_ACTIVITY_MAP_MARK",
+    "cond_group_id": [
+      531501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5316,
+    "name": "Rapid Capture",
+    "activity_type": "NEW_ACTIVITY_SHORT_VIDEO",
+    "cond_group_id": [
+      531601
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2047,
+    "name": "Where Waves Meet the Reef",
+    "activity_type": "NEW_ACTIVITY_TRADE_SHOW",
+    "cond_group_id": [
+      204701
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5317,
+    "name": "Travelers' Tales: Moongaze Chapter",
+    "activity_type": "NEW_ACTIVITY_ANECDOTE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5318,
+    "name": "Miliastral Gifts",
+    "activity_type": "NEW_ACTIVITY_BEYOND_WELFARE",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5319,
+    "name": "Alcyon Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": [
+      531901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5320,
+    "name": "Watcher: Fallen Vigil",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5321,
+    "name": "The Stilled Interstice of a Thousand Winds",
+    "activity_type": "NEW_ACTIVITY_LIMITED_TIME_REWARD_AREA_BANNER",
+    "cond_group_id": [
+      532101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5323,
+    "name": "Kaleidoscopic Color Chase",
+    "activity_type": "NEW_ACTIVITY_COLOR_BALL",
+    "cond_group_id": [
+      532301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5324,
+    "name": "Trials of the Brave Warrior",
+    "activity_type": "NEW_ACTIVITY_BLADE_HEART",
+    "cond_group_id": [
+      532401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2048,
+    "name": "Phantasmal Pals",
+    "activity_type": "NEW_ACTIVITY_LOLI_FRIEND",
+    "cond_group_id": [
+      204801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5325,
+    "name": "As All Falls to Emptiness",
+    "activity_type": "NEW_ACTIVITY_MAIN_LINE_BANNER",
+    "cond_group_id": [
+      532501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5326,
+    "name": "Lepus Miles Chapter",
+    "activity_type": "NEW_ACTIVITY_PERSONAL_LIINE",
+    "cond_group_id": [
+      532601
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5328,
+    "name": "Dance Dance Easy-Breezy Disco",
+    "activity_type": "NEW_ACTIVITY_MUSIC_PARTY",
+    "cond_group_id": [
+      532801
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5329,
+    "name": "Hexerei: Ballad of Whimsical Polyphony",
+    "activity_type": "NEW_ACTIVITY_MUSIC_GAME_BOOK_LIMITED_TIME_BANNER",
+    "cond_group_id": [
+      532901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5330,
+    "name": "Beyond Silver and Fine Gold",
+    "activity_type": "NEW_ACTIVITY_NICOLE_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2049,
+    "name": "Sunny Summer Fontinalia",
+    "activity_type": "NEW_ACTIVITY_ACTIVITY_AQUARIUM",
+    "cond_group_id": [
+      204901
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5331,
+    "name": "Final Long-Range Sightlines",
+    "activity_type": "NEW_ACTIVITY_ONE_SHOT",
+    "cond_group_id": [
+      533101
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 2050,
+    "name": "Great Expeditionist Challenge",
+    "activity_type": "NEW_ACTIVITY_RANKED_MATCH",
+    "cond_group_id": [
+      205001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5332,
+    "name": "When We Look Up at the Moon",
+    "activity_type": "NEW_ACTIVITY_LIMITED_TIME_REWARD_AREA_BANNER",
+    "cond_group_id": [
+      533201
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5333,
+    "name": "Mutual Aid in Bloom: Into the Frostlands",
+    "activity_type": "NEW_ACTIVITY_ADVENTURER_STATUE",
+    "cond_group_id": [
+      533301
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5334,
+    "name": "Trial of the Bastion",
+    "activity_type": "NEW_ACTIVITY_TPS_DEFENSE",
+    "cond_group_id": [
+      533401
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5335,
+    "name": "Nod-Krai: Where Roads Are Pledged to Cross",
+    "activity_type": "NEW_ACTIVITY_MUSIC_GAME_BOOK_LIMITED_TIME_BANNER",
+    "cond_group_id": [
+      533501
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5336,
+    "name": "Immortal Construct",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5337,
+    "name": "Chimeric Winged Lion",
+    "activity_type": "NEW_ACTIVITY_GENERAL_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5338,
+    "name": "The Hunt Begins!",
+    "activity_type": "NEW_ACTIVITY_BONUS_AVATAR_BANNER",
+    "cond_group_id": null,
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5340,
+    "name": "The Godforsaken Frostlands",
+    "activity_type": "NEW_ACTIVITY_LIMITED_TIME_REWARD_AREA_BANNER",
+    "cond_group_id": [
+      534001
+    ],
+    "game_version_introduced": "7.0"
+  },
+  {
+    "id": 5341,
+    "name": "Everwinter Without Mercy",
+    "activity_type": "NEW_ACTIVITY_MAIN_LINE_BANNER",
+    "cond_group_id": [
+      534101
+    ],
+    "game_version_introduced": "7.0"
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "id": "kqm_mavuika_guide",
+  "title": "KQM Mavuika Character & Theorycrafting Guide",
+  "metadata": {
+    "source_id": "src_kqm_guides",
+    "source": "KeqingMains Guides (KQM)",
+    "source_url": "https://keqingmains.com/mavuika/",
+    "canonical_url": "https://keqingmains.com/mavuika/",
+    "source_type": "KQM",
+    "authority_tier": 2,
+    "character": "Mavuika",
+    "topic": "Character Guide",
+    "game_version": "5.4",
+    "published_at": "2025-01-01T00:00:00Z",
+    "updated_at": "2025-02-15T00:00:00Z",
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "81314487757973c8a2f2beb5f50b6fc8f0ffe93af065f7041c511e5e289af9db",
+    "freshness_status": "stale",
+    "tags": [
+      "Mavuika",
+      "Pyro",
+      "Claymore",
+      "Archon",
+      "Natlan",
+      "Nightsoul",
+      "KQM",
+      "Artifacts",
+      "Weapons",
+      "Teams"
+    ]
+  },
+  "summary": "Authoritative KQM theorycrafting guide for Mavuika: Pyro Archon. Details on-field & off-field playstyles, Nightsoul/Phlogiston mechanics, talent crowning order (Burst >= Skill > Normal Attack), artifact sets (Obsidian Codex vs Scroll of the Hero of Cinder City), weapon rankings, and optimal team compositions.",
+  "content": "# Mavuika Character & Theorycrafting Guide (KQM)\n\n![Mavuika](https://enka.network/ui/UI_AvatarIcon_Mavuika.png)\n\n## Overview & Playstyle\nMavuika is the 5-star Pyro Archon of Natlan who wields a Claymore. She is an exceptionally versatile unit capable of serving as a premier on-field Pyro hypercarry, an aggressive off-field Pyro sub-DPS, and a potent teamwide damage buffer utilizing Natlan's Nightsoul's Blessing and Phlogiston mechanics.\n\n### Core Mechanics & Nightsoul's Blessing\n- **Elemental Skill**: Summons the Flamestrider armament, enabling high-mobility vehicular attacks, dealing continuous off-field Pyro DMG, and granting Mavuika Nightsoul points.\n- **Elemental Burst**: Enters the Radiant Incandescence state, delivering a colossal initial AoE Pyro strike followed by enhanced Pyro-infused attacks that scale intensely with consumed Nightsoul and party member Fighting Spirit.\n\n## Talent Priority & Crowning Order\n1. **Elemental Burst (Highest Priority - Crown 1st)**: Responsible for her most devastating burst damage windows and teamwide multipliers.\n2. **Elemental Skill (High Priority - Crown 2nd)**: Drives continuous off-field Pyro application, coordinate attacks, and exploration mobility.\n3. **Normal Attack (Low Priority)**: Most of her on-field combat scaling derives directly from her Skill/Burst conversions; normal attack can be left at Level 6 unless maximizing purely un-infused normals.\n\n## Stat Priorities & Desired Substats\n- **Sands**: ATK% (or Elemental Mastery in dedicated Forward/Reverse Vaporize & Melt teams)\n- **Goblet**: Pyro DMG Bonus (or ATK% when paired with high DMG% buffers like Furina)\n- **Circlet**: CRIT Rate or CRIT DMG (strive for a 1:2 ratio; account for Obsidian Codex +40% CRIT Rate if equipped)\n- **Substat Priority**: CRIT Rate / CRIT DMG > ATK% > Elemental Mastery (in reaction teams) > Energy Recharge (~120-140% depending on team composition).\n\n## Recommended Artifact Sets\n1. **Obsidian Codex (4-Piece)**: Best in Slot (BiS) for On-Field DPS. Grants +15% DMG while in Nightsoul's Blessing, and an immense **+40% CRIT Rate** when consuming Nightsoul points.\n2. **Scroll of the Hero of Cinder City (4-Piece)**: Best in Slot (BiS) for Sub-DPS / Support Buffer. Restores energy and provides an unmatched **+40% Elemental DMG Bonus** to all party members of reacted elements upon triggering a Nightsoul reaction.\n3. **Crimson Witch of Flames (4-Piece)**: Strong alternative for dedicated Vaporize and Melt teams.\n4. **Golden Troupe (4-Piece)**: Viable for purely off-field Flamestrider skill damage.\n\n## Weapon Rankings\n1. **A Thousand Blazing Suns (5★)**: Signature Claymore. Provides massive CRIT stats, ATK%, and unique Nightsoul DMG boosts.\n2. **Verdict (5★)**: High Base ATK, CRIT Rate substat, and Skill DMG bonuses on Crystallize/elemental reactions.\n3. **Beacon of the Reed Sea (5★)**: 33.1% CRIT Rate, unconditional ATK% buffs on Skill hit and taking damage.\n4. **Redhorn Stonethresher (5★)**: 88.2% CRIT DMG, reliable stat stick.\n5. **Footprint of the Rainbow (4★ Natlan Craftable)**: Top-tier F2P craftable Claymore. Grants DEF/ATK scalings tailored for Natlan combat.\n6. **Serpent Spine (4★ Battle Pass)**: Outstanding 4-star option providing CRIT Rate and up to 50% all-damage bonus at R5.\n7. **Tidal Shadow (4★ Fontaine Craftable)**: Solid ATK% booster when party receives healing.\n\n## Best Team Compositions\n1. **Natlan Sovereign Vaporize**: Mavuika + Furina + Yelan (or Xingqiu) + Xilonen (or Bennett/Jean). Outstanding damage ceiling with continuous Hydro application and double damage amplification.\n2. **Melt Hypercarry**: Mavuika + Citlali (or Shenhe/Rosaria) + Kaedehara Kazuha + Bennett. Heavy forward-Melt burst hits.\n3. **Chevreuse Overload**: Mavuika + Chevreuse + Fischl + Raiden Shogun (or Bennett/Kujou Sara). Shreds 40% Pyro & Electro RES without needing Anemo VV.\n4. **Natlan Archon Core**: Mavuika + Xilonen + Chasca + Bennett. Maximizes Natlan Nightsoul burst generation and partywide elemental shred."
+}

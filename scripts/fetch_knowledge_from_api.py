@@ -175,18 +175,27 @@ def create_character_doc(char_id: str, data: dict) -> dict:
     tags = [t for t in tags if t]
 
     url_name = name.replace(' ', '_')
+    content_hash = hashlib.sha256(content.strip().replace("\r\n", "\n").encode("utf-8")).hexdigest()
+    retrieved_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
     return {
         "id": f"wiki_{char_id.replace('-', '_')}",
         "title": f"{name} — Complete Character Guide & Talent Reference",
         "metadata": {
-            "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
-            "source_url": f"https://genshin-impact.fandom.com/wiki/{url_name}",
-            "source_type": "AUTHORITATIVE",
+            "source_id": "src_genshin_fandom_wiki",
+            "source": "Genshin Impact Community Wiki (Fandom)",
+            "source_url": f"https://genshin.jmp.blue/characters/{char_id}",
+            "canonical_url": f"https://genshin-impact.fandom.com/wiki/{url_name}",
+            "source_type": "COMMUNITY",
+            "authority_tier": 5,
             "character": name,
             "topic": "Character Guide",
-            "game_version": "5.4",
+            "game_version": "7.0",
             "published_at": data.get("release", "2020-09-28") + "T00:00:00Z",
-            "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "updated_at": retrieved_at,
+            "retrieved_at": retrieved_at,
+            "content_hash": content_hash,
+            "freshness_status": "current",
             "tags": tags,
         },
         "summary": summary,
@@ -212,18 +221,27 @@ def create_artifact_doc(art_id: str, data: dict) -> dict:
     summary = f"Artifact set reference for {name}. {bonus_text}"
 
     url_name = name.replace(' ', '_').replace("'", "%27")
+    content_hash = hashlib.sha256(content.strip().replace("\r\n", "\n").encode("utf-8")).hexdigest()
+    retrieved_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
     return {
         "id": f"artifact_{art_id.replace('-', '_')}",
         "title": f"{name} — Artifact Set Bonuses & Piece Details",
         "metadata": {
-            "source": "Genshin Impact Community Wiki (genshin.jmp.blue)",
-            "source_url": f"https://genshin-impact.fandom.com/wiki/{url_name}",
-            "source_type": "AUTHORITATIVE",
+            "source_id": "src_genshin_fandom_wiki",
+            "source": "Genshin Impact Community Wiki (Fandom)",
+            "source_url": f"https://genshin.jmp.blue/artifacts/{art_id}",
+            "canonical_url": f"https://genshin-impact.fandom.com/wiki/{url_name}",
+            "source_type": "COMMUNITY",
+            "authority_tier": 5,
             "character": None,
             "topic": "Artifact Set",
-            "game_version": "5.4",
+            "game_version": "7.0",
             "published_at": "2020-09-28T00:00:00Z",
-            "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "updated_at": retrieved_at,
+            "retrieved_at": retrieved_at,
+            "content_hash": content_hash,
+            "freshness_status": "current",
             "tags": [name, "Artifact", "Set Bonus"],
         },
         "summary": summary,

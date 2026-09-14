@@ -2,15 +2,30 @@
   "id": "mechanics_pity_wish_system",
   "title": "Genshin Impact Pity, Wish, and Banner Mechanics",
   "metadata": {
-    "source": "Official HoYoverse System & Statistical Math Analysis",
-    "source_url": "https://genshin-impact.fandom.com/wiki/Wish",
-    "source_type": "STATISTICAL",
+    "source_id": "src_kqm_tcl",
+    "source": "KQM Theorycrafting Library (TCL)",
+    "source_url": "https://library.keqingmains.com/general-mechanics/gacha",
+    "canonical_url": "https://library.keqingmains.com/",
+    "source_type": "TCL",
+    "authority_tier": 2,
     "character": null,
     "topic": "Game Mechanics",
     "game_version": "5.4",
     "published_at": "2020-09-28T00:00:00Z",
     "updated_at": "2024-11-20T00:00:00Z",
-    "tags": ["Pity System", "Wish", "Banner", "Math", "Gacha", "5-Star", "4-Star", "Epitomized Path"]
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "3d49ba669b026a99e65c76268bac8f799e8f65e56017ee751249a3857a7a795c",
+    "freshness_status": "stale",
+    "tags": [
+      "Pity System",
+      "Wish",
+      "Banner",
+      "Math",
+      "Gacha",
+      "5-Star",
+      "4-Star",
+      "Epitomized Path"
+    ]
   },
   "summary": "Authoritative mathematical specifications of Genshin Impact's gacha pity mechanics, covering character and weapon banner soft/hard pity boundaries, 50/50 rules, and Epitomized Path guarantees.",
   "content": "# Genshin Impact Pity, Wish, and Banner Mechanics\n\n## Character Event Banners (Limited Character Banners)\nCharacter event banners feature one limited 5-star character and three featured 4-star characters. \n\n### 1. 5-Star Drop Rate & Pity\n- **Base Probability**: The base chance to roll a 5-star character is **0.6%**.\n- **Soft Pity**: Beginning at the **74th wish**, the probability of rolling a 5-star increases by **6%** with each consecutive pull (i.e., 6.6% on 74, 12.6% on 75, etc.) until a 5-star is won.\n- **Hard Pity**: Set at the **90th wish**, which is a 100% guaranteed 5-star if none were rolled earlier.\n- **The 50/50 Rule**: When you roll a 5-star, there is a **50% chance** it will be the featured limited character, and a **50% chance** it will be a standard 5-star character (e.g. Diluc, Jean, Mona, Keqing, Qiqi, Tighnari, Dehya).\n- **Guaranteed Pity**: If you lose the 50/50 and receive a standard 5-star, your *next* 5-star on the character event banner is **100% guaranteed** to be the featured limited character. This guarantee carries over across future character event banners and never expires.\n\n### 2. 4-Star Drop Rate & Pity\n- **Base Probability**: The base chance to roll a 4-star is **5.1%**.\n- **Hard Pity**: You are guaranteed a 4-star character or weapon by the **10th wish** from your last 4-star roll.\n- **Featured Guarantee**: When rolling a 4-star, there is a **50% chance** it is one of the three featured 4-stars. If you roll a non-featured 4-star, the next 4-star is guaranteed to be one of the three featured ones.\n\n---\n\n## Weapon Event Banners (Epitomized Path)\nWeapon banners feature two limited 5-star weapons and five featured 4-star weapons.\n\n### 1. 5-Star Drop Rate & Pity\n- **Base Probability**: The base chance to roll a 5-star weapon is **0.7%**.\n- **Soft Pity**: Begins at the **63rd wish**, where the rates rise quickly towards 100%.\n- **Hard Pity**: Set at the **80th wish**.\n- **The 75/25 Rule**: When you roll a 5-star, there is a **75% chance** it is one of the two featured promotional weapons, and a **25% chance** it is a standard pool weapon.\n\n### 2. Epitomized Path (Fate Points)\n- **Mechanic**: You select one of the two featured 5-star weapons as your goal before pulling.\n- **Points**: If you roll a 5-star that is NOT your selected weapon, you receive **1 Fate Point**.\n- **Guaranteed Roll**: Once you have **1 Fate Point** (as of Version 5.0, decreased from 2 points in earlier versions), the next 5-star weapon you roll is **100% guaranteed** to be your chosen weapon. Your Fate Point resets to 0 upon obtaining your target weapon. Fate Points do *not* carry over across banner updates.\n\n---\n\n## Standard & Chronicled Wish Banners\n- **Standard Banner (Wanderlust Invocation)**: Uses Acquaint Fates. Pity is at 90. Equal chance for standard 5-star characters and standard 5-star weapons.\n- **Pity Carryover**: Standard, Character Event, and Weapon Event banners maintain *separate* pity counters."

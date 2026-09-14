@@ -1,0 +1,28 @@
+{
+  "id": "structured_daily_weapon_materials_schedule",
+  "title": "Teyvat Daily Weapon Ascension Materials Domain Farming Schedule",
+  "metadata": {
+    "source_id": "src_project_amber",
+    "source": "Project Amber (Ambr.top)",
+    "source_url": "https://ambr.top/en/archive/material",
+    "canonical_url": "https://ambr.top/en/archive",
+    "source_type": "STRUCTURED_DATA",
+    "authority_tier": 3,
+    "character": null,
+    "topic": "Farming & Domains",
+    "game_version": "7.0",
+    "published_at": "2020-09-28T00:00:00Z",
+    "updated_at": "2026-09-02T00:00:00Z",
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "588d4b3a2f23d2955cf9a62ee80afe27be0ff1713cf73d2c7b8684f7b8ffac99",
+    "freshness_status": "current",
+    "tags": [
+      "Weapon Materials",
+      "Farming Schedule",
+      "Domains",
+      "Structured Data"
+    ]
+  },
+  "summary": "Structured reference for weapon ascension material domains across all nations by day of the week.",
+  "content": "# Teyvat Daily Weapon Ascension Materials Domain Schedule\n\n## 1. Monday & Thursday (and Sunday)\n- **Mondstadt (Cecilia Garden)**: *Decarabian Tile* (Favonius Sword, The Bell, Stringless, Aquila Favonia).\n- **Liyue (Hidden Palace of Lianshan Formula)**: *Guyun Relic* (Whiteblind, Crescent Pike, Rust, Primordial Jade Winged-Spear).\n- **Inazuma (Court of Flowing Sand)**: *Distant Sea Branch* (Amenoma Kageuchi, Hakushin Ring, Mistsplitter Reforged).\n- **Sumeru (Tower of Abject Pride)**: *Copper Talisman of the Forest Dew* (Sapwood Blade, Forest Regalia, Key of Khaj-Nisut).\n- **Fontaine (Echoes of the Deep Tides)**: *Fragment of an Ancient Chord* (Finale of the Deep, Fleuve Cendre Ferryman).\n- **Natlan (Ancestral Foundry)**: *Blazing Sacrificial Heart* (Earth Shaker, Mountain-Bracing Bolt).\n\n## 2. Tuesday & Friday (and Sunday)\n- **Mondstadt (Cecilia Garden)**: *Boreal Wolf Tooth* (Sacrificial Bow, The Flute, Widsith, Skyward Harp).\n- **Liyue (Hidden Palace of Lianshan Formula)**: *Mist Veiled Elixir* (Blackcliff series, Prototype Crescent, Staff of Homa).\n- **Inazuma (Court of Flowing Sand)**: *Narukami's Joy* (Hamayumi, Predator, Haran Geppaku Futsu).\n- **Sumeru (Tower of Abject Pride)**: *Oasis Garden's Reminiscence* (Moonpiercer, Wandering Evenstar, Light of Foliar Incision).\n- **Fontaine (Echoes of the Deep Tides)**: *Dross of Pure Sacred Dewdrop* (Rightful Reward, Splendor of Tranquil Waters).\n- **Natlan (Ancestral Foundry)**: *Delirious Decadence* (Ring of Yaxche, Footprint of the Rainbow).\n\n## 3. Wednesday & Saturday (and Sunday)\n- **Mondstadt (Cecilia Garden)**: *Dandelion Gladiator Fetters* (Favonius Lance, Sacrificial Sword, Wolf's Gravestone).\n- **Liyue (Hidden Palace of Lianshan Formula)**: *Aerosiderite* (Iron Sting, Solar Pearl, Memory of Dust).\n- **Inazuma (Court of Flowing Sand)**: *Mask of the Wicked Lieutenant* (Katsuragikiri Nagamasa, Wavebreaker's Fin, Redhorn Stonethresher).\n- **Sumeru (Tower of Abject Pride)**: *Mighty Power of the Scorchgarden* (King's Squire, Xiphos' Moonlight, A Thousand Floating Dreams).\n- **Fontaine (Echoes of the Deep Tides)**: *Goblet of the Pristine Sea* (Tidal Shadow, Cashflow Supervision).\n- **Natlan (Ancestral Foundry)**: *Night-Wind Mystic Mirror* (Flute of Ezpitzal, Ash-Graven Drinking Horn).\n"
+}

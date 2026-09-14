@@ -1,44 +1,143 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-07T15:30:35.362494+00:00",
+  "generated_at": "2026-09-10T15:17:59.328241+00:00",
   "app_version": "0.3.0",
   "runtime_cache_dir": "C:/Users/Praveen/Downloads/Python Scripts/GenshinIQ/data/runtime/showcases",
   "game_data": {
     "directory": "C:/Users/Praveen/Downloads/Python Scripts/GenshinIQ/data/processed/game_data",
-    "source_type": "STRUCTURED_COMMUNITY_DATAMINED",
+    "source_type": "STRUCTURED_DATA",
+    "source_tier": 3,
     "source_provider": "Project Amber (Ambr API v2) & Dimbreath AnimeGameData ExcelBinOutput",
     "official_status": "Community-maintained structured datamining, not direct HoYoverse official API",
-    "aggregate_sha256": "ab02014e5e651dd278b91f03962dbc21cf438ffafef3014609150d4e22133729",
+    "dataset_version": "5.4",
+    "project_target_version": "7.0",
+    "verification_state": "VERIFIED_STRUCTURED",
+    "aggregate_sha256": "61f1e5b1c416fb9e4576e5e53d3652e78560ad821e659614c48057641cb25792",
     "files": [
+      {
+        "file_name": "artifact_levels.json",
+        "record_count": 5,
+        "sha256": "8185dbc4fbd7bab17807726819805af40d4eac39c62a9e5e3049e0cb6bb6ae38",
+        "size_bytes": 47262,
+        "source_id": "src_animegamedata",
+        "source_url": "https://github.com/Dimbreath/AnimeGameData/tree/master/ExcelBinOutput",
+        "source_version": "5.4",
+        "dataset_version": "5.4",
+        "project_target_version": "7.0",
+        "verification_state": "VERIFIED_STRUCTURED",
+        "verification_status": "VERIFIED_STRUCTURED",
+        "invariance_classification": "CATEGORY_A_ENGINE_CONSTANT"
+      },
       {
         "file_name": "artifacts.json",
         "record_count": 63,
-        "sha256": "d291a48567a5de2888fd82f4e40d851f84dffa4fe71c540daddeec3292229988",
-        "size_bytes": 44880
+        "sha256": "1bdd433542a0c95f0bd2ed4471e301c332f81fa06e98bee338e52a6f213be86a",
+        "size_bytes": 44880,
+        "source_id": "src_project_amber",
+        "source_url": "https://api.ambr.top/v2/en/",
+        "source_version": "5.4",
+        "dataset_version": "5.4",
+        "project_target_version": "7.0",
+        "verification_state": "VERIFIED_STRUCTURED",
+        "verification_status": "VERIFIED_STRUCTURED",
+        "invariance_classification": "CATEGORY_B_GAME_CONTENT_STATIC"
+      },
+      {
+        "file_name": "avatar_curves.json",
+        "record_count": 4,
+        "sha256": "8abbc30e3b5dcd82c4421faf37fcc8511d01e858d913f3fb234f4eed784f8292",
+        "size_bytes": 7250,
+        "source_id": "src_animegamedata",
+        "source_url": "https://github.com/Dimbreath/AnimeGameData/tree/master/ExcelBinOutput",
+        "source_version": "5.4",
+        "dataset_version": "5.4",
+        "project_target_version": "7.0",
+        "verification_state": "VERIFIED_STRUCTURED",
+        "verification_status": "VERIFIED_STRUCTURED",
+        "invariance_classification": "CATEGORY_A_ENGINE_CONSTANT"
       },
       {
         "file_name": "characters.json",
         "record_count": 119,
-        "sha256": "e4bd6f687ce503f0d700dc16cea35549528def450ae908572ce97e799c2a2463",
-        "size_bytes": 898705
+        "sha256": "1220a5c8edb608c0973f3944b8a7eb45fad77f9bb135e4dcfc2c4b5096384e7b",
+        "size_bytes": 898705,
+        "source_id": "src_project_amber",
+        "source_url": "https://api.ambr.top/v2/en/",
+        "source_version": "5.4",
+        "dataset_version": "5.4",
+        "project_target_version": "7.0",
+        "verification_state": "VERIFIED_STRUCTURED",
+        "verification_status": "VERIFIED_STRUCTURED",
+        "invariance_classification": "CATEGORY_B_GAME_CONTENT_STATIC"
       },
       {
         "file_name": "materials.json",
         "record_count": 447,
         "sha256": "f46c6083d555059b88222ef6ded5355127154729763ec89d207acb5208b46ff3",
-        "size_bytes": 267344
+        "size_bytes": 267344,
+        "source_id": "src_project_amber",
+        "source_url": "https://api.ambr.top/v2/en/",
+        "source_version": "5.4",
+        "dataset_version": "5.4",
+        "project_target_version": "7.0",
+        "verification_state": "VERIFIED_STRUCTURED",
+        "verification_status": "VERIFIED_STRUCTURED",
+        "invariance_classification": "CATEGORY_B_GAME_CONTENT_STATIC"
+      },
+      {
+        "file_name": "weapon_curves.json",
+        "record_count": 18,
+        "sha256": "23370d2885c095793c0cc6979133d5f109f13942c3cdfbc96e9ffbcadc80b600",
+        "size_bytes": 32674,
+        "source_id": "src_animegamedata",
+        "source_url": "https://github.com/Dimbreath/AnimeGameData/tree/master/ExcelBinOutput",
+        "source_version": "5.4",
+        "dataset_version": "5.4",
+        "project_target_version": "7.0",
+        "verification_state": "VERIFIED_STRUCTURED",
+        "verification_status": "VERIFIED_STRUCTURED",
+        "invariance_classification": "CATEGORY_A_ENGINE_CONSTANT"
       },
       {
         "file_name": "weapons.json",
         "record_count": 246,
-        "sha256": "c60cabf3941269ed4a2e62e44f24310d11006b810dd54f535a03ba7a49608522",
-        "size_bytes": 559542
+        "sha256": "eed0ee2b332439dd4b79b093ecce9ff839a742ca22b23db797c7eaf4b65effca",
+        "size_bytes": 559482,
+        "source_id": "src_project_amber",
+        "source_url": "https://api.ambr.top/v2/en/",
+        "source_version": "5.4",
+        "dataset_version": "5.4",
+        "project_target_version": "7.0",
+        "verification_state": "VERIFIED_STRUCTURED",
+        "verification_status": "VERIFIED_STRUCTURED",
+        "invariance_classification": "CATEGORY_B_GAME_CONTENT_STATIC"
       }
     ]
   },
   "knowledge_base": {
     "directory": "C:/Users/Praveen/Downloads/Python Scripts/GenshinIQ/data/knowledge",
-    "aggregate_sha256": "8881a6d227ce46d5d3712e83f1f3bf19a9a9451002067f19f711a0757495a39a",
-    "total_documents": 163
+    "aggregate_sha256": "409a00c76a9ee6e9aee870e52aad077e35f9618380d1d026f240317583324921",
+    "total_documents": 178,
+    "source_type_counts": {
+      "COMMUNITY": 146,
+      "KQM": 15,
+      "OFFICIAL": 2,
+      "STRUCTURED_DATA": 3,
+      "TCL": 12
+    },
+    "source_tier_counts": {
+      "Tier 1": 2,
+      "Tier 2": 27,
+      "Tier 3": 3,
+      "Tier 5": 146
+    },
+    "source_id_counts": {
+      "src_genshin_fandom_wiki": 146,
+      "src_genshin_ingame": 1,
+      "src_hoyoverse_patch_notes": 1,
+      "src_kqm_guides": 15,
+      "src_kqm_tcl": 12,
+      "src_project_amber": 3
+    }
   }
 }

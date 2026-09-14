@@ -2,15 +2,29 @@
   "id": "mechanics_team_archetypes",
   "title": "Genshin Impact Core Team Archetypes & Synergies",
   "metadata": {
-    "source": "Genshin Impact Meta Theorycrafting / KQM",
+    "source_id": "src_kqm_tcl",
+    "source": "KQM Theorycrafting Library (TCL)",
     "source_url": "https://library.keqingmains.com/team-guides/team-building",
-    "source_type": "THEORYCRAFTING",
+    "canonical_url": "https://library.keqingmains.com/",
+    "source_type": "TCL",
+    "authority_tier": 2,
     "character": null,
     "topic": "Game Mechanics",
     "game_version": "5.4",
     "published_at": "2020-09-28T00:00:00Z",
     "updated_at": "2024-10-10T00:00:00Z",
-    "tags": ["Team Building", "Synergies", "National Team", "Hyperbloom", "Taser", "Freeze", "Hypercarry"]
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "content_hash": "170a528025cf86634de878c9bee80d78617a2cfa69aaf68598be6e3b2ffcd903",
+    "freshness_status": "stale",
+    "tags": [
+      "Team Building",
+      "Synergies",
+      "National Team",
+      "Hyperbloom",
+      "Taser",
+      "Freeze",
+      "Hypercarry"
+    ]
   },
   "summary": "Comprehensive guide to core Genshin Impact team building archetypes, analyzing internal synergies, reaction setups, and standard rosters.",
   "content": "# Genshin Impact Core Team Archetypes & Synergies\n\n## 1. The National Team (Vaporize/Melt/Overload)\n- **Core Concept**: Utilizes off-field Hydro (Xingqiu/Yelan) or Cryo, Bennet's massive flat ATK buff, and Xiangling's Pyronado (which snapshots Bennett's buff and has no ICD) to trigger rapid, high-damage reactions.\n- **Key Synergies**:\n  - **Bennett + Xiangling**: Bennett acts as a battery, generating Pyro particles for Xiangling, and buffs her burst.\n  - **Xingqiu/Yelan**: Applies Hydro off-field to allow Xiangling to Vaporize every hit.\n- **Standard Roster**: Xiangling, Bennett, Xingqiu, + Flex (e.g. Raiden Shogun for energy support, Sucrose/Kazuha for EM buff & Viridescent Venerer shred, or Childe as the on-field driver).\n\n---\n\n## 2. Hyperbloom Teams (Dendro/Hydro/Electro)\n- **Core Concept**: Generates Dendro Cores using Bloom (Dendro + Hydro), then triggers them using a high-EM Electro character's skill to fire homing Hyperbloom projectiles.\n- **Key Synergies**:\n  - **Dendro Core Generation**: Rapid Hydro (Kokomi, Yelan, Xingqiu) + Dendro (Nahida, Alhaitham, Dendro Traveler).\n  - **Electro Trigger**: Must possess attacks that hit low to the ground and have high EM. Raiden Shogun (Elemental Skill) or Kuki Shinobu (Elemental Skill) are ideal.\n- **Standard Roster**: Nahida, Xingqiu, Kuki Shinobu (Full EM), + Flex (e.g., Alhaitham, Yelan, or a defensive option like Zhongli).\n\n---\n\n## 3. Quicken / Aggravate / Spread Teams (Dendro/Electro)\n- **Core Concept**: Triggers the Catalyze reaction (Dendro + Electro) to apply the Quicken aura. Attacking a Quickened enemy with Electro triggers Aggravate, and attacking with Dendro triggers Spread, adding flat damage bonuses that scale with character level and EM.\n- **Key Synergies**:\n  - Bypasses standard damage scaling by adding flat base damage, making it highly effective for multi-hit characters with fast application.\n- **Standard Roster**:\n  - **Aggravate-focused**: Keqing/Cyno, Fischl, Dendro support (Nahida/Baizhu/Kirara), Anemo support (Kazuha/Sucrose).\n  - **Spread-focused**: Alhaitham/Tighnari, Yae Miko/Fischl, Zhongli, Dendro support (Nahida).\n\n---\n\n## 4. Freeze Teams (Cryo/Hydro/Anemo)\n- **Core Concept**: Freezes enemies in place (Cryo + Hydro) to leverage the 4-piece Blizzard Strayer artifact set (+40% CRIT Rate against Frozen targets) and keep enemies grouped.\n- **Key Synergies**:\n  - **Anemo Grouping**: Kazuha or Venti group frozen enemies.\n- **Standard Roster**: Kamisato Ayaka, Shenhe/Rosaria, Kokomi/Mona, Kaedehara Kazuha.\n\n---\n\n## 5. Hypercarry Teams (Single Damage Dealer)\n- **Core Concept**: Funnels all team buffs (ATK, CRIT, DMG%, Resistance Shred) into a single, high-investment carry character who occupies 80%+ of active field time.\n- **Standard Roster**: Raiden Shogun / Neuvillette / Arlecchino, Bennett / Furina, Kaedehara Kazuha, Zhongli / Kujou Sara."
