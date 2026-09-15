@@ -11,11 +11,17 @@ class Settings(BaseSettings):
     """Application settings loaded from environment variables and .env file."""
 
     APP_NAME: str = "GenshinIQ"
-    APP_VERSION: str = "0.3.0"
+    APP_VERSION: str = "1.0.0"
     APP_ENV: str = "development"
     DEBUG: bool = True
     HOST: str = "127.0.0.1"
     PORT: int = 8000
+
+    # Administrative Secret Key
+    ADMIN_API_KEY: Optional[str] = Field(
+        default=None,
+        description="Secret token for administrative mutation endpoints"
+    )
 
     # User Genshin UID
     USER_UID: Optional[str] = Field(default="817739968", description="Default user Genshin Impact UID")

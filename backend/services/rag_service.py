@@ -24,6 +24,7 @@ from backend.models.query_router import (
 )
 from backend.services.gemini_service import gemini_service
 from backend.services.knowledge_service import knowledge_service
+from backend.services.retrieval_service import retrieval_service
 from backend.services.game_data_service import game_data_service
 from backend.services.account_service import account_service
 from backend.services.version_service import version_service
@@ -247,37 +248,78 @@ class RAGService:
                         existing_citation_urls.add(doc.metadata.source_url)
                         citations.append(self._doc_to_citation(doc))
 
-        # 2. Search additional knowledge base articles
+        # 2. Retrieve additional knowledge base evidence via Hybrid BM25 + Dense Retrieval
         search_query = query
         char_entities = [e for e in entities if e.entity_type == "character"]
-        if char_entities and char_entities[0].name.lower() not in query.lower():
-            search_query = f"{query} {char_entities[0].name}"
+        char_filter = char_entities[0].name if char_entities else None
+        if char_filter and char_filter.lower() not in query.lower():
+            search_query = f"{query} {char_filter}"
 
-        search_results = knowledge_service.search_documents(search_query, limit=3)
-        for res in search_results:
-            doc = knowledge_service.get_document(res.id)
-            if not doc:
-                continue
-            if doc.metadata.source_url in existing_citation_urls:
-                continue
-            eval_res = version_service.evaluate_staleness(doc.metadata.game_version)
-            stale_note = f"\n[VERSION WARNING: {eval_res.warning}]" if eval_res.is_stale else ""
-            items.append(EvidenceItem(
-                source=DataSource.KNOWLEDGE_BASE,
-                evidence_type=EvidenceType.THEORYCRAFTING,
-                content=(
-                    f"=== KNOWLEDGE SOURCE: {doc.title} (v{doc.metadata.game_version}, {doc.metadata.source}){stale_note} ===\n"
-                    f"URL: {doc.metadata.source_url}\n"
-                    f"Content:\n{doc.content}\n"
-                    f"=================================================="
-                ),
-                entity_name=doc.metadata.character,
-                is_stale=eval_res.is_stale,
-                staleness_note=eval_res.warning if eval_res.is_stale else "",
-                game_version=doc.metadata.game_version,
-            ))
-            existing_citation_urls.add(doc.metadata.source_url)
-            citations.append(self._doc_to_citation(doc))
+        try:
+            evidence_bundle = retrieval_service.retrieve(
+                query=search_query,
+                top_k=5,
+                character_filter=char_filter,
+            )
+            for ev in evidence_bundle.items:
+                if ev.source_url in existing_citation_urls:
+                    continue
+                eval_res = version_service.evaluate_staleness(ev.game_version)
+                stale_note = f"\n[VERSION WARNING: {eval_res.warning}]" if eval_res.is_stale else ""
+
+                doc = knowledge_service.get_document(ev.document_id)
+                heading_note = f" > {ev.section_heading}" if ev.section_heading else ""
+
+                items.append(EvidenceItem(
+                    source=DataSource.KNOWLEDGE_BASE,
+                    evidence_type=EvidenceType.THEORYCRAFTING,
+                    content=(
+                        f"=== KNOWLEDGE SOURCE: {ev.title}{heading_note} (v{ev.game_version}, {ev.source}, Score: {ev.composite_score}){stale_note} ===\n"
+                        f"URL: {ev.source_url}\n"
+                        f"Content:\n{ev.content}\n"
+                        f"=================================================="
+                    ),
+                    entity_name=ev.character,
+                    is_stale=eval_res.is_stale,
+                    staleness_note=eval_res.warning if eval_res.is_stale else "",
+                    game_version=ev.game_version,
+                ))
+                existing_citation_urls.add(ev.source_url)
+                if doc:
+                    citations.append(self._doc_to_citation(doc))
+                else:
+                    citations.append(SourceCitation(
+                        title=f"{ev.title}{heading_note}",
+                        source=ev.source,
+                        url=ev.source_url,
+                        source_type=ev.source_type.name if hasattr(ev.source_type, 'name') else str(ev.source_type),
+                        game_version=ev.game_version,
+                    ))
+        except Exception as e:
+            logger.warning(f"Hybrid retrieval failed ({e}), falling back to basic search: {e}")
+            search_results = knowledge_service.search_documents(search_query, limit=3)
+            for res in search_results:
+                doc = knowledge_service.get_document(res.id)
+                if not doc or doc.metadata.source_url in existing_citation_urls:
+                    continue
+                eval_res = version_service.evaluate_staleness(doc.metadata.game_version)
+                stale_note = f"\n[VERSION WARNING: {eval_res.warning}]" if eval_res.is_stale else ""
+                items.append(EvidenceItem(
+                    source=DataSource.KNOWLEDGE_BASE,
+                    evidence_type=EvidenceType.THEORYCRAFTING,
+                    content=(
+                        f"=== KNOWLEDGE SOURCE: {doc.title} (v{doc.metadata.game_version}, {doc.metadata.source}){stale_note} ===\n"
+                        f"URL: {doc.metadata.source_url}\n"
+                        f"Content:\n{doc.content}\n"
+                        f"=================================================="
+                    ),
+                    entity_name=doc.metadata.character,
+                    is_stale=eval_res.is_stale,
+                    staleness_note=eval_res.warning if eval_res.is_stale else "",
+                    game_version=doc.metadata.game_version,
+                ))
+                existing_citation_urls.add(doc.metadata.source_url)
+                citations.append(self._doc_to_citation(doc))
 
         return items, citations
 

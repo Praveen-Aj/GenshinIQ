@@ -4,8 +4,9 @@ from datetime import datetime, timezone
 import json
 from pathlib import Path
 from typing import Any, Dict, List, Optional
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from backend.config import settings
+from backend.api.auth import require_admin_auth
 from backend.services.account_service import account_service
 from backend.services.account_inventory_service import (
     account_inventory_service,
@@ -78,11 +79,14 @@ router = APIRouter()
 async def health_check():
     """Health check endpoint to verify backend system status and active game version."""
     curr_v = version_service.get_current_version()
+    active_canonical = canonical_data_pipeline.get_active_version()
     return {
         "status": "ok",
         "app_name": settings.APP_NAME,
+        "app_version": settings.APP_VERSION,
         "version": settings.APP_VERSION,
         "game_version": curr_v.version,
+        "active_canonical_dataset_version": active_canonical,
         "game_patch_name": curr_v.name,
         "environment": settings.APP_ENV,
         "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -304,6 +308,7 @@ def list_account_materials(
 @router.post(
     "/account/import",
     response_model=AccountSummary,
+    dependencies=[Depends(require_admin_auth)],
     summary="Import GOOD v3 Account Inventory JSON"
 )
 def import_account_inventory(
@@ -547,6 +552,7 @@ async def get_player_account(
 @router.post(
     "/account/{uid}/refresh",
     response_model=EnkaShowcaseResponse,
+    dependencies=[Depends(require_admin_auth)],
     summary="Force Refresh Player Showcase"
 )
 async def refresh_player_account(uid: str):
@@ -762,6 +768,7 @@ def list_pipeline_versions():
 
 @router.post(
     "/data/pipeline/simulate-refresh",
+    dependencies=[Depends(require_admin_auth)],
     summary="Simulate Canonical Data Refresh Pipeline"
 )
 def simulate_pipeline_refresh(
@@ -798,6 +805,7 @@ def get_pipeline_version_diff(
 
 @router.post(
     "/data/pipeline/refresh",
+    dependencies=[Depends(require_admin_auth)],
     summary="Execute Live Canonical Data Refresh Pipeline"
 )
 def execute_pipeline_refresh(
@@ -813,6 +821,7 @@ def execute_pipeline_refresh(
 
 @router.post(
     "/data/pipeline/rollback",
+    dependencies=[Depends(require_admin_auth)],
     summary="Rollback Canonical Dataset Version"
 )
 def rollback_pipeline_version(

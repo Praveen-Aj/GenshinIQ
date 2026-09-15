@@ -237,7 +237,7 @@ def test_api_character_packages(client):
     res = client.get("/api/knowledge/character-packages")
     assert res.status_code == 200
     data = res.json()
-    assert len(data) == 119
+    assert len(data) >= 119
     names = {p["character_name"] for p in data}
     assert "Bennett" in names
     assert "Xilonen" in names

@@ -29,8 +29,16 @@ from backend.services.version_service import version_service, parse_version_tupl
 
 logger = logging.getLogger(__name__)
 
-# Canonical game data version from which mathematical scaling tables and curves were extracted
-CANONICAL_DATASET_VERSION = "5.4"
+# Dynamically resolved canonical game data version driving calculations
+def get_canonical_dataset_version() -> str:
+    """Return the active canonical dataset version currently driving calculations."""
+    try:
+        from backend.services.canonical_data_pipeline import canonical_data_pipeline
+        return canonical_data_pipeline.get_active_version()
+    except Exception:
+        return "7.0"
+
+CANONICAL_DATASET_VERSION = get_canonical_dataset_version()
 
 # Standard 5-Star Artifact Main Stat Progression Tables (Lv 0 to Lv 20)
 ARTIFACT_5STAR_MAIN_STATS: Dict[str, Tuple[float, float]] = {
@@ -223,7 +231,11 @@ class StatEngineService:
         if self.artifact_levels_file.exists():
             try:
                 with open(self.artifact_levels_file, "r", encoding="utf-8") as f:
-                    self.artifact_levels = json.load(f)
+                    data = json.load(f)
+                    if isinstance(data, dict):
+                        self.artifact_levels = data
+                    else:
+                        self.artifact_levels = {}
             except Exception as e:
                 logger.warning(f"Failed to load artifact levels: {e}")
 
@@ -257,6 +269,11 @@ class StatEngineService:
     # 0. CANONICAL VERSION ENFORCEMENT & COMPATIBILITY
     # ==========================================================================
 
+    @property
+    def canonical_dataset_version(self) -> str:
+        """Dynamically resolve active canonical dataset version driving calculations."""
+        return get_canonical_dataset_version()
+
     def evaluate_version_compatibility(
         self,
         requested_version: Optional[str],
@@ -279,12 +296,14 @@ class StatEngineService:
         - STALE_INTERVENING_CHANGES: clean_ver > '5.4' and conflicting changes exist in registry -> (PARTIAL, STALE_INTERVENING_CHANGES, warnings, clean_ver)
         - PROJECT_REGISTRY_COMPATIBLE: clean_ver > '5.4' and no conflicting changes in project registry (direct target data unavailable) -> (COMPLETE, PROJECT_REGISTRY_COMPATIBLE, warnings, clean_ver)
         """
+        dataset_ver = self.canonical_dataset_version
+
         if requested_version is None or str(requested_version).strip() == "" or str(requested_version).lower() in ("none", "missing"):
             return (
                 CalculationStatus.PARTIAL,
                 VersionCompatibilityStatus.MISSING_VERSION_METADATA,
                 ["Missing version metadata: target calculation version was not specified; canonical version compatibility cannot be verified."],
-                CANONICAL_DATASET_VERSION
+                dataset_ver
             )
 
         clean_ver = str(requested_version).strip().lstrip("v")
@@ -325,7 +344,7 @@ class StatEngineService:
             )
 
         req_tuple = parse_version_tuple(clean_ver)
-        dataset_tuple = parse_version_tuple(CANONICAL_DATASET_VERSION)
+        dataset_tuple = parse_version_tuple(dataset_ver)
 
         if req_tuple <= dataset_tuple:
             # Case A: matching or within verified dataset scope
@@ -336,8 +355,8 @@ class StatEngineService:
                 clean_ver
             )
 
-        # Case B: requested version is newer than dataset (e.g. 7.0 > 5.4)
-        changed_systems = version_service.get_changed_systems_between(CANONICAL_DATASET_VERSION, clean_ver)
+        # Case B: requested version is newer than dataset
+        changed_systems = version_service.get_changed_systems_between(dataset_ver, clean_ver)
         conflicts = []
         if character_name and character_name in changed_systems:
             conflicts.append(f"Character '{character_name}'")
@@ -350,15 +369,15 @@ class StatEngineService:
             return (
                 CalculationStatus.PARTIAL,
                 VersionCompatibilityStatus.STALE_INTERVENING_CHANGES,
-                [f"Target calculation affected by patch changes between v{CANONICAL_DATASET_VERSION} and v{clean_ver}: {conflicts}. Core scaling may be superseded."],
+                [f"Target calculation affected by patch changes between v{dataset_ver} and v{clean_ver}: {conflicts}. Core scaling may be superseded."],
                 clean_ver
             )
 
-        # Compatible via project-maintained registry (direct v7.0 client data unavailable)
+        # Compatible via project-maintained registry
         return (
             CalculationStatus.COMPLETE,
             VersionCompatibilityStatus.PROJECT_REGISTRY_COMPATIBLE,
-            [f"Canonical numerical dataset verified through v{CANONICAL_DATASET_VERSION}. Compatible with target v{clean_ver} via project-maintained patch registry (zero conflicting system modifications recorded in registry; direct v{clean_ver} game client data is unavailable)."],
+            [f"Canonical numerical dataset verified through v{dataset_ver}. Compatible with target v{clean_ver} via project-maintained patch registry (zero conflicting system modifications recorded in registry; direct v{clean_ver} game client data is unavailable)."],
             clean_ver
         )
 
@@ -640,8 +659,8 @@ class StatEngineService:
         clamped_lvl = min(max(level, 0), max_lvl)
 
         # 1. Exact lookup from canonical artifact levels
-        rarity_data = self.artifact_levels.get(str(rarity), {})
-        lvl_data = rarity_data.get(str(clamped_lvl), {})
+        rarity_data = self.artifact_levels.get(str(rarity), {}) if isinstance(self.artifact_levels, dict) else {}
+        lvl_data = rarity_data.get(str(clamped_lvl), {}) if isinstance(rarity_data, dict) else {}
         if main_stat_key in lvl_data:
             raw_val = lvl_data[main_stat_key]
             if main_stat_key in ["hp", "atk"]:
@@ -1111,7 +1130,7 @@ class StatEngineService:
             calculation_status=overall_status,
             warnings=all_warnings,
             game_version=eff_version,
-            dataset_version=CANONICAL_DATASET_VERSION,
+            dataset_version=self.canonical_dataset_version,
             version_compatibility=v_compat,
         )
 

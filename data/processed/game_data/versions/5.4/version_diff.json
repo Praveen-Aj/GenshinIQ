@@ -1,7 +1,7 @@
 {
-  "base_version": "5.4",
-  "target_version": "7.0",
-  "timestamp": "2026-09-15T15:32:37.122981+00:00",
+  "base_version": "7.0",
+  "target_version": "5.4",
+  "timestamp": "2026-09-15T15:32:56.100929+00:00",
   "total_changes": 367,
   "added_count": 0,
   "modified_count": 367,
@@ -14,8 +14,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -27,8 +27,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -40,8 +40,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -53,8 +53,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -66,8 +66,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -79,8 +79,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -92,8 +92,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -105,8 +105,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -118,8 +118,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -131,8 +131,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -144,8 +144,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -157,8 +157,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -170,8 +170,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -183,8 +183,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -196,8 +196,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -209,8 +209,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -222,8 +222,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -235,8 +235,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -248,8 +248,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -261,8 +261,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -274,8 +274,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -287,8 +287,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -300,8 +300,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -313,8 +313,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -326,8 +326,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -339,8 +339,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -352,8 +352,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -365,8 +365,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -378,8 +378,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -391,8 +391,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -404,8 +404,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -417,8 +417,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -430,8 +430,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -443,8 +443,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -456,8 +456,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -469,8 +469,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -482,8 +482,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -495,8 +495,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -508,8 +508,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -521,8 +521,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -534,8 +534,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -547,8 +547,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -560,8 +560,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -573,8 +573,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -586,8 +586,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -599,8 +599,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -612,8 +612,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -625,8 +625,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -638,8 +638,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -651,8 +651,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -664,8 +664,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -677,8 +677,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -690,8 +690,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -703,8 +703,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -716,8 +716,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -729,8 +729,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -742,8 +742,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -755,8 +755,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -768,8 +768,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -781,8 +781,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -794,8 +794,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -807,8 +807,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -820,8 +820,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -833,8 +833,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -846,8 +846,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -859,8 +859,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -872,8 +872,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -885,8 +885,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -898,8 +898,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -911,8 +911,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -924,8 +924,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -937,8 +937,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -950,8 +950,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -963,8 +963,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -976,8 +976,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -989,8 +989,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1002,8 +1002,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1015,8 +1015,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1028,8 +1028,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1041,8 +1041,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1054,8 +1054,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1067,8 +1067,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1080,8 +1080,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1093,8 +1093,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1106,8 +1106,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1119,8 +1119,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1132,8 +1132,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1145,8 +1145,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1158,8 +1158,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1171,8 +1171,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1184,8 +1184,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1197,8 +1197,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1210,8 +1210,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1223,8 +1223,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1236,8 +1236,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1249,8 +1249,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1262,8 +1262,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1275,8 +1275,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1288,8 +1288,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1301,8 +1301,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1314,8 +1314,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1327,8 +1327,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1340,8 +1340,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1353,8 +1353,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1366,8 +1366,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1379,8 +1379,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1392,8 +1392,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1405,8 +1405,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1418,8 +1418,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1431,8 +1431,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1444,8 +1444,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1457,8 +1457,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1470,8 +1470,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1483,8 +1483,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1496,8 +1496,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1509,8 +1509,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1522,8 +1522,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1535,8 +1535,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1548,8 +1548,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1561,8 +1561,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1574,8 +1574,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1587,8 +1587,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1600,8 +1600,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1613,8 +1613,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1626,8 +1626,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1639,8 +1639,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1652,8 +1652,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1665,8 +1665,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1678,8 +1678,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1691,8 +1691,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1704,8 +1704,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1717,8 +1717,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1730,8 +1730,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1743,8 +1743,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1756,8 +1756,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1769,8 +1769,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1782,8 +1782,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1795,8 +1795,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1808,8 +1808,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1821,8 +1821,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1834,8 +1834,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1847,8 +1847,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1860,8 +1860,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1873,8 +1873,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1886,8 +1886,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1899,8 +1899,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1912,8 +1912,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1925,8 +1925,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1938,8 +1938,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1951,8 +1951,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1964,8 +1964,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1977,8 +1977,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -1990,8 +1990,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2003,8 +2003,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2016,8 +2016,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2029,8 +2029,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2042,8 +2042,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2055,8 +2055,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2068,8 +2068,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2081,8 +2081,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2094,8 +2094,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2107,8 +2107,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2120,8 +2120,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2133,8 +2133,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2146,8 +2146,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2159,8 +2159,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2172,8 +2172,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2185,8 +2185,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2198,8 +2198,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2211,8 +2211,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2224,8 +2224,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2237,8 +2237,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2250,8 +2250,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2263,8 +2263,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2276,8 +2276,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2289,8 +2289,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2302,8 +2302,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2315,8 +2315,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2328,8 +2328,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2341,8 +2341,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2354,8 +2354,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2367,8 +2367,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2380,8 +2380,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2393,8 +2393,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2406,8 +2406,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2419,8 +2419,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2432,8 +2432,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2445,8 +2445,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2458,8 +2458,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2471,8 +2471,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2484,8 +2484,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2497,8 +2497,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2510,8 +2510,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2523,8 +2523,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2536,8 +2536,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2549,8 +2549,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2562,8 +2562,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2575,8 +2575,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2588,8 +2588,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2601,8 +2601,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2614,8 +2614,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2627,8 +2627,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2640,8 +2640,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2653,8 +2653,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2666,8 +2666,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2679,8 +2679,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2692,8 +2692,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2705,8 +2705,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2718,8 +2718,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2731,8 +2731,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2744,8 +2744,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2757,8 +2757,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2770,8 +2770,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2783,8 +2783,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2796,8 +2796,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2809,8 +2809,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2822,8 +2822,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2835,8 +2835,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2848,8 +2848,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2861,8 +2861,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2874,8 +2874,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2887,8 +2887,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2900,8 +2900,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2913,8 +2913,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2926,8 +2926,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2939,8 +2939,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2952,8 +2952,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2965,8 +2965,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2978,8 +2978,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -2991,8 +2991,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3004,8 +3004,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3017,8 +3017,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3030,8 +3030,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3043,8 +3043,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3056,8 +3056,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3069,8 +3069,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3082,8 +3082,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3095,8 +3095,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3108,8 +3108,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3121,8 +3121,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3134,8 +3134,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3147,8 +3147,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3160,8 +3160,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3173,8 +3173,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3186,8 +3186,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3199,8 +3199,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3212,8 +3212,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3225,8 +3225,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3238,8 +3238,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3251,8 +3251,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3264,8 +3264,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3277,8 +3277,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3290,8 +3290,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3303,8 +3303,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3316,8 +3316,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3329,8 +3329,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3342,8 +3342,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3355,8 +3355,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3368,8 +3368,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3381,8 +3381,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3394,8 +3394,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3407,8 +3407,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3420,8 +3420,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3433,8 +3433,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3446,8 +3446,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3459,8 +3459,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3472,8 +3472,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3485,8 +3485,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3498,8 +3498,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3511,8 +3511,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3524,8 +3524,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3537,8 +3537,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3550,8 +3550,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3563,8 +3563,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3576,8 +3576,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3589,8 +3589,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3602,8 +3602,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3615,8 +3615,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3628,8 +3628,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3641,8 +3641,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3654,8 +3654,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3667,8 +3667,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3680,8 +3680,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3693,8 +3693,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3706,8 +3706,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3719,8 +3719,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3732,8 +3732,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3745,8 +3745,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3758,8 +3758,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3771,8 +3771,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3784,8 +3784,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3797,8 +3797,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3810,8 +3810,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3823,8 +3823,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3836,8 +3836,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3849,8 +3849,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3862,8 +3862,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3875,8 +3875,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3888,8 +3888,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3901,8 +3901,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3914,8 +3914,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3927,8 +3927,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3940,8 +3940,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3953,8 +3953,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3966,8 +3966,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3979,8 +3979,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -3992,8 +3992,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4005,8 +4005,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4018,8 +4018,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4031,8 +4031,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4044,8 +4044,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4057,8 +4057,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4070,8 +4070,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4083,8 +4083,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4096,8 +4096,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4109,8 +4109,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4122,8 +4122,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4135,8 +4135,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4148,8 +4148,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4161,8 +4161,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4174,8 +4174,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4187,8 +4187,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4200,8 +4200,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4213,8 +4213,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4226,8 +4226,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4239,8 +4239,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4252,8 +4252,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4265,8 +4265,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4278,8 +4278,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4291,8 +4291,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4304,8 +4304,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4317,8 +4317,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4330,8 +4330,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4343,8 +4343,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4356,8 +4356,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4369,8 +4369,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4382,8 +4382,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4395,8 +4395,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4408,8 +4408,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4421,8 +4421,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4434,8 +4434,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4447,8 +4447,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4460,8 +4460,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4473,8 +4473,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4486,8 +4486,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4499,8 +4499,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4512,8 +4512,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4525,8 +4525,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4538,8 +4538,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4551,8 +4551,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4564,8 +4564,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4577,8 +4577,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4590,8 +4590,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4603,8 +4603,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4616,8 +4616,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4629,8 +4629,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4642,8 +4642,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4655,8 +4655,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4668,8 +4668,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4681,8 +4681,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4694,8 +4694,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4707,8 +4707,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4720,8 +4720,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4733,8 +4733,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4746,8 +4746,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4759,8 +4759,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"
@@ -4772,8 +4772,8 @@
       "change_type": "MODIFIED",
       "field_changes": {
         "game_version_updated": {
-          "before": "5.4",
-          "after": "7.0"
+          "before": "7.0",
+          "after": "5.4"
         }
       },
       "provenance_source": "src_animegamedata"

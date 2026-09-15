@@ -6,6 +6,8 @@ from backend.main import app
 from backend.services.game_data_service import game_data_service
 from backend.services.knowledge_service import knowledge_service
 
+from backend.config import settings
+
 client = TestClient(app)
 
 
@@ -16,7 +18,7 @@ def test_data_provenance_manifest_endpoint():
 
     data = response.json()
     assert data["schema_version"] == "1.0"
-    assert data["app_version"] == "0.3.0"
+    assert data["app_version"] == settings.APP_VERSION
     assert data["game_data"]["characters"] == len(game_data_service.list_characters())
     assert data["game_data"]["weapons"] == len(game_data_service.list_weapons())
     assert data["game_data"]["artifact_sets"] == len(game_data_service.list_artifact_sets())

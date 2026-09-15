@@ -440,3 +440,6 @@ def test_api_pipeline_rollback_endpoint(client):
     # Rollback to invalid version -> 400
     res_bad = client.post("/api/data/pipeline/rollback?target_version=99.9")
     assert res_bad.status_code == 400
+
+    # Ensure active 7.0 remains active for other test suites
+    canonical_data_pipeline.promote_to_canonical("7.0")

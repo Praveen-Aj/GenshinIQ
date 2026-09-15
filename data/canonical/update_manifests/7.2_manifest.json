@@ -2,21 +2,21 @@
   "version": "7.2",
   "previous_version": "7.0",
   "lifecycle_state": "CANDIDATE",
-  "discovered_at": "2026-09-14T13:07:29.185166+00:00",
+  "discovered_at": "2026-09-15T15:32:53.783033+00:00",
   "completed_at": null,
   "sources": {
     "src_hoyoverse_patch_notes": {
       "source_id": "src_hoyoverse_patch_notes",
       "status": "ACQUIRED",
-      "retrieved_at": "2026-09-14T13:07:29.185166+00:00",
+      "retrieved_at": "2026-09-15T15:32:53.783531+00:00",
       "items_count": 1,
       "error": null
     },
     "src_animegamedata": {
       "source_id": "src_animegamedata",
       "status": "ACQUIRED",
-      "retrieved_at": "2026-09-14T13:07:29.185166+00:00",
-      "items_count": 15,
+      "retrieved_at": "2026-09-15T15:32:53.783531+00:00",
+      "items_count": 18,
       "error": null
     },
     "src_kqm_guides": {
@@ -30,7 +30,7 @@
   "delta_summary": {
     "target_version": "7.2",
     "base_version": "7.0",
-    "evaluated_at": "2026-09-14T13:07:29.185166+00:00"
+    "evaluated_at": "2026-09-15T15:32:53.783531+00:00"
   },
   "validation": {
     "knowledge": "FAIL_INCOMPLETE"

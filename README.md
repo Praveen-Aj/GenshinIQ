@@ -2,7 +2,7 @@
 
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688.svg)](https://fastapi.tiangolo.com/)
-[![Tests Passing](https://img.shields.io/badge/tests-342%2F342%20passing-brightgreen.svg)]()
+[![Tests Passing](https://img.shields.io/badge/tests-355%2F355%20passing-brightgreen.svg)]()
 [![Gemini Grounded](https://img.shields.io/badge/Gemini-Grounded%20RAG-8E44AD.svg)]()
 
 **GenshinIQ** is a personal Genshin Impact AI assistant that combines public **Enka.Network showcase data**, a **GOOD v3 account import**, **canonical structured game data**, **curated KeqingMains (KQM) theorycrafting**, a **hybrid BM25 + dense retrieval engine**, and **Google Gemini** to provide accurate, source-grounded answers and reason over your actual in-game builds.

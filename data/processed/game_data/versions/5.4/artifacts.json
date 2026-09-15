@@ -16,7 +16,10 @@
       "goblet": "Goblet of the Sojourner",
       "circlet": "Crown of Parting"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 10002,
@@ -35,7 +38,10 @@
       "goblet": "Outset of the Brave",
       "circlet": "Crown of the Brave"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 10003,
@@ -54,7 +60,10 @@
       "goblet": "Guardian's Vessel",
       "circlet": "Guardian's Band"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 10004,
@@ -73,7 +82,10 @@
       "goblet": "Tiny Miracle's Goblet",
       "circlet": "Tiny Miracle's Earrings"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 10005,
@@ -92,7 +104,10 @@
       "goblet": "Berserker's Bone Goblet",
       "circlet": "Berserker's Battle Mask"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 10006,
@@ -111,7 +126,10 @@
       "goblet": "Martial Artist's Wine Cup",
       "circlet": "Martial Artist's Bandana"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 10007,
@@ -130,7 +148,10 @@
       "goblet": "Instructor's Tea Cup",
       "circlet": "Instructor's Cap"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 10008,
@@ -149,7 +170,10 @@
       "goblet": "Gambler's Dice Cup",
       "circlet": "Gambler's Earrings"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 10009,
@@ -168,7 +192,10 @@
       "goblet": "Exile's Goblet",
       "circlet": "Exile's Circlet"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 10010,
@@ -188,7 +215,10 @@
       "goblet": "Adventurer's Golden Goblet",
       "circlet": "Adventurer's Bandana"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 10011,
@@ -208,7 +238,10 @@
       "goblet": "Lucky Dog's Goblet",
       "circlet": "Lucky Dog's Silver Circlet"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 10012,
@@ -227,7 +260,10 @@
       "goblet": "Scholar's Ink Cup",
       "circlet": "Scholar's Lens"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 10013,
@@ -247,7 +283,10 @@
       "goblet": "Traveling Doctor's Medicine Pot",
       "circlet": "Traveling Doctor's Handkerchief"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 14001,
@@ -266,7 +305,10 @@
       "goblet": "Frost-Weaved Dignity",
       "circlet": "Broken Rime's Echo"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 14002,
@@ -285,7 +327,10 @@
       "goblet": "Thundersoother's Goblet",
       "circlet": "Thundersoother's Diadem"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 14003,
@@ -304,7 +349,10 @@
       "goblet": "Lavawalker's Epiphany",
       "circlet": "Lavawalker's Wisdom"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 14004,
@@ -323,7 +371,10 @@
       "goblet": "Maiden's Fleeting Leisure",
       "circlet": "Maiden's Fading Beauty"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15001,
@@ -342,7 +393,10 @@
       "goblet": "Gladiator's Intoxication",
       "circlet": "Gladiator's Triumphus"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15002,
@@ -361,7 +415,10 @@
       "goblet": "Viridescent Venerer's Vessel",
       "circlet": "Viridescent Venerer's Diadem"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15003,
@@ -380,7 +437,10 @@
       "goblet": "Wanderer's String-Kettle",
       "circlet": "Conductor's Top Hat"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15005,
@@ -399,7 +459,10 @@
       "goblet": "Omen of Thunderstorm",
       "circlet": "Thunder Summoner's Crown"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15006,
@@ -418,7 +481,10 @@
       "goblet": "Witch's Heart Flames",
       "circlet": "Witch's Scorching Hat"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15007,
@@ -437,7 +503,10 @@
       "goblet": "Royal Silver Urn",
       "circlet": "Royal Masque"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15008,
@@ -456,7 +525,10 @@
       "goblet": "Bloodstained Chevalier's Goblet",
       "circlet": "Bloodstained Iron Mask"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15009,
@@ -471,7 +543,10 @@
     "pieces": {
       "circlet": "Tiara of Flame"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15010,
@@ -486,7 +561,10 @@
     "pieces": {
       "circlet": "Tiara of Torrents"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15011,
@@ -501,7 +579,10 @@
     "pieces": {
       "circlet": "Tiara of Thunder"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15013,
@@ -516,7 +597,10 @@
     "pieces": {
       "circlet": "Tiara of Frost"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15014,
@@ -535,7 +619,10 @@
       "goblet": "Goblet of Chiseled Crag",
       "circlet": "Mask of Solitude Basalt"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15015,
@@ -554,7 +641,10 @@
       "goblet": "Summer Night's Waterballoon",
       "circlet": "Summer Night's Mask"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15016,
@@ -573,7 +663,10 @@
       "goblet": "Goblet of Thundering Deep",
       "circlet": "Wine-Stained Tricorne"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15017,
@@ -592,7 +685,10 @@
       "goblet": "Noble's Pledging Vessel",
       "circlet": "General's Ancient Helm"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15018,
@@ -611,7 +707,10 @@
       "goblet": "Surpassing Cup",
       "circlet": "Mocking Mask"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15019,
@@ -630,7 +729,10 @@
       "goblet": "Hopeful Heart",
       "circlet": "Capricious Visage"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15020,
@@ -649,7 +751,10 @@
       "goblet": "Scarlet Vessel",
       "circlet": "Ornate Kabuto"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15021,
@@ -668,7 +773,10 @@
       "goblet": "Calabash of Awakening",
       "circlet": "Skeletal Hat"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15022,
@@ -687,7 +795,10 @@
       "goblet": "Pearl Cage",
       "circlet": "Crown of Watatsumi"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15023,
@@ -706,7 +817,10 @@
       "goblet": "Moment of the Pact",
       "circlet": "Thundering Poise"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15024,
@@ -725,7 +839,10 @@
       "goblet": "Chalice of the Font",
       "circlet": "Flowing Rings"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15025,
@@ -744,7 +861,10 @@
       "goblet": "Lamp of the Lost",
       "circlet": "Laurel Coronet"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15026,
@@ -763,7 +883,10 @@
       "goblet": "Honeyed Final Feast",
       "circlet": "Shadow of the Sand King"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15027,
@@ -782,7 +905,10 @@
       "goblet": "Defender of the Enchanting Dream",
       "circlet": "Legacy of the Desert High-Born"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15028,
@@ -801,7 +927,10 @@
       "goblet": "Secret-Keeper's Magic Bottle",
       "circlet": "Amethyst Crown"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15029,
@@ -820,7 +949,10 @@
       "goblet": "Heroes' Tea Party",
       "circlet": "Fell Dragon's Monocle"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15030,
@@ -839,7 +971,10 @@
       "goblet": "Feast of Boundless Joy",
       "circlet": "Heart of Khvarena's Brilliance"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15031,
@@ -858,7 +993,10 @@
       "goblet": "Forgotten Vessel",
       "circlet": "Veteran's Visage"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15032,
@@ -877,7 +1015,10 @@
       "goblet": "Golden Night's Bustle",
       "circlet": "Golden Troupe's Reward"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15033,
@@ -896,7 +1037,10 @@
       "goblet": "Promised Dream of Days Past",
       "circlet": "Poetry of Days Past"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15034,
@@ -915,7 +1059,10 @@
       "goblet": "Magnanimous Ink Bottle",
       "circlet": "Compassionate Ladies' Hat"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15035,
@@ -934,7 +1081,10 @@
       "goblet": "Ichor Shower Rhapsody",
       "circlet": "Whimsical Dance of the Withered"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15036,
@@ -953,7 +1103,10 @@
       "goblet": "The Wine-Flask Over Which the Plan Was Hatched",
       "circlet": "Crownless Crown"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15037,
@@ -972,7 +1125,10 @@
       "goblet": "Wandering Scholar's Claw Cup",
       "circlet": "Demon-Warrior's Feather Mask"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15038,
@@ -991,7 +1147,10 @@
       "goblet": "Pre-Banquet of the Contenders",
       "circlet": "Crown of the Saints"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15039,
@@ -1010,7 +1169,10 @@
       "goblet": "A Horn Unwinded",
       "circlet": "Dyed Tassel"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15040,
@@ -1029,7 +1191,10 @@
       "goblet": "Deep Gallery's Bestowed Banquet",
       "circlet": "Deep Gallery's Lost Crown"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15041,
@@ -1048,7 +1213,10 @@
       "goblet": "Vessel of Plenty",
       "circlet": "Crown of the Befallen"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15042,
@@ -1067,7 +1235,10 @@
       "goblet": "Joyous Glory of the Pure",
       "circlet": "Holy Crown of the Believer"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15043,
@@ -1086,7 +1257,10 @@
       "goblet": "Moonlit Offering's Libation",
       "circlet": "Moonlit Offering's Silver Crown"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15044,
@@ -1105,7 +1279,10 @@
       "goblet": "Heldenepos's Unspoken Tale",
       "circlet": "Minnesang of Love and Lament"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15045,
@@ -1116,7 +1293,7 @@
     ],
     "icon": "UI_RelicIcon_15045_4",
     "bonus_2pc": "Energy Recharge +20%.",
-    "bonus_4pc": "If the equipping character has completed Witch's Homework, after they use an Elemental Skill, they gain \"Light's Guidance\" for 20s: All nearby party members gain a 20% Elemental DMG Bonus corresponding to the equipping character's Elemental Type. The equipping character can trigger this effect while off-field. DMG Bonuses provided by Artifact Sets with the same name do not stack.\n· When your party has the Hexerei: Secret Rite effect, Light's Guidance is upgraded to \"Mortal Hymn\": All nearby party members gain a 40% Elemental DMG Bonus corresponding to both the equipping character and the current active party member's Elemental Type instead. If both characters have the same Elemental Type, these bonuses will not stack.",
+    "bonus_4pc": "If the equipping character has completed Witch's Homework, after they use an Elemental Skill, they gain \"Light's Guidance\" for 20s: All nearby party members gain a 20% Elemental DMG Bonus corresponding to the equipping character's Elemental Type. The equipping character can trigger this effect while off-field. DMG Bonuses provided by Artifact Sets with the same name do not stack.\n\u00b7 When your party has the Hexerei: Secret Rite effect, Light's Guidance is upgraded to \"Mortal Hymn\": All nearby party members gain a 40% Elemental DMG Bonus corresponding to both the equipping character and the current active party member's Elemental Type instead. If both characters have the same Elemental Type, these bonuses will not stack.",
     "pieces": {
       "flower": "Heavensent Fragrance",
       "plume": "Heavensent Demise",
@@ -1124,7 +1301,10 @@
       "goblet": "Heavensent Reward",
       "circlet": "Heavensent Crown"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15046,
@@ -1143,7 +1323,10 @@
       "goblet": "Ovations That Ceased Upon Festivity",
       "circlet": "Pendulum That Ceased Amidst a Great Fall"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15047,
@@ -1162,7 +1345,10 @@
       "goblet": "Chalice of Your Blood and Sorrow",
       "circlet": "Testament to Your Faith"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   },
   {
     "id": 15048,
@@ -1181,6 +1367,9 @@
       "goblet": "Foundryman's Magnanimity",
       "circlet": "Foundryman's Legacy"
     },
-    "game_version_updated": "7.0"
+    "game_version_updated": "5.4",
+    "source_id": "src_animegamedata",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
   }
 ]

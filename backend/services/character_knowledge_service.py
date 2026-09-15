@@ -166,7 +166,7 @@ class CharacterKnowledgeService:
 
         if raw_avatar:
             # Parse raw talent definitions
-            raw_talents = raw_avatar.get("talent", {})
+            raw_talents = raw_avatar.get("talent") or {}
             for t_idx, t_val in raw_talents.items():
                 talents_list.append({
                     "skill_id": t_val.get("skillId"),
@@ -179,7 +179,7 @@ class CharacterKnowledgeService:
                 })
             
             # Parse raw constellations
-            raw_consts = raw_avatar.get("constellation", {})
+            raw_consts = raw_avatar.get("constellation") or {}
             for c_idx, c_val in raw_consts.items():
                 constellations_list.append({
                     "level": int(c_idx) + 1,

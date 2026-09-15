@@ -3,8 +3,8 @@
   "source_url": "https://github.com/DimbreathBot/AnimeGameData",
   "source_version": "7.0",
   "dataset_version": "7.0",
-  "retrieved_at": "2026-09-14T13:07:13.123526+00:00",
-  "content_hash": "6af0ccccb376d05ddb9e33b2a5cf917c495d03a1cfcc942165a6a9a20ccf6d41",
+  "retrieved_at": "2026-09-15T15:32:36.343615+00:00",
+  "content_hash": "4f6abc72ca587f8dd470ef7ff847eefce93c22848d152e02f8d5026d5d7d65d4",
   "schema_version": "1.0",
   "record_counts": {
     "achievements.json": 1,
@@ -26,18 +26,18 @@
   "verification_status": "VERIFIED_STRUCTURED",
   "file_hashes": {
     "achievements.json": "81af9672b7ff8986d2af1ef8afbc583567849848b3ca889897aacdec78e49fb6",
-    "artifacts.json": "4f7065692fbc87d1a8a40e2921f3b5afe42bfa22b64d415f914ee8276c2040b3",
+    "artifacts.json": "f857c2b4e8f60ea353ea0979b3f1a04312f50c9fd14fc6f087be0ff7c0cf058d",
     "artifact_levels.json": "8185dbc4fbd7bab17807726819805af40d4eac39c62a9e5e3049e0cb6bb6ae38",
     "avatar_curves.json": "8abbc30e3b5dcd82c4421faf37fcc8511d01e858d913f3fb234f4eed784f8292",
-    "characters.json": "88adca83aa59bb27691190ae81b437448874c00d74ddfbf0b22396912ffc3512",
+    "characters.json": "0870f8fa6eb9c5ae263362c77b823bf71cd6098d20471951d249259090a4bd6a",
     "domains.json": "e50e61fbb73ac93759ca34959ccd233bcc699ab78d25c38d80fa85a561587c9b",
     "enemies.json": "43456214315761e98d320c6be7b8765df89cb289de503de0f585c4103edf534a",
     "events.json": "55e7376f2d859015cb3b1d63d5806dcbcfc68bf6b81b59442d94a696b308a89f",
-    "materials.json": "aee861b9288bcb74232f6733c128daaf8d504d1270506d43830704c8a340c054",
+    "materials.json": "35b59f242edc636a41b4c799d57c47ac4e37c3e4b67bb545735ee06f0fc075a2",
     "quests.json": "569e37d166349d1a81d06620cdadb970419cf90db1f116e8f93d0da27e5dd064",
     "recipes.json": "a2363ea7df6d90c159be64006b6a5384b4bc3c4635046653c88456931a82d50e",
     "regions.json": "8bd4b40207eab8519c40982539a532652d7aa5b6376583c30786f72cd3f541b0",
-    "weapons.json": "090345b9baed5eed08294ffc870dc894867bbe24f6fede7927671846de07536c",
+    "weapons.json": "4713d0806b271398af12b0c4f2e77b3d001b53567b4229015d10af3ff68346db",
     "weapon_curves.json": "23370d2885c095793c0cc6979133d5f109f13942c3cdfbc96e9ffbcadc80b600"
   }
 }

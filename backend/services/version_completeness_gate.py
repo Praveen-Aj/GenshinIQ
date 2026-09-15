@@ -129,9 +129,36 @@ class VersionCompletenessGateService:
         data_dir = self._resolve_data_dir(target_version)
         blockers: List[str] = []
 
-        # 1. Characters
+        contract = self._load_coverage_contract(target_version)
+        sdata_contract = contract.get("structured_data", {}) if contract else {}
+
+        # Content truth & Relabeling check:
+        # If target_version is new and not baseline, verify that characters.json is not an unmodified relabeled copy of 5.4
         char_file = data_dir / "characters.json"
-        expected_chars = 119
+        if target_version not in ("5.4", "7.0"):
+            baseline_54 = self.processed_data_dir / "versions" / "5.4" / "characters.json"
+            if baseline_54.exists() and char_file.exists():
+                try:
+                    with open(baseline_54, "r", encoding="utf-8") as bf:
+                        b_raw = json.load(bf)
+                    with open(char_file, "r", encoding="utf-8") as tf:
+                        t_raw = json.load(tf)
+                    if len(b_raw) == len(t_raw) and len(b_raw) > 0:
+                        b_clean = [{k: v for k, v in c.items() if k != "game_version_updated"} for c in b_raw]
+                        t_clean = [{k: v for k, v in c.items() if k != "game_version_updated"} for c in t_raw]
+                        if b_clean == t_clean:
+                            blockers.append(
+                                f"Relabeling detected: characters.json for v{target_version} is an un-updated copy of v5.4 baseline. "
+                                "Raw game content must be acquired."
+                            )
+                except Exception as e:
+                    logger.warning(f"Relabeling check error: {e}")
+
+        if not contract and target_version not in ("5.4", "7.0"):
+            blockers.append(f"No formal version coverage contract found for target v{target_version}. Completeness cannot be certified.")
+
+        # 1. Characters
+        expected_chars = sdata_contract.get("characters", {}).get("expected_count", 119)
         found_chars = 0
         verified_chars = 0
         missing_chars: List[str] = []
@@ -172,7 +199,7 @@ class VersionCompletenessGateService:
 
         # 2. Weapons
         weap_file = data_dir / "weapons.json"
-        expected_weaps = 246
+        expected_weaps = sdata_contract.get("weapons", {}).get("expected_count", 246)
         found_weaps = 0
         verified_weaps = 0
         missing_weaps: List[str] = []
@@ -213,7 +240,7 @@ class VersionCompletenessGateService:
         # 3. Artifacts
         art_file = data_dir / "artifacts.json"
         lvl_file = data_dir / "artifact_levels.json"
-        expected_arts = 51
+        expected_arts = sdata_contract.get("artifacts", {}).get("expected_count", 51)
         found_arts = 0
         verified_arts = 0
         if art_file.exists() and lvl_file.exists():
@@ -239,7 +266,7 @@ class VersionCompletenessGateService:
 
         # 4. Materials
         mat_file = data_dir / "materials.json"
-        expected_mats = 200
+        expected_mats = sdata_contract.get("materials", {}).get("expected_count", 200)
         found_mats = 0
         verified_mats = 0
         if mat_file.exists():

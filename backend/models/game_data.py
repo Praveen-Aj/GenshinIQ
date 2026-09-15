@@ -1,6 +1,6 @@
 """Pydantic models for canonical structured Genshin Impact game data."""
 
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Dict, Any, Union
 from pydantic import BaseModel, Field
 
 
@@ -23,7 +23,7 @@ class Constellation(BaseModel):
 
 class CharacterData(BaseModel):
     """Canonical Genshin Impact character model."""
-    id: int
+    id: Union[int, str]
     name: str
     title: Optional[str] = None
     element: str = Field(..., description="Pyro, Hydro, Anemo, Electro, Dendro, Cryo, Geo")

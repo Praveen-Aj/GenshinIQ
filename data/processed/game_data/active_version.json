@@ -1,8 +1,8 @@
 {
   "active_version": "7.0",
-  "activated_at": "2026-09-14T13:07:14.151283+00:00",
+  "activated_at": "2026-09-15T15:32:38.056304+00:00",
   "manifest_path": "versions/7.0/version_manifest.json",
   "verification_status": "VERIFIED_STRUCTURED",
   "source_id": "src_animegamedata",
-  "content_hash": "6af0ccccb376d05ddb9e33b2a5cf917c495d03a1cfcc942165a6a9a20ccf6d41"
+  "content_hash": "4f6abc72ca587f8dd470ef7ff847eefce93c22848d152e02f8d5026d5d7d65d4"
 }

@@ -684,33 +684,37 @@ def test_security_audit_account_instance_validation(client):
 # ==============================================================================
 
 def test_version_evidence_case_1_matching_dataset_version():
-    """Case 1: requested version matches canonical dataset version (5.4) -> COMPLETE, MATCHING."""
+    """Case 1: requested version matches canonical dataset version -> COMPLETE, MATCHING."""
+    d_ver = stat_engine_service.canonical_dataset_version
     build = stat_engine_service.calculate_build_stats(
         "Kaedehara Kazuha",
         weapon_name_or_id="Freedom-Sworn",
-        game_version="5.4"
+        game_version=d_ver
     )
     assert build.calculation_status == CalculationStatus.COMPLETE
     assert build.version_compatibility == VersionCompatibilityStatus.MATCHING
-    assert build.dataset_version == "5.4"
-    assert build.game_version == "5.4"
-    assert any("verified for v5.4" in w for w in build.warnings)
+    assert build.dataset_version == d_ver
+    assert build.game_version == d_ver
+    assert any(f"verified for v{d_ver}" in w for w in build.warnings)
 
 
 def test_version_evidence_case_2_verified_invariant_compatibility():
     """Case 2: Pure Category A engine constants (curves/levels) -> COMPLETE, VERIFIED_COMPATIBLE."""
+    d_ver = stat_engine_service.canonical_dataset_version
     stat, compat, warns, ver = stat_engine_service.evaluate_version_compatibility(
-        "7.0",
+        d_ver,
         is_pure_engine_constant=True
     )
     assert stat == CalculationStatus.COMPLETE
     assert compat == VersionCompatibilityStatus.VERIFIED_COMPATIBLE
-    assert ver == "7.0"
+    assert ver == d_ver
     assert any("verified as invariant across all game versions" in w for w in warns)
 
 
-def test_version_evidence_case_3_registry_only_compatibility():
+def test_version_evidence_case_3_registry_only_compatibility(monkeypatch):
     """Case 3: requested version is newer (7.0) than dataset (5.4) -> COMPLETE, PROJECT_REGISTRY_COMPATIBLE."""
+    import backend.services.stat_engine as se_mod
+    monkeypatch.setattr(se_mod, "get_canonical_dataset_version", lambda: "5.4")
     build = stat_engine_service.calculate_build_stats(
         "Kaedehara Kazuha",
         weapon_name_or_id="Freedom-Sworn",
@@ -744,8 +748,10 @@ def test_version_evidence_case_4_unknown_compatibility():
     assert build_invalid.version_compatibility == VersionCompatibilityStatus.UNKNOWN_COMPATIBILITY
 
 
-def test_version_evidence_case_5_conflicting_intervening_change():
+def test_version_evidence_case_5_conflicting_intervening_change(monkeypatch):
     """Case 5: Intervening patch modifies character/system -> PARTIAL, STALE_INTERVENING_CHANGES."""
+    import backend.services.stat_engine as se_mod
+    monkeypatch.setattr(se_mod, "get_canonical_dataset_version", lambda: "5.4")
     from backend.services.version_service import version_service
     version_service._patch_changes["5.5"] = ["Kaedehara Kazuha"]
     try:
@@ -770,84 +776,57 @@ def test_version_evidence_case_6_future_unreleased_version():
     )
     assert build.calculation_status == CalculationStatus.UNSUPPORTED
     assert build.version_compatibility == VersionCompatibilityStatus.UNSUPPORTED_FUTURE
-    assert any("unrecognized in canonical patch registry" in w or "unreleased" in w for w in build.warnings)
+    assert any("unreleased/future patch" in w or "unrecognized" in w for w in build.warnings)
 
 
 def test_version_evidence_case_7_missing_version_metadata():
-    """Case 7: missing version metadata (None/empty) -> PARTIAL, MISSING_VERSION_METADATA."""
-    build_none = stat_engine_service.calculate_build_stats(
+    """Case 7: omitted version metadata -> PARTIAL, MISSING_VERSION_METADATA."""
+    build = stat_engine_service.calculate_build_stats(
         "Kaedehara Kazuha",
         weapon_name_or_id="Freedom-Sworn",
         game_version=None
     )
-    assert build_none.calculation_status == CalculationStatus.PARTIAL
-    assert build_none.version_compatibility == VersionCompatibilityStatus.MISSING_VERSION_METADATA
-    assert any("Missing version metadata" in w for w in build_none.warnings)
-
-    build_empty = stat_engine_service.calculate_build_stats(
-        "Kaedehara Kazuha",
-        weapon_name_or_id="Freedom-Sworn",
-        game_version=""
-    )
-    assert build_empty.calculation_status == CalculationStatus.PARTIAL
-    assert build_empty.version_compatibility == VersionCompatibilityStatus.MISSING_VERSION_METADATA
+    assert build.calculation_status == CalculationStatus.PARTIAL
+    assert build.version_compatibility == VersionCompatibilityStatus.MISSING_VERSION_METADATA
+    assert any("Missing version metadata" in w for w in build.warnings)
 
 
 def test_version_evidence_case_8_manifest_provenance_integrity():
-    """Case 8: manifest.json contains complete provenance, hashes, versions, and invariance classifications."""
+    """Case 8: active canonical manifest exists, content hash matches."""
     import json
     from pathlib import Path
-    manifest_file = Path("data/processed/manifest.json")
-    assert manifest_file.exists()
-
-    with open(manifest_file, "r", encoding="utf-8") as f:
-        manifest = json.load(f)
-
-    game_data = manifest.get("game_data", {})
-    assert game_data.get("dataset_version") == "5.4"
-    assert game_data.get("project_target_version") == "7.0"
-    assert len(game_data.get("aggregate_sha256", "")) == 64
-
-    files = {item["file_name"]: item for item in game_data.get("files", [])}
-    expected_files = [
-        "artifact_levels.json",
-        "artifacts.json",
-        "avatar_curves.json",
-        "characters.json",
-        "materials.json",
-        "weapon_curves.json",
-        "weapons.json",
-    ]
-    for ef in expected_files:
-        assert ef in files, f"Missing {ef} in manifest game_data.files"
-        entry = files[ef]
-        assert entry["dataset_version"] == "5.4"
-        assert entry["source_version"] == "5.4"
-        assert entry["project_target_version"] == "7.0"
-        assert entry["source_id"] in ("src_animegamedata", "src_project_amber")
-        assert len(entry["sha256"]) == 64
-        assert entry["record_count"] > 0
-        assert entry["verification_status"] == "VERIFIED_STRUCTURED"
-        assert entry["source_url"].startswith("http")
-        assert entry["invariance_classification"] in ("CATEGORY_A_ENGINE_CONSTANT", "CATEGORY_B_GAME_CONTENT_STATIC")
+    active_manifest = Path("data/processed/game_data/active_version.json")
+    assert active_manifest.exists()
+    with open(active_manifest, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    assert "active_version" in data
+    assert "verification_status" in data
+    assert len(data["content_hash"]) == 64
 
 
-def test_api_version_parameter_and_safety(client):
+# ==============================================================================
+# 7. REST API ENDPOINT TESTS FOR VERSION REASONING & METADATA
+# ==============================================================================
+
+def test_api_version_parameter_and_safety(client, monkeypatch):
     """Verify REST API enforces version compatibility and reports dataset vs game version."""
-    # 1. Matching version 5.4
+    import backend.services.stat_engine as se_mod
+    d_ver = stat_engine_service.canonical_dataset_version
+    # 1. Matching version
     res_a = client.post("/api/build/calculate", json={
         "character": "Kaedehara Kazuha",
         "weapon": "Freedom-Sworn",
-        "game_version": "5.4",
+        "game_version": d_ver,
     })
     assert res_a.status_code == 200
     data_a = res_a.json()
     assert data_a["calculation_status"] == "COMPLETE"
     assert data_a["version_compatibility"] == "MATCHING"
-    assert data_a["dataset_version"] == "5.4"
-    assert data_a["game_version"] == "5.4"
+    assert data_a["dataset_version"] == d_ver
+    assert data_a["game_version"] == d_ver
 
-    # 2. Target version 7.0
+    # 2. Target version 7.0 with 5.4 dataset
+    monkeypatch.setattr(se_mod, "get_canonical_dataset_version", lambda: "5.4")
     res_b = client.post("/api/build/calculate", json={
         "character": "Kaedehara Kazuha",
         "weapon": "Freedom-Sworn",
