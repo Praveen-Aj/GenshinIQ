@@ -7,6 +7,59 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.0] - 2026-09-17 (Phase 11: Characters & Data Tab Rebuild — Global Encyclopedia)
+
+### Added
+- **Encyclopedia Backend Service (`backend/services/encyclopedia_service.py`)**:
+  - Exact dynamic character stat scaling (HP, ATK, DEF, Ascension Stat) derived deterministically via canonical curves and stat engine formulas.
+  - Dynamic weapon scaling across all levels (1–90) and refinement ranks (R1–R5).
+  - 10-section curated build guide generator leveraging KeqingMains guides, community wiki docs, and canonical entity registries.
+- **Dedicated Encyclopedia API Endpoints (`backend/api/routes.py`)**:
+  - `GET /api/data/characters/{name_or_id}/scaling`: Level and ascension tier parameterized stat engine response.
+  - `GET /api/data/characters/{name_or_id}/guide`: 10-section structured build recommendations.
+  - `GET /api/data/weapons/{name_or_id}/scaling`: Level, ascension, and refinement parameterized weapon scaling.
+  - `GET /api/data/curves`: Indexed progression curve types for avatars and weapons.
+- **10-Section Character Page Architecture (`frontend/app.js`, `frontend/style.css`)**:
+  - Section 1: Header & Profile Summary with Enka CDN assets, rarity glow, elemental inline SVG, and `✨ Review Build with AI` trigger.
+  - Section 2: Quick Summary with scannable Role pill, green-tinted Strengths list, and amber-tinted Caveats/Playstyle notes.
+  - Section 3: Your Character live account integration showing ownership status, equipped weapon, constellation tier, and `⚡ Optimize My Character` trigger.
+  - Section 4: Interactive Level Scaling Slider (Lv. 1–90) with preset buttons (`20`, `40`, `50`, `60`, `70`, `80`, `90`) and real-time Base HP/ATK/DEF and Ascension Stat readouts.
+  - Section 5: Talents & Priority Progression strip (`Burst >= Skill > Normal Attack`) with full talent accordions.
+  - Section 6: Constellations & Milestone Badges (C1–C6) with `★ Key Milestone` highlights and owned highlights.
+  - Section 7: Curated Gear Recommendations featuring weapons tier list (`BiS ⭐`, `F2P Choice 🛡️`, `Alternative ⚔️`), artifact sets (4pc/2pc), main stat targets (Sands/Goblet/Circlet), substat priorities, and stat benchmarks.
+  - Section 8: Recommended Team Compositions with 4-slot avatar cards, elemental tags, rotation steps, and team AI buttons.
+  - Section 9: Materials & Farming Schedule with ascension tags, talent books, and domain rotation integration.
+  - Section 10: Instant Bridge to AI Assistant with grounded prompt triggers.
+- **Interactive Weapon & Artifact Inspectors**:
+  - Weapons: Real-time Lv. 1–90 slider and R1–R5 refinement switcher with reactive stat updates and synergy recommendations.
+  - Artifact Sets: 2pc and 4pc bonuses, 5-piece relic slot breakdown, and team optimization triggers.
+- **Automated Test Suite (`backend/tests/test_encyclopedia.py`)**:
+  - 7 comprehensive unit and integration tests verifying scaling formulas, 10-section guide generation, and API endpoints (378/378 total test suite pass rate).
+
+---
+
+## [1.0.6] - 2026-09-16 (Phase 10.6 Remediation: Data Truth & Release-Gate Integrity)
+
+### Added
+- **Content-Aware Fingerprinting Engine (`backend/services/content_fingerprint.py`)**:
+  - Deterministic SHA-256 content hashing across characters, weapons, artifacts, materials, and level progression curves.
+  - Recursively strips volatile metadata (`game_version_updated`, `source_version`, `retrieved_at`, timestamps, file hashes) to identify genuine game content changes vs relabeled copies.
+- **Universal Anti-Relabeling Release Gate (`backend/services/version_completeness_gate.py`)**:
+  - Eliminated arbitrary version bypass (`if target_version not in ("5.4", "7.0")`).
+  - Strict uniform anti-relabeling rule (`OLD DATA + NEW VERSION LABEL = FAIL`) applied to all versions (5.4, 5.5, 6.x, 7.x, 8.x, 9.x).
+  - Formal 5.4 coverage contract (`data/canonical/version_coverage/5.4.json`) establishing canonical baseline.
+- **Permanent Regression Test Suite (`backend/tests/test_phase10_6_data_truth_remediation.py`)**:
+  - 16 permanent automated regression tests covering relabeling detection, content fingerprint invariance, network acquisition failure, partial acquisition, contract violation, placeholder rejection, admin authentication in production, live RAG hybrid retrieval invocation, and dynamic stat-engine canonical binding.
+- **Release-Gate Governance Lifecycle**:
+  - Enforced transition model: `EXPECTED -> ACQUIRED -> NORMALIZED -> VALIDATED -> COMPLETE -> PROMOTABLE`.
+  - Fail-closed promotion in `canonical_data_pipeline.execute_refresh_pipeline` Step 9.5 blocking silent promotion of relabeled datasets.
+
+### Changed
+- **Version Verification Truth**: Formally identified that version 7.0 structured records in repository share an identical content fingerprint (`fc1d93f3...`) with baseline 5.4. Marked 7.0 release candidate status as `UNVERIFIED_RELABELED` in release gate audits, accurately blocking production Phase 8 promotion until genuine raw data is datamined.
+- **Canonical Promotion Security**: `promote_to_canonical` strictly verifies manifest integrity, and pipeline refresh enforces content-aware anti-relabeling.
+
+---
+
 ## [1.0.0] - 2026-09-14
 
 ### Added

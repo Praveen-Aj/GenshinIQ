@@ -1242,24 +1242,30 @@ class CanonicalDataPipelineService:
 
         return results
 
-    def promote_to_canonical(self, version_str: str) -> Tuple[bool, str]:
+    def promote_to_canonical(self, version_str: str, enforce_gate: bool = False) -> Tuple[bool, str]:
         """
-        Promote a verified dataset version to the active canonical version.
-        Atomically updates data/processed/game_data/active_version.json and syncs runtime files.
+        Atomically promotes a verified processed dataset version to active canonical state.
+        Updates active_version.json pointer and copies runtime files to root.
         """
-        v_proc = self.processed_versions_dir / version_str
-        if not v_proc.exists():
-            return False, f"Version directory {v_proc} does not exist."
+        proc_v_dir = self.processed_versions_dir / version_str
+        manifest_file = proc_v_dir / "version_manifest.json"
+        if not manifest_file.exists():
+            return False, f"Version manifest not found for v{version_str}."
 
-        v_manifest = v_proc / "version_manifest.json"
-        if not v_manifest.exists():
-            return False, f"Version manifest missing at {v_manifest}."
-
-        with open(v_manifest, "r", encoding="utf-8") as f:
+        with open(manifest_file, "r", encoding="utf-8") as f:
             manifest_data = json.load(f)
 
         if manifest_data.get("verification_status") != "VERIFIED_STRUCTURED":
             return False, f"Dataset v{version_str} is not VERIFIED_STRUCTURED (status: {manifest_data.get('verification_status')})."
+
+        # Optional Gate Enforcement for new candidate version promotions
+        if enforce_gate:
+            from backend.services.version_completeness_gate import version_completeness_gate, CompletenessStatus
+            sdata_report, sdata_blockers = version_completeness_gate.audit_structured_data(version_str)
+            if sdata_report.status != CompletenessStatus.COMPLETE or len(sdata_blockers) > 0:
+                return False, f"Cannot promote v{version_str}: dataset failed completeness gate: {sdata_blockers}."
+            if sdata_report.relabeling_detected:
+                return False, f"Cannot promote v{version_str}: relabeled copy of v{sdata_report.relabeling_source_version} detected."
 
         # 1. Update active pointer
         active_payload = {
@@ -1446,6 +1452,9 @@ class CanonicalDataPipelineService:
             for f in proc_v_dir.glob("*.json")
             if f.name not in ("version_manifest.json", "version_diff.json")
         }
+        from backend.services.content_fingerprint import compute_dataset_content_fingerprint
+        content_fp = compute_dataset_content_fingerprint(proc_v_dir)
+
         v_manifest = DatasetVersionManifest(
             source_id="src_animegamedata",
             source_url="https://github.com/DimbreathBot/AnimeGameData",
@@ -1453,6 +1462,7 @@ class CanonicalDataPipelineService:
             dataset_version=effective_target,
             retrieved_at=datetime.now(timezone.utc).isoformat(),
             content_hash=hashlib.sha256("\n".join(sorted(proc_hashes.values())).encode("utf-8")).hexdigest(),
+            content_fingerprint=content_fp,
             schema_version="1.0",
             record_counts={k: 1 for k in proc_hashes},
             validation_status="PASSED",
@@ -1477,12 +1487,21 @@ class CanonicalDataPipelineService:
             "is_complete": is_sdata_complete,
             "blockers": sdata_blockers,
         }
-        if not is_sdata_complete and auto_promote:
+        is_new_version = effective_target != active_before
+        if is_new_version and (not is_sdata_complete or sdata_report.relabeling_detected) and auto_promote:
             err = f"Completeness gate rejected promotion for v{effective_target}: {sdata_blockers}"
             report["error"] = err
             self._last_failed_refresh = datetime.now(timezone.utc).isoformat()
             self._failure_reason = err
             return report
+        if not is_new_version and auto_promote:
+            non_relabel_blockers = [b for b in sdata_blockers if "relabeling detected" not in b.lower()]
+            if non_relabel_blockers:
+                err = f"Completeness gate rejected refresh for active v{effective_target}: {non_relabel_blockers}"
+                report["error"] = err
+                self._last_failed_refresh = datetime.now(timezone.utc).isoformat()
+                self._failure_reason = err
+                return report
 
         # Step 10 & 11: Fail-Closed Canonical Promotion & Cache Rebuild
         if auto_promote:

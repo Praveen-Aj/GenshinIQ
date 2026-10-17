@@ -163,6 +163,13 @@ class StructuredDataCompleteness(BaseModel):
     curves: EntityCoverageMetrics
     domains: EntityCoverageMetrics
     relationships: EntityCoverageMetrics
+    content_fingerprint: Optional[str] = None
+    relabeling_detected: bool = False
+    relabeling_source_version: Optional[str] = None
+    missing_entities: Dict[str, List[str]] = Field(default_factory=dict)
+    unexpected_entities: Dict[str, List[str]] = Field(default_factory=dict)
+    duplicate_ids: Dict[str, List[str]] = Field(default_factory=dict)
+    placeholder_records: Dict[str, List[str]] = Field(default_factory=dict)
 
 
 class GameContentCompleteness(BaseModel):
@@ -350,6 +357,7 @@ class DatasetVersionManifest(BaseModel):
     content_hash: str = Field(..., description="Aggregate SHA-256 digest of versioned payload")
     schema_version: str = Field(default="1.0")
     record_counts: Dict[str, int] = Field(default_factory=dict, description="Counts by entity category")
+    content_fingerprint: Optional[str] = Field(default=None, description="Deterministic content digest excluding volatile metadata")
     validation_status: str = Field(default="PASSED", description="PASSED, FAILED_SCHEMA, FAILED_CONFLICT, FAILED_NUMERICAL")
     verification_status: str = Field(default="VERIFIED_STRUCTURED", description="VERIFIED_STRUCTURED, UNVERIFIED, REJECTED")
     file_hashes: Dict[str, str] = Field(default_factory=dict, description="SHA-256 digest for each individual file")

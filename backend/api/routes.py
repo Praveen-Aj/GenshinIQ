@@ -70,6 +70,7 @@ from backend.models.stat_engine import (
 )
 from backend.services.stat_engine import stat_engine_service
 from backend.services.account_inventory_service import account_inventory_service
+from backend.services.encyclopedia_service import encyclopedia_service
 
 router = APIRouter()
 
@@ -638,6 +639,47 @@ def get_character_detail(name_or_id: str):
 
 
 @router.get(
+    "/data/characters/{name_or_id}/scaling",
+    summary="Get Dynamic Character Stat Scaling"
+)
+def get_character_scaling_endpoint(
+    name_or_id: str,
+    level: int = Query(default=90, ge=1, le=90, description="Target character level (1-90)"),
+    ascension: Optional[int] = Query(default=None, ge=0, le=6, description="Ascension tier (0-6)")
+):
+    """Retrieve exact mathematical base stats and ascension stat scaling at requested level."""
+    scaling = encyclopedia_service.get_character_scaling(
+        name_or_id,
+        level=level,
+        ascension=ascension
+    )
+    if not scaling or scaling.get("status") in ("UNRESOLVED", "UNSUPPORTED"):
+        # Check if canonical exists
+        char = game_data_service.get_character(name_or_id)
+        if not char:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Character '{name_or_id}' not found in database."
+            )
+    return scaling
+
+
+@router.get(
+    "/data/characters/{name_or_id}/guide",
+    summary="Get 10-Section Character Build Guide"
+)
+def get_character_build_guide_endpoint(name_or_id: str):
+    """Retrieve curated 10-section build guide, weapon tiering, artifact sets, and team comps."""
+    guide = encyclopedia_service.get_character_build_guide(name_or_id)
+    if not guide:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Build guide for character '{name_or_id}' not found."
+        )
+    return guide
+
+
+@router.get(
     "/data/weapons",
     response_model=List[WeaponData],
     summary="List Canonical Weapons"
@@ -673,6 +715,46 @@ def get_weapon_detail(name_or_id: str):
             detail=f"Weapon '{name_or_id}' not found in database."
         )
     return weapon
+
+
+@router.get(
+    "/data/weapons/{name_or_id}/scaling",
+    summary="Get Dynamic Weapon Stat Scaling"
+)
+def get_weapon_scaling_endpoint(
+    name_or_id: str,
+    level: int = Query(default=90, ge=1, le=90, description="Target weapon level (1-90)"),
+    ascension: Optional[int] = Query(default=None, ge=0, le=6, description="Ascension tier (0-6)"),
+    refinement: int = Query(default=1, ge=1, le=5, description="Weapon refinement rank (1-5)")
+):
+    """Retrieve exact mathematical weapon ATK, sub-stat scaling, and static passive scaling."""
+    scaling = encyclopedia_service.get_weapon_scaling(
+        name_or_id,
+        level=level,
+        ascension=ascension,
+        refinement=refinement
+    )
+    if not scaling or scaling.get("status") in ("UNRESOLVED", "UNSUPPORTED"):
+        wep = game_data_service.get_weapon(name_or_id)
+        if not wep:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Weapon '{name_or_id}' not found in database."
+            )
+    return scaling
+
+
+@router.get(
+    "/data/curves",
+    summary="Get Canonical Curve Types and Metadata"
+)
+def get_curves_endpoint():
+    """Retrieve indexed curve types for avatars and weapons."""
+    return {
+        "avatar_curve_types": list(stat_engine_service.avatar_curves.keys()),
+        "weapon_curve_types": list(stat_engine_service.weapon_curves.keys()),
+        "levels_supported": [1, 20, 40, 50, 60, 70, 80, 90],
+    }
 
 
 @router.get(
@@ -1161,3 +1243,103 @@ def get_knowledge_gaps():
         return {"total_gaps_tracked": 0, "gaps": []}
     with open(gaps_path, "r", encoding="utf-8") as f:
         return json.load(f)
+
+
+# =========================================================================
+# PHASE 12: STRUCTURED VISUAL GUIDES LIBRARY ENDPOINTS
+# =========================================================================
+from backend.services.guide_service import guide_service
+
+
+@router.get("/guides/summary", summary="Get Guides Library Summary")
+def get_guides_summary():
+    """Retrieve summary metrics and taxonomy rules for the visual guides library."""
+    return guide_service.get_guides_summary()
+
+
+@router.get("/guides", summary="List Visual Guide Items")
+def list_guides_endpoint(
+    category: str = Query(default="all", description="Guide category filter"),
+    q: Optional[str] = Query(default=None, description="Search query"),
+    element: Optional[str] = Query(default=None, description="Element filter"),
+    weapon_type: Optional[str] = Query(default=None, description="Weapon type filter"),
+    rarity: Optional[int] = Query(default=None, ge=1, le=5, description="Rarity filter (1-5)"),
+    role: Optional[str] = Query(default=None, description="Role filter"),
+    availability: Optional[str] = Query(default=None, description="curated or baseline"),
+    owned_only: bool = Query(default=False, description="Filter for owned characters only"),
+    sort: str = Query(default="curated_first", description="Sorting criterion")
+):
+    """Retrieve filterable, ranked visual guide cards across characters, weapons, artifacts, teams, and mechanics."""
+    owned_names: Optional[Set[str]] = None
+    if owned_only:
+        try:
+            snapshot = account_inventory_service.get_current_snapshot()
+            if snapshot and snapshot.characters:
+                owned_names = {c.name.lower() for c in snapshot.characters}
+        except Exception:
+            owned_names = set()
+
+    return guide_service.list_guides(
+        category=category,
+        q=q,
+        element=element,
+        weapon_type=weapon_type,
+        rarity=rarity,
+        role=role,
+        availability=availability,
+        owned_character_names=owned_names,
+        owned_only=owned_only,
+        sort=sort
+    )
+
+
+@router.get("/guides/character/{name_or_id}", summary="Get Structured Character Guide")
+def get_character_guide_endpoint(name_or_id: str):
+    """Retrieve rich 15-section structured visual character guide."""
+    guide = guide_service.get_character_guide(name_or_id)
+    if not guide:
+        raise HTTPException(status_code=404, detail=f"Guide for character '{name_or_id}' not found.")
+    return guide
+
+
+@router.get("/guides/weapon/{name_or_id}", summary="Get Structured Weapon Guide")
+def get_weapon_guide_endpoint(name_or_id: str):
+    """Retrieve structured weapon guide with exact deterministic mathematical stat scaling."""
+    guide = guide_service.get_weapon_guide(name_or_id)
+    if not guide:
+        raise HTTPException(status_code=404, detail=f"Guide for weapon '{name_or_id}' not found.")
+    return guide
+
+
+@router.get("/guides/artifact/{name_or_id}", summary="Get Structured Artifact Guide")
+def get_artifact_guide_endpoint(name_or_id: str):
+    """Retrieve structured artifact set guide with 2pc/4pc bonuses and notable users."""
+    guide = guide_service.get_artifact_guide(name_or_id)
+    if not guide:
+        raise HTTPException(status_code=404, detail=f"Guide for artifact set '{name_or_id}' not found.")
+    return guide
+
+
+@router.get("/guides/mechanics/{slug}", summary="Get Structured Mechanics Guide")
+def get_mechanics_guide_endpoint(slug: str):
+    """Retrieve structured visual breakdown of game mechanics."""
+    guide = guide_service.get_mechanics_guide(slug)
+    if not guide:
+        raise HTTPException(status_code=404, detail=f"Mechanics guide '{slug}' not found.")
+    return guide
+
+
+@router.get("/guides/teams/{slug}", summary="Get Structured Team Archetype Guide")
+def get_team_guide_endpoint(slug: str):
+    """Retrieve structured team archetype guide with core roster and rotation steps."""
+    guide = guide_service.get_team_guide(slug)
+    if not guide:
+        raise HTTPException(status_code=404, detail=f"Team archetype guide '{slug}' not found.")
+    return guide
+
+
+@router.get("/guides/farming", summary="Get Structured Daily Farming Rotation")
+def get_farming_guide_endpoint():
+    """Retrieve comprehensive weekday domain farming rotation planner."""
+    return guide_service.get_farming_guide()
+

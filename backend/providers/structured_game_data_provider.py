@@ -92,7 +92,11 @@ class StructuredGameDataProvider(
         clean = str(name_or_id).strip()
         if clean.isdigit() and int(clean) in self._characters_by_id:
             return self._characters_by_id[int(clean)]
-        return self._characters_by_name.get(clean.lower())
+        res = self._characters_by_name.get(clean.lower())
+        if not res and ("_" in clean or "-" in clean):
+            normalized = clean.lower().replace("_", " ").replace("-", " ")
+            res = self._characters_by_name.get(normalized)
+        return res
 
     def list_characters(
         self,
@@ -117,6 +121,9 @@ class StructuredGameDataProvider(
         if clean.isdigit() and int(clean) in self._weapons_by_id:
             return self._weapons_by_id[int(clean)]
         res = self._weapons_by_name.get(clean.lower())
+        if res is None and ("_" in clean or "-" in clean):
+            normalized = clean.lower().replace("_", " ").replace("-", " ")
+            res = self._weapons_by_name.get(normalized)
         if res is None:
             res = self._weapons_by_name.get(f'"{clean.lower()}"')
         if res is None and clean.startswith('"') and clean.endswith('"'):
@@ -141,7 +148,11 @@ class StructuredGameDataProvider(
         clean = str(name_or_id).strip()
         if clean.isdigit() and int(clean) in self._artifacts_by_id:
             return self._artifacts_by_id[int(clean)]
-        return self._artifacts_by_name.get(clean.lower())
+        res = self._artifacts_by_name.get(clean.lower())
+        if not res and ("_" in clean or "-" in clean):
+            normalized = clean.lower().replace("_", " ").replace("-", " ")
+            res = self._artifacts_by_name.get(normalized)
+        return res
 
     def list_artifact_sets(self) -> List[ArtifactSetData]:
         return list(self._artifacts_by_id.values())

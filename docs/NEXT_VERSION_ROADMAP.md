@@ -1,10 +1,13 @@
 # GenshinIQ Next Version Roadmap
 
-**Target release:** `v0.4.0`  
-**Date:** Monday, September 7, 2026  
-**Status:** Living roadmap for the next implementation cycle
+**Current Release Milestone:** `Phase 10.6 Remediation: Data Truth & Release-Gate Integrity`  
+**Date:** September 16, 2026  
+**Status:** Phase 10.6 Complete. Phase 11 remains BLOCKED until genuine external datamined records are ingested and release gates pass without simulation.
 
-## Goals
+## Critical Truth Charter & Governance
+- **Zero Fabrication**: No synthetic entities or extrapolated future characters may be promoted.
+- **Fail-Closed Release Gates**: Phase 8 and Phase 11 remain blocked as long as knowledge or canonical data for Version 7.0 is flagged as UNVERIFIED or RELABELED.
+- **Content-Aware Fingerprinting**: All future releases (5.5, 6.x, 7.x, 8.x) must prove distinct content from all earlier releases.
 
 The next version should make GenshinIQ more trustworthy, more reproducible, and easier to extend. The main focus is to tighten evidence quality, harden the data pipeline, and make the build-review experience more deterministic.
 

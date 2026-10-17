@@ -1,0 +1,141 @@
+{
+  "$schema": "./coverage_contract_schema.json",
+  "contract_version": "1.0",
+  "game_version": "5.4",
+  "patch_name": "Crossroads of Sun and Moon",
+  "release_date": "2025-01-01",
+  "created_at": "2025-01-01T00:00:00Z",
+  "description": "Formal version-completeness coverage contract specifying mandatory entity requirements, sources, required fields, and validation rules for Genshin Impact Version 5.4.",
+  "structured_data": {
+    "characters": {
+      "expected_count": 119,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "mandatory": true,
+      "required_fields": [
+        "id",
+        "name",
+        "element",
+        "weapon_type",
+        "rarity",
+        "base_hp_lvl90",
+        "base_atk_lvl90",
+        "base_def_lvl90",
+        "talents",
+        "constellations"
+      ],
+      "validation_rules": [
+        "base_hp_lvl90 > 0",
+        "base_atk_lvl90 > 0",
+        "base_def_lvl90 > 0",
+        "len(talents) >= 3",
+        "len(constellations) == 6"
+      ]
+    },
+    "weapons": {
+      "expected_count": 246,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "mandatory": true,
+      "required_fields": [
+        "id",
+        "name",
+        "weapon_type",
+        "rarity",
+        "base_atk_lvl1",
+        "base_atk_lvl90"
+      ],
+      "validation_rules": [
+        "base_atk_lvl1 > 0",
+        "base_atk_lvl90 >= base_atk_lvl1"
+      ]
+    },
+    "artifacts": {
+      "expected_count": 51,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "mandatory": true,
+      "required_fields": [
+        "id",
+        "name"
+      ],
+      "validation_rules": [
+        "len(name) > 0"
+      ]
+    },
+    "materials": {
+      "expected_count": 200,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "mandatory": true,
+      "required_fields": [
+        "id",
+        "name"
+      ],
+      "validation_rules": [
+        "len(name) > 0"
+      ]
+    },
+    "curves": {
+      "expected_count": 2,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "mandatory": true,
+      "required_fields": [
+        "avatar_curves",
+        "weapon_curves"
+      ],
+      "validation_rules": [
+        "strictly_non_decreasing_1_to_90"
+      ]
+    },
+    "domains": {
+      "expected_count": 1,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "mandatory": true,
+      "required_fields": [
+        "schedules"
+      ],
+      "validation_rules": [
+        "len(schedules) >= 7"
+      ]
+    },
+    "relationships": {
+      "expected_count": 1,
+      "expected_source": "src_animegamedata",
+      "source_authority": "PRIMARY_ORIGINAL",
+      "mandatory": true,
+      "required_fields": [
+        "mappings"
+      ],
+      "validation_rules": [
+        "all_entities_resolvable"
+      ]
+    }
+  },
+  "game_content": {
+    "quests": {"expected_count": 350},
+    "events": {"expected_count": 4},
+    "domains": {"expected_count": 48},
+    "enemies": {"expected_count": 180},
+    "regions": {"expected_count": 6},
+    "achievements": {"expected_count": 1200},
+    "crafting": {"expected_count": 250},
+    "farming": {"expected_count": 7},
+    "mechanics": {"expected_count": 1}
+  },
+  "curated_knowledge": {
+    "character_guides": {
+      "expected_count": 95,
+      "minimum_tier": 2
+    },
+    "weapon_guides": {"expected_count": 50},
+    "artifact_guides": {"expected_count": 40},
+    "team_building": {"expected_count": 30},
+    "mechanics": {"expected_count": 15},
+    "theorycrafting": {"expected_count": 20},
+    "farming": {"expected_count": 7},
+    "current_version_changes": {"expected_count": 1}
+  }
+}

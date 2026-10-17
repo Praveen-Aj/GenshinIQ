@@ -127,34 +127,28 @@ class VersionCompletenessGateService:
     def audit_structured_data(self, target_version: str) -> Tuple[StructuredDataCompleteness, List[str]]:
         """Audit canonical structured game data across characters, weapons, artifacts, materials, curves, domains."""
         data_dir = self._resolve_data_dir(target_version)
+        char_file = data_dir / "characters.json"
         blockers: List[str] = []
 
         contract = self._load_coverage_contract(target_version)
         sdata_contract = contract.get("structured_data", {}) if contract else {}
 
-        # Content truth & Relabeling check:
-        # If target_version is new and not baseline, verify that characters.json is not an unmodified relabeled copy of 5.4
-        char_file = data_dir / "characters.json"
-        if target_version not in ("5.4", "7.0"):
-            baseline_54 = self.processed_data_dir / "versions" / "5.4" / "characters.json"
-            if baseline_54.exists() and char_file.exists():
-                try:
-                    with open(baseline_54, "r", encoding="utf-8") as bf:
-                        b_raw = json.load(bf)
-                    with open(char_file, "r", encoding="utf-8") as tf:
-                        t_raw = json.load(tf)
-                    if len(b_raw) == len(t_raw) and len(b_raw) > 0:
-                        b_clean = [{k: v for k, v in c.items() if k != "game_version_updated"} for c in b_raw]
-                        t_clean = [{k: v for k, v in c.items() if k != "game_version_updated"} for c in t_raw]
-                        if b_clean == t_clean:
-                            blockers.append(
-                                f"Relabeling detected: characters.json for v{target_version} is an un-updated copy of v5.4 baseline. "
-                                "Raw game content must be acquired."
-                            )
-                except Exception as e:
-                    logger.warning(f"Relabeling check error: {e}")
+        from backend.services.content_fingerprint import compute_dataset_content_fingerprint, check_dataset_relabeling
 
-        if not contract and target_version not in ("5.4", "7.0"):
+        # 1. Content-Aware Fingerprint & Anti-Relabeling Check (Applies uniformly to ALL versions)
+        is_relabeled, matching_old_ver, target_fp = check_dataset_relabeling(
+            target_version_dir=data_dir,
+            target_version=target_version,
+            all_versions_dir=self.processed_data_dir / "versions",
+        )
+        if is_relabeled:
+            blockers.append(
+                f"Relabeling detected: dataset for v{target_version} has identical content to older v{matching_old_ver} release "
+                f"(Content Fingerprint: {target_fp[:16]}...). Raw game content must be acquired."
+            )
+
+        # 2. Formal Version Coverage Contract Gate (No version exemptions)
+        if not contract:
             blockers.append(f"No formal version coverage contract found for target v{target_version}. Completeness cannot be certified.")
 
         # 1. Characters
@@ -369,6 +363,9 @@ class VersionCompletenessGateService:
             curves=curve_metrics,
             domains=domain_metrics,
             relationships=rel_metrics,
+            content_fingerprint=target_fp,
+            relabeling_detected=is_relabeled,
+            relabeling_source_version=matching_old_ver,
         )
         return result, blockers
 

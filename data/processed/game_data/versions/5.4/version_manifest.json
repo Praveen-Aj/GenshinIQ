@@ -3,8 +3,8 @@
   "source_url": "https://github.com/DimbreathBot/AnimeGameData",
   "source_version": "5.4",
   "dataset_version": "5.4",
-  "retrieved_at": "2026-09-15T15:32:56.121465+00:00",
-  "content_hash": "e80f8ff3843ffb0ce42376108b26a1f8fbcbbd2f4a8a8123caec06710fa102f5",
+  "retrieved_at": "2026-09-18T15:01:00.496412+00:00",
+  "content_hash": "5f4a09491924fd8ae4d43170cf01ed69ac5e88435b89ded17563dd813757ef83",
   "schema_version": "1.0",
   "record_counts": {
     "artifacts.json": 1,
@@ -15,14 +15,15 @@
     "weapons.json": 1,
     "weapon_curves.json": 1
   },
+  "content_fingerprint": "b260f684c7051600ae4aa426827b95daa63ebbeb2b8cacd256a9a6cee87247cf",
   "validation_status": "PASSED",
   "verification_status": "VERIFIED_STRUCTURED",
   "file_hashes": {
     "artifacts.json": "759a06d065b6c7d9c14d1e82d4dc5dbb032c9132474f9c4471070888f1ad1191",
     "artifact_levels.json": "8185dbc4fbd7bab17807726819805af40d4eac39c62a9e5e3049e0cb6bb6ae38",
     "avatar_curves.json": "8abbc30e3b5dcd82c4421faf37fcc8511d01e858d913f3fb234f4eed784f8292",
-    "characters.json": "8742901fd42d1233d9981f2dffb185bbd89d2b6e4ba46107f9350222cd6594e5",
-    "materials.json": "14174604730b1ffcc3c6136aeccaa6ae6a3c5acf8c2a98a69c03e701e8c64c92",
+    "characters.json": "9da5f435775f57890705f7e012020f3479159e6cc4c80277bf29b077979be9ff",
+    "materials.json": "2a3037ede176102a9fde0fb9e64c6ac45c3e8ee7771f0554dcfb736b2202375e",
     "weapons.json": "97e00451a8fbc1ed59e86aba1ab5032eec36428bba613d614ad4e96b9687e900",
     "weapon_curves.json": "23370d2885c095793c0cc6979133d5f109f13942c3cdfbc96e9ffbcadc80b600"
   }

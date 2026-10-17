@@ -3,8 +3,8 @@
   "source_url": "https://github.com/DimbreathBot/AnimeGameData",
   "source_version": "7.0",
   "dataset_version": "7.0",
-  "retrieved_at": "2026-09-15T15:32:36.343615+00:00",
-  "content_hash": "4f6abc72ca587f8dd470ef7ff847eefce93c22848d152e02f8d5026d5d7d65d4",
+  "retrieved_at": "2026-09-18T15:00:37.977954+00:00",
+  "content_hash": "d05683d59d3c7946f6750276726ae0394213dbbf37d9fab7d4c3620d893d3297",
   "schema_version": "1.0",
   "record_counts": {
     "achievements.json": 1,
@@ -22,6 +22,7 @@
     "weapons.json": 1,
     "weapon_curves.json": 1
   },
+  "content_fingerprint": "b260f684c7051600ae4aa426827b95daa63ebbeb2b8cacd256a9a6cee87247cf",
   "validation_status": "PASSED",
   "verification_status": "VERIFIED_STRUCTURED",
   "file_hashes": {
@@ -29,11 +30,11 @@
     "artifacts.json": "f857c2b4e8f60ea353ea0979b3f1a04312f50c9fd14fc6f087be0ff7c0cf058d",
     "artifact_levels.json": "8185dbc4fbd7bab17807726819805af40d4eac39c62a9e5e3049e0cb6bb6ae38",
     "avatar_curves.json": "8abbc30e3b5dcd82c4421faf37fcc8511d01e858d913f3fb234f4eed784f8292",
-    "characters.json": "0870f8fa6eb9c5ae263362c77b823bf71cd6098d20471951d249259090a4bd6a",
+    "characters.json": "a31c346a6ea1a05e3d57ba71ac4ba845ef254400a8de8c08d29499db77734c00",
     "domains.json": "e50e61fbb73ac93759ca34959ccd233bcc699ab78d25c38d80fa85a561587c9b",
     "enemies.json": "43456214315761e98d320c6be7b8765df89cb289de503de0f585c4103edf534a",
     "events.json": "55e7376f2d859015cb3b1d63d5806dcbcfc68bf6b81b59442d94a696b308a89f",
-    "materials.json": "35b59f242edc636a41b4c799d57c47ac4e37c3e4b67bb545735ee06f0fc075a2",
+    "materials.json": "a38b151ff194f0e6da10fa045058b508ea9ac0e7eb0fee00d97b012622623bd9",
     "quests.json": "569e37d166349d1a81d06620cdadb970419cf90db1f116e8f93d0da27e5dd064",
     "recipes.json": "a2363ea7df6d90c159be64006b6a5384b4bc3c4635046653c88456931a82d50e",
     "regions.json": "8bd4b40207eab8519c40982539a532652d7aa5b6376583c30786f72cd3f541b0",

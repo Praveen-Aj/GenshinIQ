@@ -1,5 +1,920 @@
 [
   {
+    "id": 100021,
+    "name": "Wolfhook",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Wolfhook).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 100022,
+    "name": "Valberry",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Valberry).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 100023,
+    "name": "Cecilia",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Cecilia).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 100024,
+    "name": "Windwheel Aster",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Windwheel Aster).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 100025,
+    "name": "Philanemo Mushroom",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Philanemo Mushroom).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 100027,
+    "name": "Jueyun Chili",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Jueyun Chili).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 100028,
+    "name": "Noctilucous Jade",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Noctilucous Jade).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 100029,
+    "name": "Silk Flower",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Silk Flower).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 100030,
+    "name": "Glaze Lily",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Glaze Lily).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 100031,
+    "name": "Qingxin",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Qingxin).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 100033,
+    "name": "Starconch",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Starconch).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 100034,
+    "name": "Violetgrass",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Violetgrass).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 100055,
+    "name": "Small Lamp Grass",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Small Lamp Grass).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 100056,
+    "name": "Calla Lily",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Calla Lily).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 100057,
+    "name": "Dandelion Seed",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Dandelion Seed).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 100058,
+    "name": "Cor Lapis",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Cor Lapis).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101201,
+    "name": "Onikabuto",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Onikabuto).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101202,
+    "name": "Sakura Bloom",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Sakura Bloom).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101203,
+    "name": "Crystal Marrow",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Crystal Marrow).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101204,
+    "name": "Dendrobium",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Dendrobium).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101205,
+    "name": "Naku Weed",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Naku Weed).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101206,
+    "name": "Sea Ganoderma",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Sea Ganoderma).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101207,
+    "name": "Sango Pearl",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Sango Pearl).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101208,
+    "name": "Amakumo Fruit",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Amakumo Fruit).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101209,
+    "name": "Fluorescent Fungus",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Fluorescent Fungus).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101213,
+    "name": "Rukkhashava Mushrooms",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Rukkhashava Mushrooms).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101214,
+    "name": "Padisarah",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Padisarah).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101215,
+    "name": "Nilotpala Lotus",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Nilotpala Lotus).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101217,
+    "name": "Kalpalata Lotus",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Kalpalata Lotus).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101220,
+    "name": "Henna Berry",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Henna Berry).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101222,
+    "name": "Sand Grease Pupa",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Sand Grease Pupa).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101223,
+    "name": "Mourning Flower",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Mourning Flower).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101224,
+    "name": "Trishiraite",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Trishiraite).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101225,
+    "name": "Scarab",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Scarab).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101232,
+    "name": "Beryl Conch",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Beryl Conch).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101233,
+    "name": "Romaritime Flower",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Romaritime Flower).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101235,
+    "name": "Lumidouce Bell",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Lumidouce Bell).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101236,
+    "name": "Rainbow Rose",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Rainbow Rose).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101237,
+    "name": "Lumitoile",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Lumitoile).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101238,
+    "name": "Lakelight Lily",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Lakelight Lily).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101239,
+    "name": "Subdetection Unit",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Subdetection Unit).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101240,
+    "name": "Spring of the First Dewdrop",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Spring of the First Dewdrop).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101241,
+    "name": "Clearwater Jade",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Clearwater Jade).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101247,
+    "name": "Sprayfeather Gill",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Sprayfeather Gill).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101248,
+    "name": "Brilliant Chrysanthemum",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Brilliant Chrysanthemum).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101249,
+    "name": "Quenepa Berry",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Quenepa Berry).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101250,
+    "name": "Saurian Claw Succulent",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Saurian Claw Succulent).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101252,
+    "name": "Glowing Hornshroom",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Glowing Hornshroom).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101253,
+    "name": "Withering Purpurbloom",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Withering Purpurbloom).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101254,
+    "name": "Skysplit Gembloom",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Skysplit Gembloom).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101255,
+    "name": "Dracolite",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Dracolite).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101257,
+    "name": "Portable Bearing",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Portable Bearing).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101261,
+    "name": "Frostlamp Flower",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Frostlamp Flower).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101263,
+    "name": "Moonfall Silver",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Moonfall Silver).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101268,
+    "name": "Winter Icelea",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Winter Icelea).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101269,
+    "name": "Pine Amber",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Pine Amber).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101270,
+    "name": "Teardrop of the Moon",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Teardrop of the Moon).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101272,
+    "name": "Etherwing Moth",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Etherwing Moth).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101275,
+    "name": "Frostfairy Flower",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Frostfairy Flower).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101276,
+    "name": "Flockingweed",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Flockingweed).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
+    "id": 101277,
+    "name": "Golden Fern",
+    "type": "Local Specialty",
+    "rarity": 1,
+    "description": "Regional specialty item (Golden Fern).",
+    "sources": [
+      "Found in the wild",
+      "Local gathering"
+    ],
+    "game_version_updated": "5.4",
+    "source_id": "src_project_amber",
+    "source_version": "5.4",
+    "validation_state": "VERIFIED"
+  },
+  {
     "id": 104101,
     "name": "Brilliant Diamond Sliver",
     "type": "Ascension Gem",

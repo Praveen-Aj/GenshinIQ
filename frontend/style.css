@@ -1935,6 +1935,511 @@ body::before {
   padding: 18px 24px;
 }
 
+/* ====================================================
+   PHASE 11: ENCYCLOPEDIA & 10-SECTION DETAIL ARCHITECTURE
+   ==================================================== */
+
+.encyclopedia-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.char-encyclopedia-section {
+  background: rgba(14, 20, 32, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.char-encyclopedia-section:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.encyclopedia-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.encyclopedia-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin: 0;
+}
+
+.encyclopedia-section-title span.sec-icon {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+/* Section 2: Quick Summary (Strengths & Caveats) */
+.summary-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.summary-col {
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.summary-col.strengths {
+  border-left: 3px solid #58d68d;
+}
+
+.summary-col.caveats {
+  border-left: 3px solid #f39c12;
+}
+
+.summary-col-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.summary-col.strengths .summary-col-title {
+  color: #58d68d;
+}
+
+.summary-col.caveats .summary-col-title {
+  color: #f39c12;
+}
+
+.summary-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* Section 3: Your Character (Account Integration) */
+.account-sync-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(233, 190, 116, 0.1) 0%, rgba(20, 28, 45, 0.6) 100%);
+  border: 1px solid rgba(233, 190, 116, 0.35);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.account-sync-banner.unowned {
+  background: rgba(20, 28, 45, 0.5);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.badge-curated {
+  background: rgba(233, 190, 116, 0.2);
+  color: var(--accent-gold);
+  border: 1px solid rgba(233, 190, 116, 0.4);
+}
+
+.badge-fallback {
+  background: rgba(148, 163, 184, 0.15);
+  color: var(--text-muted);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.account-sync-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.account-sync-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.account-sync-status {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.account-sync-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.account-sync-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Section 4: Interactive Level Slider & Dynamic Stats */
+.level-slider-panel {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.level-slider-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.level-slider-wrap {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.level-slider-wrap input[type="range"] {
+  flex: 1;
+  accent-color: var(--accent-gold);
+  height: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.level-badge-large {
+  font-size: 15px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  background: rgba(233, 190, 116, 0.2);
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold);
+  min-width: 80px;
+  text-align: center;
+}
+
+.level-presets {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.level-preset-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.level-preset-btn:hover, .level-preset-btn.active {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #0c1017;
+  font-weight: 700;
+}
+
+.dynamic-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.dynamic-stat-card {
+  background: rgba(18, 25, 40, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.dynamic-stat-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.dynamic-stat-val {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-bright);
+}
+
+.dynamic-stat-val.gold {
+  color: var(--accent-gold);
+}
+
+/* Section 5: Talent Priorities */
+.talent-priority-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(94, 234, 212, 0.1);
+  border: 1px solid rgba(94, 234, 212, 0.3);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 14px;
+  font-size: 13px;
+  color: #5eead4;
+}
+
+.talent-priority-strip strong {
+  color: #fff;
+}
+
+/* Section 6: Constellations & Milestone Badges */
+.constellation-milestones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.const-item-v2 {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.const-item-v2.milestone {
+  border-color: rgba(233, 190, 116, 0.4);
+  background: linear-gradient(135deg, rgba(233, 190, 116, 0.08) 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.const-item-v2.owned {
+  border-left: 3px solid var(--accent-gold);
+}
+
+.const-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.const-tag-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(233, 190, 116, 0.25);
+  color: var(--accent-gold);
+  border: 1px solid rgba(233, 190, 116, 0.5);
+}
+
+.const-name-row {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-bright);
+}
+
+.const-desc-text {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Section 7: Curated Gear Recommendations */
+.gear-tier-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gear-item-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  gap: 12px;
+}
+
+.gear-item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gear-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.gear-badge.bis {
+  background: rgba(255, 177, 59, 0.25);
+  border: 1px solid rgba(255, 177, 59, 0.6);
+  color: #ffb13b;
+}
+
+.gear-badge.f2p {
+  background: rgba(88, 214, 141, 0.25);
+  border: 1px solid rgba(88, 214, 141, 0.6);
+  color: #58d68d;
+}
+
+.gear-badge.alt {
+  background: rgba(147, 197, 253, 0.2);
+  border: 1px solid rgba(147, 197, 253, 0.4);
+  color: #93c5fd;
+}
+
+.gear-stats-row {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.benchmarks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.benchmark-card {
+  background: rgba(20, 28, 45, 0.6);
+  border: 1px dashed rgba(233, 190, 116, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Section 8: Team Compositions */
+.team-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.team-card-v2 {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.team-header-v2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.team-members-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.team-slot-card {
+  background: rgba(14, 20, 32, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  transition: transform 0.2s ease;
+}
+
+.team-slot-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-gold);
+}
+
+.team-slot-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.team-slot-name {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.team-rotation-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 2px solid var(--accent-gold);
+  padding: 8px 12px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  line-height: 1.5;
+}
+
+/* Weapon Refinement Switcher */
+.refinement-switcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.refinement-pill {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-muted);
+  padding: 3px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.refinement-pill.active, .refinement-pill:hover {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #0c1017;
+  font-weight: 700;
+}
+
 /* ============================
    RESPONSIVE
    ============================ */

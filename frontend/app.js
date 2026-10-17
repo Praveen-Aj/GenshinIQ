@@ -197,6 +197,7 @@ const ROTATION_SCHEDULE = {
 };
 
 let currentShowcaseData = null;
+let currentAccountSnapshot = null;
 let selectedCharacterIndex = 0;
 
 // Database state
@@ -209,10 +210,22 @@ let dbCache = {
 };
 let selectedDbItem = null;
 
+async function loadActiveAccountSnapshot() {
+  try {
+    const res = await fetch('/api/account');
+    if (res.ok) {
+      currentAccountSnapshot = await res.json();
+    }
+  } catch (err) {
+    console.warn('No active account snapshot found:', err);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initTabs();
   checkBackendHealth();
   initAccountListeners();
+  loadActiveAccountSnapshot();
   initDatabaseListeners();
   loadDatabaseCategory('characters');
   initKnowledgeListeners();
@@ -969,47 +982,67 @@ function filterAndRenderDbItems() {
 /**
  * Render Detail Inspector Pane for Selected DB Entity
  */
-function renderDbDetailInspector(item, category) {
+/**
+ * Render Detail Inspector Pane for Selected DB Entity (Phase 11 10-Section Architecture)
+ */
+async function renderDbDetailInspector(item, category) {
   const pane = document.getElementById('db-detail-pane');
-  if (!item) return;
+  if (!item || !pane) return;
 
   if (category === 'characters') {
-    const elemClass = `elem-${item.element.toLowerCase()}`;
-    const charIcon = `https://enka.network/ui/${item.icon || `UI_AvatarIcon_${item.name}`}.png`;
-    const gachaUrl = getCharacterGachaUrl(item.name);
-    const rarityClass = item.rarity === 5 ? 'rarity-5' : 'rarity-4';
+    await renderCharacterEncyclopedia(item, pane);
+  } else if (category === 'weapons') {
+    await renderWeaponEncyclopedia(item, pane);
+  } else if (category === 'artifacts') {
+    renderArtifactEncyclopedia(item, pane);
+  }
+}
 
-    const talentsHtml = (item.talents || []).map((t) => `
-      <div class="accordion-item">
-        <div class="accordion-title">
-          <span>${t.name}</span>
-          <span class="badge badge-secondary" style="font-size: 11px;">${t.unlock}</span>
-        </div>
-        <div class="accordion-desc">${t.description}</div>
-      </div>
-    `).join('');
+/**
+ * 10-Section Character Encyclopedia Implementation
+ */
+async function renderCharacterEncyclopedia(item, pane) {
+  const elemClass = `elem-${item.element.toLowerCase()}`;
+  const charIcon = `https://enka.network/ui/${item.icon || `UI_AvatarIcon_${item.name}`}.png`;
+  const gachaUrl = getCharacterGachaUrl(item.name);
+  const rarityClass = item.rarity === 5 ? 'rarity-5' : 'rarity-4';
 
-    // Constellation dots + descriptions
-    const maxConst = 6;
-    const consts = item.constellations || [];
-    const constDotsHtml = Array.from({ length: maxConst }, (_, i) => {
-      const has = consts.find(c => c.level === i + 1);
-      return `<div class="const-dot ${has ? 'lit' : ''}" title="${has ? has.name : `C${i+1} Locked`}">${i + 1}</div>`;
-    }).join('');
+  // Check Account Showcase vs GOOD Account Inventory Ownership (Section 3)
+  const ownedShowcase = currentShowcaseData?.characters?.find(
+    (c) => c.name.toLowerCase() === item.name.toLowerCase()
+  );
+  const ownedInventory = currentAccountSnapshot?.characters?.find(
+    (c) => (c.canonical_name || c.name || '').toLowerCase() === item.name.toLowerCase()
+  );
+  const isOwned = !!(ownedShowcase || ownedInventory);
 
-    const constsHtml = consts.map((c) => `
-      <div class="accordion-item">
-        <div class="accordion-title">
-          <span>C${c.level}: ${c.name}</span>
-        </div>
-        <div class="accordion-desc">${c.description}</div>
-      </div>
-    `).join('');
+  let syncStatus = 'Not Owned in Showcase or Inventory';
+  let syncSub = 'Showing canonical baseline build (Lv. 90, C0)';
+  let syncActionHtml = '<button class="btn btn-secondary btn-sm" onclick="switchTab(\'account\')">Fetch Showcase or Import GOOD</button>';
 
-    const ascMatHtml = (item.ascension_materials || []).map((m) => `<span class="material-tag">${m}</span>`).join('');
-    const talMatHtml = (item.talent_materials || []).map((m) => `<span class="material-tag">${m}</span>`).join('');
+  if (ownedShowcase) {
+    syncStatus = `Owned in Active Showcase (Lv. ${ownedShowcase.level}, C${ownedShowcase.constellation || 0})`;
+    syncSub = `Equipped: ${ownedShowcase.weapon?.name || 'Weapon'} (Lv. ${ownedShowcase.weapon?.level || 90}) • ${ownedShowcase.artifacts?.length || 0}/5 Artifacts`;
+    syncActionHtml = `
+      <button class="btn btn-secondary btn-sm" onclick="askAssistant('Analyze my showcase ${item.name} build and equipped artifacts. What substats or pieces should I optimize first?')">⚡ Optimize My ${item.name}</button>
+      <button class="btn btn-secondary btn-sm" onclick="switchTab('account')">View in Showcase</button>
+    `;
+  } else if (ownedInventory) {
+    const invWep = currentAccountSnapshot?.weapons?.find((w) => w.location === ownedInventory.canonical_name);
+    const invArts = (currentAccountSnapshot?.artifacts || []).filter((a) => a.location === ownedInventory.canonical_name);
+    const wepText = invWep ? `${invWep.canonical_name} (R${invWep.refinement}, Lv. ${invWep.level})` : 'Unequipped';
+    syncStatus = `Owned in Account Inventory (Lv. ${ownedInventory.level}, C${ownedInventory.constellation})`;
+    syncSub = `Equipped: ${wepText} • ${invArts.length}/5 Artifacts (GOOD v3)`;
+    syncActionHtml = `
+      <button class="btn btn-secondary btn-sm" onclick="askAssistant('Review my account inventory build for ${item.name}. What weapons or artifact sets from my bag work best?')">⚡ Review Inventory Build</button>
+      <button class="btn btn-secondary btn-sm" onclick="switchTab('account')">View Account Bag</button>
+    `;
+  }
 
-    pane.innerHTML = `
+  // Initial render with skeletons for sections while fetching guide
+  pane.innerHTML = `
+    <div class="encyclopedia-container">
+      <!-- Section 1: Header & Profile Summary -->
       <div class="detail-hero">
         ${gachaUrl ? `<img class="detail-hero-bg" src="${gachaUrl}" alt="" loading="lazy">` : ''}
         <div class="detail-hero-gradient"></div>
@@ -1025,8 +1058,8 @@ function renderDbDetailInspector(item, category) {
                 <span class="rarity-stars rarity-${item.rarity}" style="font-size: 14px;">${getRarityStars(item.rarity)}</span>
                 <span class="badge badge-gold">${item.weapon_type}</span>
                 <span class="badge badge-secondary">${item.region || 'Teyvat'}</span>
-                <button class="btn btn-primary btn-sm" style="margin-left: auto; padding: 4px 10px; font-size: 12px;" onclick="askAssistant('Provide a comprehensive theorycrafting build guide for ${item.name} including best in slot weapons, artifact sets, main stats, substats, and team synergies.')">
-                  <span>✨ Ask AI Guide</span>
+                <button class="btn btn-primary btn-sm" style="margin-left: auto; padding: 4px 12px; font-size: 12px;" onclick="askAssistant('Review my build and provide recommendations for ${item.name}.')">
+                  <span>✨ Review Build with AI</span>
                 </button>
               </div>
             </div>
@@ -1034,61 +1067,452 @@ function renderDbDetailInspector(item, category) {
           ${item.title ? `<p style="margin-top: 12px; font-size: 13px; color: var(--text-muted); font-style: italic;">"${item.title}"</p>` : ''}
         </div>
       </div>
-      <div class="detail-body">
-        <p class="detail-desc" style="margin-bottom: 20px; line-height: 1.5; font-size: 0.9em; opacity: 0.8;">${item.description || ''}</p>
 
-        <div class="section-title">Base Attributes (Level 90)</div>
-        <div class="detail-stats-grid">
-          <div class="detail-stat-box">
-            <div class="detail-stat-label">Base HP</div>
-            <div class="detail-stat-val">${Math.round(item.base_hp_lvl90).toLocaleString()}</div>
+      <div class="detail-body" style="padding-top: 10px; display: flex; flex-direction: column; gap: 20px;">
+        <!-- Section 2: Quick Summary (Role, Strengths, Caveats) -->
+        <div class="char-encyclopedia-section" id="encyclopedia-section-summary">
+          <div class="encyclopedia-section-header">
+            <h3 class="encyclopedia-section-title"><span class="sec-icon">⚡</span> Quick Summary &amp; Overview</h3>
+            <span class="badge badge-info" id="char-role-badge">Loading Role...</span>
           </div>
-          <div class="detail-stat-box">
-            <div class="detail-stat-label">Base ATK</div>
-            <div class="detail-stat-val">${Math.round(item.base_atk_lvl90)}</div>
-          </div>
-          <div class="detail-stat-box">
-            <div class="detail-stat-label">Base DEF</div>
-            <div class="detail-stat-val">${Math.round(item.base_def_lvl90)}</div>
-          </div>
-          <div class="detail-stat-box">
-            <div class="detail-stat-label">Ascension Stat</div>
-            <div class="detail-stat-val" style="color: var(--accent-gold);">${item.ascension_stat} ${item.ascension_stat_val_lvl90}</div>
+          <p class="detail-desc" style="margin-bottom: 12px; font-size: 13px; line-height: 1.5;">${item.description || ''}</p>
+          <div class="summary-columns" id="char-summary-columns">
+            <div class="skeleton" style="height: 80px; border-radius: var(--radius-sm);"></div>
+            <div class="skeleton" style="height: 80px; border-radius: var(--radius-sm);"></div>
           </div>
         </div>
 
-        <div class="section-title">Talents &amp; Skills</div>
-        <div class="talents-accordion">${talentsHtml}</div>
+        <!-- Section 3: Your Character (Account Integration) -->
+        <div class="char-encyclopedia-section" style="padding: 14px;">
+          <div class="account-sync-banner ${isOwned ? '' : 'unowned'}">
+            <div class="account-sync-left">
+              <span style="font-size: 24px;">${isOwned ? (ownedShowcase ? '🛡️' : '📦') : '🔒'}</span>
+              <div class="account-sync-details">
+                <div class="account-sync-status">
+                  ${syncStatus}
+                </div>
+                <div class="account-sync-sub">
+                  ${syncSub}
+                </div>
+              </div>
+            </div>
+            <div class="account-sync-actions">
+              ${syncActionHtml}
+            </div>
+          </div>
+        </div>
 
-        <div class="section-title">Constellations</div>
-        <div class="constellation-dots">${constDotsHtml}</div>
-        <div class="constellations-accordion">${constsHtml}</div>
+        <!-- Section 4: Interactive Level Scaling Slider (Lv. 1–90) -->
+        <div class="char-encyclopedia-section">
+          <div class="encyclopedia-section-header">
+            <h3 class="encyclopedia-section-title"><span class="sec-icon">📊</span> Dynamic Base Stats &amp; Ascension Scaling</h3>
+            <span class="level-badge-large" id="char-level-display">Lv. 90/90</span>
+          </div>
+          <div class="level-slider-panel">
+            <div class="level-slider-controls">
+              <div class="level-slider-wrap">
+                <span style="font-size: 12px; color: var(--text-muted);">Lv. 1</span>
+                <input type="range" id="char-level-slider" min="1" max="90" value="90" step="1">
+                <span style="font-size: 12px; color: var(--text-muted);">Lv. 90</span>
+              </div>
+              <div class="level-presets">
+                <button class="level-preset-btn" data-lvl="20">Lv. 20</button>
+                <button class="level-preset-btn" data-lvl="40">Lv. 40</button>
+                <button class="level-preset-btn" data-lvl="50">Lv. 50</button>
+                <button class="level-preset-btn" data-lvl="60">Lv. 60</button>
+                <button class="level-preset-btn" data-lvl="70">Lv. 70</button>
+                <button class="level-preset-btn" data-lvl="80">Lv. 80</button>
+                <button class="level-preset-btn active" data-lvl="90">Lv. 90</button>
+              </div>
+            </div>
+            <div class="dynamic-stats-grid">
+              <div class="dynamic-stat-card">
+                <div class="dynamic-stat-label">Base HP</div>
+                <div class="dynamic-stat-val" id="char-stat-hp">${Math.round(item.base_hp_lvl90 || 0).toLocaleString()}</div>
+              </div>
+              <div class="dynamic-stat-card">
+                <div class="dynamic-stat-label">Base ATK</div>
+                <div class="dynamic-stat-val" id="char-stat-atk">${Math.round(item.base_atk_lvl90 || 0)}</div>
+              </div>
+              <div class="dynamic-stat-card">
+                <div class="dynamic-stat-label">Base DEF</div>
+                <div class="dynamic-stat-val" id="char-stat-def">${Math.round(item.base_def_lvl90 || 0)}</div>
+              </div>
+              <div class="dynamic-stat-card">
+                <div class="dynamic-stat-label">Ascension Stat</div>
+                <div class="dynamic-stat-val gold" id="char-stat-asc">${item.ascension_stat || 'Ascension Stat'} ${item.ascension_stat_val_lvl90 || ''}</div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        ${(ascMatHtml || talMatHtml) ? `
-        <div class="section-title">Required Materials</div>
-        ${ascMatHtml ? `
-          <div style="margin-bottom: 8px; font-size: 12px; color: var(--text-dim);">Character Ascension</div>
-          <div class="materials-tag-cloud">${ascMatHtml}</div>
-        ` : ''}
-        ${talMatHtml ? `
-          <div style="margin: 12px 0 8px; font-size: 12px; color: var(--text-dim);">Talent Level Up</div>
-          <div class="materials-tag-cloud">${talMatHtml}</div>
-        ` : ''}
-        ` : ''}
+        <!-- Section 5: Talents & Skills with Priorities -->
+        <div class="char-encyclopedia-section">
+          <div class="encyclopedia-section-header">
+            <h3 class="encyclopedia-section-title"><span class="sec-icon">⚔️</span> Talents &amp; Priority Progression</h3>
+          </div>
+          <div class="talent-priority-strip" id="char-talent-priority-strip">
+            <span>Priority Path:</span> <strong id="char-talent-priority-text">Burst (Q) = Skill (E) &gt; Normal Attack</strong>
+          </div>
+          <div class="talents-accordion" id="char-talents-accordion">
+            ${(item.talents || []).map((t) => `
+              <div class="accordion-item">
+                <div class="accordion-title">
+                  <span>${t.name}</span>
+                  <span class="badge badge-secondary" style="font-size: 11px;">${t.unlock || 'Talent'}</span>
+                </div>
+                <div class="accordion-desc">${t.description}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- Section 6: Constellations & Milestone Badges -->
+        <div class="char-encyclopedia-section">
+          <div class="encyclopedia-section-header">
+            <h3 class="encyclopedia-section-title"><span class="sec-icon">✨</span> Constellation Milestones</h3>
+            <span class="badge badge-secondary">C1 – C6 Progression</span>
+          </div>
+          <div class="constellation-milestones-grid" id="char-constellations-grid">
+            ${(item.constellations || []).map((c) => {
+              const isMilestone = [1, 2, 6].includes(c.level) || c.description.toLowerCase().includes('increases') || c.description.toLowerCase().includes('additionally');
+              const isOwned = (ownedShowcase && ownedShowcase.constellation >= c.level) || (ownedInventory && ownedInventory.constellation >= c.level);
+              return `
+                <div class="const-item-v2 ${isMilestone ? 'milestone' : ''} ${isOwned ? 'owned' : ''}">
+                  <div class="const-header-row">
+                    <span class="const-name-row">C${c.level}: ${c.name}</span>
+                    ${isMilestone ? `<span class="const-tag-badge">★ Key Milestone</span>` : ''}
+                    ${isOwned ? `<span class="badge badge-gold" style="font-size: 10px;">Owned</span>` : ''}
+                  </div>
+                  <div class="const-desc-text">${c.description}</div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+
+        <!-- Section 7: Curated Build Recommendations -->
+        <div class="char-encyclopedia-section" id="char-build-recommendations">
+          <div class="encyclopedia-section-header">
+            <h3 class="encyclopedia-section-title"><span class="sec-icon">🛡️</span> Curated Build Recommendations</h3>
+            <span class="badge badge-gold" id="char-build-badge">Theorycrafting BiS</span>
+          </div>
+          <div id="char-build-body">
+            <div class="skeleton" style="height: 140px; border-radius: var(--radius-sm);"></div>
+          </div>
+        </div>
+
+        <!-- Section 8: Recommended Team Compositions -->
+        <div class="char-encyclopedia-section" id="char-teams-section">
+          <div class="encyclopedia-section-header">
+            <h3 class="encyclopedia-section-title"><span class="sec-icon">👥</span> Recommended Team Compositions</h3>
+            <button class="btn btn-secondary btn-sm" onclick="askAssistant('Recommend team compositions and rotations for ${item.name} based on current meta.')">✨ Ask AI Teams</button>
+          </div>
+          <div class="team-cards-grid" id="char-teams-grid">
+            <div class="skeleton" style="height: 120px; border-radius: var(--radius-sm);"></div>
+          </div>
+        </div>
+
+        <!-- Section 9: Required Materials & Farming Schedule -->
+        <div class="char-encyclopedia-section">
+          <div class="encyclopedia-section-header">
+            <h3 class="encyclopedia-section-title"><span class="sec-icon">📅</span> Materials &amp; Farming Schedule</h3>
+            <button class="btn btn-secondary btn-sm" onclick="switchTab('account')">📅 View Today's Rotation</button>
+          </div>
+          <div id="char-materials-body">
+            <div style="margin-bottom: 10px; font-size: 12px; color: var(--text-dim);">Ascension Materials</div>
+            <div class="materials-tag-cloud" style="margin-bottom: 14px;">
+              ${(item.ascension_materials || []).map((m) => `<span class="material-tag">${m}</span>`).join('')}
+            </div>
+            <div style="margin-bottom: 10px; font-size: 12px; color: var(--text-dim);">Talent Level Up Books</div>
+            <div class="materials-tag-cloud">
+              ${(item.talent_materials || []).map((m) => `<span class="material-tag">${m}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 10: Instant Bridge to AI Assistant -->
+        <div class="char-encyclopedia-section" style="background: linear-gradient(135deg, rgba(20, 28, 48, 0.9) 0%, rgba(14, 20, 32, 0.9) 100%); border-color: rgba(94, 234, 212, 0.25);">
+          <div class="encyclopedia-section-header" style="border-color: rgba(94, 234, 212, 0.2);">
+            <h3 class="encyclopedia-section-title" style="color: #5eead4;"><span class="sec-icon">✨</span> Ask GenshinIQ Assistant About ${item.name}</h3>
+          </div>
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Ground your questions in verified game database mechanics and your showcase account stats:</p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button class="btn btn-secondary btn-sm" onclick="askAssistant('What is the optimal combat rotation and energy requirements for ${item.name}?')">Combat Rotation</button>
+            <button class="btn btn-secondary btn-sm" onclick="askAssistant('Compare best weapons for ${item.name} including 4-star F2P alternatives.')">Weapon Alternatives</button>
+            <button class="btn btn-secondary btn-sm" onclick="askAssistant('How do I build ${item.name} for Spiral Abyss Floor 12?')">Abyss Floor 12 Strategy</button>
+            <button class="btn btn-primary btn-sm" onclick="askAssistant('Give me a full theorycrafting analysis on ${item.name} talent scaling and optimal stat breakpoints.')">✨ In-Depth Theorycrafting</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Attach Slider Listeners
+  initCharLevelSlider(item.name);
+
+  // Fetch 10-Section Build Guide
+  try {
+    const guideRes = await fetch(`/api/data/characters/${encodeURIComponent(item.name)}/guide`);
+    if (guideRes.ok) {
+      const guide = await guideRes.json();
+      populateCharacterGuideSections(item, guide);
+    }
+  } catch (err) {
+    console.warn('Failed to load character guide:', err);
+  }
+}
+
+/**
+ * Initialize Interactive Level Slider for Characters
+ */
+function initCharLevelSlider(charName) {
+  const slider = document.getElementById('char-level-slider');
+  const display = document.getElementById('char-level-display');
+  const presetBtns = document.querySelectorAll('.level-preset-btn');
+
+  if (!slider) return;
+
+  let debounceTimer = null;
+  const updateStats = (level) => {
+    if (display) display.textContent = `Lv. ${level}/90`;
+    presetBtns.forEach((b) => b.classList.toggle('active', parseInt(b.dataset.lvl) === level));
+
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(async () => {
+      try {
+        const res = await fetch(`/api/data/characters/${encodeURIComponent(charName)}/scaling?level=${level}`);
+        if (res.ok) {
+          const data = await res.json();
+          const hpEl = document.getElementById('char-stat-hp');
+          const atkEl = document.getElementById('char-stat-atk');
+          const defEl = document.getElementById('char-stat-def');
+          const ascEl = document.getElementById('char-stat-asc');
+
+          if (hpEl) hpEl.textContent = Math.round(data.base_hp || 0).toLocaleString();
+          if (atkEl) atkEl.textContent = Math.round(data.base_atk || 0);
+          if (defEl) defEl.textContent = Math.round(data.base_def || 0);
+
+          if (ascEl && data.ascension_stats) {
+            const entries = Object.entries(data.ascension_stats);
+            if (entries.length > 0) {
+              const [k, v] = entries[0];
+              const formattedVal = (k.includes('crit') || k.includes('bonus') || k.includes('recharge') || k.includes('dmg')) ?
+                `${(v * 100).toFixed(1)}%` : Math.round(v);
+              ascEl.textContent = `${k.replace('_', ' ')} +${formattedVal}`;
+            }
+          }
+        }
+      } catch (err) {
+        console.warn('Error fetching character scaling:', err);
+      }
+    }, 80);
+  };
+
+  slider.addEventListener('input', (e) => {
+    updateStats(parseInt(e.target.value));
+  });
+
+  presetBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const lvl = parseInt(btn.dataset.lvl);
+      slider.value = lvl;
+      updateStats(lvl);
+    });
+  });
+}
+
+/**
+ * Populate Guide Sections with Structured Backend Data
+ */
+function populateCharacterGuideSections(char, guide) {
+  // 1. Role Badge
+  const roleBadge = document.getElementById('char-role-badge');
+  if (roleBadge && guide.role) {
+    roleBadge.textContent = guide.role;
+  }
+
+  // 2. Strengths & Caveats
+  const summaryCols = document.getElementById('char-summary-columns');
+  if (summaryCols) {
+    const strengthsHtml = (guide.strengths || ['High universal value across elemental teams', 'Top-tier utility and versatile application']).map(s => `<li>${s}</li>`).join('');
+    const caveatsHtml = (guide.caveats || ['Requires strict energy management', 'Optimal performance depends on proper rotation sequencing']).map(c => `<li>${c}</li>`).join('');
+
+    summaryCols.innerHTML = `
+      <div class="summary-col strengths">
+        <div class="summary-col-title"><span>✔</span> Strengths</div>
+        <ul class="summary-list">${strengthsHtml}</ul>
+      </div>
+      <div class="summary-col caveats">
+        <div class="summary-col-title"><span>⚠️</span> Caveats &amp; Playstyle Notes</div>
+        <ul class="summary-list">${caveatsHtml}</ul>
       </div>
     `;
-  } else if (category === 'weapons') {
-    const refHtml = (item.refinements || []).map((r, i) => `
-      <div class="accordion-item">
-        <div class="accordion-title">Rank ${i + 1}</div>
-        <div class="accordion-desc">${r}</div>
+  }
+
+  // 3. Talent Priority Text
+  const prioText = document.getElementById('char-talent-priority-text');
+  if (prioText && guide.talent_priority) {
+    prioText.textContent = Array.isArray(guide.talent_priority) ? guide.talent_priority.join(' > ') : guide.talent_priority;
+  }
+
+  // 4. Build Recommendations (Weapons, Artifacts, Benchmarks)
+  const buildBadge = document.getElementById('char-build-badge');
+  if (buildBadge) {
+    if (guide.guide_type === 'CURATED_CHARACTER_GUIDE') {
+      buildBadge.className = 'badge badge-gold';
+      buildBadge.textContent = '✨ Curated Theorycrafting';
+      buildBadge.title = guide.guide_provenance || 'KeqingMains Curated Theorycrafting';
+    } else {
+      buildBadge.className = 'badge badge-secondary';
+      buildBadge.textContent = 'ℹ️ Archetype Baseline';
+      buildBadge.title = guide.guide_provenance || 'Elemental & weapon class template';
+    }
+  }
+
+  const buildBody = document.getElementById('char-build-body');
+  if (buildBody) {
+    const wepList = (guide.recommended_weapons || []).map((w, idx) => {
+      const badgeClass = idx === 0 ? 'bis' : (w.notes?.toLowerCase().includes('f2p') ? 'f2p' : 'alt');
+      const badgeText = w.badge || (idx === 0 ? 'BiS ⭐' : (w.notes?.toLowerCase().includes('f2p') ? 'F2P Choice 🛡️' : 'Alternative ⚔️'));
+      return `
+        <div class="gear-item-card">
+          <div class="gear-item-left">
+            <span class="gear-badge ${badgeClass}">${badgeText}</span>
+            <div>
+              <div style="font-weight: 700; font-size: 14px; color: var(--text-bright);">${w.name}</div>
+              <div style="font-size: 11px; color: var(--text-muted);">${w.notes || w.desc || 'High synergy scaling'}</div>
+            </div>
+          </div>
+          <div class="gear-stats-row">
+            <button class="btn btn-secondary btn-sm" style="font-size: 11px; padding: 2px 8px;" onclick="askAssistant('Compare ${w.name} on ${char.name}. How does it perform?')">Compare</button>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    const artList = (guide.recommended_artifacts || []).map((a, idx) => {
+      const setName = a.set_name || a.name || 'Artifact Set';
+      const notes = a.notes || a.desc || 'Full set bonus recommendation';
+      const badgeClass = idx === 0 ? 'bis' : 'alt';
+      const badgeText = a.badge || (idx === 0 ? 'Optimal' : 'Alternative');
+      return `
+        <div class="gear-item-card">
+          <div class="gear-item-left">
+            <span class="gear-badge ${badgeClass}">${badgeText}</span>
+            <div>
+              <div style="font-weight: 700; font-size: 14px; color: var(--text-bright);">${setName}</div>
+              <div style="font-size: 11px; color: var(--text-muted);">${notes}</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    const mainStats = guide.main_stats || {};
+    const substats = guide.substat_priorities || ['CRIT Rate / CRIT DMG', 'Energy Recharge', 'ATK% / HP%'];
+    const benchmarks = guide.stat_benchmarks || {};
+
+    buildBody.innerHTML = `
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div>
+          <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px;">Top Weapons</div>
+          <div class="gear-tier-list">${wepList || '<div class="text-muted">Standard 5-star and 4-star weapon archetypes apply.</div>'}</div>
+        </div>
+
+        <div>
+          <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px;">Recommended Artifact Sets</div>
+          <div class="gear-tier-list">${artList || '<div class="text-muted">Standard 4-piece elemental sets.</div>'}</div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
+          <div style="background: rgba(0,0,0,0.25); padding: 12px; border-radius: var(--radius-sm);">
+            <div style="font-size: 12px; font-weight: 700; color: var(--accent-gold); margin-bottom: 6px;">Main Stat Targets</div>
+            <div style="font-size: 12px; line-height: 1.6;">
+              <div><strong>Sands:</strong> ${mainStats.sands || 'ATK% / ER% / EM'}</div>
+              <div><strong>Goblet:</strong> ${mainStats.goblet || 'Elemental DMG%'}</div>
+              <div><strong>Circlet:</strong> ${mainStats.circlet || 'CRIT Rate / CRIT DMG'}</div>
+            </div>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.25); padding: 12px; border-radius: var(--radius-sm);">
+            <div style="font-size: 12px; font-weight: 700; color: #58d68d; margin-bottom: 6px;">Substat Priority</div>
+            <div style="font-size: 12px; line-height: 1.6; color: var(--text-bright);">
+              ${substats.join(' &gt; ')}
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px;">Target Stat Benchmarks</div>
+          <div class="benchmarks-grid">
+            ${Object.entries(benchmarks).map(([k, v]) => `
+              <div class="benchmark-card">
+                <span style="font-size: 12px; color: var(--text-muted); text-transform: uppercase;">${k.replace('_', ' ')}</span>
+                <span style="font-size: 13px; font-weight: 700; color: var(--accent-gold);">${v}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 5. Team Compositions
+  const teamsGrid = document.getElementById('char-teams-grid');
+  if (teamsGrid && guide.teams && guide.teams.length > 0) {
+    teamsGrid.innerHTML = guide.teams.map((t) => `
+      <div class="team-card-v2">
+        <div class="team-header-v2">
+          <div>
+            <span style="font-weight: 700; font-size: 15px; color: var(--text-bright);">${t.name}</span>
+            <span class="badge badge-info" style="margin-left: 8px; font-size: 11px;">${t.archetype}</span>
+          </div>
+          <button class="btn btn-secondary btn-sm" style="font-size: 11px; padding: 2px 8px;" onclick="askAssistant('Explain rotation details and energy management for ${char.name} in ${t.name} team.')">✨ Team Guide</button>
+        </div>
+        <div class="team-members-row">
+          ${(t.members || []).map((m) => {
+            const mIcon = getCharacterIconUrl(m);
+            return `
+              <div class="team-slot-card" onclick="askAssistant('How does ${m} synergize with ${char.name}?')">
+                <img class="team-slot-avatar" src="${mIcon}" onerror="this.onerror=null; this.src='${getImgFallback('character')}'" alt="${m}">
+                <span class="team-slot-name">${m}</span>
+              </div>
+            `;
+          }).join('')}
+        </div>
+        ${t.rotation ? `<div class="team-rotation-note"><strong>Rotation:</strong> ${t.rotation}</div>` : ''}
       </div>
     `).join('');
+  }
 
-    const weaponIcon = `https://enka.network/ui/${item.icon || `UI_EquipIcon_Sword_Zephyrus`}.png`;
-    const rarityClass = item.rarity === 5 ? 'rarity-5' : (item.rarity === 4 ? 'rarity-4' : '');
+  // 6. Required Materials & Farming Schedule (from guide.farming)
+  if (guide.farming) {
+    const matBody = document.getElementById('char-materials-body');
+    if (matBody && (guide.farming.ascension_materials?.length || guide.farming.talent_materials?.length)) {
+      matBody.innerHTML = `
+        <div style="margin-bottom: 10px; font-size: 12px; color: var(--text-dim);">Ascension Materials</div>
+        <div class="materials-tag-cloud" style="margin-bottom: 14px;">
+          ${(guide.farming.ascension_materials || []).map((m) => `<span class="material-tag">${m}</span>`).join('')}
+        </div>
+        <div style="margin-bottom: 10px; font-size: 12px; color: var(--text-dim);">Talent Level Up Books</div>
+        <div class="materials-tag-cloud">
+          ${(guide.farming.talent_materials || []).map((m) => `<span class="material-tag">${m}</span>`).join('')}
+        </div>
+      `;
+    }
+  }
+}
 
-    pane.innerHTML = `
+/**
+ * Interactive Weapon Encyclopedia View
+ */
+async function renderWeaponEncyclopedia(item, pane) {
+  const weaponIcon = `https://enka.network/ui/${item.icon || `UI_EquipIcon_Sword_Zephyrus`}.png`;
+  const rarityClass = item.rarity === 5 ? 'rarity-5' : (item.rarity === 4 ? 'rarity-4' : '');
+
+  pane.innerHTML = `
+    <div class="encyclopedia-container">
       <div class="detail-hero" style="min-height: 140px;">
         <div class="detail-hero-gradient"></div>
         <div class="detail-hero-content">
@@ -1099,42 +1523,153 @@ function renderDbDetailInspector(item, category) {
               <div class="detail-hero-meta">
                 <span class="rarity-stars rarity-${item.rarity}" style="font-size: 14px;">${getRarityStars(item.rarity)}</span>
                 <span class="badge badge-gold">${item.weapon_type}</span>
+                <button class="btn btn-primary btn-sm" style="margin-left: auto; padding: 4px 10px; font-size: 12px;" onclick="askAssistant('Which characters make the best use of ${item.name}?')">
+                  <span>✨ Ask Synergies</span>
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="detail-body">
-        <div class="section-title">Weapon Attributes (Level 90)</div>
-        <div class="detail-stats-grid">
-          <div class="detail-stat-box">
-            <div class="detail-stat-label">Base ATK (Lv. 90)</div>
-            <div class="detail-stat-val">${Math.round(item.base_atk_lvl90)}</div>
+
+      <div class="detail-body" style="display: flex; flex-direction: column; gap: 20px;">
+        <!-- Level & Refinement Scaling Panel -->
+        <div class="char-encyclopedia-section">
+          <div class="encyclopedia-section-header">
+            <h3 class="encyclopedia-section-title"><span class="sec-icon">📊</span> Dynamic Level &amp; Refinement Scaling</h3>
+            <span class="level-badge-large" id="wep-level-display">Lv. 90/90 • R1</span>
           </div>
-          <div class="detail-stat-box">
-            <div class="detail-stat-label">Sub Stat</div>
-            <div class="detail-stat-val" style="color: var(--accent-gold);">${item.sub_stat_type || '—'} ${item.sub_stat_val_lvl90 || ''}</div>
+          <div class="level-slider-panel">
+            <div style="font-size: 12px; color: var(--text-dim); margin-bottom: 4px;">Refinement Rank</div>
+            <div class="refinement-switcher">
+              <button class="refinement-pill active" data-r="1">R1</button>
+              <button class="refinement-pill" data-r="2">R2</button>
+              <button class="refinement-pill" data-r="3">R3</button>
+              <button class="refinement-pill" data-r="4">R4</button>
+              <button class="refinement-pill" data-r="5">R5</button>
+            </div>
+
+            <div class="level-slider-controls" style="margin-top: 6px;">
+              <div class="level-slider-wrap">
+                <span style="font-size: 12px; color: var(--text-muted);">Lv. 1</span>
+                <input type="range" id="wep-level-slider" min="1" max="90" value="90" step="1">
+                <span style="font-size: 12px; color: var(--text-muted);">Lv. 90</span>
+              </div>
+            </div>
+
+            <div class="dynamic-stats-grid" style="margin-top: 10px;">
+              <div class="dynamic-stat-card">
+                <div class="dynamic-stat-label">Base ATK</div>
+                <div class="dynamic-stat-val" id="wep-stat-atk">${Math.round(item.base_atk_lvl90 || 0)}</div>
+              </div>
+              <div class="dynamic-stat-card">
+                <div class="dynamic-stat-label">Sub Stat</div>
+                <div class="dynamic-stat-val gold" id="wep-stat-sub">${item.sub_stat_type || '—'} ${item.sub_stat_val_lvl90 || ''}</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="section-title">Weapon Passive: ${item.passive_name || 'Special Effect'}</div>
-        <p class="accordion-desc" style="margin-bottom: 16px; line-height: 1.5; font-size: 0.95em;">${item.passive_desc || ''}</p>
+        <!-- Weapon Passive -->
+        <div class="char-encyclopedia-section">
+          <div class="encyclopedia-section-header">
+            <h3 class="encyclopedia-section-title"><span class="sec-icon">⚔️</span> Weapon Passive: ${item.passive_name || 'Special Effect'}</h3>
+          </div>
+          <p class="accordion-desc" style="line-height: 1.6; font-size: 13px; margin-bottom: 14px;">${item.passive_desc || 'No passive effect.'}</p>
+          <div class="talents-accordion">
+            ${(item.refinements || []).map((r, i) => `
+              <div class="accordion-item">
+                <div class="accordion-title">Rank ${i + 1}</div>
+                <div class="accordion-desc">${r}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
 
-        <div class="section-title">Refinement Progression (R1–R5)</div>
-        <div class="talents-accordion">${refHtml}</div>
+        <!-- Action Triggers -->
+        <div class="char-encyclopedia-section">
+          <div class="encyclopedia-section-header">
+            <h3 class="encyclopedia-section-title"><span class="sec-icon">✨</span> Weapon Synergies &amp; Comparisons</h3>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button class="btn btn-secondary btn-sm" onclick="askAssistant('Which characters can effectively use ${item.name}?')">Best Characters</button>
+            <button class="btn btn-secondary btn-sm" onclick="askAssistant('Is ${item.name} worth refining from R1 to R5?')">Refinement Value</button>
+            <button class="btn btn-primary btn-sm" onclick="askAssistant('Compare ${item.name} against top alternatives in the ${item.weapon_type} category.')">✨ Weapon Category Comparison</button>
+          </div>
+        </div>
       </div>
-    `;
-  } else if (category === 'artifacts') {
-    const piecesHtml = Object.entries(item.pieces || {}).map(([slot, name]) => `
-      <div class="stat-chip">
-        <span class="stat-chip-label" style="text-transform: capitalize;">${slot}</span>
-        <span class="stat-chip-val">${name}</span>
-      </div>
-    `).join('');
+    </div>
+  `;
 
-    const artIcon = `https://enka.network/ui/${item.icon || `UI_RelicIcon_15001_4`}.png`;
+  // Attach weapon slider and refinement listeners
+  initWeaponScalingControls(item.name);
+}
 
-    pane.innerHTML = `
+/**
+ * Initialize Weapon Scaling Controls
+ */
+function initWeaponScalingControls(wepName) {
+  const slider = document.getElementById('wep-level-slider');
+  const display = document.getElementById('wep-level-display');
+  const refPills = document.querySelectorAll('.refinement-pill');
+
+  let currentLvl = 90;
+  let currentRef = 1;
+  let debounceTimer = null;
+
+  const updateWepStats = () => {
+    if (display) display.textContent = `Lv. ${currentLvl}/90 • R${currentRef}`;
+
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(async () => {
+      try {
+        const res = await fetch(`/api/data/weapons/${encodeURIComponent(wepName)}/scaling?level=${currentLvl}&refinement=${currentRef}`);
+        if (res.ok) {
+          const data = await res.json();
+          const atkEl = document.getElementById('wep-stat-atk');
+          const subEl = document.getElementById('wep-stat-sub');
+
+          if (atkEl) atkEl.textContent = Math.round(data.base_atk || 0);
+          if (subEl) subEl.textContent = `${data.sub_stat_type || '—'} ${data.sub_stat_formatted || ''}`;
+        }
+      } catch (err) {
+        console.warn('Error fetching weapon scaling:', err);
+      }
+    }, 80);
+  };
+
+  if (slider) {
+    slider.addEventListener('input', (e) => {
+      currentLvl = parseInt(e.target.value);
+      updateWepStats();
+    });
+  }
+
+  refPills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      refPills.forEach((p) => p.classList.remove('active'));
+      pill.classList.add('active');
+      currentRef = parseInt(pill.dataset.r);
+      updateWepStats();
+    });
+  });
+}
+
+/**
+ * Interactive Artifact Set Encyclopedia View
+ */
+function renderArtifactEncyclopedia(item, pane) {
+  const piecesHtml = Object.entries(item.pieces || {}).map(([slot, name]) => `
+    <div class="stat-chip">
+      <span class="stat-chip-label" style="text-transform: capitalize;">${slot}</span>
+      <span class="stat-chip-val">${name}</span>
+    </div>
+  `).join('');
+
+  const artIcon = `https://enka.network/ui/${item.icon || `UI_RelicIcon_15001_4`}.png`;
+
+  pane.innerHTML = `
+    <div class="encyclopedia-container">
       <div class="detail-hero" style="min-height: 140px;">
         <div class="detail-hero-gradient"></div>
         <div class="detail-hero-content">
@@ -1145,28 +1680,51 @@ function renderDbDetailInspector(item, category) {
               <div class="detail-hero-meta">
                 <span class="rarity-stars rarity-5" style="font-size: 14px;">${getRarityStars(5)}</span>
                 <span class="badge badge-cyan">Artifact Set</span>
+                <button class="btn btn-primary btn-sm" style="margin-left: auto; padding: 4px 10px; font-size: 12px;" onclick="askAssistant('Which characters can use the 4-piece ${item.name} set optimally?')">
+                  <span>✨ Best Characters</span>
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="detail-body">
-        <div class="section-title">Set Bonuses</div>
-        <div class="accordion-item" style="margin-bottom: 12px;">
-          <div class="accordion-title">2-Piece Bonus</div>
-          <div class="accordion-desc">${item.bonus_2pc}</div>
-        </div>
-        ${item.bonus_4pc ? `
-        <div class="accordion-item" style="margin-bottom: 20px;">
-          <div class="accordion-title">4-Piece Bonus</div>
-          <div class="accordion-desc">${item.bonus_4pc}</div>
-        </div>` : ''}
 
-        <div class="section-title">Set Pieces</div>
-        <div class="combat-stats-grid">${piecesHtml}</div>
+      <div class="detail-body" style="display: flex; flex-direction: column; gap: 20px;">
+        <div class="char-encyclopedia-section">
+          <div class="encyclopedia-section-header">
+            <h3 class="encyclopedia-section-title"><span class="sec-icon">🛡️</span> Set Bonuses</h3>
+          </div>
+          <div class="accordion-item" style="margin-bottom: 12px;">
+            <div class="accordion-title">2-Piece Bonus</div>
+            <div class="accordion-desc">${item.bonus_2pc}</div>
+          </div>
+          ${item.bonus_4pc ? `
+          <div class="accordion-item" style="margin-bottom: 8px;">
+            <div class="accordion-title">4-Piece Bonus</div>
+            <div class="accordion-desc">${item.bonus_4pc}</div>
+          </div>` : ''}
+        </div>
+
+        <div class="char-encyclopedia-section">
+          <div class="encyclopedia-section-header">
+            <h3 class="encyclopedia-section-title"><span class="sec-icon">👑</span> 5-Piece Relic Slots</h3>
+          </div>
+          <div class="combat-stats-grid">${piecesHtml}</div>
+        </div>
+
+        <div class="char-encyclopedia-section">
+          <div class="encyclopedia-section-header">
+            <h3 class="encyclopedia-section-title"><span class="sec-icon">✨</span> Artifact Optimization Triggers</h3>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button class="btn btn-secondary btn-sm" onclick="askAssistant('Which characters use 2-piece ${item.name}?')">2-Piece Mix &amp; Match</button>
+            <button class="btn btn-secondary btn-sm" onclick="askAssistant('Where do I farm the ${item.name} domain, and what resin efficiency does it have?')">Resin &amp; Domain Efficiency</button>
+            <button class="btn btn-primary btn-sm" onclick="askAssistant('Analyze my account inventory and show if any of my characters have equipped ${item.name}.')">✨ Inspect Account Equipment</button>
+          </div>
+        </div>
       </div>
-    `;
-  }
+    </div>
+  `;
 }
 
 /**

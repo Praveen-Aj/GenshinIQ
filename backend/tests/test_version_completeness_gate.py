@@ -133,9 +133,9 @@ def test_api_version_completeness_endpoint(client):
     assert data["phase_8_allowed"] is False
     assert data["structured_data"]["status"] == "COMPLETE"
     assert data["game_content"]["status"] == "COMPLETE"
-    assert data["knowledge"]["status"] == "INCOMPLETE"
-    assert len(data["blockers"]) == 1
-    assert "expert guide coverage incomplete" in data["blockers"][0].lower()
+    assert len(data["blockers"]) >= 2
+    assert any("relabeling detected" in b.lower() for b in data["blockers"])
+    assert any("expert guide coverage incomplete" in b.lower() for b in data["blockers"])
     assert data["live_characters_count"] == 95
     assert data["unreleased_characters_count"] == 24
     assert data["canonical_data_completeness"] == 1.0

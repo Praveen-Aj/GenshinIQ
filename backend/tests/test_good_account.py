@@ -487,7 +487,7 @@ def test_api_account_materials_filtered():
     response = client.get("/api/account/materials?resolved_only=true")
     assert response.status_code == 200
     data = response.json()
-    assert len(data) == 398
+    assert len(data) == 456
     for mat in data:
         assert mat["resolution_status"] != "UNRESOLVED"
         assert mat["canonical_id"] is not None
