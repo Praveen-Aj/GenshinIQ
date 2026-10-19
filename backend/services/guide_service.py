@@ -27,12 +27,7 @@ class GuideService:
     def __init__(self, base_dir: Optional[Path] = None):
         self.base_dir = base_dir or Path(".")
         self.knowledge_dir = self.base_dir / "data" / "knowledge"
-        self._curated_chars = {
-            "kaedehara kazuha", "furina", "arlecchino", "mavuika",
-            "raiden shogun", "nahida", "zhongli", "yelan",
-            "hu tao", "neuvillette", "alhaitham", "xiangling",
-            "xingqiu", "bennett", "ganyu"
-        }
+        self._curated_chars = encyclopedia_service.get_curated_characters()
         self._mechanics_cache: Optional[List[Dict[str, Any]]] = None
         self._teams_cache: Optional[List[Dict[str, Any]]] = None
         self._farming_cache: Optional[Dict[str, Any]] = None
@@ -51,9 +46,12 @@ class GuideService:
 
         curated_chars_count = len([c for c in chars if c.name.lower() in self._curated_chars])
         fallback_chars_count = len(chars) - curated_chars_count
+        total_curated = curated_chars_count + len(weapons) + len(artifacts) + len(teams) + len(mechanics)
 
         return {
             "total_guides": len(chars) + len(weapons) + len(artifacts) + len(mechanics) + len(teams) + 1,
+            "curated_guides": total_curated,
+            "archetype_baselines": fallback_chars_count,
             "categories": {
                 "characters": {
                     "total": len(chars),
@@ -140,7 +138,7 @@ class GuideService:
                         q_norm in c_name_lower or
                         q_norm in char.element.lower() or
                         q_norm in char.weapon_type.lower() or
-                        (char.role and q_norm in char.role.lower())
+                        (getattr(char, "role", None) and q_norm in getattr(char, "role", "").lower())
                     )
                     if not matches:
                         continue
@@ -204,8 +202,9 @@ class GuideService:
             for art in game_data_service.list_artifact_sets():
                 a_name = art.name
                 a_name_lower = a_name.lower()
+                art_max_rarity = max(art.rarities) if getattr(art, "rarities", None) else 5
 
-                if rarity and art.max_rarity != rarity:
+                if rarity and art_max_rarity != rarity:
                     continue
 
                 if q_norm:
@@ -222,8 +221,8 @@ class GuideService:
                     "entity_id": art.id or a_name,
                     "category": "artifacts",
                     "title": a_name,
-                    "subtitle": f"{art.max_rarity}★ Artifact Set",
-                    "rarity": art.max_rarity,
+                    "subtitle": f"{art_max_rarity}★ Artifact Set",
+                    "rarity": art_max_rarity,
                     "icon_url": getattr(art, "icon", None) or "https://enka.network/ui/UI_RelicIcon_15001_4.png",
                     "guide_type": "CURATED_ARTIFACT_GUIDE",
                     "guide_badge": "🛡️ Artifact Set",
@@ -322,7 +321,71 @@ class GuideService:
         is_curated = name.lower() in self._curated_chars
 
         # Clean sanitized structure
+        rec_weapons = encyclopedia_guide.get("recommended_weapons") or encyclopedia_guide.get("weapons", [])
+        rec_artifacts = encyclopedia_guide.get("recommended_artifacts") or encyclopedia_guide.get("artifacts", [])
+        m_stats = encyclopedia_guide.get("main_stats", {
+            "sands": "ATK% or Energy Recharge",
+            "goblet": f"{char.element} DMG Bonus",
+            "circlet": "CRIT Rate or CRIT DMG"
+        })
+        sub_stats = encyclopedia_guide.get("substat_priorities") or encyclopedia_guide.get("substats", ["CRIT Rate / CRIT DMG", "Energy Recharge", "ATK%", "Elemental Mastery"])
+        benchmarks = encyclopedia_guide.get("stat_benchmarks", {"er": "140% - 160%", "crit_ratio": "60% / 120%"})
+        t_priority = encyclopedia_guide.get("talent_priority", "Burst >= Skill > Normal Attack")
+        rot = encyclopedia_guide.get("rotation_notes") or encyclopedia_guide.get("rotation_summary") or f"Execute Skill to trigger elemental reaction, switch through supports, then unleash {name}'s Burst."
+
+        # Extract deterministic talents & constellations from character package if available
+        talents_breakdown = []
+        constellations_summary = []
+        try:
+            from backend.services.character_knowledge_service import character_knowledge_service
+            pkg = character_knowledge_service.get_character_package(name)
+            if pkg and pkg.deterministic:
+                det = pkg.deterministic
+                if det.talents:
+                    for t in det.talents:
+                        t_name = getattr(t, "name", None) or (t.get("name") if isinstance(t, dict) else str(t))
+                        t_desc = getattr(t, "description", "") or (t.get("description", "") if isinstance(t, dict) else "")
+                        clean_desc = re.sub(r'<[^>]+>', '', t_desc).replace('\\n', ' ').strip()
+                        role_snippet = clean_desc[:120] + "..." if len(clean_desc) > 120 else clean_desc
+                        t_lower = t_name.lower()
+                        importance = "Primary" if any(k in t_lower for k in ["burst", "soumetsu", "pyronado", "havoc"]) else ("High" if any(k in t_lower for k in ["skill", "hyouka", "chihayaburu"]) else "Situational")
+                        talents_breakdown.append({
+                            "name": t_name,
+                            "role": role_snippet or "Combat ability",
+                            "importance": importance
+                        })
+                if det.constellations:
+                    for c in det.constellations:
+                        c_lvl = getattr(c, "level", None) or (c.get("level") if isinstance(c, dict) else 1)
+                        c_name = getattr(c, "name", None) or (c.get("name") if isinstance(c, dict) else f"C{c_lvl}")
+                        c_desc = getattr(c, "description", "") or (c.get("description", "") if isinstance(c, dict) else "")
+                        clean_cdesc = re.sub(r'<[^>]+>', '', c_desc).replace('\\n', ' ').strip()
+                        verdict_snippet = clean_cdesc[:140] + "..." if len(clean_cdesc) > 140 else clean_cdesc
+                        constellations_summary.append({
+                            "tier": f"C{c_lvl}",
+                            "name": c_name,
+                            "verdict": verdict_snippet or "Constellation upgrade."
+                        })
+        except Exception as e:
+            logger.debug(f"Could not load character package for {name}: {e}")
+
+        if not talents_breakdown:
+            talents_breakdown = [
+                {"name": "Normal Attack", "role": "Normal & Charged Attacks", "importance": "Low" if char.weapon_type != "Bow" else "Situational"},
+                {"name": "Elemental Skill", "role": "Skill generation & core effect", "importance": "High"},
+                {"name": "Elemental Burst", "role": "High impact Burst ability", "importance": "Primary"}
+            ]
+
+        if not constellations_summary:
+            constellations_summary = [
+                {"tier": "C1", "name": "Initial Upgrade", "verdict": "Quality of life or slight damage boost."},
+                {"tier": "C2", "name": "Key Spike", "verdict": "Major team utility or massive personal damage increase."},
+                {"tier": "C4", "name": "Team Buff", "verdict": "Defensive or energy buff for active party members."},
+                {"tier": "C6", "name": "Apex Potential", "verdict": "Unlocks on-field carry potential or transformative scaling."}
+            ]
+
         return {
+            "name": name,
             "character_name": name,
             "element": char.element,
             "weapon_type": char.weapon_type,
@@ -331,9 +394,13 @@ class GuideService:
             "guide_type": "CURATED_CHARACTER_GUIDE" if is_curated else "GENERIC_FALLBACK",
             "guide_badge": "✨ Curated Theorycrafting" if is_curated else "ℹ️ Archetype Baseline",
             "provenance_note": (
-                "Hand-curated weapon tiering, artifact priorities, and team archetypes."
+                "Hand-curated KeqingMains weapon tiering, artifact priorities, and rotation notes."
                 if is_curated else
-                "Baseline archetype recommendations derived from canonical character element and scaling."
+                (
+                    "Canonical game reference: verified combat talents, constellations, and elemental baseline loadout."
+                    if (talents_breakdown and len(talents_breakdown) > 3) else
+                    "Baseline archetype recommendations derived from canonical character element and scaling."
+                )
             ),
             # 1. Overview
             "overview": encyclopedia_guide.get("overview", f"{name} is a {char.rarity}★ {char.element} {char.weapon_type} character."),
@@ -345,40 +412,34 @@ class GuideService:
             "strengths": encyclopedia_guide.get("strengths", [f"Strong {char.element} application", "High team synergy"]),
             "caveats": encyclopedia_guide.get("caveats", ["Requires appropriate Energy Recharge", "Rotation timing"]),
             # 5. Talent priorities
-            "talent_priority": encyclopedia_guide.get("talent_priority", "Burst >= Skill > Normal Attack"),
-            "talents_breakdown": [
-                {"name": "Normal Attack", "role": "Normal & Charged Attacks", "importance": "Low" if char.weapon_type != "Bow" else "Situational"},
-                {"name": "Elemental Skill", "role": "Skill generation & core effect", "importance": "High"},
-                {"name": "Elemental Burst", "role": "High impact Burst ability", "importance": "Primary"}
-            ],
+            "talent_priority": t_priority,
+            "talents_breakdown": talents_breakdown,
             # 6. Build Recommendations
             "build_overview": "Maximize primary scalings while hitting Energy Recharge thresholds for reliable burst uptime.",
             # 7. Weapons
-            "weapons": encyclopedia_guide.get("recommended_weapons") or encyclopedia_guide.get("weapons", []),
+            "weapons": rec_weapons,
+            "weapon_recommendations": rec_weapons,
             # 8. Artifacts
-            "artifacts": encyclopedia_guide.get("recommended_artifacts") or encyclopedia_guide.get("artifacts", []),
+            "artifacts": rec_artifacts,
+            "artifact_recommendations": rec_artifacts,
             # 9. Main Stats
-            "main_stats": encyclopedia_guide.get("main_stats", {
-                "sands": "ATK% or Energy Recharge",
-                "goblet": f"{char.element} DMG Bonus",
-                "circlet": "CRIT Rate or CRIT DMG"
-            }),
+            "main_stats": m_stats,
+            "main_stat_priorities": m_stats,
             # 10. Substats
-            "substats": encyclopedia_guide.get("substat_priorities") or encyclopedia_guide.get("substats", ["CRIT Rate / CRIT DMG", "Energy Recharge", "ATK%", "Elemental Mastery"]),
+            "substats": sub_stats,
+            "substat_priorities": sub_stats,
             # 11. Energy & Rotation Considerations
-            "energy_benchmarks": encyclopedia_guide.get("stat_benchmarks", {"er": "140% - 160%", "crit_ratio": "60% / 120%"}),
+            "energy_benchmarks": benchmarks,
+            "stat_targets": benchmarks,
             # 12. Synergistic Teams
             "teams": encyclopedia_guide.get("teams") or encyclopedia_guide.get("team_comps", []),
-            # 13. Constellation Evaluations
-            "constellations_summary": [
-                {"tier": "C1", "name": "Initial Upgrade", "verdict": "Quality of life or slight damage boost."},
-                {"tier": "C2", "name": "Key Spike", "verdict": "Major team utility or massive personal damage increase."},
-                {"tier": "C4", "name": "Team Buff", "verdict": "Defensive or energy buff for active party members."},
-                {"tier": "C6", "name": "Apex Potential", "verdict": "Unlocks on-field carry potential or transformative scaling."}
-            ],
-            # 14. Farming & Materials
+            # 13. Rotations
+            "rotation_summary": rot,
+            # 14. Constellation Evaluations
+            "constellations_summary": constellations_summary,
+            # 15. Farming & Materials
             "farming": encyclopedia_guide.get("farming", {}),
-            # 15. Contextual AI Actions
+            # 16. Contextual AI Actions
             "ai_actions": [
                 {"label": "✨ Review My Build", "prompt": f"Review my {name} build based on my account inventory and tell me what to improve."},
                 {"label": "✨ Compare Weapons", "prompt": f"What is the best weapon for {name} among the weapons I own?"},
@@ -450,7 +511,7 @@ class GuideService:
 
         return {
             "name": art.name,
-            "rarity": art.max_rarity,
+            "rarity": max(art.rarities) if getattr(art, "rarities", None) else 5,
             "icon_url": getattr(art, "icon", None) or "https://enka.network/ui/UI_RelicIcon_15001_4.png",
             "bonus_2pc": art.bonus_2pc,
             "bonus_4pc": art.bonus_4pc,
@@ -529,44 +590,59 @@ class GuideService:
 
     def get_farming_guide(self) -> Dict[str, Any]:
         """Return comprehensive weekday domain farming rotation planner."""
+        rotations = [
+            {
+                "days": "Monday & Thursday (and Sunday)",
+                "domains": [
+                    {"region": "Mondstadt", "talent_book": "Freedom", "characters": ["Klee", "Sucrose", "Diona", "Tartaglia", "Amber", "Barbara", "Aloy"]},
+                    {"region": "Liyue", "talent_book": "Prosperity", "characters": ["Keqing", "Ningguang", "Qiqi", "Shenhe", "Xiao", "Yelan"]},
+                    {"region": "Inazuma", "talent_book": "Transience", "characters": ["Yoimiya", "Thoma", "Kokomi", "Heizou", "Kirara"]},
+                    {"region": "Sumeru", "talent_book": "Admonition", "characters": ["Tighnari", "Candace", "Cyno", "Faruzan"]},
+                    {"region": "Fontaine", "talent_book": "Equity", "characters": ["Lyney", "Neuvillette", "Navia", "Sigewinne"]},
+                    {"region": "Natlan", "talent_book": "Contention", "characters": ["Mualani", "Xilonen", "Chasca"]}
+                ]
+            },
+            {
+                "days": "Tuesday & Friday (and Sunday)",
+                "domains": [
+                    {"region": "Mondstadt", "talent_book": "Resistance", "characters": ["Jean", "Diluc", "Mona", "Bennett", "Noelle", "Razor", "Eula"]},
+                    {"region": "Liyue", "talent_book": "Diligence", "characters": ["Xiangling", "Chongyun", "Ganyu", "Hu Tao", "Kazuha", "Yun Jin", "Yaoyao"]},
+                    {"region": "Inazuma", "talent_book": "Elegance", "characters": ["Ayaka", "Ayato", "Sara", "Itto", "Shinobu"]},
+                    {"region": "Sumeru", "talent_book": "Ingenuity", "characters": ["Dori", "Nahida", "Layla", "Alhaitham", "Kaveh"]},
+                    {"region": "Fontaine", "talent_book": "Justice", "characters": ["Freminet", "Wriothesley", "Furina", "Charlotte", "Clorinde"]},
+                    {"region": "Natlan", "talent_book": "Kindling", "characters": ["Kinich", "Ororon", "Mavuika"]}
+                ]
+            },
+            {
+                "days": "Wednesday & Saturday (and Sunday)",
+                "domains": [
+                    {"region": "Mondstadt", "talent_book": "Ballad", "characters": ["Venti", "Kaeya", "Lisa", "Rosaria", "Albedo", "Fischl", "Mika"]},
+                    {"region": "Liyue", "talent_book": "Gold", "characters": ["Beidou", "Xingqiu", "Zhongli", "Xinyan", "Yanfei", "Baizhu", "Xianyun", "Gaming"]},
+                    {"region": "Inazuma", "talent_book": "Light", "characters": ["Raiden Shogun", "Sayu", "Yae Miko", "Gorou"]},
+                    {"region": "Sumeru", "talent_book": "Praxis", "characters": ["Collei", "Nilou", "Dehya", "Wanderer", "Sethos"]},
+                    {"region": "Fontaine", "talent_book": "Order", "characters": ["Lynette", "Chevreuse", "Chiori", "Arlecchino", "Emilie"]},
+                    {"region": "Natlan", "talent_book": "Conflict", "characters": ["Kachina", "Citlali", "Iansan"]}
+                ]
+            }
+        ]
+
+        # Build regions index
+        regions_map = {}
+        for r in rotations:
+            for d in r["domains"]:
+                reg_key = d["region"].lower()
+                if reg_key not in regions_map:
+                    regions_map[reg_key] = {}
+                regions_map[reg_key][d["talent_book"]] = {
+                    "days": r["days"],
+                    "characters": d["characters"]
+                }
+
         return {
             "title": "Teyvat Daily Domain Farming Schedule",
             "subtitle": "Talent Books & Weapon Ascension Materials by Region & Weekday",
-            "rotations": [
-                {
-                    "days": "Monday & Thursday (and Sunday)",
-                    "domains": [
-                        {"region": "Mondstadt", "talent_book": "Freedom", "characters": ["Klee", "Sucrose", "Diona", "Tartaglia", "Amber", "Barbara", "Aloy"]},
-                        {"region": "Liyue", "talent_book": "Prosperity", "characters": ["Keqing", "Ningguang", "Qiqi", "Shenhe", "Xiao", "Yelan"]},
-                        {"region": "Inazuma", "talent_book": "Transience", "characters": ["Yoimiya", "Thoma", "Kokomi", "Heizou", "Kirara"]},
-                        {"region": "Sumeru", "talent_book": "Admonition", "characters": ["Tighnari", "Candace", "Cyno", "Faruzan"]},
-                        {"region": "Fontaine", "talent_book": "Equity", "characters": ["Lyney", "Neuvillette", "Navia", "Sigewinne"]},
-                        {"region": "Natlan", "talent_book": "Contention", "characters": ["Mualani", "Xilonen", "Chasca"]}
-                    ]
-                },
-                {
-                    "days": "Tuesday & Friday (and Sunday)",
-                    "domains": [
-                        {"region": "Mondstadt", "talent_book": "Resistance", "characters": ["Jean", "Diluc", "Mona", "Bennett", "Noelle", "Razor", "Eula"]},
-                        {"region": "Liyue", "talent_book": "Diligence", "characters": ["Xiangling", "Chongyun", "Ganyu", "Hu Tao", "Kazuha", "Yun Jin", "Yaoyao"]},
-                        {"region": "Inazuma", "talent_book": "Elegance", "characters": ["Ayaka", "Ayato", "Sara", "Itto", "Shinobu"]},
-                        {"region": "Sumeru", "talent_book": "Ingenuity", "characters": ["Dori", "Nahida", "Layla", "Alhaitham", "Kaveh"]},
-                        {"region": "Fontaine", "talent_book": "Justice", "characters": ["Freminet", "Wriothesley", "Furina", "Charlotte", "Clorinde"]},
-                        {"region": "Natlan", "talent_book": "Kindling", "characters": ["Kinich", "Ororon", "Mavuika"]}
-                    ]
-                },
-                {
-                    "days": "Wednesday & Saturday (and Sunday)",
-                    "domains": [
-                        {"region": "Mondstadt", "talent_book": "Ballad", "characters": ["Venti", "Kaeya", "Lisa", "Rosaria", "Albedo", "Fischl", "Mika"]},
-                        {"region": "Liyue", "talent_book": "Gold", "characters": ["Beidou", "Xingqiu", "Zhongli", "Xinyan", "Yanfei", "Baizhu", "Xianyun", "Gaming"]},
-                        {"region": "Inazuma", "talent_book": "Light", "characters": ["Raiden Shogun", "Sayu", "Yae Miko", "Gorou"]},
-                        {"region": "Sumeru", "talent_book": "Praxis", "characters": ["Collei", "Nilou", "Dehya", "Wanderer", "Sethos"]},
-                        {"region": "Fontaine", "talent_book": "Order", "characters": ["Lynette", "Chevreuse", "Chiori", "Arlecchino", "Emilie"]},
-                        {"region": "Natlan", "talent_book": "Conflict", "characters": ["Kachina", "Citlali", "Iansan"]}
-                    ]
-                }
-            ],
+            "rotations": rotations,
+            "regions": regions_map,
             "sunday_rule": "On Sunday, all talent book and weapon material domains are available simultaneously.",
             "ai_actions": [
                 {"label": "✨ Plan Today's Farming", "prompt": "Based on my account characters and builds, what talent books and weapon materials should I farm today?"}
@@ -581,7 +657,7 @@ class GuideService:
         """Infer notable character users for a weapon."""
         name = wep.name
         w_type = wep.weapon_type
-        stat = (wep.secondary_stat or "").lower()
+        stat = (getattr(wep, "sub_stat_type", None) or getattr(wep, "secondary_stat", None) or "").lower()
 
         if "Mistsplitter" in name:
             return ["Kamisato Ayaka", "Keqing", "Alhaitham", "Bennett"]

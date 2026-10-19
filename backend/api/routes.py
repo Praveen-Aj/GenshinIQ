@@ -71,6 +71,7 @@ from backend.models.stat_engine import (
 from backend.services.stat_engine import stat_engine_service
 from backend.services.account_inventory_service import account_inventory_service
 from backend.services.encyclopedia_service import encyclopedia_service
+from backend.security import validate_identifier
 
 router = APIRouter()
 
@@ -629,6 +630,7 @@ def list_characters(
 )
 def get_character_detail(name_or_id: str):
     """Retrieve detailed canonical character information."""
+    name_or_id = validate_identifier(name_or_id)
     char = game_data_service.get_character(name_or_id)
     if not char:
         raise HTTPException(
@@ -648,6 +650,7 @@ def get_character_scaling_endpoint(
     ascension: Optional[int] = Query(default=None, ge=0, le=6, description="Ascension tier (0-6)")
 ):
     """Retrieve exact mathematical base stats and ascension stat scaling at requested level."""
+    name_or_id = validate_identifier(name_or_id)
     scaling = encyclopedia_service.get_character_scaling(
         name_or_id,
         level=level,
@@ -670,6 +673,7 @@ def get_character_scaling_endpoint(
 )
 def get_character_build_guide_endpoint(name_or_id: str):
     """Retrieve curated 10-section build guide, weapon tiering, artifact sets, and team comps."""
+    name_or_id = validate_identifier(name_or_id)
     guide = encyclopedia_service.get_character_build_guide(name_or_id)
     if not guide:
         raise HTTPException(
@@ -708,6 +712,7 @@ def list_weapons(
 )
 def get_weapon_detail(name_or_id: str):
     """Retrieve detailed canonical weapon information."""
+    name_or_id = validate_identifier(name_or_id)
     weapon = game_data_service.get_weapon(name_or_id)
     if not weapon:
         raise HTTPException(
@@ -728,6 +733,7 @@ def get_weapon_scaling_endpoint(
     refinement: int = Query(default=1, ge=1, le=5, description="Weapon refinement rank (1-5)")
 ):
     """Retrieve exact mathematical weapon ATK, sub-stat scaling, and static passive scaling."""
+    name_or_id = validate_identifier(name_or_id)
     scaling = encyclopedia_service.get_weapon_scaling(
         name_or_id,
         level=level,
@@ -774,6 +780,7 @@ def list_artifact_sets():
 )
 def get_artifact_detail(name_or_id: str):
     """Retrieve detailed artifact set bonuses and piece names."""
+    name_or_id = validate_identifier(name_or_id)
     art = game_data_service.get_artifact_set(name_or_id)
     if not art:
         raise HTTPException(
@@ -807,6 +814,7 @@ def search_game_data(
     q: str = Query(
         ...,
         min_length=1,
+        max_length=200,
         description="Search keyword"
     )
 ):
@@ -1104,7 +1112,8 @@ def list_knowledge_documents(
     summary="Get Specific Knowledge Document"
 )
 def get_knowledge_document(doc_id: str):
-    """Retrieve full text and metadata for a specific knowledge article."""
+    """Retrieve full text and metadata for a specific knowledge article with path traversal protection."""
+    doc_id = validate_identifier(doc_id)
     doc = knowledge_service.get_document(doc_id)
     if not doc:
         raise HTTPException(
@@ -1123,10 +1132,13 @@ def search_knowledge_base(
     q: str = Query(
         ...,
         min_length=1,
+        max_length=200,
         description="Search query keyword"
     ),
     limit: int = Query(
         default=5,
+        ge=1,
+        le=50,
         description="Max number of search results to return"
     ),
 ):
@@ -1143,6 +1155,7 @@ def retrieve_evidence_bundle(
     q: str = Query(
         ...,
         min_length=1,
+        max_length=200,
         description="Query string for hybrid semantic and lexical retrieval"
     ),
     mode: Optional[str] = Query(
@@ -1296,6 +1309,7 @@ def list_guides_endpoint(
 @router.get("/guides/character/{name_or_id}", summary="Get Structured Character Guide")
 def get_character_guide_endpoint(name_or_id: str):
     """Retrieve rich 15-section structured visual character guide."""
+    name_or_id = validate_identifier(name_or_id)
     guide = guide_service.get_character_guide(name_or_id)
     if not guide:
         raise HTTPException(status_code=404, detail=f"Guide for character '{name_or_id}' not found.")
@@ -1305,6 +1319,7 @@ def get_character_guide_endpoint(name_or_id: str):
 @router.get("/guides/weapon/{name_or_id}", summary="Get Structured Weapon Guide")
 def get_weapon_guide_endpoint(name_or_id: str):
     """Retrieve structured weapon guide with exact deterministic mathematical stat scaling."""
+    name_or_id = validate_identifier(name_or_id)
     guide = guide_service.get_weapon_guide(name_or_id)
     if not guide:
         raise HTTPException(status_code=404, detail=f"Guide for weapon '{name_or_id}' not found.")
@@ -1314,6 +1329,7 @@ def get_weapon_guide_endpoint(name_or_id: str):
 @router.get("/guides/artifact/{name_or_id}", summary="Get Structured Artifact Guide")
 def get_artifact_guide_endpoint(name_or_id: str):
     """Retrieve structured artifact set guide with 2pc/4pc bonuses and notable users."""
+    name_or_id = validate_identifier(name_or_id)
     guide = guide_service.get_artifact_guide(name_or_id)
     if not guide:
         raise HTTPException(status_code=404, detail=f"Guide for artifact set '{name_or_id}' not found.")
@@ -1342,4 +1358,320 @@ def get_team_guide_endpoint(slug: str):
 def get_farming_guide_endpoint():
     """Retrieve comprehensive weekday domain farming rotation planner."""
     return guide_service.get_farming_guide()
+
+
+# =========================================================================
+# PHASE 13: FARMING & PROGRESSION PLANNER ROUTES
+# =========================================================================
+
+from backend.services.progression_service import progression_service
+
+
+@router.get("/progression/ascension", summary="Calculate Character Ascension Costs")
+def calculate_ascension_endpoint(
+    character: str = Query(..., description="Character name"),
+    current_level: int = Query(1, ge=1, le=90),
+    target_level: int = Query(90, ge=1, le=90),
+    current_ascension: int = Query(0, ge=0, le=6),
+    target_ascension: int = Query(6, ge=0, le=6),
+):
+    """Calculate exact materials, gems, boss drops, and Mora required for ascension."""
+    res = progression_service.calculate_ascension_cost(
+        character, current_level, target_level, current_ascension, target_ascension
+    )
+    if "error" in res:
+        raise HTTPException(status_code=404, detail=res["error"])
+    return res
+
+
+@router.get("/progression/talents", summary="Calculate Talent Level Costs")
+def calculate_talents_endpoint(
+    character: str = Query(..., description="Character name"),
+    current_normal: int = Query(1, ge=1, le=10),
+    target_normal: int = Query(1, ge=1, le=10),
+    current_skill: int = Query(1, ge=1, le=10),
+    target_skill: int = Query(10, ge=1, le=10),
+    current_burst: int = Query(1, ge=1, le=10),
+    target_burst: int = Query(10, ge=1, le=10),
+):
+    """Calculate talent books, weekly boss drops, crowns, and Mora required for talent upgrades."""
+    res = progression_service.calculate_talents_cost(
+        character,
+        current_normal,
+        target_normal,
+        current_skill,
+        target_skill,
+        current_burst,
+        target_burst,
+    )
+    if "error" in res:
+        raise HTTPException(status_code=404, detail=res["error"])
+    return res
+
+
+@router.get("/progression/character/{name_or_id}", summary="Get Full Character Progression Plan")
+def get_character_progression_plan_endpoint(
+    name_or_id: str,
+    current_level: int = Query(1, ge=1, le=90),
+    target_level: int = Query(90, ge=1, le=90),
+    current_ascension: int = Query(0, ge=0, le=6),
+    target_ascension: int = Query(6, ge=0, le=6),
+    normal_target: int = Query(1, ge=1, le=10),
+    skill_target: int = Query(10, ge=1, le=10),
+    burst_target: int = Query(10, ge=1, le=10),
+):
+    """Calculate full combined ascension + talent plan with estimated resin requirements."""
+    name_or_id = validate_identifier(name_or_id)
+    res = progression_service.calculate_full_progression(
+        name_or_id,
+        current_level,
+        target_level,
+        current_ascension,
+        target_ascension,
+        current_talents=[1, 1, 1],
+        target_talents=[normal_target, skill_target, burst_target],
+    )
+    if "error" in res:
+        raise HTTPException(status_code=404, detail=res["error"])
+    return res
+
+
+@router.get("/progression/shortfall/{name_or_id}", summary="Calculate Inventory Shortfall against Account Bag")
+def calculate_inventory_shortfall_endpoint(
+    name_or_id: str,
+    target_level: int = Query(90, ge=1, le=90),
+    target_ascension: int = Query(6, ge=0, le=6),
+    normal_target: int = Query(1, ge=1, le=10),
+    skill_target: int = Query(10, ge=1, le=10),
+    burst_target: int = Query(10, ge=1, le=10),
+):
+    """
+    Evaluate missing materials against active GOOD account snapshot inventory
+    and estimate remaining resin and today's farmable availability.
+    """
+    name_or_id = validate_identifier(name_or_id)
+    res = progression_service.calculate_inventory_shortfall(
+        name_or_id,
+        target_level,
+        target_ascension,
+        target_talents=[normal_target, skill_target, burst_target],
+    )
+    if "error" in res:
+        raise HTTPException(status_code=404, detail=res["error"])
+    return res
+
+
+# =========================================================================
+# PHASE 14: TEAM BUILDING ENGINE ROUTES
+# =========================================================================
+
+from pydantic import BaseModel, Field
+from backend.services.team_service import team_service
+
+
+class TeamEvaluateRequest(BaseModel):
+    characters: List[str] = Field(..., min_length=1, max_length=4, description="List of 1-4 character names")
+
+
+@router.post("/teams/evaluate", summary="Evaluate Team Composition Synergy & Balance")
+def evaluate_team_endpoint(req: TeamEvaluateRequest):
+    """
+    Evaluate 1-4 characters: resonance bonuses, role distribution,
+    elemental reactions unlocked, warnings, and suggested rotation order.
+    """
+    res = team_service.evaluate_team(req.characters)
+    if not res.get("valid", True) and "error" in res:
+        raise HTTPException(status_code=400, detail=res["error"])
+    return res
+
+
+@router.get("/teams/recommend/{character_name}", summary="Get Synergistic Team Recommendations")
+def recommend_teams_endpoint(
+    character_name: str,
+    owned_only: bool = Query(False, description="Filter/prioritize characters owned in active GOOD account")
+):
+    """
+    Retrieve top meta and theorycrafted team compositions centered around a character,
+    with account ownership shortfall indicators.
+    """
+    character_name = validate_identifier(character_name)
+    res = team_service.recommend_teams(character_name, owned_only=owned_only)
+    if "error" in res:
+        raise HTTPException(status_code=404, detail=res["error"])
+    return res
+
+
+@router.get("/teams/resonances", summary="List All Elemental Resonances")
+def get_resonances_endpoint():
+    """Retrieve all canonical elemental resonance rules and stat bonuses."""
+    return team_service.get_resonances()
+
+
+# =========================================================================
+# PHASE 15: ARTIFACT OPTIMIZATION ENGINE ROUTES
+# =========================================================================
+
+from backend.services.artifact_optimizer_service import artifact_optimizer_service
+
+
+class ArtifactEvaluateRequest(BaseModel):
+    artifact: Dict[str, Any]
+    character_name: Optional[str] = None
+    custom_weights: Optional[Dict[str, float]] = None
+
+
+class OptimizeCharacterRequest(BaseModel):
+    character_name: str
+    min_er: float = Field(0.0, ge=0.0, le=350.0, description="Minimum party Energy Recharge requirement")
+    required_set: Optional[str] = None
+    custom_weights: Optional[Dict[str, float]] = None
+    max_results: int = Field(3, ge=1, le=10)
+
+
+class CompareArtifactsRequest(BaseModel):
+    artifact_a: Dict[str, Any]
+    artifact_b: Dict[str, Any]
+    character_name: Optional[str] = None
+
+
+@router.post("/optimizer/evaluate-artifact", summary="Evaluate Single Artifact RV & CV")
+def evaluate_artifact_endpoint(req: ArtifactEvaluateRequest):
+    """Calculate Roll Value (RV), Crit Value (CV), and quality grade for an artifact."""
+    res = artifact_optimizer_service.evaluate_artifact(
+        req.artifact, req.character_name, req.custom_weights
+    )
+    if "error" in res:
+        raise HTTPException(status_code=400, detail=res["error"])
+    return res
+
+
+@router.post("/optimizer/character", summary="Optimize Character 5-Piece Loadout")
+def optimize_character_loadout_endpoint(req: OptimizeCharacterRequest):
+    """
+    Search account inventory artifacts and compute optimal 5-piece loadouts
+    with stat deltas and set bonus preservation.
+    """
+    req.character_name = validate_identifier(req.character_name)
+    return artifact_optimizer_service.optimize_character_loadout(
+        character_name=req.character_name,
+        min_er=req.min_er,
+        required_set=req.required_set,
+        custom_weights=req.custom_weights,
+        max_results=req.max_results,
+    )
+
+
+@router.post("/optimizer/compare", summary="Compare Two Artifacts Head-to-Head")
+def compare_artifacts_endpoint(req: CompareArtifactsRequest):
+    """Evaluate two artifacts head-to-head with delta CV and delta RV."""
+    return artifact_optimizer_service.compare_two_artifacts(
+        req.artifact_a, req.artifact_b, req.character_name
+    )
+
+
+@router.get("/optimizer/weights/{character_name}", summary="Get Default Stat Weights for Character")
+def get_character_stat_weights_endpoint(character_name: str):
+    """Retrieve theorycrafted stat weights for character archetype."""
+    character_name = validate_identifier(character_name)
+    return {
+        "character": character_name,
+        "weights": artifact_optimizer_service.get_character_weights(character_name)
+    }
+
+
+# =========================================================================
+# PHASE 16: COMBAT SIMULATION & GCSIM INTEGRATION ROUTES
+# =========================================================================
+
+from backend.services.simulation_service import simulation_service
+
+
+class SimulationRunRequest(BaseModel):
+    team: List[str] = Field(..., min_length=1, max_length=4, description="List of 1-4 character names")
+    duration_sec: int = Field(20, ge=5, le=180, description="Simulation duration in seconds")
+    enemy_count: int = Field(1, ge=1, le=5, description="Number of targets on field")
+    enemy_res_pct: float = Field(10.0, ge=-50.0, le=100.0, description="Base enemy elemental resistance")
+
+
+class SimulationConfigRequest(BaseModel):
+    team: List[str] = Field(..., min_length=1, max_length=4, description="List of 1-4 character names")
+    duration_sec: int = Field(90, ge=10, le=300, description="Simulation duration")
+    iterations: int = Field(1000, ge=100, le=5000, description="Number of Monte Carlo iterations")
+
+
+@router.post("/simulation/run", summary="Execute Combat Rotation Simulation")
+def run_simulation_endpoint(req: SimulationRunRequest):
+    """Run deterministic combat rotation simulation with DPS metrics and timeline data."""
+    res = simulation_service.run_deterministic_simulation(
+        character_names=req.team,
+        duration_sec=req.duration_sec,
+        enemy_count=req.enemy_count,
+        enemy_res_pct=req.enemy_res_pct
+    )
+    if "error" in res:
+        raise HTTPException(status_code=400, detail=res["error"])
+    return res
+
+
+@router.post("/simulation/config", summary="Generate gcsim Configuration Script")
+def generate_simulation_config_endpoint(req: SimulationConfigRequest):
+    """Generate canonical gcsim configuration text script for team composition."""
+    res = simulation_service.generate_gcsim_config(
+        character_names=req.team,
+        duration_sec=req.duration_sec,
+        iterations=req.iterations
+    )
+    if "error" in res:
+        raise HTTPException(status_code=400, detail=res["error"])
+    return res
+
+
+# =========================================================================
+# PHASE 17: SPIRAL ABYSS & ENDGAME TRACKER ROUTES
+# =========================================================================
+
+from backend.services.abyss_service import abyss_service
+
+
+@router.get("/abyss/current", summary="Get Current Spiral Abyss Floor 12 Lineup & Blessing")
+def get_current_abyss_endpoint():
+    """Retrieve full active Floor 12 schedule, blessing, ley line disorder, and chamber lineups."""
+    return abyss_service.get_current_abyss()
+
+
+@router.get("/abyss/recommendations", summary="Get Grounded Abyss Team Recommendations")
+def get_abyss_recommendations_endpoint():
+    """
+    Retrieve curated Floor 12 Side 1 and Side 2 team compositions
+    grounded against the user's active account snapshot.
+    """
+    return abyss_service.get_grounded_recommendations()
+
+
+# =========================================================================
+# PHASE 18: SYSTEM HEALTH & DEVELOPER OBSERVABILITY ROUTES
+# =========================================================================
+
+from backend.services.observability_service import observability_service
+
+
+@router.get("/diagnostics/detailed", summary="Get Detailed System Observability Telemetry")
+def get_detailed_diagnostics_endpoint():
+    """
+    Retrieve sanitized, comprehensive system health, dataset checksums,
+    knowledge index metrics, version alignment, and runtime telemetry.
+    """
+    return observability_service.get_detailed_diagnostics()
+
+
+@router.get("/diagnostics/telemetry", summary="Get Lightweight Telemetry Probe")
+def get_telemetry_probe_endpoint():
+    """Fast, lightweight probe for service liveness and performance monitoring."""
+    return observability_service.get_lightweight_telemetry()
+
+
+
+
+
+
 

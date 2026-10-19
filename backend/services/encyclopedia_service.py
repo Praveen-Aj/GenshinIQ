@@ -7,7 +7,7 @@ weapon refinement progressions, and team synergies for the Phase 11 encyclopedia
 from pathlib import Path
 import json
 import re
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Set, Tuple
 from backend.services.stat_engine import stat_engine_service
 from backend.services.game_data_service import game_data_service
 
@@ -37,8 +37,39 @@ class EncyclopediaService:
         self.knowledge_dir = self.root_dir / "data" / "knowledge"
         self.processed_dir = self.root_dir / "data" / "processed" / "game_data"
         self._guide_cache: Dict[str, Dict[str, Any]] = {}
+        self._curated_characters_cache: Optional[Set[str]] = None
         self._teams_registry: Dict[str, List[Dict[str, Any]]] = self._init_teams_registry()
         self._farming_schedule = self._load_farming_schedule()
+
+    def get_curated_characters(self) -> Set[str]:
+        """Dynamically discover characters with authoritative KQM theorycrafting guides."""
+        if self._curated_characters_cache is not None:
+            return self._curated_characters_cache
+
+        curated = set()
+        if self.knowledge_dir.exists():
+            for f in self.knowledge_dir.glob("kqm_*_guide.json"):
+                try:
+                    with open(f, "r", encoding="utf-8") as jf:
+                        d = json.load(jf)
+                        c_name = d.get("metadata", {}).get("character")
+                        if c_name:
+                            curated.add(c_name.strip().lower())
+                        else:
+                            name_part = f.stem.replace("kqm_", "").replace("_extended_guide", "").replace("_guide", "").replace("_", " ")
+                            curated.add(name_part.strip().lower())
+                except Exception:
+                    pass
+
+        # Fallback safeguard to ensure core canonical characters are never lost if dir inaccessible
+        if not curated:
+            curated = {
+                "kaedehara kazuha", "furina", "arlecchino", "alhaitham", "bennett",
+                "citlali", "hu tao", "mavuika", "nahida", "neuvillette",
+                "raiden shogun", "xiangling", "xingqiu", "yelan", "zhongli"
+            }
+        self._curated_characters_cache = curated
+        return curated
 
     def _load_farming_schedule(self) -> Dict[str, Any]:
         """Load talent books schedule."""
@@ -323,12 +354,8 @@ class EncyclopediaService:
             except Exception:
                 pass
 
-        # Authoritative list of characters with curated KQM theorycrafting guides
-        curated_characters = {
-            "kaedehara kazuha", "furina", "arlecchino", "alhaitham", "bennett",
-            "citlali", "hu tao", "mavuika", "nahida", "neuvillette",
-            "raiden shogun", "xiangling", "xingqiu", "yelan", "zhongli"
-        }
+        # Authoritative dynamically discovered characters with curated KQM theorycrafting guides
+        curated_characters = self.get_curated_characters()
         is_curated = c_key in curated_characters or (kqm_file.exists() and len(kqm_content) > 100)
 
         guide_type = "CURATED_CHARACTER_GUIDE" if is_curated else "GENERIC_FALLBACK"

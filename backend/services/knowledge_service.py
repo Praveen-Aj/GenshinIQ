@@ -103,7 +103,12 @@ class KnowledgeService:
                 logger.error(f"Failed to load knowledge document {file_path}: {e}")
 
     def get_document(self, doc_id: str) -> Optional[KnowledgeDocument]:
-        """Retrieve a specific knowledge document by ID."""
+        """Retrieve a specific knowledge document by ID with path traversal protection."""
+        if not doc_id or not isinstance(doc_id, str):
+            return None
+        if ".." in doc_id or "/" in doc_id or "\\" in doc_id or "\x00" in doc_id or len(doc_id) > 128:
+            logger.warning(f"Potential path traversal attempt blocked in doc_id: {doc_id}")
+            return None
         return self.documents.get(doc_id)
 
     def list_documents(

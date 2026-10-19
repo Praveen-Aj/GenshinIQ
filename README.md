@@ -2,7 +2,7 @@
 
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688.svg)](https://fastapi.tiangolo.com/)
-[![Tests Passing](https://img.shields.io/badge/tests-371%2F371%20passing-brightgreen.svg)]()
+[![Tests Passing](https://img.shields.io/badge/tests-491%2F491%20passing-brightgreen.svg)]()
 [![Gemini Grounded](https://img.shields.io/badge/Gemini-Grounded%20RAG-8E44AD.svg)]()
 
 **GenshinIQ** is a personal Genshin Impact AI assistant that combines public **Enka.Network showcase data**, a **GOOD v3 account import**, **canonical structured game data**, **curated KeqingMains (KQM) theorycrafting**, a **hybrid BM25 + dense retrieval engine**, and **Google Gemini** to provide accurate, source-grounded answers and reason over your actual in-game builds.
@@ -119,7 +119,7 @@ Run with coverage:
 .venv\Scripts\python.exe -m coverage report -m
 ```
 
-The automated test suite covers **342 test cases** spanning Enka normalization, game data lookups, knowledge search, intent classification, provenance, RAG context generation, canonical data pipeline integrity, GOOD v3 account import, stat engine calculations, source registry, knowledge contracts, version discovery, retrieval evaluation, query routing, and citation grounding.
+The automated test suite covers **491 test cases across 37 test modules** spanning Enka normalization, game data lookups, knowledge search, intent classification, provenance, RAG context generation, canonical data pipeline integrity, GOOD v3 account import, stat engine calculations, source registry, knowledge contracts, version discovery, retrieval evaluation, query routing, citation grounding, visual guide library, farming progression planner, team synergy engine, artifact optimizer, combat simulation, Spiral Abyss tracker, observability health, defense-in-depth security hardening, and the 50-scenario comprehensive release benchmark.
 
 ---
 
@@ -129,13 +129,14 @@ The automated test suite covers **342 test cases** spanning Enka normalization, 
 GenshinIQ/
 ├── backend/
 │   ├── adapters/        # External data source adapters
-│   ├── api/             # FastAPI REST endpoints (/health, /account, /data, /knowledge, /chat, /build)
+│   ├── api/             # FastAPI REST endpoints (/health, /account, /data, /knowledge, /chat, /build, /guides, /progression, /teams, /optimizer, /simulate, /abyss, /observability)
 │   ├── llm/             # LLM integration layer
-│   ├── models/          # Pydantic schemas (account, game data, knowledge, chat, grounding, stat engine)
+│   ├── models/          # Pydantic schemas (account, game data, knowledge, chat, grounding, stat engine, guides)
 │   ├── providers/       # Enka.Network client, fightProp normalizer, canonical DB
 │   ├── rag/             # RAG pipeline modules
-│   ├── services/        # Business logic (account, game data, knowledge, RAG, Gemini, stat engine, retrieval, grounding)
-│   └── tests/           # 342-case automated pytest suite (26 test modules)
+│   ├── security.py      # Input validation, path traversal guard, security headers, rate limiting
+│   ├── services/        # Business logic (account, game data, knowledge, RAG, Gemini, stat engine, guides, progression, teams, optimizer, simulation, abyss, observability)
+│   └── tests/           # 491-case automated pytest suite (37 test modules)
 ├── frontend/
 │   ├── index.html       # HTML5 single-page application structure
 │   ├── style.css        # Dark Celestial glassmorphic design system

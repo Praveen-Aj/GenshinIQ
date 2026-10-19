@@ -8,6 +8,8 @@ from fastapi.staticfiles import StaticFiles
 from backend.config import settings
 from backend.api.routes import router as api_router
 
+from backend.security import SecurityHeadersMiddleware, RateLimitAndSizeMiddleware
+
 app = FastAPI(
     title=settings.APP_NAME,
     version=settings.APP_VERSION,
@@ -15,6 +17,10 @@ app = FastAPI(
     docs_url="/docs" if settings.DEBUG else None,
     redoc_url="/redoc" if settings.DEBUG else None,
 )
+
+# Security and Rate Limiting Middlewares
+app.add_middleware(SecurityHeadersMiddleware)
+app.add_middleware(RateLimitAndSizeMiddleware)
 
 # CORS setup
 app.add_middleware(

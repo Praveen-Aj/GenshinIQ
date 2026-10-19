@@ -5,15 +5,15 @@ from pydantic import BaseModel, Field
 
 
 class ChatMessage(BaseModel):
-    """A single message in the chat history."""
-    role: str = Field(..., description="user or model")
-    content: str = Field(..., description="The markdown text content of the message")
+    """A single message in the chat history with input validation."""
+    role: str = Field(..., max_length=20, pattern=r"^(user|model|assistant|system)$", description="user, model, assistant, or system")
+    content: str = Field(..., min_length=1, max_length=10000, description="The markdown text content of the message")
 
 
 class ChatRequest(BaseModel):
-    """Payload to request assistant generation."""
-    messages: List[ChatMessage] = Field(..., description="History of chat messages")
-    uid: Optional[str] = Field(None, description="Active Genshin Impact UID")
+    """Payload to request assistant generation with parameter constraints."""
+    messages: List[ChatMessage] = Field(..., min_length=1, max_length=50, description="History of chat messages")
+    uid: Optional[str] = Field(None, max_length=15, pattern=r"^[0-9]*$", description="Active Genshin Impact UID")
 
 
 class Citation(BaseModel):

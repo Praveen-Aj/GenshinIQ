@@ -330,8 +330,7 @@ function initAccountListeners() {
   const abyssWrap = document.getElementById('prof-abyss-wrap');
   if (abyssWrap) {
     abyssWrap.addEventListener('click', () => {
-      const charNames = currentShowcaseData?.characters?.map(c => c.name).join(', ') || 'Arlecchino, Furina, Neuvillette';
-      askAssistant(`Recommend me the best two team compositions to 36-star Spiral Abyss Floor 12 using my showcase characters: ${charNames}.`);
+      openAbyssTrackerModal();
     });
   }
 
@@ -340,9 +339,8 @@ function initAccountListeners() {
   if (optArtBtn) {
     optArtBtn.addEventListener('click', () => {
       const char = currentShowcaseData?.characters?.[selectedCharacterIndex];
-      if (char) {
-        askAssistant(`Analyze my ${char.name} artifacts. Which artifact piece should I replace or re-roll first to maximize DPS? Current stats: CRIT Rate ${((char.stats?.crit_rate || 0)*100).toFixed(1)}%, CRIT DMG ${((char.stats?.crit_dmg || 0)*100).toFixed(1)}%.`);
-      }
+      const charName = char ? char.name : 'Arlecchino';
+      openArtifactOptimizerWorkbench(charName);
     });
   }
 
@@ -353,6 +351,107 @@ function initAccountListeners() {
       const charNames = currentShowcaseData?.characters?.map(c => c.name).join(', ') || 'my characters';
       askAssistant(`Based on today's domain rotation and my showcase characters (${charNames}), what talent books, domains, or weapons should I prioritize spending my Resin on today?`);
     });
+  }
+
+  // Phase 13: Progression Planner Event Handlers
+  initProgressionPlannerListeners();
+}
+
+/**
+ * Initialize Character Progression Planner Event Listeners (Phase 13)
+ */
+function initProgressionPlannerListeners() {
+  const lvlSlider = document.getElementById('target-lvl-slider');
+  const lvlVal = document.getElementById('target-lvl-val');
+  const talPreset = document.getElementById('target-tal-preset');
+  const talVal = document.getElementById('target-tal-val');
+  const calcBtn = document.getElementById('calc-progression-btn');
+
+  if (lvlSlider && lvlVal) {
+    lvlSlider.addEventListener('input', (e) => {
+      lvlVal.textContent = `Lv. ${e.target.value}`;
+    });
+  }
+
+  if (talPreset && talVal) {
+    talPreset.addEventListener('change', (e) => {
+      const parts = e.target.value.split(',');
+      talVal.textContent = parts.join(' / ');
+    });
+  }
+
+  if (calcBtn) {
+    calcBtn.addEventListener('click', calculateActiveCharacterShortfall);
+  }
+}
+
+async function calculateActiveCharacterShortfall() {
+  const char = currentShowcaseData?.characters?.[selectedCharacterIndex];
+  const charName = char ? char.name : 'Arlecchino';
+
+  const lvlSlider = document.getElementById('target-lvl-slider');
+  const talPreset = document.getElementById('target-tal-preset');
+  const resultsBox = document.getElementById('progression-results-box');
+  const resinBadge = document.getElementById('progression-resin-badge');
+  const matsList = document.getElementById('progression-missing-materials');
+  const farmableTag = document.getElementById('progression-farmable-tag');
+  const askAiBtn = document.getElementById('ask-progression-ai-btn');
+
+  if (!resultsBox) return;
+
+  resultsBox.style.display = 'block';
+  matsList.innerHTML = '<div class="loading-spinner" style="font-size: 11px;">Calculating inventory shortfall...</div>';
+
+  const targetLvl = lvlSlider ? lvlSlider.value : 90;
+  const talParts = talPreset ? talPreset.value.split(',') : [1, 10, 10];
+  const normTgt = talParts[0] || 1;
+  const skillTgt = talParts[1] || 10;
+  const burstTgt = talParts[2] || 10;
+
+  try {
+    const res = await fetch(`/api/progression/shortfall/${encodeURIComponent(charName)}?target_level=${targetLvl}&normal_target=${normTgt}&skill_target=${skillTgt}&burst_target=${burstTgt}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    const resin = data.shortfall_resin || {};
+    resinBadge.textContent = `⚡ ~${resin.total_resin_needed || 0} Resin (${resin.days_of_natural_resin || 0} days)`;
+
+    const breakdown = data.shortfall_breakdown || {};
+    const items = Object.entries(breakdown);
+
+    if (items.length === 0) {
+      matsList.innerHTML = '<div style="color: #4ade80; font-size: 11px;">✓ All required materials satisfied in inventory!</div>';
+    } else {
+      matsList.innerHTML = items.map(([name, stat]) => {
+        const isSatisfied = stat.missing === 0;
+        const color = isSatisfied ? '#4ade80' : 'var(--accent-gold)';
+        return `
+          <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); padding: 4px 8px; border-radius: 4px;">
+            <span style="color: var(--text-main);">${name}</span>
+            <span style="font-family: var(--font-mono); color: ${color};">
+              ${stat.owned} / ${stat.required} ${isSatisfied ? '✓' : `(need ${stat.missing})`}
+            </span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    if (data.today_farmable_materials && data.today_farmable_materials.length > 0) {
+      farmableTag.textContent = `📅 Farmable Today: ${data.today_farmable_materials.length} material(s)`;
+      farmableTag.style.color = 'var(--accent-cyan)';
+    } else {
+      farmableTag.textContent = '📅 Domain materials not on rotation today';
+      farmableTag.style.color = 'var(--text-muted)';
+    }
+
+    if (askAiBtn) {
+      askAiBtn.onclick = () => {
+        askAssistant(`Based on my inventory shortfall for ${charName} (Lv. ${targetLvl}, Talents ${normTgt}/${skillTgt}/${burstTgt}), give me a 3-day optimal farming roadmap.`);
+      };
+    }
+  } catch (err) {
+    console.error('Progression shortfall calculation failed:', err);
+    matsList.innerHTML = `<div class="text-error" style="font-size: 11px;">Calculation error: ${err.message}</div>`;
   }
 }
 
@@ -1206,7 +1305,10 @@ async function renderCharacterEncyclopedia(item, pane) {
         <div class="char-encyclopedia-section" id="char-teams-section">
           <div class="encyclopedia-section-header">
             <h3 class="encyclopedia-section-title"><span class="sec-icon">👥</span> Recommended Team Compositions</h3>
-            <button class="btn btn-secondary btn-sm" onclick="askAssistant('Recommend team compositions and rotations for ${item.name} based on current meta.')">✨ Ask AI Teams</button>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-primary btn-sm" onclick="openTeamBuilderWorkbench('${item.name}')">⚡ Team Builder</button>
+              <button class="btn btn-secondary btn-sm" onclick="askAssistant('Recommend team compositions and rotations for ${item.name} based on current meta.')">✨ Ask AI Teams</button>
+            </div>
           </div>
           <div class="team-cards-grid" id="char-teams-grid">
             <div class="skeleton" style="height: 120px; border-radius: var(--radius-sm);"></div>
@@ -1760,7 +1862,7 @@ async function checkBackendHealth() {
   statusText.textContent = 'Checking API...';
 
   try {
-    const [healthResponse, manifestResponse, versionResponse, sourcesResponse, accountResponse, pipelineResponse, completenessResponse, phaseGateResponse] = await Promise.all([
+    const [healthResponse, manifestResponse, versionResponse, sourcesResponse, accountResponse, pipelineResponse, completenessResponse, phaseGateResponse, detailedDiagResponse] = await Promise.all([
       fetch('/api/health'),
       fetch('/api/data/manifest'),
       fetch('/api/version/status'),
@@ -1768,7 +1870,8 @@ async function checkBackendHealth() {
       fetch('/api/account/summary').catch(() => null),
       fetch('/api/data/pipeline/status').catch(() => null),
       fetch('/api/data/version-completeness').catch(() => null),
-      fetch('/api/project/phase-gate').catch(() => null)
+      fetch('/api/project/phase-gate').catch(() => null),
+      fetch('/api/diagnostics/detailed').catch(() => null)
     ]);
     if (!healthResponse.ok) throw new Error(`HTTP ${healthResponse.status}`);
     if (!manifestResponse.ok) throw new Error(`HTTP ${manifestResponse.status}`);
@@ -1780,6 +1883,7 @@ async function checkBackendHealth() {
     const pipelineData = pipelineResponse && pipelineResponse.ok ? await pipelineResponse.json() : null;
     const completenessData = completenessResponse && completenessResponse.ok ? await completenessResponse.json() : null;
     const phaseGateData = phaseGateResponse && phaseGateResponse.ok ? await phaseGateResponse.json() : null;
+    const detailedDiagData = detailedDiagResponse && detailedDiagResponse.ok ? await detailedDiagResponse.json() : null;
 
     statusPill.className = 'status-pill status-online';
     statusText.textContent = 'API Online';
@@ -1983,6 +2087,53 @@ async function checkBackendHealth() {
         `;
       }).join('');
     }
+
+    // Populate Phase 18 Observability & Telemetry Card
+    if (detailedDiagData) {
+      const telemUptime = document.getElementById('diag-telem-uptime');
+      const telemSuccess = document.getElementById('diag-telem-success-rate');
+      const telemCache = document.getElementById('diag-telem-cache-rate');
+      const telemTotalReqs = document.getElementById('diag-telem-total-reqs');
+      const checksumsList = document.getElementById('diag-checksums-list');
+      const telemBadge = document.getElementById('diag-telemetry-badge');
+
+      if (telemBadge) {
+        telemBadge.textContent = detailedDiagData.system_status || 'Healthy';
+        telemBadge.className = detailedDiagData.system_status === 'HEALTHY' ? 'badge badge-success' : 'badge badge-warning';
+      }
+
+      if (telemUptime) {
+        const upSec = detailedDiagData.uptime_seconds || 0;
+        const mins = Math.floor(upSec / 60);
+        const secs = Math.floor(upSec % 60);
+        telemUptime.textContent = mins > 0 ? `${mins}m ${secs}s` : `${secs}s`;
+      }
+
+      if (telemSuccess) {
+        const rate = detailedDiagData.runtime_telemetry?.success_rate_pct ?? 100;
+        telemSuccess.textContent = `${rate}%`;
+        telemSuccess.style.color = rate >= 95 ? '#34d399' : '#fbbf24';
+      }
+
+      if (telemCache) {
+        const crate = detailedDiagData.runtime_telemetry?.cache_hit_rate_pct ?? 0;
+        telemCache.textContent = `${crate}%`;
+      }
+
+      if (telemTotalReqs) {
+        telemTotalReqs.textContent = `${detailedDiagData.runtime_telemetry?.total_requests ?? 0} calls (${detailedDiagData.runtime_telemetry?.error_count ?? 0} errs)`;
+      }
+
+      if (checksumsList && detailedDiagData.canonical_data?.dataset_checksums) {
+        const sums = detailedDiagData.canonical_data.dataset_checksums;
+        checksumsList.innerHTML = Object.entries(sums).map(([file, hash]) => `
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 6px 10px; display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 11px; color: var(--text-bright);">${file}</span>
+            <span class="font-mono" style="font-size: 10px; color: var(--accent-cyan); background: rgba(56,189,248,0.1); padding: 2px 6px; border-radius: 4px;">${hash}</span>
+          </div>
+        `).join('');
+      }
+    }
   } catch (err) {
     statusPill.className = 'status-pill status-offline';
     statusText.textContent = 'API Offline';
@@ -1993,38 +2144,95 @@ async function checkBackendHealth() {
   }
 }
 
-// Knowledge Base State
-let currentKbTopic = 'all';
-let kbCache = [];
-let selectedKbItem = null;
+// =========================================================================
+// VISUAL KNOWLEDGE & GUIDES LIBRARY CONTROLLER (Phase 12 Rebuild)
+// =========================================================================
+
+let currentGuideCategory = 'all';
+let currentGuideElement = 'all';
+let currentGuideWeaponType = 'all';
+let currentGuideCuratedOnly = false;
+let currentGuideOwnedOnly = false;
+let currentGuideSearchQuery = '';
+let guidesCache = [];
+let selectedGuide = null;
 
 function initKnowledgeListeners() {
-  const tabs = document.querySelectorAll('#tab-content-knowledge .sub-tab-btn');
+  // Category Sub-tabs
+  const tabs = document.querySelectorAll('#kb-category-tabs .sub-tab-btn');
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
       tabs.forEach((t) => t.classList.remove('active'));
       tab.classList.add('active');
-      currentKbTopic = tab.dataset.topic;
-      renderKnowledgeGrid();
+      currentGuideCategory = tab.dataset.category || 'all';
+
+      // Toggle secondary filter bars
+      const elemBar = document.getElementById('kb-element-filter-bar');
+      const wepBar = document.getElementById('kb-weapon-filter-bar');
+      if (elemBar) {
+        elemBar.style.display = (currentGuideCategory === 'all' || currentGuideCategory === 'characters') ? 'flex' : 'none';
+      }
+      if (wepBar) {
+        wepBar.style.display = (currentGuideCategory === 'weapons') ? 'flex' : 'none';
+      }
+
+      loadKnowledgeBase();
     });
   });
 
+  // Element Filter Chips
+  const elemChips = document.querySelectorAll('#kb-element-filter-bar .elem-filter-chip');
+  elemChips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      elemChips.forEach((c) => c.classList.remove('active'));
+      chip.classList.add('active');
+      currentGuideElement = chip.dataset.elem || 'all';
+      loadKnowledgeBase();
+    });
+  });
+
+  // Weapon Type Filter Chips
+  const wepChips = document.querySelectorAll('#kb-weapon-filter-bar .filter-chip');
+  wepChips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      wepChips.forEach((c) => c.classList.remove('active'));
+      chip.classList.add('active');
+      currentGuideWeaponType = chip.dataset.weptype || 'all';
+      loadKnowledgeBase();
+    });
+  });
+
+  // Toggles
+  const curatedToggle = document.getElementById('kb-curated-only-toggle');
+  if (curatedToggle) {
+    curatedToggle.addEventListener('change', (e) => {
+      currentGuideCuratedOnly = e.target.checked;
+      loadKnowledgeBase();
+    });
+  }
+
+  const ownedToggle = document.getElementById('kb-owned-only-toggle');
+  if (ownedToggle) {
+    ownedToggle.addEventListener('change', (e) => {
+      currentGuideOwnedOnly = e.target.checked;
+      loadKnowledgeBase();
+    });
+  }
+
+  // Search Input with Debounce
   const searchInput = document.getElementById('kb-search-input');
   if (searchInput) {
     let debounceTimer;
     searchInput.addEventListener('input', () => {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
-        const query = searchInput.value.trim();
-        if (query.length > 0) {
-          searchKnowledgeBase(query);
-        } else {
-          loadKnowledgeBase();
-        }
-      }, 300);
+        currentGuideSearchQuery = searchInput.value.trim();
+        loadKnowledgeBase();
+      }, 250);
     });
   }
 
+  // Refresh Button
   const refreshKbBtn = document.getElementById('refresh-kb-btn');
   if (refreshKbBtn) {
     refreshKbBtn.addEventListener('click', () => loadKnowledgeBase(true));
@@ -2035,135 +2243,116 @@ async function loadKnowledgeBase(forceRefresh = false) {
   const grid = document.getElementById('kb-items-grid');
   if (!grid) return;
 
-  grid.innerHTML = '<div class="loading-spinner">Loading guides...</div>';
+  grid.innerHTML = '<div class="loading-spinner">Loading visual guides...</div>';
 
   try {
-    const response = await fetch(`/api/knowledge/documents${forceRefresh ? `?t=${Date.now()}` : ''}`);
-    if (!response.ok) throw new Error('Failed to load guides');
-    kbCache = await response.json();
-    renderKnowledgeSummary(kbCache);
-    renderKnowledgeGrid();
-  } catch (err) {
-    grid.innerHTML = `<div class="text-error">Error loading knowledge base: ${err.message}</div>`;
-  }
-}
+    // 1. Fetch Summary Stats
+    fetchGuideSummary();
 
-async function searchKnowledgeBase(query) {
-  const grid = document.getElementById('kb-items-grid');
-  if (!grid) return;
-
-  grid.innerHTML = '<div class="loading-spinner">Searching...</div>';
-
-  try {
-    const response = await fetch(`/api/knowledge/search?q=${encodeURIComponent(query)}`);
-    if (!response.ok) throw new Error('Search request failed');
-    const results = await response.json();
-    
-    const docs = results.map(r => {
-      const cached = kbCache.find(c => c.id === r.id);
-      if (cached) return cached;
-      return {
-        id: r.id,
-        title: r.title,
-        summary: r.summary,
-        content: '',
-        metadata: {
-          source: r.source,
-          source_type: r.source_type,
-          character: r.character,
-          topic: r.topic,
-          game_version: r.game_version,
-          tags: []
-        }
-      };
+    // 2. Fetch Guides List
+    const params = new URLSearchParams({
+      category: currentGuideCategory,
+      availability: currentGuideCuratedOnly ? 'curated' : 'all',
+      owned_only: currentGuideOwnedOnly ? 'true' : 'false'
     });
 
-    renderKnowledgeGrid(docs);
+    if (currentGuideSearchQuery) params.append('q', currentGuideSearchQuery);
+    if (currentGuideElement && currentGuideElement !== 'all') params.append('element', currentGuideElement);
+    if (currentGuideWeaponType && currentGuideWeaponType !== 'all') params.append('weapon_type', currentGuideWeaponType);
+
+    const res = await fetch(`/api/guides?${params.toString()}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    guidesCache = data.items || [];
+
+    renderKnowledgeGrid(guidesCache);
   } catch (err) {
-    grid.innerHTML = `<div class="text-error">Error: ${err.message}</div>`;
+    console.error('Failed to load guides:', err);
+    grid.innerHTML = `<div class="text-error" style="padding: 16px;">Failed to load guides: ${err.message}</div>`;
   }
 }
 
-function getSourceBadge(sourceType, tier) {
-  const t = Number(tier) || 5;
-  if (t === 1 || sourceType === 'OFFICIAL' || sourceType === 'AUTHORITATIVE') {
-    return { css: 'badge-gold', label: 'Tier 1 • Official' };
+async function fetchGuideSummary() {
+  const bar = document.getElementById('kb-summary-bar');
+  if (!bar) return;
+
+  try {
+    const res = await fetch('/api/guides/summary');
+    if (!res.ok) return;
+    const data = await res.json();
+
+    bar.innerHTML = `
+      <div class="diag-item">
+        <span class="diag-label">Total Visual Guides</span>
+        <span class="diag-val font-mono" style="color: var(--accent-gold); font-weight: 700;">${data.total_guides || 0}</span>
+      </div>
+      <div class="diag-item">
+        <span class="diag-label">Curated Theorycrafting</span>
+        <span class="diag-val" style="color: var(--accent-cyan); font-weight: 700;">${data.curated_guides || 0}</span>
+      </div>
+      <div class="diag-item">
+        <span class="diag-label">Archetype Baselines</span>
+        <span class="diag-val font-mono">${data.archetype_baselines || 0}</span>
+      </div>
+      <div class="diag-item">
+        <span class="diag-label">Characters & Weapons</span>
+        <span class="diag-val">${data.categories?.characters || 0} Chars / ${data.categories?.weapons || 0} Weps</span>
+      </div>
+      <div class="diag-item">
+        <span class="diag-label">Artifacts & Teams</span>
+        <span class="diag-val">${data.categories?.artifacts || 0} Sets / ${data.categories?.teams || 0} Archetypes</span>
+      </div>
+    `;
+  } catch (e) {
+    console.warn('Failed to load guide summary:', e);
   }
-  if (t === 2 || sourceType === 'KQM' || sourceType === 'TCL' || sourceType === 'THEORYCRAFTING') {
-    return { css: 'badge-cyan', label: sourceType === 'TCL' ? 'Tier 2 • KQM TCL' : 'Tier 2 • KQM Guide' };
-  }
-  if (t === 3 || sourceType === 'STRUCTURED_DATA') {
-    return { css: 'badge-blue', label: 'Tier 3 • Structured Data' };
-  }
-  if (t === 4 || sourceType === 'STATISTICAL') {
-    return { css: 'badge-indigo', label: 'Tier 4 • Statistical' };
-  }
-  return { css: 'badge-purple', label: 'Tier 5 • Community Wiki' };
 }
 
-function renderKnowledgeGrid(docsToRender = null) {
+function renderKnowledgeGrid(items) {
   const grid = document.getElementById('kb-items-grid');
   if (!grid) return;
 
-  const activeVersion = window.__latestHealthSnapshot?.version?.current_version || '7.0';
-  const items = docsToRender || kbCache;
-  const filtered = docsToRender ? items : items.filter((doc) => {
-    if (currentKbTopic === 'all') return true;
-    if (currentKbTopic === 'current') return doc.metadata.game_version === activeVersion;
-    return doc.metadata.topic === currentKbTopic;
-  });
-
-  if (filtered.length === 0) {
-    grid.innerHTML = '<div class="empty-state"><p>No guides found matching this category.</p></div>';
+  if (!items || items.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state" style="padding: 30px 20px;">
+        <div class="empty-icon">🔍</div>
+        <p>No guides found matching your active filters.</p>
+        <button class="btn btn-secondary btn-sm" style="margin-top: 10px;" onclick="resetGuideFilters()">Reset Filters</button>
+      </div>
+    `;
     return;
   }
 
   grid.innerHTML = '';
-  filtered.forEach((doc) => {
+  items.forEach((item) => {
     const card = document.createElement('div');
-    card.className = `db-list-item card card-glass ${selectedKbItem && selectedKbItem.id === doc.id ? 'active' : ''}`;
-    
-    const badgeInfo = getSourceBadge(doc.metadata.source_type, doc.metadata.authority_tier);
-    const characterTag = doc.metadata.character ? `<span class="badge badge-purple" style="margin-left: 6px;">${doc.metadata.character}</span>` : '';
+    const isSelected = selectedGuide && selectedGuide.id === item.id;
+    card.className = `db-list-item card card-glass ${isSelected ? 'active' : ''}`;
 
-    // Change-aware freshness and version badge styling
-    let verBadgeClass = 'badge-gray';
-    let verBadgeText = `v${doc.metadata.game_version}`;
-    const freshness = (doc.metadata.freshness || doc.metadata.freshness_status || '').toLowerCase();
-    if (doc.metadata.game_version === activeVersion || freshness === 'current') {
-      verBadgeClass = 'badge-success';
-      verBadgeText = `v${doc.metadata.game_version} Current`;
-    } else if (freshness === 'recent_compatible' || (doc.metadata.game_version && doc.metadata.game_version.startsWith('6.'))) {
-      verBadgeClass = 'badge-info';
-      verBadgeText = `v${doc.metadata.game_version} Compatible`;
-    } else if (freshness === 'stale') {
-      verBadgeClass = 'badge-warning';
-      verBadgeText = `v${doc.metadata.game_version} Stale`;
-    } else if (freshness === 'historical') {
-      verBadgeClass = 'badge-secondary';
-      verBadgeText = `v${doc.metadata.game_version} Historical`;
+    // Badge styling
+    let badgeClass = 'badge-secondary';
+    if (item.guide_type === 'CURATED_THEORYCRAFTING' || item.guide_type === 'CURATED_CHARACTER_GUIDE' || item.guide_type === 'CURATED_WEAPON_GUIDE') {
+      badgeClass = 'badge-gold';
+    } else if (item.guide_type === 'CURATED_ARTIFACT_GUIDE' || item.guide_type === 'CURATED_TEAM_GUIDE') {
+      badgeClass = 'badge-cyan';
+    } else if (item.guide_type === 'CURATED_MECHANICS_GUIDE') {
+      badgeClass = 'badge-purple';
     }
 
-    let mediaTag = '';
-    if (doc.metadata.character) {
-      const charIconUrl = getCharacterIconUrl(doc.metadata.character);
-      mediaTag = `<img src="${charIconUrl}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_AvatarIcon_NPC.png'" style="width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--accent-gold); background: rgba(0,0,0,0.3); object-fit: cover; flex-shrink: 0;">`;
-    } else {
-      mediaTag = `<div style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;">⚙️</div>`;
-    }
+    const iconSrc = item.icon_url || 'https://enka.network/ui/UI_AvatarIcon_NPC.png';
+    const rarityClass = item.rarity === 5 ? 'rarity-5-border' : (item.rarity === 4 ? 'rarity-4-border' : '');
 
     card.innerHTML = `
       <div style="display: flex; gap: 12px; align-items: flex-start; width: 100%;">
-        ${mediaTag}
-        <div style="flex-grow: 1;">
-          <div class="db-item-meta" style="display: flex; gap: 6px; align-items: center; font-size: 0.75em; flex-wrap: wrap;">
-            <span class="badge ${badgeInfo.css}">${badgeInfo.label}</span>
-            ${characterTag}
-            <span class="badge ${verBadgeClass}" style="margin-left: auto;">${verBadgeText}</span>
+        <img src="${iconSrc}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_AvatarIcon_NPC.png'" class="${rarityClass}" style="width: 44px; height: 44px; border-radius: 8px; background: rgba(0,0,0,0.3); object-fit: cover; flex-shrink: 0;">
+        <div style="flex-grow: 1; min-width: 0;">
+          <div style="display: flex; gap: 6px; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+            <span class="badge ${badgeClass}" style="font-size: 10px; padding: 2px 6px;">${item.guide_badge || 'Guide'}</span>
+            ${item.element ? `<span class="badge elem-${item.element.toLowerCase()}" style="font-size: 10px; padding: 2px 6px;">${item.element}</span>` : ''}
           </div>
-          <div class="db-item-name" style="margin-top: 8px; font-weight: 600; color: var(--gold-accent);">${doc.title}</div>
-          <div class="db-item-sub" style="margin-top: 6px; font-size: 0.85em; opacity: 0.8; line-height: 1.4;">${doc.summary}</div>
-          <div class="db-item-source" style="margin-top: 10px; font-size: 0.75em; opacity: 0.6; text-align: right;">Source: ${doc.metadata.source}</div>
+          <div style="font-weight: 700; color: var(--accent-gold); font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${item.title}</div>
+          <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">${item.subtitle || ''}</div>
+          <div style="font-size: 11px; color: var(--text-dim); margin-top: 4px; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${item.summary || ''}</div>
         </div>
       </div>
     `;
@@ -2171,77 +2360,567 @@ function renderKnowledgeGrid(docsToRender = null) {
     card.addEventListener('click', () => {
       document.querySelectorAll('#kb-items-grid .db-list-item').forEach((c) => c.classList.remove('active'));
       card.classList.add('active');
-      inspectKnowledgeDocument(doc);
+      inspectGuide(item);
     });
 
     grid.appendChild(card);
   });
 }
 
-async function inspectKnowledgeDocument(doc) {
+function resetGuideFilters() {
+  currentGuideElement = 'all';
+  currentGuideWeaponType = 'all';
+  currentGuideCuratedOnly = false;
+  currentGuideOwnedOnly = false;
+  currentGuideSearchQuery = '';
+
+  const searchInput = document.getElementById('kb-search-input');
+  if (searchInput) searchInput.value = '';
+
+  const curatedToggle = document.getElementById('kb-curated-only-toggle');
+  if (curatedToggle) curatedToggle.checked = false;
+
+  const ownedToggle = document.getElementById('kb-owned-only-toggle');
+  if (ownedToggle) ownedToggle.checked = false;
+
+  document.querySelectorAll('#kb-element-filter-bar .elem-filter-chip').forEach(c => c.classList.toggle('active', c.dataset.elem === 'all'));
+  document.querySelectorAll('#kb-weapon-filter-bar .filter-chip').forEach(c => c.classList.toggle('active', c.dataset.weptype === 'all'));
+
+  loadKnowledgeBase();
+}
+
+async function inspectGuide(item) {
   const pane = document.getElementById('kb-detail-pane');
   if (!pane) return;
 
-  pane.innerHTML = '<div class="loading-spinner">Loading article...</div>';
+  selectedGuide = item;
+  pane.innerHTML = '<div class="loading-spinner">Loading structured guide...</div>';
 
   try {
-    let fullDoc = doc;
-    if (!doc.content) {
-      const response = await fetch(`/api/knowledge/documents/${doc.id}`);
-      if (!response.ok) throw new Error('Failed to fetch full article');
-      fullDoc = await response.json();
+    let endpoint = '';
+    const cat = item.category;
+
+    if (cat === 'characters') {
+      endpoint = `/api/guides/character/${encodeURIComponent(item.entity_id)}`;
+    } else if (cat === 'weapons') {
+      endpoint = `/api/guides/weapon/${encodeURIComponent(item.entity_id)}`;
+    } else if (cat === 'artifacts') {
+      endpoint = `/api/guides/artifact/${encodeURIComponent(item.entity_id)}`;
+    } else if (cat === 'teams') {
+      endpoint = `/api/guides/teams/${encodeURIComponent(item.entity_id)}`;
+    } else if (cat === 'mechanics') {
+      endpoint = `/api/guides/mechanics/${encodeURIComponent(item.entity_id)}`;
+    } else if (cat === 'farming') {
+      endpoint = `/api/guides/farming`;
     }
-    
-    selectedKbItem = fullDoc;
 
-    const contentHtml = parseMarkdownToHtml(fullDoc.content);
-    const badgeInfo = getSourceBadge(fullDoc.metadata.source_type, fullDoc.metadata.authority_tier);
-    const characterTag = fullDoc.metadata.character ? `<span class="badge badge-purple" style="margin-left: 6px; font-size: 0.8em; padding: 4px 8px;">${fullDoc.metadata.character}</span>` : '';
+    const res = await fetch(endpoint);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
 
-    const activeVersion = window.__latestHealthSnapshot?.version?.current_version || '7.0';
-    const isStale = fullDoc.metadata.game_version && fullDoc.metadata.game_version !== activeVersion;
-    const staleNoticeHtml = isStale ? `
-      <div style="background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; font-size: 0.85em; color: #fde68a;">
-        ⚠️ <strong>Patch Compatibility Notice:</strong> This article was compiled for <strong>v${fullDoc.metadata.game_version}</strong>. The active live game version is <strong>v${activeVersion}</strong>. Mechanics adjustments or newer weapon/character additions may apply.
-      </div>
-    ` : '';
-
-    const hashShort = fullDoc.metadata.content_hash ? `${fullDoc.metadata.content_hash.substring(0, 16)}...` : '—';
-    const pubDate = fullDoc.metadata.published_at ? new Date(fullDoc.metadata.published_at).toLocaleDateString() : 'Unknown';
-    const updDate = fullDoc.metadata.updated_at ? new Date(fullDoc.metadata.updated_at).toLocaleDateString() : 'Unknown';
-
-    pane.innerHTML = `
-      <div class="db-detail-header" style="margin-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px;">
-        <div class="db-item-meta" style="display: flex; gap: 8px; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
-          <span class="badge ${badgeInfo.css}" style="font-size: 0.8em; padding: 4px 8px;">${badgeInfo.label}</span>
-          ${characterTag}
-          <span class="badge ${fullDoc.metadata.game_version === activeVersion ? 'badge-success' : 'badge-gray'}" style="margin-left: auto; font-size: 0.8em; padding: 4px 8px;">v${fullDoc.metadata.game_version}${fullDoc.metadata.game_version === activeVersion ? ' Current' : ''}</span>
-        </div>
-        <div style="display: flex; gap: 16px; align-items: center;">
-          ${fullDoc.metadata.character ? 
-            `<img src="${getCharacterIconUrl(fullDoc.metadata.character)}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_AvatarIcon_NPC.png'" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--accent-gold); background: rgba(0,0,0,0.3); object-fit: cover;">` :
-            `<div style="width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; font-size: 20px;">⚙️</div>`
-          }
-          <h2 style="margin: 0; color: var(--gold-accent); font-size: 1.5em; font-weight: 700; line-height: 1.3;">${fullDoc.title}</h2>
-        </div>
-        
-        <!-- Phase 3 Provenance Inspector Box -->
-        <div style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 12px 14px; margin-top: 14px; font-size: 0.8em; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px 16px;">
-          <div><strong style="color: var(--text-muted);">Source ID:</strong> <span class="font-mono" style="color: var(--accent-gold);">${fullDoc.metadata.source_id || '—'}</span></div>
-          <div><strong style="color: var(--text-muted);">Authority Tier:</strong> <span>Tier ${fullDoc.metadata.authority_tier}</span></div>
-          <div><strong style="color: var(--text-muted);">Published:</strong> <span>${pubDate}</span></div>
-          <div><strong style="color: var(--text-muted);">Last Updated:</strong> <span>${updDate}</span></div>
-          <div style="grid-column: 1 / -1;"><strong style="color: var(--text-muted);">Verification URL:</strong> <a href="${fullDoc.metadata.canonical_url || fullDoc.metadata.source_url}" target="_blank" style="color: var(--cyan-accent); text-decoration: underline; word-break: break-all;">${fullDoc.metadata.canonical_url || fullDoc.metadata.source_url}</a></div>
-          <div style="grid-column: 1 / -1;"><strong style="color: var(--text-muted);">SHA-256 Digest:</strong> <span class="font-mono" title="${fullDoc.metadata.content_hash}" style="color: var(--text-dim); cursor: help;">${hashShort}</span></div>
-        </div>
-      </div>
-      ${staleNoticeHtml}
-      <div class="kb-article-body markdown-body" style="line-height: 1.6; font-size: 0.95em; color: rgba(255,255,255,0.9);">
-        ${contentHtml}
-      </div>
-    `;
+    if (cat === 'characters') {
+      renderCharacterGuideView(data, pane);
+    } else if (cat === 'weapons') {
+      renderWeaponGuideView(data, pane);
+    } else if (cat === 'artifacts') {
+      renderArtifactGuideView(data, pane);
+    } else if (cat === 'teams') {
+      renderTeamGuideView(data, pane);
+    } else if (cat === 'mechanics') {
+      renderMechanicsGuideView(data, pane);
+    } else if (cat === 'farming') {
+      renderFarmingGuideView(data, pane);
+    }
   } catch (err) {
-    pane.innerHTML = `<div class="text-error">Error loading article details: ${err.message}</div>`;
+    console.error('Error fetching guide detail:', err);
+    pane.innerHTML = `<div class="text-error" style="padding: 20px;">Failed to load guide details: ${err.message}</div>`;
+  }
+}
+
+// -------------------------------------------------------------------------
+// Category-Specific Visual View Renderers
+// -------------------------------------------------------------------------
+
+function renderCharacterGuideView(g, pane) {
+  const aiActionsHtml = (g.ai_actions || []).map(a => `
+    <button class="btn btn-primary btn-sm" onclick="triggerGuideAction(${JSON.stringify(a.prompt)})">
+      ${a.label}
+    </button>
+  `).join('');
+
+  // Weapon recommendations
+  const weaponsHtml = (g.weapon_recommendations || []).map(w => `
+    <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 10px 12px; display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+      <div>
+        <div style="font-weight: 700; color: var(--accent-gold); font-size: 13px;">${w.name}</div>
+        <div style="font-size: 11px; color: var(--text-muted);">${w.notes || 'High synergy option.'}</div>
+      </div>
+      <span class="badge ${w.tier === 'BiS' ? 'badge-gold' : 'badge-cyan'}" style="font-size: 10px; padding: 3px 8px; flex-shrink: 0;">${w.tier || 'Best'}</span>
+    </div>
+  `).join('') || '<div style="color: var(--text-muted); font-size: 12px;">Standard weapon scaling applies.</div>';
+
+  // Artifact recommendations
+  const artifactsHtml = (g.artifact_recommendations || []).map(a => `
+    <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 10px 12px; margin-bottom: 8px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+        <span style="font-weight: 700; color: var(--accent-cyan); font-size: 13px;">${a.set_name}</span>
+        <span class="badge badge-info" style="font-size: 10px;">${a.pieces || 4}-pc</span>
+      </div>
+      <div style="font-size: 11px; color: var(--text-muted);">${a.notes || 'Optimal 4-piece set.'}</div>
+    </div>
+  `).join('') || '<div style="color: var(--text-muted); font-size: 12px;">Standard artifact sets.</div>';
+
+  // Teams
+  const teamsHtml = (g.teams || []).map(t => `
+    <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 10px 14px; margin-bottom: 8px;">
+      <div style="font-weight: 700; color: var(--accent-gold); font-size: 13px; margin-bottom: 4px;">${t.name}</div>
+      <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 6px;">${t.notes || 'Strong elemental resonance & synergy.'}</div>
+      <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+        ${(t.members || []).map(m => `
+          <span class="badge badge-secondary" style="font-size: 11px;">${m}</span>
+        `).join('')}
+      </div>
+    </div>
+  `).join('') || '<div style="color: var(--text-muted); font-size: 12px;">Versatile team slot.</div>';
+
+  pane.innerHTML = `
+    <div class="encyclopedia-container" style="padding: 10px;">
+      <!-- Hero Banner -->
+      <div class="detail-hero" style="min-height: 140px; margin-bottom: 16px;">
+        <div class="detail-hero-gradient"></div>
+        <div class="detail-hero-content">
+          <div class="detail-hero-top">
+            <img class="detail-hero-icon rarity-${g.rarity || 5}" src="${g.icon_url || 'https://enka.network/ui/UI_AvatarIcon_NPC.png'}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_AvatarIcon_NPC.png'" alt="${g.name}">
+            <div class="detail-hero-info">
+              <h2>${g.name}</h2>
+              <div class="detail-hero-meta" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 6px;">
+                <span class="badge elem-${(g.element || 'pyro').toLowerCase()}">${g.element}</span>
+                <span class="badge badge-secondary">${g.weapon_type}</span>
+                <span class="badge badge-gold">${g.role}</span>
+                <span class="badge badge-cache">${g.guide_badge}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Summary -->
+      <div class="char-encyclopedia-section" style="margin-bottom: 16px;">
+        <p style="font-size: 13px; color: var(--text-main); line-height: 1.5; margin: 0;">${g.summary || ''}</p>
+      </div>
+
+      <!-- AI Contextual Actions Bar -->
+      <div style="background: rgba(233,190,116,0.08); border: 1px solid rgba(233,190,116,0.3); border-radius: 10px; padding: 12px 14px; margin-bottom: 20px;">
+        <div style="font-size: 11px; font-weight: 700; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">✨ Instant AI Account Guidance</div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          ${aiActionsHtml}
+        </div>
+      </div>
+
+      <!-- Two-Column Layout for Builds -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 16px;">
+        <!-- Left: Weapons & Talents -->
+        <div>
+          <div class="char-encyclopedia-section" style="margin-bottom: 16px;">
+            <div class="encyclopedia-section-header">
+              <h3 class="encyclopedia-section-title"><span class="sec-icon">⚔️</span> Recommended Weapons</h3>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              ${weaponsHtml}
+            </div>
+          </div>
+
+          <div class="char-encyclopedia-section">
+            <div class="encyclopedia-section-header">
+              <h3 class="encyclopedia-section-title"><span class="sec-icon">📜</span> Talent Upgrade Priority</h3>
+            </div>
+            <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-bottom: 8px;">
+              ${(g.talent_priority || ['Burst', 'Skill', 'Normal Attack']).map((t, idx) => `
+                <span class="badge badge-gold" style="font-size: 12px; font-weight: 700;">${idx + 1}. ${t}</span>
+              `).join('<span style="color: var(--text-dim); font-size: 11px;">→</span>')}
+            </div>
+            <p style="font-size: 12px; color: var(--text-muted); margin: 0;">Focus skill levels according to combat rotation priority.</p>
+          </div>
+        </div>
+
+        <!-- Right: Artifacts & Stats -->
+        <div>
+          <div class="char-encyclopedia-section" style="margin-bottom: 16px;">
+            <div class="encyclopedia-section-header">
+              <h3 class="encyclopedia-section-title"><span class="sec-icon">🛡️</span> Artifact Recommendations</h3>
+            </div>
+            ${artifactsHtml}
+            <div style="margin-top: 10px; background: rgba(0,0,0,0.25); border-radius: 6px; padding: 10px; font-size: 11px;">
+              <div style="font-weight: 700; color: var(--accent-gold); margin-bottom: 4px;">Main Stat Priorities:</div>
+              <div><strong>Sands:</strong> ${g.main_stat_priorities?.sands || 'ATK% / ER'}</div>
+              <div><strong>Goblet:</strong> ${g.main_stat_priorities?.goblet || 'Elemental DMG Bonus'}</div>
+              <div><strong>Circlet:</strong> ${g.main_stat_priorities?.circlet || 'CRIT Rate / CRIT DMG'}</div>
+            </div>
+            <div style="margin-top: 8px; font-size: 11px; color: var(--text-muted);">
+              <strong>Substat Priority:</strong> ${(g.substat_priorities || ['CRIT Rate', 'CRIT DMG', 'ATK%']).join(' > ')}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stat Target Benchmarks -->
+      <div class="char-encyclopedia-section" style="margin-bottom: 16px;">
+        <div class="encyclopedia-section-header">
+          <h3 class="encyclopedia-section-title"><span class="sec-icon">🎯</span> Target Stat Benchmarks</h3>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px;">
+          <div class="stat-chip"><span class="stat-chip-label">CRIT Rate</span><span class="stat-chip-val" style="color: var(--accent-gold);">${g.stat_targets?.crit_rate || '70%+'}</span></div>
+          <div class="stat-chip"><span class="stat-chip-label">CRIT DMG</span><span class="stat-chip-val" style="color: var(--accent-gold);">${g.stat_targets?.crit_dmg || '140%+'}</span></div>
+          <div class="stat-chip"><span class="stat-chip-label">Energy Recharge</span><span class="stat-chip-val" style="color: var(--accent-cyan);">${g.stat_targets?.energy_recharge || '130%+'}</span></div>
+          <div class="stat-chip"><span class="stat-chip-label">Primary Stat</span><span class="stat-chip-val">${g.stat_targets?.primary_stat_target || '2,000+ ATK'}</span></div>
+        </div>
+      </div>
+
+      <!-- Synergistic Teams -->
+      <div class="char-encyclopedia-section" style="margin-bottom: 16px;">
+        <div class="encyclopedia-section-header">
+          <h3 class="encyclopedia-section-title"><span class="sec-icon">👥</span> Recommended Team Compositions</h3>
+        </div>
+        ${teamsHtml}
+      </div>
+
+      <!-- Rotation Breakdown -->
+      ${g.rotation_summary ? `
+      <div class="char-encyclopedia-section">
+        <div class="encyclopedia-section-header">
+          <h3 class="encyclopedia-section-title"><span class="sec-icon">🔄</span> Core Combat Rotation</h3>
+        </div>
+        <div style="background: rgba(0,0,0,0.3); border-left: 3px solid var(--accent-gold); padding: 10px 14px; border-radius: 4px; font-size: 12px; line-height: 1.5;">
+          ${g.rotation_summary}
+        </div>
+      </div>` : ''}
+    </div>
+  `;
+}
+
+function renderWeaponGuideView(w, pane) {
+  const aiActionsHtml = (w.ai_actions || []).map(a => `
+    <button class="btn btn-primary btn-sm" onclick="triggerGuideAction(${JSON.stringify(a.prompt)})">
+      ${a.label}
+    </button>
+  `).join('');
+
+  const notableUsersHtml = (w.notable_users || []).map(u => `
+    <div style="display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 6px 10px;">
+      <img src="${getCharacterIconUrl(u)}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_AvatarIcon_NPC.png'" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+      <span style="font-weight: 600; font-size: 12px; color: var(--text-main);">${u}</span>
+    </div>
+  `).join('') || '<div style="color: var(--text-muted); font-size: 12px;">Universal weapon option.</div>';
+
+  pane.innerHTML = `
+    <div class="encyclopedia-container" style="padding: 10px;">
+      <div class="detail-hero" style="min-height: 140px; margin-bottom: 16px;">
+        <div class="detail-hero-gradient"></div>
+        <div class="detail-hero-content">
+          <div class="detail-hero-top">
+            <img class="detail-hero-icon rarity-${w.rarity || 5}" src="${w.icon_url}" onerror="this.onerror=null; this.src='${getImgFallback('weapon')}'" alt="${w.name}">
+            <div class="detail-hero-info">
+              <h2>${w.name}</h2>
+              <div class="detail-hero-meta" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 6px;">
+                <span class="rarity-stars rarity-${w.rarity || 5}">${getRarityStars(w.rarity || 5)}</span>
+                <span class="badge badge-secondary">${w.weapon_type}</span>
+                <span class="badge badge-gold">${w.guide_badge}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: rgba(233,190,116,0.08); border: 1px solid rgba(233,190,116,0.3); border-radius: 10px; padding: 12px 14px; margin-bottom: 20px;">
+        <div style="font-size: 11px; font-weight: 700; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">✨ Instant AI Weapon Analysis</div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          ${aiActionsHtml}
+        </div>
+      </div>
+
+      <!-- Stat Curves -->
+      <div class="char-encyclopedia-section" style="margin-bottom: 16px;">
+        <div class="encyclopedia-section-header">
+          <h3 class="encyclopedia-section-title"><span class="sec-icon">📊</span> Deterministic Combat Scaling</h3>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+          <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 12px;">
+            <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 4px;">Level 1 Baseline</div>
+            <div style="font-size: 14px; font-weight: 700; color: var(--text-main);">Base ATK: ${Math.round(w.base_atk_lv1 || 0)}</div>
+            <div style="font-size: 12px; color: var(--accent-gold); margin-top: 2px;">${w.sub_stat_type || '—'}: ${w.sub_stat_lv1 || '—'}</div>
+          </div>
+          <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 12px; border: 1px solid rgba(233,190,116,0.25);">
+            <div style="font-size: 11px; color: var(--accent-gold); margin-bottom: 4px; font-weight: 700;">Level 90 Ceiling</div>
+            <div style="font-size: 14px; font-weight: 700; color: var(--accent-gold);">Base ATK: ${Math.round(w.base_atk_lv90 || 0)}</div>
+            <div style="font-size: 12px; color: var(--accent-cyan); margin-top: 2px;">${w.sub_stat_type || '—'}: ${w.sub_stat_lv90 || '—'}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weapon Passive -->
+      <div class="char-encyclopedia-section" style="margin-bottom: 16px;">
+        <div class="encyclopedia-section-header">
+          <h3 class="encyclopedia-section-title"><span class="sec-icon">⚔️</span> Weapon Passive: ${w.passive_name || 'Special Effect'}</h3>
+        </div>
+        <p style="font-size: 13px; line-height: 1.6; color: var(--text-main); margin-bottom: 12px;">${w.passive_desc || 'Increases stats based on refinement rank.'}</p>
+        <div style="font-size: 11px; color: var(--text-muted);">${w.f2p_context || ''}</div>
+      </div>
+
+      <!-- Notable Users -->
+      <div class="char-encyclopedia-section" style="margin-bottom: 16px;">
+        <div class="encyclopedia-section-header">
+          <h3 class="encyclopedia-section-title"><span class="sec-icon">👤</span> Notable Characters</h3>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px;">
+          ${notableUsersHtml}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderArtifactGuideView(art, pane) {
+  const aiActionsHtml = (art.ai_actions || []).map(a => `
+    <button class="btn btn-primary btn-sm" onclick="triggerGuideAction(${JSON.stringify(a.prompt)})">
+      ${a.label}
+    </button>
+  `).join('');
+
+  const notableUsersHtml = (art.notable_users || []).map(u => `
+    <div style="display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 6px 10px;">
+      <img src="${getCharacterIconUrl(u)}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_AvatarIcon_NPC.png'" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+      <span style="font-weight: 600; font-size: 12px; color: var(--text-main);">${u}</span>
+    </div>
+  `).join('') || '<div style="color: var(--text-muted); font-size: 12px;">Universal set option.</div>';
+
+  pane.innerHTML = `
+    <div class="encyclopedia-container" style="padding: 10px;">
+      <div class="detail-hero" style="min-height: 140px; margin-bottom: 16px;">
+        <div class="detail-hero-gradient"></div>
+        <div class="detail-hero-content">
+          <div class="detail-hero-top">
+            <img class="detail-hero-icon rarity-5" src="${art.icon_url}" onerror="this.onerror=null; this.src='${getImgFallback('artifact')}'" alt="${art.name}">
+            <div class="detail-hero-info">
+              <h2>${art.name}</h2>
+              <div class="detail-hero-meta" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 6px;">
+                <span class="rarity-stars rarity-5">★★★★★</span>
+                <span class="badge badge-cyan">${art.guide_badge}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: rgba(233,190,116,0.08); border: 1px solid rgba(233,190,116,0.3); border-radius: 10px; padding: 12px 14px; margin-bottom: 20px;">
+        <div style="font-size: 11px; font-weight: 700; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">✨ Instant AI Artifact Check</div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          ${aiActionsHtml}
+        </div>
+      </div>
+
+      <div class="char-encyclopedia-section" style="margin-bottom: 16px;">
+        <div class="encyclopedia-section-header">
+          <h3 class="encyclopedia-section-title"><span class="sec-icon">🛡️</span> Set Bonuses</h3>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 12px; margin-bottom: 10px;">
+          <div style="font-weight: 700; color: var(--accent-gold); font-size: 12px; margin-bottom: 4px;">2-Piece Bonus</div>
+          <div style="font-size: 13px; line-height: 1.5; color: var(--text-main);">${art.bonus_2pc || 'Increases stats.'}</div>
+        </div>
+        ${art.bonus_4pc ? `
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 12px;">
+          <div style="font-weight: 700; color: var(--accent-cyan); font-size: 12px; margin-bottom: 4px;">4-Piece Bonus</div>
+          <div style="font-size: 13px; line-height: 1.5; color: var(--text-main);">${art.bonus_4pc}</div>
+        </div>` : ''}
+      </div>
+
+      <div class="char-encyclopedia-section" style="margin-bottom: 16px;">
+        <div class="encyclopedia-section-header">
+          <h3 class="encyclopedia-section-title"><span class="sec-icon">👤</span> Notable Users</h3>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px;">
+          ${notableUsersHtml}
+        </div>
+      </div>
+
+      <div class="char-encyclopedia-section">
+        <div class="encyclopedia-section-header">
+          <h3 class="encyclopedia-section-title"><span class="sec-icon">📍</span> Domain &amp; Farming Schedule</h3>
+        </div>
+        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5;">
+          <div><strong>Domain:</strong> ${art.domain_info?.domain_name || 'Artifact Reliquary Domain'}</div>
+          <div><strong>Availability:</strong> ${art.domain_info?.days_available || 'Always Available (Every Day)'}</div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderTeamGuideView(t, pane) {
+  const coreCharsHtml = (t.core_characters || []).map(c => `
+    <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 10px; display: flex; align-items: center; gap: 10px;">
+      <img src="${getCharacterIconUrl(c.name)}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_AvatarIcon_NPC.png'" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover;">
+      <div>
+        <div style="font-weight: 700; color: var(--accent-gold); font-size: 13px;">${c.name}</div>
+        <div style="font-size: 11px; color: var(--accent-cyan);">${c.role}</div>
+      </div>
+    </div>
+  `).join('');
+
+  const stepsHtml = (t.rotation_steps || []).map((step, idx) => `
+    <div style="display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px;">
+      <span class="badge badge-gold" style="font-size: 11px; font-weight: 700; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border-radius: 50%; flex-shrink: 0;">${idx + 1}</span>
+      <div style="font-size: 12px; line-height: 1.5; color: var(--text-main);">${step}</div>
+    </div>
+  `).join('');
+
+  pane.innerHTML = `
+    <div class="encyclopedia-container" style="padding: 10px;">
+      <div class="char-encyclopedia-section" style="margin-bottom: 16px;">
+        <span class="badge badge-cyan" style="margin-bottom: 8px;">${t.archetype}</span>
+        <h2 style="color: var(--accent-gold); margin: 0 0 8px 0; font-size: 20px;">${t.title}</h2>
+        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 0;">${t.summary}</p>
+      </div>
+
+      <div style="background: rgba(233,190,116,0.08); border: 1px solid rgba(233,190,116,0.3); border-radius: 10px; padding: 12px 14px; margin-bottom: 20px;">
+        <div style="font-size: 11px; font-weight: 700; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">✨ Instant AI Team Builder</div>
+        <button class="btn btn-primary btn-sm" onclick="triggerGuideAction('Can I build a ${t.title} team using characters available on my account?')">
+          ✨ Check If I Can Build This Team
+        </button>
+      </div>
+
+      <div class="char-encyclopedia-section" style="margin-bottom: 16px;">
+        <div class="encyclopedia-section-header">
+          <h3 class="encyclopedia-section-title"><span class="sec-icon">👥</span> Core Roster</h3>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+          ${coreCharsHtml}
+        </div>
+      </div>
+
+      <div class="char-encyclopedia-section" style="margin-bottom: 16px;">
+        <div class="encyclopedia-section-header">
+          <h3 class="encyclopedia-section-title"><span class="sec-icon">🔄</span> Step-by-Step Execution Sequence</h3>
+        </div>
+        <div style="background: rgba(0,0,0,0.25); border-radius: 8px; padding: 14px;">
+          ${stepsHtml}
+        </div>
+      </div>
+
+      <div class="char-encyclopedia-section">
+        <div class="encyclopedia-section-header">
+          <h3 class="encyclopedia-section-title"><span class="sec-icon">🔀</span> Team Variations</h3>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          ${(t.variants || []).map(v => `<span class="badge badge-secondary" style="font-size: 11px; padding: 4px 10px;">${v}</span>`).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderMechanicsGuideView(m, pane) {
+  const sectionsHtml = (m.visual_sections || []).map(s => `
+    <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 12px; margin-bottom: 10px;">
+      <div style="font-weight: 700; color: var(--accent-gold); font-size: 13px; margin-bottom: 4px;">${s.heading}</div>
+      <div style="font-size: 12px; color: var(--text-main); line-height: 1.5;">${s.content}</div>
+    </div>
+  `).join('');
+
+  const formulasHtml = (m.key_formulas || []).map(f => `
+    <div style="font-family: var(--font-mono); font-size: 11px; background: rgba(0,0,0,0.35); padding: 8px 12px; border-radius: 6px; border-left: 3px solid var(--accent-cyan); margin-bottom: 6px; color: var(--accent-cyan);">
+      ${f}
+    </div>
+  `).join('');
+
+  pane.innerHTML = `
+    <div class="encyclopedia-container" style="padding: 10px;">
+      <div class="char-encyclopedia-section" style="margin-bottom: 16px;">
+        <span class="badge badge-purple" style="margin-bottom: 8px;">${m.topic}</span>
+        <h2 style="color: var(--accent-gold); margin: 0 0 8px 0; font-size: 20px;">${m.title}</h2>
+        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 0;">${m.summary}</p>
+      </div>
+
+      <div style="background: rgba(233,190,116,0.08); border: 1px solid rgba(233,190,116,0.3); border-radius: 10px; padding: 12px 14px; margin-bottom: 20px;">
+        <div style="font-size: 11px; font-weight: 700; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">✨ Mechanics AI Assistant</div>
+        <button class="btn btn-primary btn-sm" onclick="triggerGuideAction('Explain ${m.title} and how it applies to my team compositions.')">
+          ✨ Explain for My Characters
+        </button>
+      </div>
+
+      <div class="char-encyclopedia-section" style="margin-bottom: 16px;">
+        <div class="encyclopedia-section-header">
+          <h3 class="encyclopedia-section-title"><span class="sec-icon">⚙️</span> Mechanics Deep Dive</h3>
+        </div>
+        ${sectionsHtml}
+      </div>
+
+      ${m.key_formulas && m.key_formulas.length ? `
+      <div class="char-encyclopedia-section" style="margin-bottom: 16px;">
+        <div class="encyclopedia-section-header">
+          <h3 class="encyclopedia-section-title"><span class="sec-icon">📐</span> Mathematical Formulas</h3>
+        </div>
+        ${formulasHtml}
+      </div>` : ''}
+
+      ${m.takeaways && m.takeaways.length ? `
+      <div class="char-encyclopedia-section">
+        <div class="encyclopedia-section-header">
+          <h3 class="encyclopedia-section-title"><span class="sec-icon">💡</span> Practical Takeaways</h3>
+        </div>
+        <ul style="padding-left: 20px; font-size: 12px; line-height: 1.6; color: var(--text-main);">
+          ${m.takeaways.map(t => `<li>${t}</li>`).join('')}
+        </ul>
+      </div>` : ''}
+    </div>
+  `;
+}
+
+function renderFarmingGuideView(f, pane) {
+  const regions = f.regions || {};
+  const regionCardsHtml = Object.entries(regions).map(([rName, books]) => `
+    <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 12px; margin-bottom: 12px;">
+      <div style="font-weight: 700; color: var(--accent-gold); font-size: 14px; margin-bottom: 8px; text-transform: capitalize;">${rName}</div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        ${Object.entries(books).map(([bName, data]) => `
+          <div style="background: rgba(0,0,0,0.25); border-radius: 6px; padding: 8px 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <span style="font-weight: 600; color: var(--accent-cyan); font-size: 12px;">Teachings of ${bName}</span>
+              <span class="badge badge-secondary" style="font-size: 10px;">${data.days || ''}</span>
+            </div>
+            <div style="font-size: 11px; color: var(--text-muted); display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px;">
+              ${(data.characters || []).map(c => `<span class="badge badge-secondary" style="font-size: 10px;">${c}</span>`).join('')}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  pane.innerHTML = `
+    <div class="encyclopedia-container" style="padding: 10px;">
+      <div class="char-encyclopedia-section" style="margin-bottom: 16px;">
+        <span class="badge badge-gold" style="margin-bottom: 8px;">Weekly Domain Planner</span>
+        <h2 style="color: var(--accent-gold); margin: 0 0 8px 0; font-size: 20px;">Daily Domain Farming Rotations</h2>
+        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 0;">Comprehensive schedule of regional talent books and weapon materials available on alternating weekdays.</p>
+      </div>
+
+      <div style="background: rgba(233,190,116,0.08); border: 1px solid rgba(233,190,116,0.3); border-radius: 10px; padding: 12px 14px; margin-bottom: 20px;">
+        <div style="font-size: 11px; font-weight: 700; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">✨ Farming AI Assistant</div>
+        <button class="btn btn-primary btn-sm" onclick="triggerGuideAction('What domain materials should I farm today based on the characters in my account showcase?')">
+          ✨ What Should I Farm Today?
+        </button>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
+        ${regionCardsHtml}
+      </div>
+    </div>
+  `;
+}
+
+function triggerGuideAction(promptText) {
+  if (typeof askAssistant === 'function') {
+    askAssistant(promptText);
   }
 }
 
@@ -2258,44 +2937,7 @@ function compareVersionStrings(a, b) {
   return 0;
 }
 
-function renderKnowledgeSummary(docs = kbCache) {
-  const summaryHost = document.getElementById('kb-summary-bar');
-  if (!summaryHost) return;
 
-  const total = docs.length;
-  const official = docs.filter((d) => d.metadata.authority_tier === 1 || d.metadata.source_type === 'OFFICIAL').length;
-  const theorycrafting = docs.filter((d) => d.metadata.authority_tier === 2 || d.metadata.source_type === 'KQM' || d.metadata.source_type === 'TCL').length;
-  const community = docs.filter((d) => d.metadata.authority_tier === 5 || d.metadata.source_type === 'COMMUNITY').length;
-  const mechanics = docs.filter((d) => d.metadata.topic === 'Game Mechanics').length;
-  const activeVersion = window.__latestHealthSnapshot?.version?.current_version || '7.0';
-
-  summaryHost.innerHTML = `
-    <div class="diag-item" style="min-width: 130px;">
-      <span class="diag-label">Documents</span>
-      <span class="diag-val">${total}</span>
-    </div>
-    <div class="diag-item" style="min-width: 140px;">
-      <span class="diag-label">Tier 1 Official</span>
-      <span class="diag-val" style="color: var(--accent-gold);">${official}</span>
-    </div>
-    <div class="diag-item" style="min-width: 160px;">
-      <span class="diag-label">Tier 2 Theorycrafting</span>
-      <span class="diag-val" style="color: var(--accent-cyan);">${theorycrafting}</span>
-    </div>
-    <div class="diag-item" style="min-width: 160px;">
-      <span class="diag-label">Tier 5 Community</span>
-      <span class="diag-val" style="color: #c084fc;">${community}</span>
-    </div>
-    <div class="diag-item" style="min-width: 130px;">
-      <span class="diag-label">Mechanics</span>
-      <span class="diag-val">${mechanics}</span>
-    </div>
-    <div class="diag-item" style="min-width: 160px;">
-      <span class="diag-label">Active Live Version</span>
-      <span class="diag-val" style="color: var(--accent-gold); font-weight: 700;">v${activeVersion}</span>
-    </div>
-  `;
-}
 
 function parseMarkdownToHtml(md) {
   if (!md) return '';
@@ -2306,11 +2948,28 @@ function parseMarkdownToHtml(md) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
 
+  const sanitizeUrl = (url) => {
+    if (!url) return '#';
+    const clean = url.trim().replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    if (/^(https?:\/\/|\/|\.\/|#|mailto:)/i.test(clean) && !/javascript:|data:|vbscript:/i.test(clean)) {
+      return clean;
+    }
+    return '#';
+  };
+
   // Parse Images: ![Alt Text](url)
-  html = html.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1" style="max-width: 100%; border-radius: 8px; margin: 16px 0; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: block; height: auto;">');
+  html = html.replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, url) => {
+    const safeUrl = sanitizeUrl(url);
+    const safeAlt = (alt || '').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    return `<img src="${safeUrl}" alt="${safeAlt}" loading="lazy" style="max-width: 100%; border-radius: 8px; margin: 16px 0; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: block; height: auto;">`;
+  });
 
   // Parse Links: [Link Text](url)
-  html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" style="color: var(--cyan-accent); text-decoration: underline;">$1</a>');
+  html = html.replace(/\[(.*?)\]\((.*?)\)/g, (match, text, url) => {
+    const safeUrl = sanitizeUrl(url);
+    const safeText = (text || '').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    return `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-accent); text-decoration: underline;">${safeText}</a>`;
+  });
 
   html = html.replace(/^### (.*$)/gim, '<h4 style="color: var(--gold-accent); margin-top: 20px; margin-bottom: 8px; font-weight: 600; border-left: 3px solid var(--gold-accent); padding-left: 8px; font-size: 1.1em;">$1</h4>');
   html = html.replace(/^## (.*$)/gim, '<h3 style="color: var(--gold-accent); margin-top: 28px; margin-bottom: 12px; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px; font-size: 1.25em;">$1</h3>');
@@ -2798,4 +3457,602 @@ function renderMathBreakdown(container, data, charName) {
     </div>
   `;
 }
+
+/**
+ * ====================================================
+ * PHASE 14: TEAM BUILDING & SYNERGY WORKBENCH
+ * ====================================================
+ */
+let currentWorkbenchTeam = ['Arlecchino', 'Yelan', 'Bennett', 'Zhongli'];
+
+async function openTeamBuilderWorkbench(focalName = null) {
+  const modal = document.getElementById('team-builder-modal');
+  if (!modal) return;
+  modal.style.display = 'flex';
+
+  if (!dbCache['characters'] || dbCache['characters'].length === 0) {
+    try {
+      const res = await fetch('/api/data/characters');
+      if (res.ok) {
+        dbCache['characters'] = await res.json();
+      }
+    } catch (e) {
+      console.warn('Failed to pre-fetch characters for team builder:', e);
+    }
+  }
+
+  if (focalName) {
+    try {
+      const recRes = await fetch(`/api/teams/recommend/${encodeURIComponent(focalName)}`);
+      if (recRes.ok) {
+        const recData = await recRes.json();
+        if (recData.teams && recData.teams.length > 0) {
+          currentWorkbenchTeam = [...recData.teams[0].members];
+        } else {
+          currentWorkbenchTeam = [focalName, 'Xingqiu', 'Bennett', 'Kaedehara Kazuha'];
+        }
+      }
+    } catch (e) {
+      currentWorkbenchTeam = [focalName, 'Xingqiu', 'Bennett', 'Zhongli'];
+    }
+  }
+
+  renderTeamWorkbenchSlots();
+  await evaluateWorkbenchTeam();
+}
+
+function closeTeamBuilderModal() {
+  const modal = document.getElementById('team-builder-modal');
+  if (modal) modal.style.display = 'none';
+}
+
+function renderTeamWorkbenchSlots() {
+  const container = document.getElementById('team-workbench-slots');
+  if (!container) return;
+
+  const allChars = (dbCache['characters'] || []).map(c => c.name).sort();
+  const charOptions = allChars.length > 0 ? allChars : [
+    'Arlecchino', 'Bennett', 'Furina', 'Kaedehara Kazuha', 'Neuvillette',
+    'Raiden Shogun', 'Xiangling', 'Xingqiu', 'Yelan', 'Zhongli', 'Hu Tao', 'Nahida'
+  ];
+
+  container.innerHTML = [0, 1, 2, 3].map(idx => {
+    const selectedChar = currentWorkbenchTeam[idx] || '';
+    const avatarUrl = getCharacterIconUrl(selectedChar);
+    return `
+      <div class="team-slot-box">
+        <div style="font-size: 11px; font-weight: 700; color: var(--accent-gold); text-transform: uppercase;">Slot ${idx + 1}</div>
+        <img class="slot-avatar-img" id="slot-img-${idx}" src="${avatarUrl}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_AvatarIcon_NPC.png'" alt="${selectedChar}">
+        <select class="slot-char-select" onchange="onWorkbenchSlotChange(${idx}, this.value)">
+          <option value="" ${!selectedChar ? 'selected' : ''}>-- Empty --</option>
+          ${charOptions.map(name => `<option value="${name}" ${name === selectedChar ? 'selected' : ''}>${name}</option>`).join('')}
+        </select>
+      </div>
+    `;
+  }).join('');
+}
+
+function onWorkbenchSlotChange(slotIdx, newCharName) {
+  if (newCharName) {
+    currentWorkbenchTeam[slotIdx] = newCharName;
+  } else {
+    currentWorkbenchTeam.splice(slotIdx, 1);
+  }
+  const img = document.getElementById(`slot-img-${slotIdx}`);
+  if (img) {
+    img.src = getCharacterIconUrl(newCharName);
+  }
+  evaluateWorkbenchTeam();
+}
+
+function resetWorkbenchTeam() {
+  currentWorkbenchTeam = ['Arlecchino', 'Yelan', 'Bennett', 'Zhongli'];
+  renderTeamWorkbenchSlots();
+  evaluateWorkbenchTeam();
+}
+
+async function evaluateWorkbenchTeam() {
+  const activeTeam = currentWorkbenchTeam.filter(Boolean);
+  if (activeTeam.length === 0) return;
+
+  const resultsDiv = document.getElementById('team-eval-results');
+  if (resultsDiv) resultsDiv.style.display = 'grid';
+
+  try {
+    const res = await fetch('/api/teams/evaluate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ characters: activeTeam })
+    });
+
+    if (!res.ok) {
+      const err = await res.json();
+      console.warn('Evaluation failed:', err);
+      return;
+    }
+
+    const data = await res.json();
+    renderWorkbenchEvaluation(data);
+  } catch (err) {
+    console.error('Error evaluating team:', err);
+  }
+}
+
+function renderWorkbenchEvaluation(data) {
+  const scoreVal = document.getElementById('workbench-score-val');
+  const scoreCircle = document.getElementById('workbench-score-circle');
+  const verdictTitle = document.getElementById('workbench-verdict-title');
+  const verdictDesc = document.getElementById('workbench-verdict-desc');
+  const aiBtn = document.getElementById('workbench-ai-review-btn');
+
+  const score = data.synergy_score || 0;
+  if (scoreVal) scoreVal.textContent = score;
+
+  const scoreColor = score >= 90 ? '#e9be74' : (score >= 75 ? '#56e2d5' : (score >= 60 ? '#60a5fa' : '#f87171'));
+  if (scoreCircle) scoreCircle.style.borderColor = scoreColor;
+  if (scoreVal) scoreVal.style.color = scoreColor;
+
+  if (verdictTitle) verdictTitle.textContent = score >= 90 ? '🌟 S-Tier Synergy' : (score >= 75 ? '⚡ A-Tier Synergy' : (score >= 60 ? '🛡️ B-Tier Synergy' : '⚠️ Suboptimal Synergy'));
+  if (verdictDesc) verdictDesc.textContent = data.verdict || '';
+
+  if (aiBtn) {
+    aiBtn.onclick = () => {
+      closeTeamBuilderModal();
+      switchTab('chat');
+      askAssistant(data.ai_prompt || 'Review my team composition and optimize rotations.');
+    };
+  }
+
+  // Resonances
+  const resList = document.getElementById('workbench-resonances-list');
+  if (resList) {
+    if (data.active_resonances && data.active_resonances.length > 0) {
+      resList.innerHTML = data.active_resonances.map(r => `
+        <div style="font-size: 12px; display: flex; align-items: flex-start; gap: 6px;">
+          <span style="color: var(--accent-gold); font-weight: 700;">✓ ${r.name}:</span>
+          <span style="color: var(--text-muted);">${r.effect}</span>
+        </div>
+      `).join('');
+    } else {
+      resList.innerHTML = '<span style="font-size: 12px; color: var(--text-dim);">No elemental resonance active (requires 2 of same element or 4 unique elements).</span>';
+    }
+  }
+
+  // Reactions
+  const reactList = document.getElementById('workbench-reactions-list');
+  if (reactList) {
+    if (data.elemental_reactions && data.elemental_reactions.length > 0) {
+      reactList.innerHTML = data.elemental_reactions.map(r => `
+        <div><strong>${r.name}</strong> <span style="color: var(--text-dim);">(${r.type})</span>: ${r.effect}</div>
+      `).join('');
+    } else {
+      reactList.innerHTML = '<span style="color: var(--text-dim);">No elemental reactions enabled.</span>';
+    }
+  }
+
+  // Warnings
+  const warnList = document.getElementById('workbench-warnings-list');
+  if (warnList) {
+    if (data.warnings && data.warnings.length > 0) {
+      warnList.innerHTML = data.warnings.map(w => `<div>⚠️ ${w}</div>`).join('');
+    } else {
+      warnList.innerHTML = '<div style="color: #4ade80;">✓ Role distribution is balanced. No sustainability risks detected.</div>';
+    }
+  }
+
+  // Rotation Steps
+  const rotList = document.getElementById('workbench-rotation-steps');
+  if (rotList) {
+    if (data.rotation_flow && data.rotation_flow.length > 0) {
+      rotList.innerHTML = data.rotation_flow.map(s => `
+        <div style="font-size: 12px; color: var(--text-bright); background: rgba(0,0,0,0.25); padding: 6px 10px; border-radius: 4px;">
+          ${s}
+        </div>
+      `).join('');
+    } else {
+      rotList.innerHTML = '<span style="color: var(--text-dim);">Add characters to generate combat rotation.</span>';
+    }
+  }
+}
+
+/**
+ * ====================================================
+ * PHASE 15: ARTIFACT OPTIMIZER WORKBENCH
+ * ====================================================
+ */
+function openArtifactOptimizerWorkbench(charName = 'Arlecchino') {
+  const modal = document.getElementById('artifact-optimizer-modal');
+  if (!modal) return;
+  modal.style.display = 'flex';
+
+  const charInput = document.getElementById('optimizer-char-input');
+  if (charInput) charInput.value = charName;
+
+  runArtifactOptimizer();
+}
+
+function closeArtifactOptimizerModal() {
+  const modal = document.getElementById('artifact-optimizer-modal');
+  if (modal) modal.style.display = 'none';
+}
+
+async function runArtifactOptimizer() {
+  const charName = document.getElementById('optimizer-char-input')?.value?.trim() || 'Arlecchino';
+  const minEr = parseFloat(document.getElementById('optimizer-min-er-input')?.value || 0);
+  const reqSet = document.getElementById('optimizer-set-select')?.value || null;
+  const container = document.getElementById('optimizer-results-container');
+
+  if (!container) return;
+  container.innerHTML = `
+    <div style="text-align: center; padding: 40px;">
+      <div class="skeleton" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 16px;"></div>
+      <div style="font-size: 14px; color: var(--accent-gold); font-weight: 700;">Evaluating Account Artifacts &amp; Combinations...</div>
+      <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">Pruning search space across 5 artifact slots...</p>
+    </div>
+  `;
+
+  try {
+    const res = await fetch('/api/optimizer/character', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        character_name: charName,
+        min_er: minEr,
+        required_set: reqSet,
+        max_results: 3
+      })
+    });
+
+    if (!res.ok) {
+      const err = await res.json();
+      container.innerHTML = `<div class="alert-banner alert-error" style="display:flex;"><span>⚠️ ${err.detail || 'Optimizer calculation failed.'}</span></div>`;
+      return;
+    }
+
+    const data = await res.json();
+    renderArtifactOptimizerResults(data);
+  } catch (err) {
+    container.innerHTML = `<div class="alert-banner alert-error" style="display:flex;"><span>⚠️ Connection error: ${err.message}</span></div>`;
+  }
+}
+
+function renderArtifactOptimizerResults(data) {
+  const container = document.getElementById('optimizer-results-container');
+  if (!container) return;
+
+  const candidates = data.optimal_candidates || [];
+  if (candidates.length === 0) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">⚠️</div>
+        <h3>No Valid Loadout Satisfying Constraints</h3>
+        <p>No 5-piece artifact combination met the minimum Energy Recharge (${data.min_er || 0}%) or required 4-piece set.</p>
+      </div>
+    `;
+    return;
+  }
+
+  const deltaHtml = data.stat_delta?.delta_cv !== undefined ? `
+    <div style="display: flex; gap: 14px; align-items: center; background: rgba(0,0,0,0.3); border: 1px solid rgba(233,190,116,0.25); border-radius: var(--radius-sm); padding: 10px 14px; margin-bottom: 16px;">
+      <div>
+        <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">CV Delta vs Current:</span>
+        <strong style="color: ${data.stat_delta.delta_cv >= 0 ? '#4ade80' : '#f87171'}; font-size: 14px; margin-left: 6px;">
+          ${data.stat_delta.delta_cv >= 0 ? '+' : ''}${data.stat_delta.delta_cv} CV
+        </strong>
+      </div>
+      <div>
+        <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">Roll Value Delta:</span>
+        <strong style="color: ${data.stat_delta.delta_weighted_rv >= 0 ? '#4ade80' : '#f87171'}; font-size: 14px; margin-left: 6px;">
+          ${data.stat_delta.delta_weighted_rv >= 0 ? '+' : ''}${data.stat_delta.delta_weighted_rv}% RV
+        </strong>
+      </div>
+      <div style="margin-left: auto;">
+        <span class="badge ${data.stat_delta.delta_cv >= 0 ? 'badge-gold' : 'badge-secondary'}">${data.stat_delta.verdict || 'Evaluated'}</span>
+      </div>
+    </div>
+  ` : '';
+
+  const cardsHtml = candidates.map((cand, idx) => {
+    const isTop = idx === 0;
+    const piecesHtml = (cand.artifacts || []).map(art => `
+      <div style="background: rgba(14,20,32,0.8); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 10px; display: flex; flex-direction: column; gap: 4px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 10px; font-weight: 700; color: var(--accent-gold); text-transform: uppercase;">${art.slot}</span>
+          <span class="badge ${art.cv >= 30 ? 'badge-gold' : 'badge-secondary'}" style="font-size: 10px; padding: 1px 4px;">${art.cv} CV</span>
+        </div>
+        <div style="font-size: 12px; font-weight: 600; color: var(--text-bright);">${art.set_name}</div>
+        <div style="font-size: 11px; color: var(--text-muted);">${art.main_stat} (+${art.level})</div>
+        <div style="font-size: 10px; color: var(--accent-cyan); margin-top: auto;">📍 ${art.location}</div>
+      </div>
+    `).join('');
+
+    return `
+      <div class="card card-glass" style="margin-bottom: 16px; border: 1px solid ${isTop ? 'rgba(233,190,116,0.45)' : 'rgba(255,255,255,0.08)'}; padding: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="badge ${isTop ? 'badge-gold' : 'badge-secondary'}" style="font-weight: 700;">#${idx + 1} Candidate Loadout</span>
+            <span style="font-size: 13px; font-weight: 700; color: var(--text-bright);">${(cand.active_sets || []).join(' + ') || 'Rainbow Set'}</span>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <span style="font-size: 12px;">Total CV: <strong style="color: var(--accent-gold);">${cand.total_crit_value}</strong></span>
+            <span style="font-size: 12px;">Weighted RV: <strong style="color: #56e2d5;">${cand.total_weighted_rv}%</strong></span>
+            <span style="font-size: 12px;">ER: <strong style="color: #60a5fa;">${cand.total_er_pct}%</strong></span>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 12px;">
+          ${piecesHtml}
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 8px;">
+          <button class="btn btn-secondary btn-sm" onclick="askAssistant('How does the #${idx + 1} artifact loadout with ${(cand.active_sets || []).join(' + ')} compare to standard build benchmarks for ${data.character}?')">
+            ✨ Ask AI Analysis
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  container.innerHTML = `
+    ${deltaHtml}
+    ${cardsHtml}
+    ${data.notice ? `<div style="font-size: 11px; color: var(--text-dim); text-align: center; margin-top: 10px;">ℹ️ ${data.notice}</div>` : ''}
+  `;
+}
+
+/**
+ * ====================================================
+ * PHASE 16: COMBAT SIMULATION & GCSIM EXPORTER
+ * ====================================================
+ */
+async function runWorkbenchCombatSimulation() {
+  const activeTeam = currentWorkbenchTeam.filter(Boolean);
+  if (activeTeam.length === 0) return;
+
+  const card = document.getElementById('workbench-simulation-card');
+  const content = document.getElementById('workbench-simulation-content');
+  if (!card || !content) return;
+
+  card.style.display = 'block';
+  content.innerHTML = `
+    <div style="text-align: center; padding: 16px;">
+      <div class="skeleton" style="height: 20px; width: 60%; margin: 0 auto 8px;"></div>
+      <div style="font-size: 11px; color: var(--text-muted);">Simulating second-by-second rotation damage &amp; motion values...</div>
+    </div>
+  `;
+
+  try {
+    const res = await fetch('/api/simulation/run', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        team: activeTeam,
+        duration_sec: 20,
+        enemy_count: 1,
+        enemy_res_pct: 10.0
+      })
+    });
+
+    if (!res.ok) {
+      const err = await res.json();
+      content.innerHTML = `<div style="font-size: 12px; color: #f87171;">⚠️ ${err.detail || 'Simulation execution failed.'}</div>`;
+      return;
+    }
+
+    const data = await res.json();
+    renderSimulationCard(data);
+  } catch (err) {
+    content.innerHTML = `<div style="font-size: 12px; color: #f87171;">⚠️ Connection error: ${err.message}</div>`;
+  }
+}
+
+function renderSimulationCard(data) {
+  const content = document.getElementById('workbench-simulation-content');
+  if (!content) return;
+
+  const dps = Math.round(data.summary_metrics?.team_dps || 0).toLocaleString();
+  const total = Math.round(data.summary_metrics?.total_damage || 0).toLocaleString();
+  const chars = data.character_breakdown || [];
+
+  const charBars = chars.map(c => `
+    <div style="margin-bottom: 6px;">
+      <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 2px;">
+        <span style="font-weight: 600; color: var(--text-bright);">${c.character}</span>
+        <span style="color: var(--text-muted);">${c.damage_share_pct}% (${Math.round(c.dps).toLocaleString()} DPS)</span>
+      </div>
+      <div style="height: 6px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden;">
+        <div style="height: 100%; width: ${c.damage_share_pct}%; background: var(--accent-gold); border-radius: 3px;"></div>
+      </div>
+    </div>
+  `).join('');
+
+  content.innerHTML = `
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 8px;">
+      <div>
+        <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">Team DPS:</span>
+        <span style="font-size: 20px; font-weight: 700; color: var(--accent-gold); margin-left: 6px;">${dps}</span>
+      </div>
+      <div style="font-size: 11px; color: var(--text-dim);">
+        Total Damage (20s): <strong style="color: var(--text-bright);">${total}</strong>
+      </div>
+    </div>
+    <div style="margin-bottom: 10px;">
+      <div style="font-size: 11px; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px;">Damage Share per Character</div>
+      ${charBars}
+    </div>
+    <div style="font-size: 10px; color: var(--text-dim); line-height: 1.4; border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 6px;">
+      Engine: ${data.engine} • Lv 100 Dummy (10% RES)
+    </div>
+  `;
+}
+
+async function exportWorkbenchGcsimConfig() {
+  const activeTeam = currentWorkbenchTeam.filter(Boolean);
+  if (activeTeam.length === 0) return;
+
+  try {
+    const res = await fetch('/api/simulation/config', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        team: activeTeam,
+        duration_sec: 90,
+        iterations: 1000
+      })
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      await navigator.clipboard.writeText(data.gcsim_config);
+      alert('gcsim configuration script copied to clipboard!');
+    }
+  } catch (e) {
+    console.error('Failed to export gcsim config:', e);
+  }
+}
+
+/**
+ * ====================================================
+ * PHASE 17: SPIRAL ABYSS TRACKER MODAL
+ * ====================================================
+ */
+let currentAbyssData = null;
+let currentAbyssChamber = 1;
+
+async function openAbyssTrackerModal() {
+  const modal = document.getElementById('abyss-tracker-modal');
+  if (!modal) return;
+  modal.style.display = 'flex';
+
+  try {
+    const [curRes, recRes] = await Promise.all([
+      fetch('/api/abyss/current'),
+      fetch('/api/abyss/recommendations')
+    ]);
+
+    if (curRes.ok) {
+      currentAbyssData = await curRes.json();
+      renderAbyssHeader(currentAbyssData);
+      renderAbyssChamber(currentAbyssChamber);
+    }
+
+    if (recRes.ok) {
+      const recData = await recRes.json();
+      renderAbyssTeams(recData);
+    }
+  } catch (err) {
+    console.error('Failed to load Abyss data:', err);
+  }
+}
+
+function closeAbyssTrackerModal() {
+  const modal = document.getElementById('abyss-tracker-modal');
+  if (modal) modal.style.display = 'none';
+}
+
+function renderAbyssHeader(data) {
+  const title = document.getElementById('abyss-blessing-title');
+  const desc = document.getElementById('abyss-blessing-desc');
+  const badge = document.getElementById('abyss-cycle-badge');
+
+  if (title) title.textContent = data.blessing?.name || 'Blessing of the Abyssal Moon';
+  if (desc) desc.textContent = data.blessing?.effect || '';
+  if (badge) badge.textContent = `Floor ${data.floor} • ${data.period || 'Active'}`;
+}
+
+function switchAbyssChamber(chamberNum) {
+  currentAbyssChamber = chamberNum;
+  document.querySelectorAll('#abyss-chamber-tabs .sub-tab-btn').forEach(btn => {
+    btn.classList.toggle('active', parseInt(btn.dataset.chamber) === chamberNum);
+  });
+  renderAbyssChamber(chamberNum);
+}
+
+function renderAbyssChamber(chamberNum) {
+  const container = document.getElementById('abyss-chamber-content');
+  if (!container || !currentAbyssData) return;
+
+  const chamber = currentAbyssData.chambers?.find(c => c.chamber === chamberNum);
+  if (!chamber) return;
+
+  const renderHalf = (halfData, halfTitle) => {
+    const enemiesHtml = (halfData.enemies || []).map(e => `
+      <div style="background: rgba(14,20,32,0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 12px; margin-bottom: 8px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <span style="font-weight: 700; font-size: 13px; color: var(--text-bright);">${e.name}</span>
+          <span class="badge badge-secondary" style="font-size: 10px;">${(e.hp / 1000000).toFixed(2)}M HP</span>
+        </div>
+        <div style="font-size: 11px; color: var(--accent-gold); margin-bottom: 4px;">🎯 Weakness: ${e.weakness}</div>
+        <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 4px;">🛡️ Res: ${e.resistances}</div>
+        <div style="font-size: 11px; color: #5eead4; line-height: 1.4;">💡 Tip: ${e.advisory}</div>
+      </div>
+    `).join('');
+
+    return `
+      <div style="background: rgba(0,0,0,0.25); border-radius: var(--radius-sm); padding: 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <h4 style="font-size: 13px; font-weight: 700; color: var(--accent-gold); margin: 0;">${halfTitle}</h4>
+          <span style="font-size: 11px; color: var(--text-dim);">${halfData.enemy_count} Targets</span>
+        </div>
+        ${enemiesHtml}
+      </div>
+    `;
+  };
+
+  container.innerHTML = `
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+      ${renderHalf(chamber.first_half, 'First Half')}
+      ${renderHalf(chamber.second_half, 'Second Half')}
+    </div>
+  `;
+}
+
+function renderAbyssTeams(recData) {
+  const container = document.getElementById('abyss-teams-container');
+  if (!container) return;
+
+  const renderSideList = (teams, sideTitle) => {
+    const listHtml = (teams || []).map(t => {
+      const avatarsHtml = (t.members || []).map(m => {
+        const iconUrl = getCharacterIconUrl(m);
+        return `
+          <div style="text-align: center;">
+            <img src="${iconUrl}" onerror="this.onerror=null; this.src='https://enka.network/ui/UI_AvatarIcon_NPC.png'" style="width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--accent-gold); object-fit: cover;">
+            <div style="font-size: 9px; color: var(--text-muted); margin-top: 2px;">${m.split(' ')[0]}</div>
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div style="background: rgba(14,20,32,0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 10px; margin-bottom: 10px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span style="font-weight: 700; font-size: 12px; color: var(--text-bright);">${t.name}</span>
+            <span class="badge ${t.fully_owned ? 'badge-gold' : 'badge-secondary'}" style="font-size: 10px;">
+              ${t.fully_owned ? '✓ Owned' : `${t.owned_count}/4 Owned`}
+            </span>
+          </div>
+          <div style="display: flex; gap: 10px; margin-bottom: 6px;">
+            ${avatarsHtml}
+          </div>
+          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">${t.rationale}</div>
+        </div>
+      `;
+    }).join('');
+
+    return `
+      <div>
+        <div style="font-size: 12px; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; margin-bottom: 8px;">${sideTitle}</div>
+        ${listHtml}
+      </div>
+    `;
+  };
+
+  container.innerHTML = `
+    ${renderSideList(recData.side_1_recommendations, 'Side 1 Recommendations')}
+    ${renderSideList(recData.side_2_recommendations, 'Side 2 Recommendations')}
+  `;
+}
+
+
+
 

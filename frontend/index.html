@@ -220,6 +220,48 @@
               </div>
               <div class="artifacts-list" id="char-artifacts-list"></div>
             </div>
+
+            <!-- Character Progression & Inventory Shortfall Planner (Phase 13) -->
+            <div class="card card-glass progression-planner-card" id="char-progression-card" style="margin-top: 14px;">
+              <div class="card-header" style="padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="font-size: 18px;">📈</span>
+                  <h3 style="font-size: 14px; margin: 0; font-weight: 700; color: var(--accent-gold);">Progression &amp; Material Calculator</h3>
+                </div>
+                <button id="calc-progression-btn" class="btn btn-secondary btn-sm" style="font-size: 11px; padding: 2px 8px;">⚡ Calculate Shortfall</button>
+              </div>
+              <div class="card-body" style="padding: 14px 16px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
+                  <div>
+                    <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px;">Target Level: <span id="target-lvl-val" style="color: var(--accent-gold); font-weight: 700;">Lv. 90</span></label>
+                    <input type="range" id="target-lvl-slider" min="20" max="90" step="10" value="90" style="width: 100%;">
+                  </div>
+                  <div>
+                    <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px;">Target Talents: <span id="target-tal-val" style="color: var(--accent-cyan); font-weight: 700;">1 / 10 / 10</span></label>
+                    <select id="target-tal-preset" style="width: 100%; background: var(--bg-input); color: var(--text-main); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 4px 6px; font-size: 11px;">
+                      <option value="1,10,10">Skill 10 / Burst 10 (Crown)</option>
+                      <option value="1,9,9">Skill 9 / Burst 9 (High Investment)</option>
+                      <option value="1,8,8">Skill 8 / Burst 8 (Standard)</option>
+                      <option value="9,9,9">All 9 / 9 / 9 (Balanced)</option>
+                      <option value="10,10,10">Triple Crown (10 / 10 / 10)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Shortfall Results Box -->
+                <div id="progression-results-box" style="display: none; background: rgba(0,0,0,0.25); border-radius: 8px; padding: 12px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 6px;">
+                    <span style="font-size: 11px; font-weight: 700; color: var(--accent-cyan);">Inventory Shortfall Analysis</span>
+                    <span id="progression-resin-badge" class="badge badge-gold" style="font-size: 10px;">Calculating Resin...</span>
+                  </div>
+                  <div id="progression-missing-materials" style="display: flex; flex-direction: column; gap: 4px; font-size: 11px; max-height: 160px; overflow-y: auto; margin-bottom: 10px;"></div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; font-size: 11px; color: var(--text-muted);">
+                    <span id="progression-farmable-tag">Check today's domains</span>
+                    <button id="ask-progression-ai-btn" class="btn btn-primary btn-sm" style="font-size: 11px; padding: 2px 8px;">✨ Ask AI Farming Plan</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -298,39 +340,80 @@
         </div>
       </section>
 
-      <!-- Knowledge Base Tab Content -->
+      <!-- Guides & Knowledge Library Tab Content (Phase 12 Rebuild) -->
       <section id="tab-content-knowledge" class="tab-pane">
         <div class="card card-glass db-header-card">
-          <div class="db-controls-row">
-            <div class="db-tabs">
-              <button class="sub-tab-btn active" id="kb-tab-all" data-topic="all">All Guides</button>
-              <button class="sub-tab-btn" id="kb-tab-current" data-topic="current">✨ Current (v7.0)</button>
-              <button class="sub-tab-btn" id="kb-tab-characters" data-topic="Character Guide">Character Guides</button>
-              <button class="sub-tab-btn" id="kb-tab-mechanics" data-topic="Game Mechanics">Mechanics</button>
-              <button class="sub-tab-btn" id="kb-tab-patch" data-topic="Patch Notes">Patch Notes</button>
+          <div class="db-controls-top">
+            <div class="sub-tab-group" id="kb-category-tabs">
+              <button class="sub-tab-btn active" data-category="all">All Guides</button>
+              <button class="sub-tab-btn" data-category="characters">Characters</button>
+              <button class="sub-tab-btn" data-category="weapons">Weapons</button>
+              <button class="sub-tab-btn" data-category="artifacts">Artifact Sets</button>
+              <button class="sub-tab-btn" data-category="teams">Team Archetypes</button>
+              <button class="sub-tab-btn" data-category="mechanics">Game Mechanics</button>
+              <button class="sub-tab-btn" data-category="farming">Daily Farming</button>
             </div>
-            <div class="db-search-wrap" style="display: flex; gap: 10px; align-items: center;">
-              <input type="text" id="kb-search-input" placeholder="Search guides, mechanics, reactions, or typo-tolerant names...">
-              <button id="refresh-kb-btn" class="btn btn-sm btn-secondary">Refresh Library</button>
+            <div class="db-search-wrap" style="display: flex; gap: 8px; align-items: center;">
+              <input type="text" id="kb-search-input" placeholder="Search guides, weapons, artifacts, teams, mechanics...">
+              <button id="refresh-kb-btn" class="btn btn-sm btn-secondary" title="Refresh Guides Cache">↻ Refresh</button>
             </div>
           </div>
-          <div id="kb-summary-bar" class="diagnostics-grid" style="margin-top: 16px;"></div>
+
+          <!-- Secondary Filter Bar (Dynamic depending on selected sub-tab) -->
+          <div class="kb-filters-row" style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between;">
+            <!-- Element Filters (Visible for all/characters) -->
+            <div id="kb-element-filter-bar" class="element-filter-bar" style="margin-top: 0;">
+              <button class="elem-filter-chip active" data-elem="all">All Elements</button>
+              <button class="elem-filter-chip elem-pyro" data-elem="Pyro">Pyro</button>
+              <button class="elem-filter-chip elem-hydro" data-elem="Hydro">Hydro</button>
+              <button class="elem-filter-chip elem-anemo" data-elem="Anemo">Anemo</button>
+              <button class="elem-filter-chip elem-electro" data-elem="Electro">Electro</button>
+              <button class="elem-filter-chip elem-dendro" data-elem="Dendro">Dendro</button>
+              <button class="elem-filter-chip elem-cryo" data-elem="Cryo">Cryo</button>
+              <button class="elem-filter-chip elem-geo" data-elem="Geo">Geo</button>
+            </div>
+
+            <!-- Weapon Type Filters (Visible for weapons) -->
+            <div id="kb-weapon-filter-bar" class="weapon-filter-bar" style="display: none; gap: 6px; flex-wrap: wrap;">
+              <button class="filter-chip active" data-weptype="all">All Weapons</button>
+              <button class="filter-chip" data-weptype="Sword">Sword</button>
+              <button class="filter-chip" data-weptype="Claymore">Claymore</button>
+              <button class="filter-chip" data-weptype="Polearm">Polearm</button>
+              <button class="filter-chip" data-weptype="Bow">Bow</button>
+              <button class="filter-chip" data-weptype="Catalyst">Catalyst</button>
+            </div>
+
+            <!-- Toggles (Curated Only, Owned Only) -->
+            <div class="kb-toggles-wrap" style="display: flex; gap: 14px; align-items: center;">
+              <label class="custom-toggle-label" style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted); cursor: pointer;">
+                <input type="checkbox" id="kb-curated-only-toggle" style="accent-color: var(--accent-gold);">
+                <span>✨ Curated Only</span>
+              </label>
+              <label class="custom-toggle-label" style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted); cursor: pointer;">
+                <input type="checkbox" id="kb-owned-only-toggle" style="accent-color: var(--accent-cyan);">
+                <span>👤 Owned Only</span>
+              </label>
+            </div>
+          </div>
+
+          <div id="kb-summary-bar" class="diagnostics-grid" style="margin-top: 14px;"></div>
         </div>
 
         <div class="db-main-layout">
           <!-- Left: Guides List -->
           <div class="db-list-col">
             <div id="kb-items-grid" class="db-items-grid">
-              <!-- Dynamically populated -->
+              <!-- Dynamically populated via /api/guides -->
             </div>
           </div>
 
-          <!-- Right: Guide Viewer -->
+          <!-- Right: Visual Guide Inspector -->
           <div class="db-detail-col">
             <div id="kb-detail-pane" class="card card-glass db-detail-card">
               <div class="empty-state">
                 <div class="empty-icon">📖</div>
-                <p>Select any guide, patch notes, or mechanics specification from the list to view the full curated article.</p>
+                <h3>Visual Knowledge Library</h3>
+                <p>Select any character, weapon, artifact set, team archetype, or game mechanic from the library to inspect comprehensive builds, rotation timelines, and math curves.</p>
               </div>
             </div>
           </div>
@@ -569,6 +652,47 @@
               </div>
             </div>
 
+            <!-- Phase 18: System Telemetry & Observability Card -->
+            <div style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="font-size: 16px;">📊</span>
+                  <h3 style="margin: 0; font-size: 15px; font-weight: 700; color: var(--accent-cyan);">Observability &amp; Runtime Telemetry (Phase 18)</h3>
+                </div>
+                <span id="diag-telemetry-badge" class="badge badge-cyan" style="font-weight: 700;">Healthy</span>
+              </div>
+              <div class="diagnostics-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom: 14px;">
+                <div class="diag-item">
+                  <span class="diag-label">Server Uptime</span>
+                  <span id="diag-telem-uptime" class="diag-val font-mono">—</span>
+                </div>
+                <div class="diag-item">
+                  <span class="diag-label">Success Rate</span>
+                  <span id="diag-telem-success-rate" class="diag-val" style="color: #34d399; font-weight: 700;">—</span>
+                </div>
+                <div class="diag-item">
+                  <span class="diag-label">Cache Hit Rate</span>
+                  <span id="diag-telem-cache-rate" class="diag-val font-mono" style="color: var(--accent-gold);">—</span>
+                </div>
+                <div class="diag-item">
+                  <span class="diag-label">Total API Calls</span>
+                  <span id="diag-telem-total-reqs" class="diag-val font-mono">—</span>
+                </div>
+                <div class="diag-item">
+                  <span class="diag-label">Search Index Architecture</span>
+                  <span id="diag-telem-index-status" class="diag-val" style="color: var(--accent-teal); font-size: 11px;">Dual BM25 + Vector Active</span>
+                </div>
+              </div>
+
+              <!-- Checksums -->
+              <div style="margin-top: 10px;">
+                <h4 style="margin: 0 0 8px 0; font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">Canonical Dataset Integrity (SHA-256 Signatures)</h4>
+                <div id="diag-checksums-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px;">
+                  <!-- Populated via /api/diagnostics/detailed -->
+                </div>
+              </div>
+            </div>
+
             <div class="raw-response-box">
               <h3>Live Health Payload (/api/health)</h3>
               <details open>
@@ -581,12 +705,204 @@
       </section>
     </main>
 
+    <!-- Phase 14: Interactive Team Builder & Synergy Workbench Modal -->
+    <div id="team-builder-modal" class="modal-backdrop" style="display: none;">
+      <div class="modal-container">
+        <div class="modal-header">
+          <div class="modal-title-wrap">
+            <span style="font-size: 24px;">👥</span>
+            <div>
+              <h2 style="font-size: 18px; font-weight: 700; color: var(--text-bright);">Team Composition &amp; Synergy Workbench</h2>
+              <p style="font-size: 12px; color: var(--text-muted); margin: 0;">Calculate elemental resonances, role balance, reaction matrix, and execution rotations.</p>
+            </div>
+          </div>
+          <button class="modal-close-btn" onclick="closeTeamBuilderModal()">&times;</button>
+        </div>
+
+        <!-- 4 Character Slots -->
+        <div class="team-workbench-slots" id="team-workbench-slots">
+          <!-- Populated dynamically via renderTeamWorkbenchSlots() -->
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+          <div style="display: flex; gap: 8px;">
+            <button class="btn btn-primary btn-sm" onclick="evaluateWorkbenchTeam()">⚡ Recalculate Synergy</button>
+            <button class="btn btn-secondary btn-sm" onclick="runWorkbenchCombatSimulation()">⚔️ Simulate Combat &amp; DPS</button>
+            <button class="btn btn-secondary btn-sm" onclick="resetWorkbenchTeam()">↺ Reset</button>
+          </div>
+          <div id="workbench-account-status" style="font-size: 12px; color: var(--accent-cyan);"></div>
+        </div>
+
+        <!-- Evaluation Results Breakdown Grid -->
+        <div class="team-eval-grid" id="team-eval-results" style="display: none;">
+          <!-- Left: Synergy Gauge & Verdict -->
+          <div class="synergy-card">
+            <div class="synergy-score-circle" id="workbench-score-circle">
+              <span class="synergy-score-val" id="workbench-score-val">0</span>
+              <span class="synergy-score-max">/ 100</span>
+            </div>
+            <div style="font-weight: 700; font-size: 14px; color: var(--accent-gold);" id="workbench-verdict-title">Synergy Verdict</div>
+            <p style="font-size: 12px; color: var(--text-muted); line-height: 1.4;" id="workbench-verdict-desc"></p>
+
+            <button class="btn btn-primary btn-sm" style="width: 100%; margin-top: 10px;" id="workbench-ai-review-btn">
+              ✨ Ask AI to Review Build
+            </button>
+          </div>
+
+          <!-- Right: Detailed Breakdowns -->
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <!-- Combat Simulation Results Card (Phase 16) -->
+            <div id="workbench-simulation-card" style="display: none; background: rgba(14, 20, 32, 0.9); border: 1px solid rgba(233, 190, 116, 0.4); border-radius: var(--radius-md); padding: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <h4 style="font-size: 13px; font-weight: 700; color: var(--accent-gold); margin: 0;">⚔️ Deterministic Combat Simulation (20s Rotation)</h4>
+                <button class="btn btn-secondary btn-sm" style="font-size: 10px; padding: 2px 6px;" onclick="exportWorkbenchGcsimConfig()">Export gcsim</button>
+              </div>
+              <div id="workbench-simulation-content"></div>
+            </div>
+
+            <!-- Active Resonances -->
+            <div style="background: rgba(14, 20, 32, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-md); padding: 14px;">
+              <h4 style="font-size: 13px; font-weight: 700; color: var(--accent-gold); margin-bottom: 8px;">Active Elemental Resonances</h4>
+              <div id="workbench-resonances-list" style="display: flex; flex-direction: column; gap: 6px;"></div>
+            </div>
+
+            <!-- Reactions & Warnings -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <div style="background: rgba(14, 20, 32, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-md); padding: 14px;">
+                <h4 style="font-size: 13px; font-weight: 700; color: var(--accent-cyan); margin-bottom: 8px;">Reactions Unlocked</h4>
+                <div id="workbench-reactions-list" style="font-size: 12px; line-height: 1.6;"></div>
+              </div>
+              <div style="background: rgba(14, 20, 32, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-md); padding: 14px;">
+                <h4 style="font-size: 13px; font-weight: 700; color: #f87171; margin-bottom: 8px;">Advisories &amp; Warnings</h4>
+                <div id="workbench-warnings-list" style="font-size: 12px; line-height: 1.5; color: #fca5a5;"></div>
+              </div>
+            </div>
+
+            <!-- Optimal Rotation Order -->
+            <div style="background: rgba(14, 20, 32, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-md); padding: 14px;">
+              <h4 style="font-size: 13px; font-weight: 700; color: #58d68d; margin-bottom: 8px;">Suggested Execution Rotation</h4>
+              <div id="workbench-rotation-steps" style="display: flex; flex-direction: column; gap: 6px;"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Phase 15: Artifact Optimizer Workbench Modal -->
+    <div id="artifact-optimizer-modal" class="modal-backdrop" style="display: none;">
+      <div class="modal-container">
+        <div class="modal-header">
+          <div class="modal-title-wrap">
+            <span style="font-size: 24px;">⚡</span>
+            <div>
+              <h2 style="font-size: 18px; font-weight: 700; color: var(--text-bright);">Artifact Loadout Optimizer</h2>
+              <p style="font-size: 12px; color: var(--text-muted); margin: 0;">Find optimal 5-piece artifact loadouts from your active account inventory with Roll Value (RV) &amp; Crit Value (CV) optimization.</p>
+            </div>
+          </div>
+          <button class="modal-close-btn" onclick="closeArtifactOptimizerModal()">&times;</button>
+        </div>
+
+        <!-- Optimizer Controls Top Bar -->
+        <div class="card card-glass" style="padding: 16px; margin-bottom: 18px; background: rgba(14,20,32,0.85); border-color: rgba(233,190,116,0.25);">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; align-items: end;">
+            <div>
+              <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px;">Target Character</label>
+              <input type="text" id="optimizer-char-input" class="slot-char-select" placeholder="e.g. Arlecchino" value="Arlecchino">
+            </div>
+            <div>
+              <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px;">Minimum Energy Recharge (%)</label>
+              <input type="number" id="optimizer-min-er-input" class="slot-char-select" min="100" max="300" step="5" value="120">
+            </div>
+            <div>
+              <label style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px;">Required 4-Piece Set</label>
+              <select id="optimizer-set-select" class="slot-char-select">
+                <option value="">Any (Highest CV / RV)</option>
+                <option value="Crimson Witch of Flames">Crimson Witch of Flames</option>
+                <option value="Marechaussee Hunter">Marechaussee Hunter</option>
+                <option value="Golden Troupe">Golden Troupe</option>
+                <option value="Emblem of Severed Fate">Emblem of Severed Fate</option>
+                <option value="Viridescent Venerer">Viridescent Venerer</option>
+                <option value="Deepwood Memories">Deepwood Memories</option>
+                <option value="Gilded Dreams">Gilded Dreams</option>
+                <option value="Nighttime Whispers in the Echoing Woods">Nighttime Whispers</option>
+                <option value="Fragment of Harmonic Whimsy">Harmonic Whimsy</option>
+              </select>
+            </div>
+            <div>
+              <button class="btn btn-primary" style="width: 100%;" onclick="runArtifactOptimizer()">
+                ⚡ Optimize Loadout
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Optimizer Results Area -->
+        <div id="optimizer-results-container">
+          <div class="empty-state">
+            <div class="empty-icon">💎</div>
+            <p>Select a character and click <strong>Optimize Loadout</strong> to evaluate your account bag and discover superior gear configurations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 17: Spiral Abyss Floor 12 Tracker Modal -->
+    <div id="abyss-tracker-modal" class="modal-backdrop" style="display: none;">
+      <div class="modal-container" style="max-width: 980px;">
+        <div class="modal-header">
+          <div class="modal-title-wrap">
+            <span style="font-size: 24px;">🌀</span>
+            <div>
+              <h2 style="font-size: 18px; font-weight: 700; color: var(--text-bright);">Spiral Abyss Floor 12 Endgame Tracker</h2>
+              <p style="font-size: 12px; color: var(--text-muted); margin: 0;">Chamber monster lineups, elemental resistances, shield requirements, and account-grounded counter-teams.</p>
+            </div>
+          </div>
+          <button class="modal-close-btn" onclick="closeAbyssTrackerModal()">&times;</button>
+        </div>
+
+        <!-- Active Blessing Banner -->
+        <div id="abyss-blessing-card" style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9)); border: 1px solid rgba(233,190,116,0.3); border-radius: var(--radius-md); padding: 14px 18px; margin-bottom: 16px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+            <div style="font-size: 13px; font-weight: 700; color: var(--accent-gold);" id="abyss-blessing-title">Blessing of the Abyssal Moon</div>
+            <span class="badge badge-gold" id="abyss-cycle-badge">Active Cycle</span>
+          </div>
+          <p style="font-size: 12px; color: var(--text-muted); line-height: 1.5; margin: 0;" id="abyss-blessing-desc"></p>
+        </div>
+
+        <!-- Chambers Selector Tabs -->
+        <div class="sub-tab-group" id="abyss-chamber-tabs" style="margin-bottom: 14px;">
+          <button class="sub-tab-btn active" data-chamber="1" onclick="switchAbyssChamber(1)">Chamber 1 (Lv. 95)</button>
+          <button class="sub-tab-btn" data-chamber="2" onclick="switchAbyssChamber(2)">Chamber 2 (Lv. 98)</button>
+          <button class="sub-tab-btn" data-chamber="3" onclick="switchAbyssChamber(3)">Chamber 3 (Lv. 100)</button>
+        </div>
+
+        <!-- Chamber Monsters Grid -->
+        <div id="abyss-chamber-content" style="margin-bottom: 18px;">
+          <!-- Dynamically populated via renderAbyssChamber() -->
+        </div>
+
+        <!-- Grounded Team Recommendations -->
+        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h3 style="font-size: 14px; font-weight: 700; color: var(--text-bright); margin: 0;">👥 Recommended Teams (Account-Grounded)</h3>
+            <button class="btn btn-primary btn-sm" onclick="askAssistant('Recommend optimal team rotations and counter-strategies to 36-star the current Spiral Abyss Floor 12.')">
+              ✨ Ask AI 36-Star Strategy
+            </button>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;" id="abyss-teams-container">
+            <!-- Dynamically populated via renderAbyssTeams() -->
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
       <p>GenshinIQ • Personal Genshin Impact AI Assistant • Grounded Theorycrafting &amp; Account Analytics</p>
     </footer>
   </div>
 
-  <script src="app.js?v=20260912_phase10"></script>
+  <script src="app.js?v=20260912_phase17"></script>
 </body>
 </html>
